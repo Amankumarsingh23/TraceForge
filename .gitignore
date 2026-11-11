@@ -1,0 +1,5 @@
+# Local teaching notes are intentionally excluded from commits.
+/learning-notes/
+/.env
+/bin/
+/artifacts/

@@ -1,0 +1,41 @@
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector:0.165.0
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./otel-collector.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - "127.0.0.1:4317:4317"
+  clickhouse:
+    image: clickhouse/clickhouse-server:26.8.36.3-alpine
+    environment:
+      CLICKHOUSE_DB: traceforge
+      CLICKHOUSE_USER: traceforge
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?Set CLICKHOUSE_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:8123:8123"
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+    healthcheck:
+      test: ["CMD-SHELL", "clickhouse-client --user traceforge --password \"$$CLICKHOUSE_PASSWORD\" --query 'SELECT 1' >/dev/null"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  postgres:
+    image: postgres:18.6
+    environment:
+      POSTGRES_DB: traceforge
+      POSTGRES_USER: traceforge
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U traceforge -d traceforge"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+volumes:
+  clickhouse-data:
+  postgres-data:
