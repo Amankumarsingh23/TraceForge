@@ -1,4 +1,23 @@
 services:
+  traceforge-server:
+    build: .
+    environment:
+      CLICKHOUSE_ADDR: clickhouse:9000
+      CLICKHOUSE_PROTOCOL: native
+      CLICKHOUSE_USER: traceforge
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?Set CLICKHOUSE_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:4319:4319"
+      - "127.0.0.1:8082:8082"
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/traceforge-server", "--healthcheck"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    stop_grace_period: 15s
   otel-collector:
     image: otel/opentelemetry-collector:0.165.0
     command: ["--config=/etc/otelcol/config.yaml"]
@@ -6,6 +25,9 @@ services:
       - ./otel-collector.yaml:/etc/otelcol/config.yaml:ro
     ports:
       - "127.0.0.1:4317:4317"
+    depends_on:
+      traceforge-server:
+        condition: service_healthy
   clickhouse:
     image: clickhouse/clickhouse-server:26.8.36.3-alpine
     environment:
