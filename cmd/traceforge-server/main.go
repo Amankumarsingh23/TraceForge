@@ -14,6 +14,7 @@ import (
 	"syscall"
 	"time"
 	"traceforge/internal/ingest"
+	"traceforge/internal/queryapi"
 	"traceforge/internal/storage"
 )
 
@@ -23,6 +24,9 @@ func run() error {
 	healthAddr := flag.String("health-address", "127.0.0.1:8082", "HTTP health address")
 	migrate := flag.Bool("migrate-only", false, "apply repeatable migration and exit")
 	probe := flag.Bool("healthcheck", false, "probe local readyz and exit (container health check)")
+	maxRows := flag.Int("max-trace-rows", 1000, "maximum physical rows in a trace detail (1..2000)")
+	maxPage := flag.Int("max-page-size", 100, "maximum search page size (1..200)")
+	queryTimeout := flag.Duration("query-timeout", 2*time.Second, "HTTP query timeout (up to 4s)")
 	flag.Parse()
 	if *probe {
 		client := http.Client{Timeout: 2 * time.Second}
@@ -51,6 +55,14 @@ func run() error {
 	if *migrate {
 		return nil
 	}
+	queryConfig := queryapi.DefaultConfig()
+	queryConfig.MaxRows = *maxRows
+	queryConfig.MaxPageSize = *maxPage
+	queryConfig.Timeout = *queryTimeout
+	queries, err := queryapi.NewHandler(store, queryConfig)
+	if err != nil {
+		return err
+	}
 	listener, err := net.Listen("tcp", *addr)
 	if err != nil {
 		return fmt.Errorf("cannot listen on OTLP address")
@@ -64,7 +76,10 @@ func run() error {
 	server := ingest.NewServer(store)
 	grpcServer := grpc.NewServer(grpc.MaxRecvMsgSize(ingest.MaxMessageBytes), grpc.MaxConcurrentStreams(8), grpc.ConnectionTimeout(5*time.Second))
 	collector.RegisterTraceServiceServer(grpcServer, server)
-	httpServer := &http.Server{Handler: server.HealthHandler(), ReadHeaderTimeout: 2 * time.Second, ReadTimeout: 3 * time.Second, WriteTimeout: 3 * time.Second, IdleTimeout: 15 * time.Second}
+	mux := http.NewServeMux()
+	mux.Handle("/api/v1/", queries)
+	mux.Handle("/", server.HealthHandler())
+	httpServer := &http.Server{Handler: mux, ReadHeaderTimeout: 2 * time.Second, ReadTimeout: 3 * time.Second, WriteTimeout: 6 * time.Second, IdleTimeout: 15 * time.Second}
 	errCh := make(chan error, 2)
 	go func() { errCh <- grpcServer.Serve(listener) }()
 	go func() { errCh <- httpServer.Serve(healthListener) }()

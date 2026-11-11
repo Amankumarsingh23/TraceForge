@@ -1,6 +1,6 @@
-# TraceForge — Session 2
+# TraceForge — Session 3
 
-A real local tracing backend: gateway → payment → OpenTelemetry Collector → Go OTLP/gRPC receiver → ClickHouse. The Collector also keeps its debug exporter for comparison. PostgreSQL remains provisioned without an application schema. There is no trace query REST API, UI, logs/metrics ingestion or AgentOps evaluation yet.
+A real local tracing backend: gateway → payment → OpenTelemetry Collector → Go OTLP/gRPC receiver → ClickHouse → bounded trace query API. Trace detail reconstructs observed spans with duplicate, orphan, cycle and timing diagnostics. The Collector keeps its debug exporter for comparison. PostgreSQL remains provisioned without an application schema. There is no UI, logs/metrics ingestion or AgentOps evaluation yet.
 
 ## Prerequisites and versions
 
@@ -45,7 +45,7 @@ docker compose exec -T postgres sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql -h 1
 
 Both should return 1. PostgreSQL's health check establishes readiness; its SQL command additionally verifies authenticated connectivity. The receiver creates ClickHouse's `traceforge.spans` table through migration 0001. PostgreSQL still has no application schema.
 
-## Start or upgrade the Session 2 backend
+## Start or upgrade the backend
 
 Reuse the existing `.env`, volumes, gateway and payment processes. Do not repeat first-time password generation. Build/start the receiver, then explicitly restart the Collector to reload its bind-mounted configuration (Compose does not detect file-content changes):
 
@@ -201,6 +201,76 @@ This is **not exactly-once delivery**, replicated durability or guaranteed atomi
 
 Collector uses gzip OTLP/gRPC, a bounded in-memory queue of 100 requests with two consumers, and retries with 1–5s backoff for up to 60s. It can lose queued spans on crashes, overflow, expired retry windows or permanent errors. Debug output is a separate branch and can show a span that never persisted. Known secret-bearing attributes are redacted at the persistence boundary, but upstream Collector debug logs are unsanitized; only synthetic traffic is appropriate. See `docs/normalization.md` for supported fields and explicit redaction limits.
 
+## Session 3 query API
+
+Rebuild only the receiver for this session; no migration or Collector endpoint change is required. Keep `.env`, volumes, gateway and payment processes intact:
+
+```powershell
+docker compose up -d --build --wait --wait-timeout 180
+$traceId = '656f80607b005aa65927df202991a837'
+$detail = Invoke-RestMethod "http://localhost:8082/api/v1/traces/$traceId"
+$detail | ConvertTo-Json -Depth 40
+$detail.diagnostics
+```
+
+This historical Session 2 trace has one observed root, three gateway spans and two payment spans. A new empty checkout request can be triggered with the existing `/checkout` endpoint; allow approximately one SDK batch interval before detail lookup. For a portable new installation without historical volumes, use a newly generated trace ID instead.
+
+Search recent traces, filter by service, and follow the returned cursor:
+
+```powershell
+$page = Invoke-RestMethod 'http://localhost:8082/api/v1/traces?limit=10'
+$page = Invoke-RestMethod 'http://localhost:8082/api/v1/traces?service=payment&limit=10'
+$page.traces | Format-Table trace_id,unique_span_count,has_error_span
+if ($page.next_cursor) {
+    $next = Invoke-RestMethod ("http://localhost:8082/api/v1/traces?cursor=" + [Uri]::EscapeDataString($page.next_cursor))
+}
+# Hydrate a selected trace; detail retains every observed service:
+if ($page.traces.Count -gt 0) {
+    Invoke-RestMethod ("http://localhost:8082/api/v1/traces/" + $page.traces[0].trace_id) | ConvertTo-Json -Depth 40
+}
+```
+
+Use explicit UTC bounds to revisit an older trace. Default discovery only covers the previous hour, which may exclude earlier session traces:
+
+```powershell
+$from = [Uri]::EscapeDataString('2026-11-11T18:00:00Z')
+$to = [Uri]::EscapeDataString('2026-11-12T18:00:00Z')
+Invoke-RestMethod "http://localhost:8082/api/v1/traces?from=$from&to=$to&service=payment&status=error&limit=20"
+```
+
+`from` is inclusive and `to` exclusive, based on span start time. Times must be RFC3339/RFC3339Nano UTC strings ending in Z. The maximum window is 24 hours. `service` is an exact ASCII identifier of 1–128 characters using letters, digits, dot, underscore, colon, slash or hyphen. `status=error` is the only status filter. When both are present, the same observed physical span must match service and error. Unknown/repeated filters, malformed time/ID/cursor values, and out-of-range limits return structured 400 errors.
+
+Summaries aggregate **all raw observations starting in the window**, even when service/status qualify the trace. They return distinct span-ID counts, observed services, earliest start/latest end, latest start and any observed error. An error span does not prove the entire root request failed. Conflicting raw versions can influence summaries; detail independently selects canonical records over the entire trace, including spans outside the search window. `summary_scope` makes this distinction explicit.
+
+Results sort by latest observed start descending, then trace ID ascending. Cursors hold the absolute window, filters, page size and last ordering tuple. Omitted parameters inherit cursor values; explicit ones must match. Cursors are versioned unpadded URL-safe base64, not authentication tokens. They are not snapshots: late spans may alter page membership/position, so concurrent ingestion can cause repeats or omissions across pages.
+
+Detail returns `root_spans`, `orphan_spans`, and `disconnected_spans` (cycle components), with nested `children`. Parent IDs always remain the original observations. Exact replays collapse at read time; conflicting span identities prefer earliest ingestion time and then lexicographically smallest normalized payload. Diagnostics expose replay counts, conflicting IDs/variant counts, missing parents, root count, cycles and timing warnings. JSON object key order/whitespace and ingestion metadata do not create false conflicts; array order/default-presence distinctions remain significant. Raw rows are never deleted or rewritten.
+
+Cycles are reported as sorted member-ID sets. For a finite forest, only the smallest cycle member's parent edge is detached in the returned representation, with `detached_parent_edge=true`; its original `parent_span_id` is retained. Orphans are direct references to missing parents and retain their descendants. `completeness` is always `unknown`; `has_detected_gaps=false` only means no missing parent reference was found. Links remain stored link metadata and never become parent edges.
+
+Raw times/durations, relative offsets from the earliest canonical span and the canonical observed envelope are preserved. Warnings identify child timing outside parent bounds or inconsistent durations; no clock correction, summed-duration request estimate, exclusive time or critical path is computed. Detail JSON retains typed Protobuf JSON attributes/events/links and full known metadata from Session 2. Nanosecond offsets/durations require a client capable of handling 64-bit integers if exact large values matter.
+
+Default detail cap is 1000 **physical rows before deduplication**, configurable with `--max-trace-rows` up to 2000. The repository reads one sentinel row beyond the cap and returns 413 instead of a partial tree. Payload/response caps are 8MiB/16MiB. Search defaults to 20 summaries and accepts up to 100 (`--max-page-size`, hard maximum 200). Query handlers allow four active reads. HTTP query timeout defaults to 2s (`--query-timeout`, maximum 4s); repository operations cap at 3s and ClickHouse execution at 2s, with additional 1M-row / 128MiB-read / 256MiB-memory / 32MiB-result bounds. Database resource-limit failures are errors, never silently truncated pages.
+
+Errors are structured JSON: 400 invalid input, 404 unknown trace, 413 detail/response too large, 503 unavailable/busy/resource-limited backend, 504 expired query deadline, 408 canceled request, 500 unsafe stored data. Driver-internal connection/dial timeouts count as 503 when the request deadline has not expired. The API shares existing loopback port 8082; remote unauthenticated deployment remains out of scope.
+
+Run verification and inspect replay/anomaly diagnostics:
+
+```powershell
+go test ./...
+go vet ./...
+go build ./...
+.\scripts\session03-smoke.ps1
+# Or avoid the controlled database outage:
+.\scripts\session03-smoke.ps1 -SkipDatabaseFailure
+# Reuse the Session 2 Linux compiler/race-cache image when present:
+docker run --rm --mount "type=bind,source=$PWD\internal,target=/src/internal,readonly" --mount "type=bind,source=$PWD\cmd,target=/src/cmd,readonly" --mount "type=bind,source=$PWD\tests,target=/src/tests,readonly" traceforge-session02-checks sh -c 'go vet ./... && go test -race ./...'
+# Portable alternative if that local image is absent:
+docker buildx build --target verify --output=type=cacheonly .
+```
+
+The smoke script expects default ports/limits, existing demo processes and the historical Session 2 trace for its historical check. It prints a new real trace ID replayed from five rows to ten while detail retains five logical nodes and reports five exact duplicates. It inserts uniquely scoped orphan/cycle/conflict fixtures and a 1001-row limit fixture without modifying original demonstration rows. Nanosecond-window fixtures test inclusive/exclusive boundaries and tied keyset positions. It temporarily stops ClickHouse unless skipped, checks query 503 and ingestion Unavailable, restores in `finally`, and verifies historical query/fresh ingestion after recovery. Existing `.env` is only read for credentials, never rewritten. Exact results and example IDs are in the Session 3 journal.
+
 ## Stop and troubleshoot
 
 Press Ctrl+C in each service terminal. Each server drains for up to five seconds, then closes remaining connections; tracing then receives five seconds to flush. Forced termination bypasses cleanup.
@@ -220,4 +290,4 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Database unhealthy: inspect `docker compose logs clickhouse postgres`; verify credentials match existing volumes.
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
-See `ARCHITECTURE.md`, ADR 0002 and `docs/engineering-journal/session-02.md` for the current design and actual results. The Session 1 journal remains historical evidence. Existing Git-ignored learning notes were left untouched per the Session 2 instructions. Session 3's reconstruction, deduplication strategy and query APIs remain planned.
+See `ARCHITECTURE.md`, ADR 0003 and `docs/engineering-journal/session-03.md` for the current query design and actual results. Earlier journals remain historical evidence. Existing Git-ignored learning notes were left untouched per the Session 3 instructions. Session 4's bounded asynchronous ingestion, batching and backpressure work has not begun.

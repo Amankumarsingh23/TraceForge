@@ -1,4 +1,4 @@
-# Session 2 architecture
+# Session 3 architecture
 
 ```mermaid
 flowchart LR
@@ -9,11 +9,14 @@ flowchart LR
     collector --> debug[Detailed debug output]
     collector -->|OTLP gRPC gzip :4319| receiver[Go TraceService receiver]
     receiver -->|Synchronous prepared batch| ch[ClickHouse MergeTree spans]
+    caller[Local engineer] -->|HTTP :8082| api[Trace query API]
+    api -->|Bounded parameterized reads| ch
+    api --> graph[Pure read-time reconstruction]
     health[HTTP :8082 healthz / readyz] --> receiver
     pg[PostgreSQL: provisioned, no app schema]
 ```
 
-Gateway/payment, Collector forwarding/debug output, the official OTLP/gRPC receiver, normalization/redaction, ClickHouse span persistence and dynamic health endpoints are implemented. PostgreSQL remains provisioned without an application schema. There is no trace REST API, reconstruction algorithm, frontend, logs/metrics pipeline or RAG runner.
+Gateway/payment, Collector forwarding/debug output, the official OTLP/gRPC receiver, normalization/redaction, ClickHouse span persistence, dynamic health endpoints and trace detail/discovery APIs are implemented. Reconstruction handles duplicates, conflicting versions, orphans, roots, cycles and timing anomalies. PostgreSQL remains provisioned without an application schema. There is no frontend, logs/metrics pipeline or RAG runner.
 
 ## Request and span lifecycle
 
@@ -56,6 +59,16 @@ Host ports 8080/8081/4317/4319/8082/8123/5432 bind to loopback. Databases requir
 
 The receiver checks database readiness and applies embedded migration 0001 before accepting traffic. `/healthz` checks process liveness; `/readyz` performs a current bounded database Ping. A database outage leaves liveness up and readiness down. gRPC shutdown drains for up to six seconds, then force-cancels; HTTP health shutdown is bounded and database connections close afterward. Collector config changes need an explicit reload/restart, independent of Compose startup ordering.
 
+## Query interpretation
+
+`internal/storage/query.go` uses the existing driver and unchanged schema. Exact trace lookup reads all services with a physical-row sentinel and payload caps. `internal/traces` canonicalizes bounded records, chooses deterministic conflict winners, links parents by map lookup, detects cycles iteratively and creates a finite sorted forest. Orphans/cycle components remain visible; raw parent IDs and timing are never repaired. Output completeness remains unknown.
+
+`internal/queryapi` validates canonical IDs, bounded UTC windows, page sizes, service/error filters and versioned cursors. It shares the existing HTTP listener through a separate mux; health routes are preserved. Four active query operations, context deadlines and database execution/read/memory bounds prevent unbounded reads. Errors are sanitized and oversized traces are rejected rather than partially reconstructed.
+
+Discovery aggregates raw observations starting in the time window. Service/error filters identify trace IDs on the same matching span; summaries retain other services within the window. Detail has neither service nor time filters. Search ordering is latest start descending, trace ID ascending, with integer nanosecond bindings and a filter-consistent keyset cursor. Pagination is not a snapshot during concurrent/late ingestion. Detail canonical conflict choices can differ from raw-observation summaries; the distinction is explicit.
+
+See ADR 0003 for content equivalence, deterministic duplicate selection, cycle-edge presentation and consistency limits. None of this changes the Session 2 acknowledgment boundary, retry/loss possibilities or raw storage uniqueness behavior.
+
 ## Planned next step
 
-Session 3 will study trace reconstruction, out-of-order and missing parents, duplicate handling and query APIs. None is implemented here. Session 2 evidence is in `docs/engineering-journal/session-02.md`; Session 1's journal remains an unchanged historical record.
+Session 4 will study bounded asynchronous ingestion, batching and backpressure. No new ingestion queue, worker system or delivery guarantee is implemented here. Session 3 evidence is in `docs/engineering-journal/session-03.md`; prior journals remain unchanged historical records.
