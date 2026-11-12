@@ -1,6 +1,63 @@
-# TraceForge — Session 4
+# TraceForge — Session 5
 
-A real local tracing backend: gateway → payment → Collector → bounded Go admission/batching → ClickHouse → trace query API. Exports still wait for confirmed database writes. Detail reconstructs observed spans with duplicate, orphan, cycle and timing diagnostics. Internal ingestion metrics and a synthetic OTLP load generator are available. PostgreSQL remains provisioned without an application schema. There is no UI, user OTLP logs/metrics ingestion or AgentOps evaluation yet.
+A local end-to-end trace explorer: gateway → payment → Collector → bounded Go admission/batching → ClickHouse → Go query API → Next.js waterfall and span inspector. Exports still wait for confirmed database writes. Detail reconstructs observed spans with duplicate, orphan, cycle and timing diagnostics. Internal ingestion metrics and a synthetic OTLP load generator are available. PostgreSQL remains provisioned without an application schema. User OTLP logs/metrics ingestion and AgentOps evaluation remain planned.
+
+## Open the trace explorer
+
+The UI runs on the Windows host with Node 24 LTS (verified 24.22.1), npm 12.2.2, Next.js 16.4.6 and React 19.3.1. Keep the backend and two demo processes running as described below. No frontend container or new credentials are needed. From a new PowerShell terminal:
+
+```powershell
+Set-Location 'C:\placement projects\TraceForge\web'
+npm ci
+$env:TRACEFORGE_API_URL = 'http://127.0.0.1:8082'
+npm run dev
+```
+
+Open [the local explorer](http://127.0.0.1:3000/traces). Scripts bind loopback only. `TRACEFORGE_API_URL` is server-only and defaults to the origin shown; it must be an origin without credentials/path/query. The verified setup uses host → host-published Go port 8082. A future containerized frontend would need `http://traceforge-server:8082`, not container localhost. No `NEXT_PUBLIC_` credentials, wildcard CORS or direct ClickHouse connection is used.
+
+This machine's bundled Node had no npm on PATH. A checksum-verified npm 12.2.2 is at `$env:LOCALAPPDATA\TraceForge-tools\npm-12.2.2\package\bin\npm-cli.js`. With that installation, substitute `node "$env:LOCALAPPDATA/TraceForge-tools/npm-12.2.2/package/bin/npm-cli.js"` for `npm` below. A normal Node/npm installation can use the ordinary commands.
+
+`/traces` searches actual observations with UTC RFC3339 timestamps (maximum 24-hour window), service, supported `error` status and page size. It defaults to the last hour. “Clear filters” restores that recent window; older traces may require ID lookup or older bounds. Service/error filters qualify observed spans in the window; summaries can differ from full detail. Cursor pagination binds to applied filters and resets on search/clear. It is not snapshot-consistent while telemetry arrives. Unsupported operation/minimum-duration filters remain future work.
+
+`/traces/{id}` shows every backend canonical span from roots, orphans and disconnected components. Select a row/bar for raw nanosecond timestamps, kind/status, attributes, scope, events and links. Expand/collapse and keyboard controls work in the scrollable waterfall. Diagnostics retain physical/logical distinctions, conflicts, missing parents, cycles, timing warnings and unknown completeness. “Contains error span” does not prove the whole request failed. Refresh is manual.
+
+The shared axis uses observed earliest start/latest end, not summed child durations. RFC3339Nano strings become BigInt before subtraction; offsets never use rounded absolute ns numbers or millisecond-only Dates. Tiny/zero spans have a minimum visual marker and honest numeric durations. Anomalies are flagged rather than repaired. See [ADR 0005](docs/adr/trace-explorer-ui.md).
+
+### Frontend checks and production run
+
+```powershell
+# In web/
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm start
+```
+
+Stop the dev server before starting production on the same port. A dev startup is not a production-build check. No external fonts or UI component library are needed. The committed lockfile pins resolutions. Loading, empty results, invalid input, missing/oversized traces, unavailable backend and timeout states are explicit; stale responses cannot overwrite newer results.
+
+### Reproduce the real browser demonstration
+
+With gateway/payment and the base Compose stack running, the preparation script exports controlled test telemetry through OTLP, generates normal/delayed/failed checkout requests, waits for five persisted spans each, and saves IDs/responses under ignored artifacts. It also exports a 1000-logical-span trace and verifies the API count. It never rewrites `.env` or deletes historical data.
+
+```powershell
+# Repository root
+$env:PATH = "$env:LOCALAPPDATA\TraceForge-tools\go\bin;$env:PATH"
+.\scripts\session05-demo.ps1
+
+# Keep a built UI running in another terminal, then:
+Set-Location web
+npm exec playwright install chromium
+npm run test:browser
+# Optional: include a controlled local DB stop/recovery (restored in finally).
+$env:TRACEFORGE_BROWSER_OUTAGE = '1'
+npm run test:browser
+Remove-Item Env:TRACEFORGE_BROWSER_OUTAGE
+```
+
+Ordinary browser runs skip the explicit outage case and require generated `artifacts/session05/demo-evidence.json`. The preparation script's optional `-ReuseFixtures` uses its existing fixture log while refreshing checkout traces. Do not run preparation concurrently with browser checks. Screenshots stay under `artifacts/session05/screenshots/`; no fixtures are substituted into the product.
+
+Manual demo requests remain `/checkout`, `/checkout?delay_ms=500`, `/checkout?fail=true`. Verified Session 5 `payment.process` intervals were 4263000 ns normal and 500617500 ns delayed. These are recorded observations, not benchmarks or a timer-precision guarantee. Failure returned gateway 502 and stored error status/exception events. Full IDs, exact checks and limitations are in [the Session 5 journal](docs/engineering-journal/session-05.md).
 
 ## Prerequisites and versions
 
@@ -373,4 +430,4 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Database unhealthy: inspect `docker compose logs clickhouse postgres`; verify credentials match existing volumes.
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
-See `ARCHITECTURE.md`, ADR 0004, the failure model and `docs/engineering-journal/session-04.md` for current behavior and evidence. Prior journals remain historical. A new local Session 4 teaching note is Git-ignored; earlier notes are preserved. Session 5's UI has not begun.
+See `ARCHITECTURE.md`, ADRs 0004/0005, the failure model and the Session 4/5 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Session 6 logs/correlation have not begun.

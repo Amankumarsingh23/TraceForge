@@ -1,4 +1,4 @@
-# Session 4 architecture
+# Session 5 architecture
 
 ```mermaid
 flowchart LR
@@ -14,14 +14,16 @@ flowchart LR
     workers -->|Synchronous prepared batch| ch[ClickHouse MergeTree spans]
     workers -. per-request completion .-> receiver
     metrics[Internal metrics and bounded diagnostics] --> receiver
-    caller[Local engineer] -->|HTTP :8082| api[Trace query API]
+    caller[Local engineer] -->|Loopback :3000| ui[Next.js trace explorer]
+    ui --> proxy[Narrow same-origin trace routes]
+    proxy -->|HTTP :8082| api[Go trace query API]
     api -->|Bounded parameterized reads| ch
     api --> graph[Pure read-time reconstruction]
     health[HTTP :8082 healthz / readyz] --> receiver
     pg[PostgreSQL: provisioned, no app schema]
 ```
 
-Gateway/payment, Collector forwarding/debug output, the official OTLP/gRPC receiver, normalization/redaction, ClickHouse span persistence, dynamic health endpoints and trace detail/discovery APIs are implemented. Reconstruction handles duplicates, conflicting versions, orphans, roots, cycles and timing anomalies. PostgreSQL remains provisioned without an application schema. There is no frontend, logs/metrics pipeline or RAG runner.
+Gateway/payment, Collector forwarding/debug output, the official OTLP/gRPC receiver, normalization/redaction, ClickHouse span persistence, dynamic health endpoints, trace detail/discovery APIs and the Next.js trace explorer are implemented. Reconstruction handles duplicates, conflicting versions, orphans, roots, cycles and timing anomalies. PostgreSQL remains provisioned without an application schema. User logs/metrics ingestion and the RAG runner remain planned.
 
 ## Request and span lifecycle
 
@@ -78,6 +80,14 @@ Discovery aggregates raw observations starting in the time window. Service/error
 
 See ADR 0003 for content equivalence, deterministic duplicate selection, cycle-edge presentation and consistency limits. None of this changes the Session 2 acknowledgment boundary, retry/loss possibilities or raw storage uniqueness behavior.
 
+## Frontend investigation path
+
+The Windows-host Next.js App Router app in `web/` serves `/traces` and `/traces/[traceId]` on loopback 3000. Its Node route handlers accept only approved trace GET paths/parameters, construct the Go API URL from server-only `TRACEFORGE_API_URL`, preserve upstream status/bytes, apply a 5s deadline and 16MiB body cap. Browser headers/credentials are not forwarded; redirects are rejected. Transport failures are sanitized. Go remains the source of database/query/reconstruction semantics. No backend response/schema change was needed.
+
+Client requests have 7s deadlines and cancellation plus generation guards. Applied absolute UTC filters bind to opaque cursor history; a new search clears it. Manual refresh makes no live/snapshot promise. Search shows window-scoped raw-observation summaries; detail independently loads all observed services. Invalid/missing/oversized/unavailable states are distinct from empty success.
+
+The waterfall iteratively traverses the supplied forest with visited-ID guards, preserving roots/orphans/detached cycle components. Collapse affects descendants; supported traces scroll, with no recursive React tree. RFC3339Nano strings become BigInt ns before offsets/durations/ratios are computed. Fixed colors and minimum tiny-span markers do not change numeric durations. The inspector renders stored redacted attributes/scope/events/links as escaped text. Counts, conflicts, timing warnings and unknown completeness remain visible. No critical-path or overall-outcome inference is made. See ADR 0005 and the Session 5 journal for contracts, checks and screenshots.
+
 ## Planned next step
 
-Session 5 will add the trace explorer/waterfall UI. No frontend has been started. Session 4's real measurements/fault evidence are in its journal and benchmark report; all delivery limitations remain explicit.
+Session 6 will introduce structured logs and trace correlation. No log ingestion/viewer, metrics dashboard, service map or AgentOps/RAG feature has been started. Session 4's measured evidence and delivery limits still apply; Session 5 adds a verified local investigation UI.
