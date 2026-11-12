@@ -1,6 +1,6 @@
-# TraceForge — Session 3
+# TraceForge — Session 4
 
-A real local tracing backend: gateway → payment → OpenTelemetry Collector → Go OTLP/gRPC receiver → ClickHouse → bounded trace query API. Trace detail reconstructs observed spans with duplicate, orphan, cycle and timing diagnostics. The Collector keeps its debug exporter for comparison. PostgreSQL remains provisioned without an application schema. There is no UI, logs/metrics ingestion or AgentOps evaluation yet.
+A real local tracing backend: gateway → payment → Collector → bounded Go admission/batching → ClickHouse → trace query API. Exports still wait for confirmed database writes. Detail reconstructs observed spans with duplicate, orphan, cycle and timing diagnostics. Internal ingestion metrics and a synthetic OTLP load generator are available. PostgreSQL remains provisioned without an application schema. There is no UI, user OTLP logs/metrics ingestion or AgentOps evaluation yet.
 
 ## Prerequisites and versions
 
@@ -191,13 +191,13 @@ Expect three gateway and two payment spans in an ordinary request with no replay
 
 ## Acknowledgments, limits and privacy
 
-The official `TraceServiceServer.Export` traverses every resource and scope. An empty request succeeds without touching storage. Valid rows from a request are synchronously inserted in one prepared batch; only a successful `Send` permits acknowledgment. Full success leaves `partial_success` unset. Invalid spans are counted exactly and the valid subset is inserted before returning partial success; clients must not retry a partial-success response. If all spans are invalid, none are inserted and all are reported rejected.
+The official `TraceServiceServer.Export` traverses every resource and scope. An empty request succeeds without storage. Valid rows enter a bounded queue and may share one synchronous prepared insert with other requests. Each handler waits for its own completion signal; only successful `Send` permits acknowledgment. Full success leaves `partial_success` unset. Invalid spans are counted per original request, with partial success only after its valid subset writes. Clients must not retry partial success. All-invalid requests make no insert and report every rejection.
 
-Malformed envelopes/excessive span count return `InvalidArgument`. The gRPC 4MiB decompressed message cap returns `ResourceExhausted` for oversized wire requests. Temporary insertion failure returns `Unavailable`; canceled/deadline contexts retain their respective status. Concurrency saturation returns `Unavailable` immediately rather than creating an application queue. Error descriptions do not include database passwords or raw telemetry.
+Malformed envelopes/excessive span count return `InvalidArgument`. The gRPC 4MiB decompressed cap preserves oversized-message `ResourceExhausted` behavior. Temporary insertion/admission failure returns `Unavailable` with RetryInfo; caller cancellation/deadline statuses are retained. Admission waits at most 50ms by default across handler and payload reservations. A request that cannot fit configured hard budgets returns `InvalidArgument`. Errors do not include credentials or raw telemetry.
 
-Limits: 1000 spans/resource groups/total scopes per export, 4 active Export operations, 5s processing deadline, 64KiB per span, 16KiB resource/scope metadata, 128 events/links, and bounded nested attributes (details in `docs/normalization.md`). Startup requires database readiness; shutdown allows 6s for gRPC draining and then forces cancellation, followed by bounded HTTP health shutdown and connection cleanup.
+The existing 1000-span/group/scope, 64KiB-span, 16KiB-resource/scope, 128-event/link and nested attribute limits remain (see `docs/normalization.md`). Session 4 adds explicit transport/handler/queue/job/span/payload caps described below. Export handling retains a 5s deadline; shared writes have a 3s lifecycle deadline. Startup still requires database readiness. Receiver shutdown stops admissions, drains/flushes within a configurable 10s default, fails unresolved outcomes, closes the pool and bounds remaining worker/gRPC/HTTP shutdown. Compose grants 20s.
 
-This is **not exactly-once delivery**, replicated durability or guaranteed atomic multi-partition insertion. `async_insert=0` waits for ClickHouse's normal synchronous insert confirmation. `insert_deduplicate=0` makes replay behavior explicit. A response lost after insertion or an ambiguous write failure can lead to duplicates on retry; MergeTree ordering enforces no uniqueness. No WAL, durable spool or deduplication is implemented.
+This is **not exactly-once or unconditional at-least-once delivery**, replicated durability or guaranteed atomic multi-partition insertion. `async_insert=0` waits for normal synchronous insert confirmation. `insert_deduplicate=0` makes physical replay explicit. Lost responses and ambiguous writes can produce duplicates; MergeTree ordering enforces no uniqueness. Read-time deduplication does not change this contract. No WAL or durable spool exists.
 
 Collector uses gzip OTLP/gRPC, a bounded in-memory queue of 100 requests with two consumers, and retries with 1–5s backoff for up to 60s. It can lose queued spans on crashes, overflow, expired retry windows or permanent errors. Debug output is a separate branch and can show a span that never persisted. Known secret-bearing attributes are redacted at the persistence boundary, but upstream Collector debug logs are unsanitized; only synthetic traffic is appropriate. See `docs/normalization.md` for supported fields and explicit redaction limits.
 
@@ -271,9 +271,92 @@ docker buildx build --target verify --output=type=cacheonly .
 
 The smoke script expects default ports/limits, existing demo processes and the historical Session 2 trace for its historical check. It prints a new real trace ID replayed from five rows to ten while detail retains five logical nodes and reports five exact duplicates. It inserts uniquely scoped orphan/cycle/conflict fixtures and a 1001-row limit fixture without modifying original demonstration rows. Nanosecond-window fixtures test inclusive/exclusive boundaries and tied keyset positions. It temporarily stops ClickHouse unless skipped, checks query 503 and ingestion Unavailable, restores in `finally`, and verifies historical query/fresh ingestion after recovery. Existing `.env` is only read for credentials, never rewritten. Exact results and example IDs are in the Session 3 journal.
 
+## Session 4 batching, diagnostics and load tests
+
+Prometheus client_golang v1.25.0 supplies maintained internal instrumentation. No user OTLP metrics pipeline was added. Inspect real counters, bounded gauges/histograms, runtime/process data and a bounded diagnostic snapshot:
+
+```powershell
+Invoke-WebRequest http://localhost:8082/metrics | Select-Object -ExpandProperty Content
+Invoke-RestMethod http://localhost:8082/debug/ingestion | ConvertTo-Json -Depth 5
+```
+
+Counters include requests/spans received, invalid spans, reported successful physical rows, failed insert attempts and admission rejections by fixed reason. Histograms include batch spans, queue/flush/insert/export latency. No trace IDs, service names or customer strings are metric labels. Snapshot history contains at most 2048 recent batches; `metric_samples_complete` in load reports indicates whether exact insert quantiles cover the entire measured run. `/healthz` stays independent of queue fullness; `/readyz` still performs a current DB check.
+
+Production defaults and units:
+
+| Flag | Default | Unit/meaning |
+| --- | --- | --- |
+| `--queue-requests` | 64 | Reserved normalizing + queued channel positions |
+| `--max-inflight` | 32 | Active Export handlers |
+| `--pending-requests` | 128 | All owned jobs, including active batches/canceled callers |
+| `--buffer-spans` | 16384 | Input span reservations across owned jobs |
+| `--buffer-bytes` | 134217728 | Conservative payload reservation units, not RSS |
+| `--batch-target` | 1000 | Span target; whole requests stay intact |
+| `--batch-wait` | 100ms | Oldest queued job's batching deadline |
+| `--workers` | 1 | Fixed concurrent persistence workers, maximum 4 |
+| `--admission-wait` | 50ms | Combined short admission wait |
+| `--write-timeout` | 3s | Shared write deadline |
+| `--drain-timeout` | 10s | Shutdown drain opportunity |
+
+Reservations happen before row normalization. Repeated resource/scope metadata is charged per span with a conservative 64x protobuf allowance plus overhead, followed by a retained-row check. This overestimates payload, does not measure exact heap, and excludes some transport/runtime/GC overhead. Eight accepted gRPC connections with eight streams each, plus 4MiB per-message and application handler bounds, constrain decoded work separately. Arbitrarily increasing queue slots does not increase sustained persistence capacity.
+
+Workers flush at size, time or shutdown. Already-ready work can still be combined after a deadline, without waiting for more. A request larger than the target is written alone within existing request limits; it is not split or truncated. A canceled queued job may be skipped, but a job already in a shared write can still persist after its caller leaves. Workers use lifecycle contexts so one caller cannot cancel other callers' work. Every job's one-slot completion channel prevents abandoned callers blocking a worker. See [failure-model.md](docs/failure-model.md) for loss/ambiguity cases.
+
+Build and run a small load directly through the normal receiver. Load the existing password into this terminal for independent SQL checks; do not rewrite `.env`:
+
+```powershell
+foreach ($line in Get-Content .env) {
+    if ($line -match '^CLICKHOUSE_PASSWORD=(.+)$') { $env:CLICKHOUSE_PASSWORD = $Matches[1] }
+}
+go build -o bin/otel-loadgen.exe ./cmd/otel-loadgen
+.\bin\otel-loadgen.exe --requests 40 --spans-per-request 20 --concurrency 8 --connections 4 --seed 42 --output artifacts/load-small.json
+```
+
+`--spans` overrides request count; `--duration` plus positive `--rate` derives a bounded span count. `--rate` is offered spans/sec (zero means unpaced), `--services` controls synthetic resource groups, `--run-id`/`--base-time` can reproduce a dataset, and each default run generates a distinct prefix. Workloads are capped at 200000 spans/10000 requests/64 clients; individual exports remain at most 1000 spans. The command has a 45s load ceiling and performs no automatic retries. It records actual attempted/generated/acknowledged/retryable/permanent/unknown outcomes, nearest-rank latencies and independently queried physical/unique rows. Unknown outcomes overlap retryable errors; they are not disjoint totals.
+
+Check `storage_verified` before using physical row fields. If DB accounting is unavailable, the report is still saved with that fact, stdout says unverified and the command exits nonzero. `--verify-storage=false` intentionally skips SQL accounting. If the receiver stops, client outcomes can remain useful while final diagnostics are unavailable. Memory/queue samples run every 100ms and can miss peaks; reservation high-water counters are separate. Benchmark and SQL accounting windows are recorded explicitly.
+
+Compare batch targets on an optional receiver at 4320/8083, with 2 CPUs, 256MiB memory and one worker. The main Collector/receiver/query ports stay unchanged:
+
+```powershell
+.\scripts\benchmark-session04.ps1 -Requests 600 -Repetitions 2 -Rate 10000
+```
+
+The script selects the controlled per-request baseline and targets 100/500/1000/5000 through process-local `TRACEFORGE_BENCH_MODE`, `TRACEFORGE_BENCH_TARGET` and `TRACEFORGE_BENCH_WAIT` variables. To start one configuration manually:
+
+```powershell
+$env:TRACEFORGE_BENCH_TARGET = '500'
+$env:TRACEFORGE_BENCH_WAIT = '50ms'
+docker compose -f compose.yaml -f compose.benchmark.yaml up -d --wait traceforge-benchmark
+.\bin\otel-loadgen.exe --endpoint localhost:4320 --http-endpoint http://localhost:8083 --requests 300 --spans-per-request 50 --concurrency 32 --rate 10000 --output artifacts/load-500.json
+docker compose -f compose.yaml -f compose.benchmark.yaml stop traceforge-benchmark
+Remove-Item Env:TRACEFORGE_BENCH_TARGET,Env:TRACEFORGE_BENCH_WAIT
+```
+
+`--ingestion-mode=direct` implements the one-write-per-request control using the same queue/budgets/worker count (target 1, wait 0). It isolates coalescing rather than reproducing the old binary's exact four-writer concurrency. [Measured results](docs/benchmarks/session-04.md) and [all ten CSV runs](docs/benchmarks/session-04.csv) are versioned. These short laptop runs do not establish production or sustainable-capacity guarantees.
+
+Failure/recovery and shutdown verification:
+
+```powershell
+.\scripts\session04-smoke.ps1
+# Avoid deliberate DB outage, or isolated SIGTERM/SIGKILL tests if needed:
+.\scripts\session04-smoke.ps1 -SkipDatabaseFailure -SkipShutdown
+# A separate two-request outage report; restores ClickHouse in finally:
+.\scripts\outage-load.ps1
+```
+
+The full smoke runs prior trace APIs/storage tests, stops/restores ClickHouse, then tests graceful SIGTERM and forced SIGKILL only on the isolated receiver. It restores/stops that receiver in finally. Forced-kill fixtures demonstrate lost queued memory without successful acknowledgments. Tests use fresh IDs; original demo rows stay intact. For manual DB recovery use `docker compose stop clickhouse`, then `docker compose start clickhouse` and poll `/readyz`; a gateway HTTP 200 never proves telemetry persistence.
+
+Raw report prefixes permit direct SQL inspection as shown in the benchmark report. Optional cleanup removes only the selected prefix with synthetic service/tag markers:
+
+```powershell
+.\scripts\cleanup-load.ps1 -ReportPath artifacts/load-small.json
+Remove-Item Env:CLICKHOUSE_PASSWORD
+```
+
 ## Stop and troubleshoot
 
-Press Ctrl+C in each service terminal. Each server drains for up to five seconds, then closes remaining connections; tracing then receives five seconds to flush. Forced termination bypasses cleanup.
+Press Ctrl+C in each demo terminal; demo HTTP draining and tracer flush each have five-second bounds. The receiver uses the separate Session 4 drain lifecycle above. Forced termination bypasses graceful cleanup.
 
 ```powershell
 docker compose down
@@ -290,4 +373,4 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Database unhealthy: inspect `docker compose logs clickhouse postgres`; verify credentials match existing volumes.
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
-See `ARCHITECTURE.md`, ADR 0003 and `docs/engineering-journal/session-03.md` for the current query design and actual results. Earlier journals remain historical evidence. Existing Git-ignored learning notes were left untouched per the Session 3 instructions. Session 4's bounded asynchronous ingestion, batching and backpressure work has not begun.
+See `ARCHITECTURE.md`, ADR 0004, the failure model and `docs/engineering-journal/session-04.md` for current behavior and evidence. Prior journals remain historical. A new local Session 4 teaching note is Git-ignored; earlier notes are preserved. Session 5's UI has not begun.

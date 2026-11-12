@@ -26,6 +26,26 @@ type fakeStore struct {
 	release chan struct{}
 }
 
+func testServer(t *testing.T, store Store) *Server {
+	t.Helper()
+	c := DefaultConfig()
+	c.InFlight = 4
+	c.Workers = 4
+	c.BatchTarget = 1
+	c.BatchWait = 0
+	s, err := NewConfiguredServer(store, c)
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() {
+		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		defer cancel()
+		_ = s.Shutdown(ctx)
+		_ = s.Wait(ctx)
+	})
+	return s
+}
+
 func (f *fakeStore) Insert(ctx context.Context, rows []Row) error {
 	if f.entered != nil {
 		f.entered <- struct{}{}
@@ -61,7 +81,7 @@ func client(t *testing.T, s *Server) collector.TraceServiceClient {
 }
 func TestExportResponses(t *testing.T) {
 	f := &fakeStore{}
-	c := client(t, NewServer(f))
+	c := client(t, testServer(t, f))
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 	res, e := c.Export(ctx, &collector.ExportTraceServiceRequest{})
@@ -85,7 +105,7 @@ func TestExportResponses(t *testing.T) {
 	}
 }
 func TestUnavailableAndLimits(t *testing.T) {
-	c := client(t, NewServer(&fakeStore{err: errors.New("password=do-not-leak")}))
+	c := client(t, testServer(t, &fakeStore{err: errors.New("password=do-not-leak")}))
 	_, e := c.Export(context.Background(), fixture())
 	if status.Code(e) != codes.Unavailable || strings.Contains(e.Error(), "do-not-leak") {
 		t.Fatalf("unsafe error %v", e)
@@ -103,7 +123,7 @@ func TestUnavailableAndLimits(t *testing.T) {
 }
 func TestAcknowledgmentBoundaryAndCancellation(t *testing.T) {
 	f := &fakeStore{entered: make(chan struct{}, 1), release: make(chan struct{})}
-	s := NewServer(f)
+	s := testServer(t, f)
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	done := make(chan error, 1)
@@ -118,8 +138,9 @@ func TestAcknowledgmentBoundaryAndCancellation(t *testing.T) {
 	if e := <-done; status.Code(e) != codes.Canceled {
 		t.Fatalf("cancellation %v", e)
 	}
+	close(f.release) // The batch owns its context; caller cancellation need not stop it.
 	f = &fakeStore{entered: make(chan struct{}, 1), release: make(chan struct{})}
-	s = NewServer(f)
+	s = testServer(t, f)
 	go func() { _, e := s.Export(context.Background(), fixture()); done <- e }()
 	<-f.entered
 	select {
@@ -134,13 +155,16 @@ func TestAcknowledgmentBoundaryAndCancellation(t *testing.T) {
 }
 func TestExportDeadlineAndConcurrency(t *testing.T) {
 	f := &fakeStore{entered: make(chan struct{}, 4), release: make(chan struct{})}
-	s := NewServer(f)
+	s := testServer(t, f)
 	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Millisecond)
 	defer cancel()
 	if _, e := s.Export(ctx, fixture()); status.Code(e) != codes.DeadlineExceeded {
 		t.Fatal("deadline not preserved")
 	}
 	<-f.entered
+	close(f.release)
+	f = &fakeStore{entered: make(chan struct{}, 4), release: make(chan struct{})}
+	s = testServer(t, f)
 	done := make(chan error, 4)
 	for i := 0; i < 4; i++ {
 		go func() { _, e := s.Export(context.Background(), fixture()); done <- e }()
@@ -159,7 +183,7 @@ func TestExportDeadlineAndConcurrency(t *testing.T) {
 	}
 }
 func TestHealthAndReadiness(t *testing.T) {
-	s := NewServer(&fakeStore{err: errors.New("database unavailable")})
+	s := testServer(t, &fakeStore{err: errors.New("database unavailable")})
 	for _, tc := range []struct {
 		path string
 		code int
@@ -170,7 +194,7 @@ func TestHealthAndReadiness(t *testing.T) {
 			t.Fatal(tc.path, w.Code)
 		}
 	}
-	s = NewServer(&fakeStore{})
+	s = testServer(t, &fakeStore{})
 	w := httptest.NewRecorder()
 	s.HealthHandler().ServeHTTP(w, httptest.NewRequest("GET", "/readyz", nil))
 	if w.Code != 200 {

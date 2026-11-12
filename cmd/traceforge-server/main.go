@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	collector "go.opentelemetry.io/proto/otlp/collector/trace/v1"
+	"golang.org/x/net/netutil"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -27,6 +28,19 @@ func run() error {
 	maxRows := flag.Int("max-trace-rows", 1000, "maximum physical rows in a trace detail (1..2000)")
 	maxPage := flag.Int("max-page-size", 100, "maximum search page size (1..200)")
 	queryTimeout := flag.Duration("query-timeout", 2*time.Second, "HTTP query timeout (up to 4s)")
+	ingestConfig := ingest.DefaultConfig()
+	mode := flag.String("ingestion-mode", "batched", "batched or direct (one insert per request control)")
+	flag.IntVar(&ingestConfig.BatchTarget, "batch-target", ingestConfig.BatchTarget, "target spans per insert; whole requests stay intact")
+	flag.DurationVar(&ingestConfig.BatchWait, "batch-wait", ingestConfig.BatchWait, "oldest queued job's maximum batching wait")
+	flag.IntVar(&ingestConfig.QueueRequests, "queue-requests", ingestConfig.QueueRequests, "queued/normalizing request slots")
+	flag.IntVar(&ingestConfig.InFlight, "max-inflight", ingestConfig.InFlight, "active Export handlers")
+	flag.IntVar(&ingestConfig.PendingRequests, "pending-requests", ingestConfig.PendingRequests, "all owned normalizing/queued/batched/writing jobs")
+	flag.IntVar(&ingestConfig.BufferedSpans, "buffer-spans", ingestConfig.BufferedSpans, "reserved spans across all owned jobs")
+	flag.Int64Var(&ingestConfig.BufferedBytes, "buffer-bytes", ingestConfig.BufferedBytes, "conservative payload reservation budget in bytes")
+	flag.IntVar(&ingestConfig.Workers, "workers", ingestConfig.Workers, "bounded persistence workers (1..4)")
+	flag.DurationVar(&ingestConfig.AdmissionWait, "admission-wait", ingestConfig.AdmissionWait, "maximum combined admission wait")
+	flag.DurationVar(&ingestConfig.WriteTimeout, "write-timeout", ingestConfig.WriteTimeout, "shared batch insertion deadline")
+	drainTimeout := flag.Duration("drain-timeout", 10*time.Second, "graceful ingestion drain deadline")
 	flag.Parse()
 	if *probe {
 		client := http.Client{Timeout: 2 * time.Second}
@@ -39,6 +53,18 @@ func run() error {
 			return fmt.Errorf("database not ready")
 		}
 		return nil
+	}
+	if *mode == "direct" {
+		ingestConfig.BatchTarget = 1
+		ingestConfig.BatchWait = 0
+	} else if *mode != "batched" {
+		return fmt.Errorf("ingestion-mode must be direct or batched")
+	}
+	if err := ingestConfig.Validate(); err != nil {
+		return err
+	}
+	if *drainTimeout <= 0 || *drainTimeout > 15*time.Second {
+		return fmt.Errorf("drain-timeout out of range")
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	store, err := storage.Open(ctx)
@@ -68,12 +94,21 @@ func run() error {
 		return fmt.Errorf("cannot listen on OTLP address")
 	}
 	defer listener.Close()
+	listener = netutil.LimitListener(listener, 8)
 	healthListener, err := net.Listen("tcp", *healthAddr)
 	if err != nil {
 		return fmt.Errorf("cannot listen on health address")
 	}
 	defer healthListener.Close()
-	server := ingest.NewServer(store)
+	server, err := ingest.NewConfiguredServer(store, ingestConfig)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		defer cancel()
+		_ = server.Shutdown(ctx)
+	}()
 	grpcServer := grpc.NewServer(grpc.MaxRecvMsgSize(ingest.MaxMessageBytes), grpc.MaxConcurrentStreams(8), grpc.ConnectionTimeout(5*time.Second))
 	collector.RegisterTraceServiceServer(grpcServer, server)
 	mux := http.NewServeMux()
@@ -85,7 +120,7 @@ func run() error {
 	go func() { errCh <- httpServer.Serve(healthListener) }()
 	signals, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
-	log.Printf("OTLP receiver listening on %s; health on %s; synchronous ClickHouse persistence", *addr, *healthAddr)
+	log.Printf("OTLP receiver %s; health/query/metrics %s; mode=%s target=%d workers=%d; acknowledgments wait for ClickHouse", *addr, *healthAddr, *mode, ingestConfig.BatchTarget, ingestConfig.Workers)
 	var serveErr error
 	select {
 	case <-signals.Done():
@@ -95,11 +130,23 @@ func run() error {
 			serveErr = fmt.Errorf("receiver listener stopped unexpectedly")
 		}
 	}
+	drainCtx, drainCancel := context.WithTimeout(context.Background(), *drainTimeout)
+	if err := server.Shutdown(drainCtx); err != nil {
+		log.Print("ingestion drain timed out; unresolved outcomes are failed/unknown")
+	}
+	drainCancel()
+	// Closing the pool also interrupts a forced drain's remaining database work.
+	_ = store.Close()
+	waitCtx, waitCancel := context.WithTimeout(context.Background(), 2*time.Second)
+	if err := server.Wait(waitCtx); err != nil {
+		log.Print("workers did not exit before forced shutdown deadline")
+	}
+	waitCancel()
 	done := make(chan struct{})
 	go func() { grpcServer.GracefulStop(); close(done) }()
 	select {
 	case <-done:
-	case <-time.After(6 * time.Second):
+	case <-time.After(2 * time.Second):
 		grpcServer.Stop()
 		<-done
 	}

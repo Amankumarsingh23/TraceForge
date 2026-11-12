@@ -1,0 +1,33 @@
+# Optional isolated receiver; shares the existing DB without changing the main
+# Collector/receiver ports. Use together with compose.yaml.
+services:
+  traceforge-benchmark:
+    image: traceforge-traceforge-server
+    command:
+      - --grpc-address=0.0.0.0:4319
+      - --health-address=0.0.0.0:8082
+      - --ingestion-mode=${TRACEFORGE_BENCH_MODE:-batched}
+      - --batch-target=${TRACEFORGE_BENCH_TARGET:-1000}
+      - --batch-wait=${TRACEFORGE_BENCH_WAIT:-100ms}
+      - --workers=1
+      - --drain-timeout=10s
+    environment:
+      CLICKHOUSE_ADDR: clickhouse:9000
+      CLICKHOUSE_PROTOCOL: native
+      CLICKHOUSE_USER: traceforge
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?Set CLICKHOUSE_PASSWORD in .env}
+      GOMEMLIMIT: 192MiB
+    ports:
+      - "127.0.0.1:4320:4319"
+      - "127.0.0.1:8083:8082"
+    cpus: 2
+    mem_limit: 256m
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/traceforge-server", "--healthcheck"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    stop_grace_period: 20s

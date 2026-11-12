@@ -1,4 +1,4 @@
-# Session 3 architecture
+# Session 4 architecture
 
 ```mermaid
 flowchart LR
@@ -8,7 +8,12 @@ flowchart LR
     payment -. OTLP gRPC .-> collector
     collector --> debug[Detailed debug output]
     collector -->|OTLP gRPC gzip :4319| receiver[Go TraceService receiver]
-    receiver -->|Synchronous prepared batch| ch[ClickHouse MergeTree spans]
+    receiver --> admission[Bounded admission and payload reservations]
+    admission --> queue[64-slot queue]
+    queue --> workers[Fixed size/time batch workers]
+    workers -->|Synchronous prepared batch| ch[ClickHouse MergeTree spans]
+    workers -. per-request completion .-> receiver
+    metrics[Internal metrics and bounded diagnostics] --> receiver
     caller[Local engineer] -->|HTTP :8082| api[Trace query API]
     api -->|Bounded parameterized reads| ch
     api --> graph[Pure read-time reconstruction]
@@ -41,9 +46,11 @@ SDK initialization validates local endpoint shape but is asynchronous and does n
 
 ## Persistence boundary
 
-Collector exports to `traceforge-server:4319` over the existing network; the receiver registers gzip decompression. Four Export operations may run concurrently, each limited to 4MiB, 1000 spans and five seconds. Nested resource/scope/span groups are normalized to rows with typed Protobuf JSON for variable metadata; see `docs/normalization.md` for exact bounds and intentionally unsupported fields. Known sensitive attributes are sanitized before any persistence representation is generated.
+Collector exports to `traceforge-server:4319` over the existing network; the receiver registers gzip decompression. A connection/stream cap bounds transport concurrency; 32 handlers may normalize/wait by default. Each request retains the 4MiB/1000-span/five-second and prior field limits. Queue positions, all owned tickets, spans and conservative payload bytes are reserved before normalization; metadata is charged per span. See ADR 0004 for units and defaults. These are payload/work bounds, not exact heap/RSS limits.
 
-Each request's accepted rows use one prepared multi-row insert via ClickHouse Go v2.51.0. Empty requests succeed without a write. Success is sent only after `batch.Send` succeeds. Individual invalid spans produce exact partial-success counts after valid rows are inserted. Malformed/oversized envelopes fail at request level. Storage failures return retryable Unavailable; cancellation/deadline statuses are retained. Global overload is rejected without an application-side queue.
+Each export owns a buffered completion channel. A bounded channel and fixed workers combine whole requests into size/time batches before using the unchanged ClickHouse writer. Success still waits for `batch.Send`; each request retains its own partial-success rejection count. Empty/all-invalid requests do not write. Saturation waits briefly then signals retryable Unavailable with RetryInfo. Single requests that cannot fit configured hard budgets fail explicitly. No internal retries or fire-and-forget inserts are added.
+
+Cancellation before writing may skip a job. Cancellation after write ownership can leave an unknown outcome and must not cancel other jobs in a shared batch. Worker lifecycle/write contexts are separate from caller contexts. Budgets remain owned through queued/collected/active states, including abandoned callers, until completion. A one-result buffer avoids blocked workers when a caller has left.
 
 The initial MergeTree has monthly partitions and trace-ID-first sorting. This supports direct trace lookup, not uniqueness. Service/time queries may need broader scans; no alternative layout has been benchmarked. Complete known sanitized span/resource/scope messages preserve metadata omitted from extracted columns, including flags and dropped counts.
 
@@ -57,7 +64,9 @@ Collector has a bounded in-memory queue of 100 requests, two consumers and retri
 
 Host ports 8080/8081/4317/4319/8082/8123/5432 bind to loopback. Databases require existing generated passwords from ignored `.env`. Receiver uses native ClickHouse on the internal network; optional host mode uses authenticated HTTP on 8123. Named volumes preserve database files. Only ClickHouse has an application table. Containers share a project-local bridge network; they are not designed for untrusted workloads. The receiver image runs as nonroot with no shell.
 
-The receiver checks database readiness and applies embedded migration 0001 before accepting traffic. `/healthz` checks process liveness; `/readyz` performs a current bounded database Ping. A database outage leaves liveness up and readiness down. gRPC shutdown drains for up to six seconds, then force-cancels; HTTP health shutdown is bounded and database connections close afterward. Collector config changes need an explicit reload/restart, independent of Compose startup ordering.
+The receiver checks database readiness and applies unchanged migration 0001 before accepting traffic. `/healthz` is process liveness; `/readyz` still makes a bounded DB Ping, independent of queue fullness. SIGTERM stops admissions, drains/final-flushes within the configured deadline, fails unresolved jobs and cancels the worker lifecycle if necessary. The pool closes, worker exit is bounded, then gRPC/HTTP stop. Compose grants 20s. SIGKILL bypasses this and can lose queued memory. Collector config is unchanged and still needs explicit reload if edited.
+
+`/metrics` uses a private Prometheus registry with bounded labels; `/debug/ingestion` exposes counters and at most 2048 batch samples. This is internal self-monitoring, not user OTLP metric ingestion. An optional isolated benchmark receiver uses 4320/8083 and CPU/memory limits; the main pipeline remains unchanged.
 
 ## Query interpretation
 
@@ -71,4 +80,4 @@ See ADR 0003 for content equivalence, deterministic duplicate selection, cycle-e
 
 ## Planned next step
 
-Session 4 will study bounded asynchronous ingestion, batching and backpressure. No new ingestion queue, worker system or delivery guarantee is implemented here. Session 3 evidence is in `docs/engineering-journal/session-03.md`; prior journals remain unchanged historical records.
+Session 5 will add the trace explorer/waterfall UI. No frontend has been started. Session 4's real measurements/fault evidence are in its journal and benchmark report; all delivery limitations remain explicit.
