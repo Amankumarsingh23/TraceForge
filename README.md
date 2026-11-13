@@ -1,6 +1,63 @@
-# TraceForge — Session 5
+# TraceForge — Session 6
 
-A local end-to-end trace explorer: gateway → payment → Collector → bounded Go admission/batching → ClickHouse → Go query API → Next.js waterfall and span inspector. Exports still wait for confirmed database writes. Detail reconstructs observed spans with duplicate, orphan, cycle and timing diagnostics. Internal ingestion metrics and a synthetic OTLP load generator are available. PostgreSQL remains provisioned without an application schema. User OTLP logs/metrics ingestion and AgentOps evaluation remain planned.
+A local trace-and-log investigation tool: gateway/payment → Collector → independently bounded Go trace/log writers → ClickHouse → Go query APIs → Next.js waterfall, log search and span correlation. Backend exports wait for confirmed writes. Trace diagnostics remain explicit; log rows preserve genuine repeats and replays. PostgreSQL has no application schema. OTLP metrics ingestion and AgentOps evaluation remain planned.
+
+## Session 6: structured logs and exact correlation
+
+The demo uses `slog` → `otelslog` 0.21.0 → log SDK 1.47.0 → OTLP/gRPC exporter 0.23.0, compatible with the existing pinned tracing stack. Both signals share service/version/environment resources. Context-aware logs describe checkout start/validation, payment start, controlled delay, failure and completion; inner operations carry their actual active span IDs. Startup is standalone. SDK buffering is capped at 512 records, 128/export, 1s interval and 3s export deadlines; shutdown flush is bounded. Constructing an exporter or printing a message does not prove persistence.
+
+Upgrade without replacing `.env` or volumes. Restart Collector to reload the bound configuration; its separate log exporter has 64 queued requests, one consumer and finite 60s retries. It does not emit detailed log payload debug output. The trace pipeline is preserved.
+
+```powershell
+# Repository root, Go on PATH
+docker compose config --quiet
+docker compose up -d --build --wait --wait-timeout 180
+docker compose restart otel-collector
+go build -o bin/shop-demo-session06.exe ./cmd/shop-demo
+.\scripts\restart-demo.ps1
+```
+
+The restart helper only stops known demo executables inside this checkout's `bin/`, refuses other port owners and starts hidden loopback services. If Windows prevents rebuilding the running executable, stop those demo processes first or use the `go run ./cmd/shop-demo ...` terminals below. Logs/PIDs stay under ignored artifacts. Use synthetic inputs only.
+
+Open [log search](http://127.0.0.1:3000/logs), or select a waterfall span and inspect **Correlated logs**. Trace scope includes trace-only records; selected-span scope matches both IDs. Correlation uses an explicit last-24h effective-time window and refreshes for late arrivals. General search defaults to one hour and keeps applied absolute bounds until changed/cleared. An empty window does not prove no logs exist. Unobserved trace links lead to an honest 404; no matching span is fabricated.
+
+```powershell
+$checkout = Invoke-RestMethod 'http://localhost:8080/checkout?fail=true'
+$traceId = $checkout.trace_id
+# Poll after SDK/Collector batching; HTTP completion alone is not storage proof.
+Invoke-RestMethod "http://localhost:8082/api/v1/traces/$traceId/logs" | ConvertTo-Json -Depth 25
+$spanId = 'ACTUAL_PAYMENT_SPAN_ID' # copy payment.process from trace detail
+Invoke-RestMethod "http://localhost:8082/api/v1/traces/$traceId/logs?span_id=$spanId" | ConvertTo-Json -Depth 25
+Invoke-RestMethod 'http://localhost:8082/api/v1/logs?service=payment&min_severity=17&text=payment&limit=20' | ConvertTo-Json -Depth 25
+```
+
+Log endpoints accept `from`/`to` UTC RFC3339Nano (≤24h), service, `min_severity` 0–24, optional trace ID, span ID requiring trace ID, case-sensitive literal `text` (≤256 UTF-8 bytes), page size 1–100 and opaque cursor. Path/query trace IDs must agree. Ordering is `effective_time DESC, log_id DESC`; cursors bind all filters and exact nanoseconds. Pages are non-snapshot. Responses contain physical `logs`, `next_cursor`, actual bounds and `consistency=non_snapshot_raw_rows`. Errors are structured/sanitized. No SQL, regex or custom query language is accepted.
+
+Migration 0002 adds `traceforge.logs`, sorted by effective time/log ID and partitioned monthly. Each observation gets a random storage-row identity; optional source `log.record.uid` stays separate. There is no span foreign key or event deduplication: three identical events stay three rows and replay adds rows. Typed protobuf JSON retains type tags, int64 strings, bytes and supported metadata. Optional event/observed times remain null; effective ordering prefers event, observed, then explicitly labeled receiver-ingestion fallback. API times are precise strings; frontend offsets use BigInt.
+
+Log budgets are independent of traces: 32 queued/normalizing slots, 16 handlers, 64 owned jobs, 8192 reserved records, 64MiB conservative payload units, one writer, 256-record target/50ms assembly wait, 50ms admission and 3s write/5s export limits. Inspect `/debug/log-ingestion` and `/metrics/logs`; use exposed `--log-*` flags for local tuning. These payload units are not RSS, and database/CPU/network can still contend. Full/partial acknowledgments wait for the valid subset's synchronous write. Crashes, expired retries, cancellations and ambiguous writes can still cause loss/duplicates.
+
+Known sensitive keys are recursively redacted before insertion, including log/resource/scope attributes and nested body maps/arrays. Recognized free-form secret patterns and URL credentials/sensitive query fields are sanitized. Binary values under nonsensitive keys remain opaque. This bounded policy can miss confidential data and over-redact; it is not comprehensive DLP. Raw payloads/driver details are not printed on rejection. Do not send real secrets or customer data.
+
+### Verify Session 6
+
+```powershell
+go test ./...
+go vet ./...
+go build ./...
+.\scripts\session06-smoke.ps1
+docker buildx build --target verify --output=type=cacheonly .
+# In web/, with a built UI running in another terminal:
+npm run lint
+npm run typecheck
+npm test
+npm run build
+$env:TRACEFORGE_BROWSER_OUTAGE = '1'
+npm run test:browser
+Remove-Item Env:TRACEFORGE_BROWSER_OUTAGE
+```
+
+The smoke script writes actual `artifacts/session06/demo.json`/`fixtures.json` and restores its controlled DB outage in `finally`; `-SkipDatabaseFailure` omits that experiment. Browser regressions also need Session 5's `demo-evidence.json`; generate it once with `scripts/session05-demo.ps1` if absent. Do not run setup and browser checks concurrently. Synthetic-secret tests assert removal in actual SQL/API data. Exact counts, IDs, screenshots and limitations are in [the Session 6 journal](docs/engineering-journal/session-06.md); design decisions are in [ADR 0006](docs/adr/0006-log-identity-storage-and-correlation.md).
 
 ## Open the trace explorer
 
@@ -430,4 +487,4 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Database unhealthy: inspect `docker compose logs clickhouse postgres`; verify credentials match existing volumes.
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
-See `ARCHITECTURE.md`, ADRs 0004/0005, the failure model and the Session 4/5 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Session 6 logs/correlation have not begun.
+See `ARCHITECTURE.md`, ADRs 0004–0006, the failure model and the Session 4–6 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Session 7 AgentOps has not begun.

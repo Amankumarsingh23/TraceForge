@@ -14,6 +14,9 @@ import (
 //go:embed migrations/0001_spans.sql
 var Migration string
 
+//go:embed migrations/0002_logs.sql
+var LogMigration string
+
 type Store struct{ Conn driver.Conn }
 
 // Open uses existing local credentials, never a DSN containing a password.
@@ -54,6 +57,9 @@ func Open(ctx context.Context) (*Store, error) {
 func (s *Store) Migrate(ctx context.Context) error {
 	if err := s.Conn.Exec(ctx, Migration); err != nil {
 		return errors.New("ClickHouse migration 0001 failed; check database permissions and schema")
+	}
+	if err := s.Conn.Exec(ctx, LogMigration); err != nil {
+		return errors.New("ClickHouse migration 0002 failed; check database permissions and schema")
 	}
 	return nil
 }

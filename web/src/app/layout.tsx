@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Navigation } from "../components/navigation";
 import "./globals.css";
 export const metadata: Metadata = {
   title: "TraceForge · Trace explorer",
@@ -15,9 +16,7 @@ export default function RootLayout({
           <Link href="/traces" className="brand">
             <span className="brand-mark">TF</span>TraceForge
           </Link>
-          <nav aria-label="Main navigation">
-            <Link href="/traces">Trace explorer</Link>
-          </nav>
+          <Navigation />
           <span className="local-tag">
             <i /> Local development
           </span>

@@ -4,10 +4,8 @@ package telemetry
 import (
 	"context"
 	"fmt"
-	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
 	"go.opentelemetry.io/otel/propagation"
-	"go.opentelemetry.io/otel/sdk/resource"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	"net/url"
 )
@@ -30,6 +28,6 @@ func NewProvider(ctx context.Context, service, endpoint string) (*sdktrace.Trace
 	if err != nil {
 		return nil, fmt.Errorf("create OTLP exporter: %w", err)
 	}
-	res := resource.NewSchemaless(attribute.String("service.name", service), attribute.String("service.version", "0.1.0"), attribute.String("deployment.environment.name", "local"))
+	res := serviceResource(service)
 	return sdktrace.NewTracerProvider(sdktrace.WithResource(res), sdktrace.WithSampler(sdktrace.AlwaysSample()), sdktrace.WithBatcher(exporter)), nil
 }

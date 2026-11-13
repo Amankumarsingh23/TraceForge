@@ -20,6 +20,20 @@ exporters:
       max_elapsed_time: 60s
   debug:
     verbosity: detailed
+  otlp/traceforge_logs:
+    endpoint: traceforge-server:4319
+    tls:
+      insecure: true
+    timeout: 6s
+    sending_queue:
+      enabled: true
+      num_consumers: 1
+      queue_size: 64
+    retry_on_failure:
+      enabled: true
+      initial_interval: 1s
+      max_interval: 5s
+      max_elapsed_time: 60s
 service:
   telemetry:
     logs:
@@ -28,3 +42,6 @@ service:
     traces:
       receivers: [otlp]
       exporters: [debug, otlp/traceforge]
+    logs:
+      receivers: [otlp]
+      exporters: [otlp/traceforge_logs]

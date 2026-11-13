@@ -10,6 +10,7 @@ import (
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
 	"io"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -45,7 +46,14 @@ func options(tp trace.TracerProvider) []otelhttp.Option {
 	return []otelhttp.Option{otelhttp.WithTracerProvider(tp), otelhttp.WithPropagators(telemetry.Propagator())}
 }
 
-func Payment(tp trace.TracerProvider) http.Handler {
+func demoLogger(loggers []*slog.Logger) *slog.Logger {
+	if len(loggers) > 0 && loggers[0] != nil {
+		return loggers[0]
+	}
+	return slog.New(slog.NewTextHandler(io.Discard, nil))
+}
+func Payment(tp trace.TracerProvider, loggers ...*slog.Logger) http.Handler {
+	logger := demoLogger(loggers)
 	tracer := tp.Tracer("traceforge/demo")
 	mux := http.NewServeMux()
 	mux.Handle("GET /charge", otelhttp.NewHandler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -56,28 +64,36 @@ func Payment(tp trace.TracerProvider) http.Handler {
 		}
 		ctx, span := tracer.Start(r.Context(), "payment.process", trace.WithAttributes(attribute.String("payment.provider", "synthetic")))
 		defer span.End()
+		logger.InfoContext(ctx, "payment started", "payment.provider", "synthetic")
+		if delay > 0 {
+			logger.WarnContext(ctx, "controlled payment delay", "delay_ms", delay.Milliseconds())
+		}
 		timer := time.NewTimer(delay)
 		defer timer.Stop()
 		select {
 		case <-ctx.Done():
+			logger.WarnContext(ctx, "payment canceled", "error_type", "request_canceled")
 			span.RecordError(ctx.Err())
 			span.SetStatus(codes.Error, "request canceled")
 			return
 		case <-timer.C:
 		}
 		if fail {
+			logger.ErrorContext(ctx, "payment failure", "error_type", "synthetic_provider_failure", "payment.provider", "synthetic")
 			err := errors.New("synthetic payment failure")
 			span.RecordError(err)
 			span.SetStatus(codes.Error, err.Error())
 			respond(w, r, http.StatusServiceUnavailable, "payment_failed")
 			return
 		}
+		logger.InfoContext(ctx, "payment completion", "payment.provider", "synthetic")
 		respond(w, r, 200, "ok")
 	}), "GET /charge", options(tp)...))
 	return mux
 }
 
-func Gateway(tp trace.TracerProvider, paymentURL string, transport http.RoundTripper) (http.Handler, error) {
+func Gateway(tp trace.TracerProvider, paymentURL string, transport http.RoundTripper, loggers ...*slog.Logger) (http.Handler, error) {
+	logger := demoLogger(loggers)
 	u, err := url.Parse(paymentURL)
 	if err != nil || u == nil || u.Scheme != "http" || u.Host == "" || u.User != nil || u.RawQuery != "" || u.Fragment != "" || (u.Path != "" && u.Path != "/") {
 		return nil, fmt.Errorf("payment URL must be an http://host:port origin")
@@ -95,8 +111,10 @@ func Gateway(tp trace.TracerProvider, paymentURL string, transport http.RoundTri
 			respond(w, r, 400, err.Error())
 			return
 		}
-		_, validation := tracer.Start(r.Context(), "checkout.validate")
+		logger.InfoContext(r.Context(), "checkout started", "checkout.synthetic", true)
+		validationCtx, validation := tracer.Start(r.Context(), "checkout.validate")
 		validation.SetAttributes(attribute.Bool("checkout.synthetic", true))
+		logger.InfoContext(validationCtx, "checkout validation", "checkout.synthetic", true)
 		validation.End()
 		// The outgoing client span is a sibling of checkout.validate.
 		target := *u
@@ -116,9 +134,11 @@ func Gateway(tp trace.TracerProvider, paymentURL string, transport http.RoundTri
 		defer res.Body.Close()
 		_, err = io.Copy(io.Discard, io.LimitReader(res.Body, 4096))
 		if err != nil || res.StatusCode != 200 {
+			logger.ErrorContext(r.Context(), "checkout payment failed", "error_type", "payment_call_failed")
 			gatewayError(w, r)
 			return
 		}
+		logger.InfoContext(r.Context(), "checkout completion", "checkout.synthetic", true)
 		respond(w, r, 200, "ok")
 	}), "GET /checkout", options(tp)...))
 	return mux, nil

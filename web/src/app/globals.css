@@ -849,3 +849,141 @@ footer {
     height: 100%;
   }
 }
+.log-filter-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.3fr 1fr 1fr;
+  gap: 16px;
+}
+.log-panel {
+  margin-top: 24px;
+}
+.log-record {
+  border-bottom: 1px solid var(--line);
+}
+.log-record > summary {
+  display: grid;
+  grid-template-columns: 95px 110px minmax(0, 1fr) 265px;
+  gap: 14px;
+  align-items: center;
+  padding: 17px 20px;
+  font-weight: 400;
+  list-style: revert;
+}
+.log-service {
+  font-size: 11px;
+  color: var(--muted);
+}
+.log-message {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  max-height: 80px;
+  overflow: auto;
+}
+.log-time {
+  font-size: 10px;
+  color: var(--muted);
+}
+.log-content {
+  padding: 10px 24px 24px;
+  background: #fafbfd;
+}
+.log-content dl {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  font-size: 11px;
+  gap: 9px;
+}
+.log-content dt {
+  color: var(--muted);
+}
+.log-content dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.log-content pre {
+  max-height: 250px;
+}
+.log-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--muted);
+  padding: 10px 0;
+}
+.correlation-context {
+  font-size: 11px;
+  color: var(--muted);
+  padding: 0 20px;
+  overflow-wrap: anywhere;
+}
+.topbar nav {
+  display: flex;
+  gap: 24px;
+}
+.log-panel .panel-heading {
+  flex-wrap: wrap;
+}
+.log-panel .button-group {
+  flex-wrap: wrap;
+  white-space: normal;
+}
+@media (max-width: 900px) {
+  .log-filter-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .log-record > summary {
+    grid-template-columns: 90px 1fr;
+  }
+  .log-message,
+  .log-time {
+    grid-column: 1/-1;
+  }
+  .log-content dl {
+    grid-template-columns: 1fr;
+  }
+  .log-content dd {
+    margin-bottom: 8px;
+  }
+}
+@media (max-width: 650px) {
+  .log-filter-grid {
+    grid-template-columns: 1fr;
+  }
+  .topbar {
+    gap: 12px;
+  }
+  .topbar nav {
+    gap: 14px;
+  }
+  .topbar nav a {
+    font-size: 11px;
+  }
+  .brand {
+    font-size: 18px;
+  }
+}
+.topbar nav a {
+  border-bottom-color: transparent;
+}
+.topbar nav a[aria-current="page"] {
+  border-bottom-color: var(--accent);
+}
+.log-filter-grid input,
+.log-filter-grid select {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.log-record > summary:hover {
+  background: #f4f7fd;
+}
+.log-record[open] > summary {
+  background: #eef4ff;
+}
+.log-message::before {
+  content: "▸ ";
+  color: var(--muted);
+}
+.log-record[open] > summary .log-message::before {
+  content: "▾ ";
+}

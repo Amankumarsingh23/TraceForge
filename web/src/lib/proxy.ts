@@ -78,6 +78,20 @@ export async function proxyTrace(
   } catch (e) {
     return error(400, "invalid_trace_query", (e as Error).message);
   }
+  return forwardTelemetry(
+    request,
+    "/api/v1/traces" + (id === undefined ? "" : `/${id}`),
+    options,
+  );
+}
+export async function forwardTelemetry(
+  request: Request,
+  path: string,
+  options: { origin?: string; transport?: typeof fetch } = {},
+) {
+  if (!/^\/api\/v1\/(?:logs|traces(?:\/[a-f0-9]{32}(?:\/logs)?)?)$/.test(path))
+    return error(400, "invalid_api_path", "Unsupported telemetry API path.");
+  const query = new URL(request.url).searchParams;
   let origin: URL;
   try {
     origin = new URL(
@@ -98,10 +112,10 @@ export async function proxyTrace(
     return error(
       503,
       "backend_configuration",
-      "The trace API origin is not configured correctly.",
+      "The telemetry API origin is not configured correctly.",
     );
   }
-  const path = "/api/v1/traces" + (id === undefined ? "" : `/${id}`);
+
   const upstream = new URL(path, origin);
   upstream.search = query.toString();
   const signal = AbortSignal.any([request.signal, AbortSignal.timeout(5000)]);
@@ -130,7 +144,7 @@ export async function proxyTrace(
         return error(
           413,
           "trace_too_large",
-          "Trace exceeds the supported response size.",
+          "Telemetry exceeds the supported response size.",
         );
       }
       chunks.push(value);
@@ -153,12 +167,12 @@ export async function proxyTrace(
       ? error(
           504,
           "query_timeout",
-          "The trace API request timed out or was canceled.",
+          "The telemetry API request timed out or was canceled.",
         )
       : error(
           503,
           "backend_unavailable",
-          "The trace API is unavailable. Check the backend and retry.",
+          "The telemetry API is unavailable. Check the backend and retry.",
         );
   }
 }

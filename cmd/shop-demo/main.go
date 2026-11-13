@@ -43,6 +43,19 @@ func run() error {
 	if err != nil {
 		return err
 	}
+	lp, logger, err := telemetry.NewLogProvider(context.Background(), *service, endpoint)
+	if err != nil {
+		_ = tp.Shutdown(context.Background())
+		return err
+	}
+	defer func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if lp.Shutdown(ctx) != nil {
+			log.Print("logging shutdown failed; buffered log delivery is not confirmed")
+		}
+	}()
+	logger.InfoContext(context.Background(), "service startup", "service.role", *service)
 	defer func() {
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
@@ -50,9 +63,9 @@ func run() error {
 			log.Printf("tracing shutdown failed: %v", err)
 		}
 	}()
-	var handler http.Handler = demo.Payment(tp)
+	var handler http.Handler = demo.Payment(tp, logger)
 	if *service == "gateway" {
-		handler, err = demo.Gateway(tp, *paymentURL, nil)
+		handler, err = demo.Gateway(tp, *paymentURL, nil, logger)
 		if err != nil {
 			return err
 		}

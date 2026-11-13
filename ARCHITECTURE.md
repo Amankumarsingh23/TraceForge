@@ -1,4 +1,4 @@
-# Session 5 architecture
+# Session 6 architecture
 
 ```mermaid
 flowchart LR
@@ -8,6 +8,10 @@ flowchart LR
     payment -. OTLP gRPC .-> collector
     collector --> debug[Detailed debug output]
     collector -->|OTLP gRPC gzip :4319| receiver[Go TraceService receiver]
+    collector -->|Separate bounded log exporter :4319| logreceiver[Go LogsService receiver]
+    logreceiver --> logqueue[Independent bounded log jobs]
+    logqueue --> logwriter[Fixed log writer / size-time flush]
+    logwriter --> logstore[ClickHouse logs / time-first MergeTree]
     receiver --> admission[Bounded admission and payload reservations]
     admission --> queue[64-slot queue]
     queue --> workers[Fixed size/time batch workers]
@@ -17,13 +21,15 @@ flowchart LR
     caller[Local engineer] -->|Loopback :3000| ui[Next.js trace explorer]
     ui --> proxy[Narrow same-origin trace routes]
     proxy -->|HTTP :8082| api[Go trace query API]
+    proxy --> logapi[Bounded Go log search/correlation API]
+    logapi --> logstore
     api -->|Bounded parameterized reads| ch
     api --> graph[Pure read-time reconstruction]
     health[HTTP :8082 healthz / readyz] --> receiver
     pg[PostgreSQL: provisioned, no app schema]
 ```
 
-Gateway/payment, Collector forwarding/debug output, the official OTLP/gRPC receiver, normalization/redaction, ClickHouse span persistence, dynamic health endpoints, trace detail/discovery APIs and the Next.js trace explorer are implemented. Reconstruction handles duplicates, conflicting versions, orphans, roots, cycles and timing anomalies. PostgreSQL remains provisioned without an application schema. User logs/metrics ingestion and the RAG runner remain planned.
+Gateway/payment, Collector forwarding, official trace/log OTLP services, independently bounded persistence, redaction, health, trace reconstruction/querying, log search/correlation and the Next.js UI are implemented. Trace diagnostics remain explicit. Detailed log debug export is disabled; the trace debug path remains. PostgreSQL has no application schema. OTLP metrics ingestion and AgentOps/RAG remain planned.
 
 ## Request and span lifecycle
 
@@ -90,4 +96,14 @@ The waterfall iteratively traverses the supplied forest with visited-ID guards, 
 
 ## Planned next step
 
-Session 6 will introduce structured logs and trace correlation. No log ingestion/viewer, metrics dashboard, service map or AgentOps/RAG feature has been started. Session 4's measured evidence and delivery limits still apply; Session 5 adds a verified local investigation UI.
+Session 7 will introduce LLM/agent observability. No metrics ingestion/dashboard, service map, alerting, durable queue, enterprise auth or AgentOps/RAG implementation has been started. Session 4's delivery and measurement limits remain; Session 6 adds logs and exact ID correlation.
+
+## Log-specific path and invariants
+
+`slog` receives the active span context and uses an explicitly owned otelslog bridge/LoggerProvider/OTLP exporter. Shared resource construction aligns trace/log service identity. SDK queues are bounded and startup can be standalone. Collector uses a separate 64-request/one-consumer log exporter with finite retries; logs do not enter the detailed debug branch.
+
+`internal/logs` adapts the proven trace queue lifecycle with independent counters/budgets and one default writer. Preflight bounds nested values before protobuf cloning/sizing. Normalization sanitizes clones, preserves optional time/context, type tags, resource/scope metadata and a generated row ID. Source-event identity and trace/span correlation are separate. Genuine/replayed messages remain physical rows; no existing trace/span is required. Both engines drain concurrently before shared database-pool closure. Separate queues are not durable storage or total infrastructure isolation.
+
+Migration 0002 sorts by `(effective_time, log_id)`; event/observed DateTime64(9) columns are nullable. Ordering uses event time, observed time or labeled ingestion fallback without inventing source time. The API emits precise RFC3339Nano strings and typed protobuf JSON. Bounded parameterized scans support service/severity/context/literal body filters. Two active log queries, deadlines, read/payload limits and filter-bound keyset cursors complement the trace limits. Pagination is non-snapshot.
+
+`/logs` and correlated-log panels use only narrow same-origin Next routes. Shared forwarding preserves status/bytes, cancellation and bounds without browser-supplied destinations or credentials. Span filters bind both IDs; trace scope includes trace-only records. Missing trace links show 404; timing proximity never establishes a join. React escapes text and BigInt retains relative precision. Correlation's last-24h bounds, refresh and unknown completeness are explicit. See ADR 0006 for exact identity, privacy and delivery policy.

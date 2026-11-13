@@ -83,6 +83,12 @@ func safeString(s string) string {
 // attrs validates recursively, with a total nested item budget per attribute set.
 // It only operates on cloned messages so the incoming request is never mutated.
 func attrs(kvs []*common.KeyValue) error { budget := 256; return sanitizeAttrs(kvs, 0, &budget) }
+
+// SanitizeAttributes and SanitizeValue apply the existing bounded typed-value
+// policy to caller-owned clones. Log ingestion adds its free-form text policy.
+func SanitizeAttributes(kvs []*common.KeyValue) error { return attrs(kvs) }
+func SanitizeValue(v *common.AnyValue) error          { budget := 256; return sanitizeValue(v, 0, &budget) }
+func SanitizeText(s string) string                    { return safeString(s) }
 func sanitizeAttrs(kvs []*common.KeyValue, depth int, budget *int) error {
 	if depth > 8 {
 		return errors.New("attribute nesting limit")

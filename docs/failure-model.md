@@ -1,6 +1,18 @@
-# TraceForge failure model — through Session 4
+# TraceForge failure model — through Session 6
 
 Success means the receiver observed ClickHouse's synchronous insert confirmation for that export's accepted rows. It does not mean replicated/power-loss-safe storage, exactly-once delivery, or unconditional eventual delivery. `async_insert=0` and raw MergeTree rows remain in use; `insert_deduplicate=0` keeps replay behavior explicit.
+
+## Log signal and correlation additions
+
+The same acknowledgment boundary now applies to LogsService. Valid subsets must persist before a partial response reports the exact rejected record count; database failure returns retryable Unavailable without a success/partial acknowledgment. Empty exports do not write. Log and trace budgets are independent, while CPU/network/database connections remain shared. SDK acceptance and Collector queue admission precede backend persistence and cannot prove it.
+
+The SDK can drop logs when its 512-record memory queue is full; its export deadlines/shutdown are bounded. Collector logs have a separate 64-request memory queue, one consumer, finite retries and no detailed raw log debug export. Receiver logs have bounded owned jobs/records/payload and a fixed writer. Crashes/queue overflow/retry expiry can lose records. Canceled/failed exports may still have persisted rows; retries can add duplicates. Generated storage-row IDs and optional source UIDs do not establish exactly-once delivery. Identical legitimate messages are never collapsed.
+
+Both engines drain concurrently on graceful shutdown under the existing bounded lifecycle. A deadline fails unresolved outcomes, cancels lifecycle writes and closes the shared pool; a noncooperating driver still depends on forced process exit. SIGKILL bypasses drain, and an active database write can have an unknown outcome. Deterministic log engine tests cover cancellation/final flush/timeout; existing live trace termination checks verify the shared server lifecycle. No durable log queue is claimed.
+
+Missing event/observed timestamps remain unknown. Effective time may use an explicit receiver-ingestion fallback; this is not recovered source timing. Clock skew can yield negative/out-of-span relative offsets. Trace/span IDs establish correlation, not timing proximity, service name or event identity. Standalone/trace-only records and logs arriving before spans remain valid. Search time windows/late arrivals/non-snapshot cursors can hide records until bounds are changed or pages refreshed; an empty window does not prove no logs exist.
+
+Log queries distinguish successful empty data from unavailable/canceled/oversized results. The UI uses explicit errors, deadlines and stale-response guards, and links to unavailable traces honestly return 404. Existing trace completeness remains unknown. Key/pattern redaction runs before insertion but is not DLP: unrecognized confidential text, binary values under nonsensitive keys and future/unknown metadata can escape semantic recognition. All use remains restricted synthetic local development without production auth/TLS/tenant isolation.
 
 | Failure/state | External behavior | Persistence possibilities |
 | --- | --- | --- |

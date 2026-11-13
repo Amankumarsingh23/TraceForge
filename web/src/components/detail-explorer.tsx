@@ -12,6 +12,7 @@ import { Diagnostics } from "./diagnostics";
 import { ErrorPanel } from "./error-panel";
 import { SpanInspector } from "./span-inspector";
 import { Waterfall } from "./waterfall";
+import { CorrelatedLogs } from "./correlated-logs";
 export function DetailExplorer({ traceId }: { traceId: string }) {
   const [revision, setRevision] = useState(0);
   return (
@@ -152,6 +153,12 @@ function DetailRequest({
             />
             <SpanInspector span={selected} clear={() => setSelected(null)} />
           </div>
+          <CorrelatedLogs
+            key={`${traceId}:${selected?.span_id ?? "trace"}`}
+            traceId={traceId}
+            spanId={selected?.span_id}
+            origin={envelope?.start_time}
+          />
         </>
       )}
     </>

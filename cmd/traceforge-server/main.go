@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	collectorlogs "go.opentelemetry.io/proto/otlp/collector/logs/v1"
 	collector "go.opentelemetry.io/proto/otlp/collector/trace/v1"
 	"golang.org/x/net/netutil"
 	"google.golang.org/grpc"
@@ -15,6 +16,7 @@ import (
 	"syscall"
 	"time"
 	"traceforge/internal/ingest"
+	"traceforge/internal/logs"
 	"traceforge/internal/queryapi"
 	"traceforge/internal/storage"
 )
@@ -29,6 +31,13 @@ func run() error {
 	maxPage := flag.Int("max-page-size", 100, "maximum search page size (1..200)")
 	queryTimeout := flag.Duration("query-timeout", 2*time.Second, "HTTP query timeout (up to 4s)")
 	ingestConfig := ingest.DefaultConfig()
+	logConfig := logs.DefaultConfig()
+	flag.IntVar(&logConfig.QueueRequests, "log-queue-requests", logConfig.QueueRequests, "independent log queued/normalizing slots")
+	flag.IntVar(&logConfig.InFlight, "log-max-inflight", logConfig.InFlight, "active log Export handlers")
+	flag.IntVar(&logConfig.BufferedRecords, "log-buffer-records", logConfig.BufferedRecords, "reserved log records")
+	flag.Int64Var(&logConfig.BufferedBytes, "log-buffer-bytes", logConfig.BufferedBytes, "conservative reserved log payload bytes")
+	flag.IntVar(&logConfig.BatchTarget, "log-batch-target", logConfig.BatchTarget, "target records per log write")
+	flag.DurationVar(&logConfig.BatchWait, "log-batch-wait", logConfig.BatchWait, "log assembly wait")
 	mode := flag.String("ingestion-mode", "batched", "batched or direct (one insert per request control)")
 	flag.IntVar(&ingestConfig.BatchTarget, "batch-target", ingestConfig.BatchTarget, "target spans per insert; whole requests stay intact")
 	flag.DurationVar(&ingestConfig.BatchWait, "batch-wait", ingestConfig.BatchWait, "oldest queued job's maximum batching wait")
@@ -61,6 +70,9 @@ func run() error {
 		return fmt.Errorf("ingestion-mode must be direct or batched")
 	}
 	if err := ingestConfig.Validate(); err != nil {
+		return err
+	}
+	if err := logConfig.Validate(); err != nil {
 		return err
 	}
 	if *drainTimeout <= 0 || *drainTimeout > 15*time.Second {
@@ -104,6 +116,15 @@ func run() error {
 	if err != nil {
 		return err
 	}
+	logServer, err := logs.NewConfiguredServer(store, logConfig)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		defer cancel()
+		_ = logServer.Shutdown(ctx)
+	}()
 	defer func() {
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 		defer cancel()
@@ -111,7 +132,13 @@ func run() error {
 	}()
 	grpcServer := grpc.NewServer(grpc.MaxRecvMsgSize(ingest.MaxMessageBytes), grpc.MaxConcurrentStreams(8), grpc.ConnectionTimeout(5*time.Second))
 	collector.RegisterTraceServiceServer(grpcServer, server)
+	collectorlogs.RegisterLogsServiceServer(grpcServer, logServer)
 	mux := http.NewServeMux()
+	logQueries := logs.NewQueryHandler(store)
+	mux.Handle("/api/v1/logs", logQueries)
+	mux.Handle("/api/v1/traces/{trace_id}/logs", logQueries)
+	mux.Handle("/debug/log-ingestion", logServer.HealthHandler())
+	mux.Handle("/metrics/logs", logServer.HealthHandler())
 	mux.Handle("/api/v1/", queries)
 	mux.Handle("/", server.HealthHandler())
 	httpServer := &http.Server{Handler: mux, ReadHeaderTimeout: 2 * time.Second, ReadTimeout: 3 * time.Second, WriteTimeout: 6 * time.Second, IdleTimeout: 15 * time.Second}
@@ -131,8 +158,13 @@ func run() error {
 		}
 	}
 	drainCtx, drainCancel := context.WithTimeout(context.Background(), *drainTimeout)
-	if err := server.Shutdown(drainCtx); err != nil {
-		log.Print("ingestion drain timed out; unresolved outcomes are failed/unknown")
+	drained := make(chan error, 2)
+	go func() { drained <- server.Shutdown(drainCtx) }()
+	go func() { drained <- logServer.Shutdown(drainCtx) }()
+	for range 2 {
+		if err := <-drained; err != nil {
+			log.Print("signal ingestion drain timed out; unresolved outcomes are failed/unknown")
+		}
 	}
 	drainCancel()
 	// Closing the pool also interrupts a forced drain's remaining database work.
@@ -140,6 +172,9 @@ func run() error {
 	waitCtx, waitCancel := context.WithTimeout(context.Background(), 2*time.Second)
 	if err := server.Wait(waitCtx); err != nil {
 		log.Print("workers did not exit before forced shutdown deadline")
+	}
+	if err := logServer.Wait(waitCtx); err != nil {
+		log.Print("log workers did not exit before forced shutdown deadline")
 	}
 	waitCancel()
 	done := make(chan struct{})
