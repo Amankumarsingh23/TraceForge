@@ -1,0 +1,778 @@
+{
+  "dataset_id": "support-eval",
+  "version": "support-eval-v1",
+  "corpus_version": "support-kb-v1",
+  "corpus_checksum": "7bdc152649f9067a2020e0dd9eb9e7e2c5d3cfabff6edbca43d71245286d876d",
+  "annotation_provenance": "independently authored before executing the application; author review only, no independent human calibration",
+  "facts": {
+    "refund_window": {
+      "alternatives": [
+        "30 days"
+      ],
+      "documents": [
+        "D01"
+      ],
+      "evidence_quote": "within 30 days of delivery"
+    },
+    "damage_report_window": {
+      "alternatives": [
+        "7 days"
+      ],
+      "documents": [
+        "D02"
+      ],
+      "evidence_quote": "Report the damage within 7 days"
+    },
+    "refund_processing": {
+      "alternatives": [
+        "five synthetic business days"
+      ],
+      "documents": [
+        "D07"
+      ],
+      "evidence_quote": "take five synthetic business days"
+    },
+    "packaging": {
+      "alternatives": [
+        "Keep original packaging"
+      ],
+      "documents": [
+        "D06"
+      ],
+      "evidence_quote": "Keep original packaging"
+    },
+    "payment_methods": {
+      "alternatives": [
+        "card and voucher"
+      ],
+      "documents": [
+        "D05"
+      ],
+      "evidence_quote": "card and voucher payment methods"
+    },
+    "cancellation": {
+      "alternatives": [
+        "processing order may be eligible for cancellation review"
+      ],
+      "documents": [
+        "D08"
+      ],
+      "evidence_quote": "processing order may be eligible for cancellation review"
+    },
+    "address_review": {
+      "alternatives": [
+        "address changes require a review before shipment"
+      ],
+      "documents": [
+        "D09"
+      ],
+      "evidence_quote": "address changes require a review before shipment"
+    },
+    "warranty": {
+      "alternatives": [
+        "manufacturing defects"
+      ],
+      "documents": [
+        "D10"
+      ],
+      "evidence_quote": "manufacturing defects"
+    },
+    "delivery_proof": {
+      "alternatives": [
+        "delivered status is not proof that the customer received the package"
+      ],
+      "documents": [
+        "D11"
+      ],
+      "evidence_quote": "delivered status is not proof that the customer received the package"
+    },
+    "tracking": {
+      "alternatives": [
+        "Use the order status lookup tool for the current stored status"
+      ],
+      "documents": [
+        "D03"
+      ],
+      "evidence_quote": "Use the order status lookup tool for the current stored status"
+    },
+    "delay": {
+      "alternatives": [
+        "delivery delay can occur while an order is in transit"
+      ],
+      "documents": [
+        "D04"
+      ],
+      "evidence_quote": "delivery delay can occur while an order is in transit"
+    },
+    "privacy": {
+      "alternatives": [
+        "Do not enter passwords, access credentials, personal addresses, or payment details"
+      ],
+      "documents": [
+        "D12"
+      ],
+      "evidence_quote": "Do not enter passwords, access credentials, personal addresses, or payment details"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "support-001",
+      "question": "What is the refund eligibility window?",
+      "relevant_document_ids": [
+        "D01"
+      ],
+      "expected_facts": [
+        "refund_window"
+      ],
+      "reference_answer": "30 days",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-002",
+      "question": "How many days after delivery are refunds available?",
+      "relevant_document_ids": [
+        "D01"
+      ],
+      "expected_facts": [
+        "refund_window"
+      ],
+      "reference_answer": "30 days",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-003",
+      "question": "When must damage be reported?",
+      "relevant_document_ids": [
+        "D02"
+      ],
+      "expected_facts": [
+        "damage_report_window"
+      ],
+      "reference_answer": "7 days",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-004",
+      "question": "I received a broken product. What is the reporting deadline?",
+      "relevant_document_ids": [
+        "D02"
+      ],
+      "expected_facts": [
+        "damage_report_window"
+      ],
+      "reference_answer": "7 days",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-005",
+      "question": "How long does refund processing take?",
+      "relevant_document_ids": [
+        "D07"
+      ],
+      "expected_facts": [
+        "refund_processing"
+      ],
+      "reference_answer": "five synthetic business days",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-006",
+      "question": "How many business days does refund review take after item checks?",
+      "relevant_document_ids": [
+        "D07"
+      ],
+      "expected_facts": [
+        "refund_processing"
+      ],
+      "reference_answer": "five synthetic business days",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-007",
+      "question": "What original packaging should I keep for a return?",
+      "relevant_document_ids": [
+        "D06"
+      ],
+      "expected_facts": [
+        "packaging"
+      ],
+      "reference_answer": "Keep original packaging",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-008",
+      "question": "Should damaged goods retain their original packaging?",
+      "relevant_document_ids": [
+        "D06"
+      ],
+      "expected_facts": [
+        "packaging"
+      ],
+      "reference_answer": "Keep original packaging",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-009",
+      "question": "Which payment methods are documented?",
+      "relevant_document_ids": [
+        "D05"
+      ],
+      "expected_facts": [
+        "payment_methods"
+      ],
+      "reference_answer": "card and voucher",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-010",
+      "question": "Does the synthetic store document card or voucher payment?",
+      "relevant_document_ids": [
+        "D05"
+      ],
+      "expected_facts": [
+        "payment_methods"
+      ],
+      "reference_answer": "card and voucher",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-011",
+      "question": "Can a processing order request cancellation review?",
+      "relevant_document_ids": [
+        "D08"
+      ],
+      "expected_facts": [
+        "cancellation"
+      ],
+      "reference_answer": "processing order may be eligible for cancellation review",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-012",
+      "question": "What cancellation option exists before an order is delivered?",
+      "relevant_document_ids": [
+        "D08"
+      ],
+      "expected_facts": [
+        "cancellation"
+      ],
+      "reference_answer": "processing order may be eligible for cancellation review",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-013",
+      "question": "What review applies to address changes before shipment?",
+      "relevant_document_ids": [
+        "D09"
+      ],
+      "expected_facts": [
+        "address_review"
+      ],
+      "reference_answer": "address changes require a review before shipment",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-014",
+      "question": "When must a delivery address update be reviewed?",
+      "relevant_document_ids": [
+        "D09"
+      ],
+      "expected_facts": [
+        "address_review"
+      ],
+      "reference_answer": "address changes require a review before shipment",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-015",
+      "question": "Which defects does warranty replacement explain?",
+      "relevant_document_ids": [
+        "D10"
+      ],
+      "expected_facts": [
+        "warranty"
+      ],
+      "reference_answer": "manufacturing defects",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-016",
+      "question": "Does warranty support cover manufacturing defects?",
+      "relevant_document_ids": [
+        "D10"
+      ],
+      "expected_facts": [
+        "warranty"
+      ],
+      "reference_answer": "manufacturing defects",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-017",
+      "question": "Is a delivered status proof that a missing package reached the customer?",
+      "relevant_document_ids": [
+        "D11"
+      ],
+      "expected_facts": [
+        "delivery_proof"
+      ],
+      "reference_answer": "delivered status is not proof that the customer received the package",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-018",
+      "question": "Can tracking marked delivered prove a customer received a package?",
+      "relevant_document_ids": [
+        "D11"
+      ],
+      "expected_facts": [
+        "delivery_proof"
+      ],
+      "reference_answer": "delivered status is not proof that the customer received the package",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-019",
+      "question": "How should synthetic delivery tracking get current stored status?",
+      "relevant_document_ids": [
+        "D03"
+      ],
+      "expected_facts": [
+        "tracking"
+      ],
+      "reference_answer": "Use the order status lookup tool for the current stored status",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-020",
+      "question": "Which lookup gives current stored tracking status?",
+      "relevant_document_ids": [
+        "D03"
+      ],
+      "expected_facts": [
+        "tracking"
+      ],
+      "reference_answer": "Use the order status lookup tool for the current stored status",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-021",
+      "question": "Can a delivery delay occur while in transit?",
+      "relevant_document_ids": [
+        "D04"
+      ],
+      "expected_facts": [
+        "delay"
+      ],
+      "reference_answer": "delivery delay can occur while an order is in transit",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-022",
+      "question": "What explains delayed deliveries in transit?",
+      "relevant_document_ids": [
+        "D04"
+      ],
+      "expected_facts": [
+        "delay"
+      ],
+      "reference_answer": "delivery delay can occur while an order is in transit",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-023",
+      "question": "What passwords and personal details must not be entered?",
+      "relevant_document_ids": [
+        "D12"
+      ],
+      "expected_facts": [
+        "privacy"
+      ],
+      "reference_answer": "Do not enter passwords, access credentials, personal addresses, or payment details",
+      "answerable": true,
+      "category": "single",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-024",
+      "question": "What privacy restrictions apply to access credentials and addresses?",
+      "relevant_document_ids": [
+        "D12"
+      ],
+      "expected_facts": [
+        "privacy"
+      ],
+      "reference_answer": "Do not enter passwords, access credentials, personal addresses, or payment details",
+      "answerable": true,
+      "category": "paraphrase",
+      "difficulty": "basic",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-025",
+      "question": "What is the refund window and damage reporting deadline?",
+      "relevant_document_ids": [
+        "D01",
+        "D02"
+      ],
+      "expected_facts": [
+        "refund_window",
+        "damage_report_window"
+      ],
+      "reference_answer": "30 days; 7 days",
+      "answerable": true,
+      "category": "multi",
+      "difficulty": "multi",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-026",
+      "question": "Explain refund eligibility and processing business days.",
+      "relevant_document_ids": [
+        "D01",
+        "D07"
+      ],
+      "expected_facts": [
+        "refund_window",
+        "refund_processing"
+      ],
+      "reference_answer": "30 days; five synthetic business days",
+      "answerable": true,
+      "category": "multi",
+      "difficulty": "multi",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-027",
+      "question": "For a damaged return, what deadline and packaging apply?",
+      "relevant_document_ids": [
+        "D02",
+        "D06"
+      ],
+      "expected_facts": [
+        "damage_report_window",
+        "packaging"
+      ],
+      "reference_answer": "7 days; Keep original packaging",
+      "answerable": true,
+      "category": "multi",
+      "difficulty": "multi",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-028",
+      "question": "Explain delivery delay in transit and proof of package receipt.",
+      "relevant_document_ids": [
+        "D04",
+        "D11"
+      ],
+      "expected_facts": [
+        "delay",
+        "delivery_proof"
+      ],
+      "reference_answer": "delivery delay can occur while an order is in transit; delivered status is not proof that the customer received the package",
+      "answerable": true,
+      "category": "multi",
+      "difficulty": "multi",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-029",
+      "question": "Explain cancellation review and address review before shipment.",
+      "relevant_document_ids": [
+        "D08",
+        "D09"
+      ],
+      "expected_facts": [
+        "cancellation",
+        "address_review"
+      ],
+      "reference_answer": "processing order may be eligible for cancellation review; address changes require a review before shipment",
+      "answerable": true,
+      "category": "multi",
+      "difficulty": "multi",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-030",
+      "question": "Give refund eligibility, damage reporting, and original packaging requirements.",
+      "relevant_document_ids": [
+        "D01",
+        "D02",
+        "D06"
+      ],
+      "expected_facts": [
+        "refund_window",
+        "damage_report_window",
+        "packaging"
+      ],
+      "reference_answer": "30 days; 7 days; Keep original packaging",
+      "answerable": true,
+      "category": "truncation",
+      "difficulty": "multi",
+      "citations_required": true,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-031",
+      "question": "What is the exact international customs fee?",
+      "relevant_document_ids": [],
+      "expected_facts": [],
+      "reference_answer": "Abstain and request clarification; corpus lacks requested evidence.",
+      "answerable": false,
+      "category": "missing_knowledge",
+      "difficulty": "basic",
+      "citations_required": false,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-032",
+      "question": "What is the CEO home telephone number?",
+      "relevant_document_ids": [],
+      "expected_facts": [],
+      "reference_answer": "Abstain and request clarification; corpus lacks requested evidence.",
+      "answerable": false,
+      "category": "missing_knowledge",
+      "difficulty": "basic",
+      "citations_required": false,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-033",
+      "question": "What does the unspecified policy mean for my situation?",
+      "relevant_document_ids": [],
+      "expected_facts": [],
+      "reference_answer": "Abstain and request clarification; corpus lacks requested evidence.",
+      "answerable": false,
+      "category": "ambiguous",
+      "difficulty": "basic",
+      "citations_required": false,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-034",
+      "question": "Which moon colony receives interstellar deliveries?",
+      "relevant_document_ids": [],
+      "expected_facts": [],
+      "reference_answer": "Abstain and request clarification; corpus lacks requested evidence.",
+      "answerable": false,
+      "category": "irrelevant",
+      "difficulty": "basic",
+      "citations_required": false,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    },
+    {
+      "case_id": "support-035",
+      "question": "Can you answer my vague request without a topic?",
+      "relevant_document_ids": [],
+      "expected_facts": [],
+      "reference_answer": "Abstain and request clarification; corpus lacks requested evidence.",
+      "answerable": false,
+      "category": "ambiguous",
+      "difficulty": "basic",
+      "citations_required": false,
+      "abstention_policy": "abstain_without_evidence",
+      "review_status": "author_reviewed",
+      "review_note": "Synthetic labels checked against quoted corpus evidence by implementation author; independent human review pending.",
+      "task_type": "document_rag"
+    }
+  ]
+}

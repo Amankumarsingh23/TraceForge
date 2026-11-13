@@ -15,6 +15,7 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	"traceforge/internal/evaluations"
 	"traceforge/internal/ingest"
 	"traceforge/internal/logs"
 	"traceforge/internal/queryapi"
@@ -134,6 +135,14 @@ func run() error {
 	collector.RegisterTraceServiceServer(grpcServer, server)
 	collectorlogs.RegisterLogsServiceServer(grpcServer, logServer)
 	mux := http.NewServeMux()
+	var evaluationRepo evaluations.Repository
+	if metadata, err := evaluations.Open(context.Background()); err == nil {
+		defer metadata.Close()
+		evaluationRepo = metadata
+	}
+	evaluationQueries := evaluations.NewHandler(evaluationRepo)
+	mux.Handle("/api/v1/evaluations", evaluationQueries)
+	mux.Handle("/api/v1/evaluations/", evaluationQueries)
 	logQueries := logs.NewQueryHandler(store)
 	mux.Handle("/api/v1/logs", logQueries)
 	mux.Handle("/api/v1/traces/{trace_id}/logs", logQueries)

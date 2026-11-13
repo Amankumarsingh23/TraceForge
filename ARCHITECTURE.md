@@ -1,4 +1,14 @@
-# Session 7 architecture
+# Session 8 architecture
+
+## Transactional RAG evaluation
+
+Versioned independently authored synthetic labels → bounded Python runner → actual HTTP agent execution → constrained exact-evidence scoring → PostgreSQL metadata/results → read-only Go evaluation APIs → focused Next run/case views → actual trace investigation. Application telemetry still goes only through existing Collector/ClickHouse paths; evaluation IDs link the stores without a cross-database foreign key or assumed trace visibility. The runner never supplies labels/expected answers to the application.
+
+The optional constrained fixture output is rendered from actual claim objects extracted from supplied document text. Evaluator source facts/value alternatives/evidence mappings are independent data. Exact rubric checks distinguish correct values, supplied grounding, required facts, citation existence/availability/support/coverage and abstention. Arbitrary free-form output is semantic-review pending; no natural-language entailment model or judge is claimed. Diagnostic transforms preserve original output and provenance. Default Session 7 free-form/tool behavior remains available.
+
+PostgreSQL migration 0001 defines version/checksum datasets/cases, frozen runs and unique transactional case results with JSONB judgments. Psycopg 3.3.9 writes; pgx/v5 5.13.0 reads using fixed local credentials/configuration, read-only sessions, four connections/query slots, 2s deadlines, SQL timeout, keyset pagination and body caps. A metadata outage degrades evaluation queries independently of ClickHouse trace/log readiness. Python request/SQL bounds and sequential execution cap evaluation work; no durable evaluator worker/resume platform is introduced. Interrupted state and missing telemetry remain explicit.
+
+Next adds `/evaluations`, run/case routes and a narrow same-origin GET proxy. It exposes frozen provenance, execution/scoring counts, macro metric numerators/denominators/coverage, expected evidence, actual output/IDs, claim/citation judgments, diagnostic labels and real trace links. Source content is reviewed synthetic metadata, not extra general telemetry. Production auth/tenant isolation/TLS and independent human calibration remain future requirements. See ADR 0008, metric/review docs and Session 8 journal; experiment comparisons and deployment gates remain Session 9.
 
 ## AgentOps execution and projection
 
@@ -43,7 +53,7 @@ flowchart LR
     pg[PostgreSQL: provisioned, no app schema]
 ```
 
-Gateway/payment, Collector forwarding, official trace/log OTLP services, independently bounded persistence, redaction, health, trace reconstruction/querying, log search/correlation and the Next.js UI are implemented. Trace diagnostics remain explicit. Detailed log debug export is disabled; the trace debug path remains. PostgreSQL has no application schema. OTLP metrics ingestion and AgentOps/RAG remain planned.
+Gateway/payment, Collector forwarding, official trace/log OTLP services, independently bounded persistence, redaction, health, trace reconstruction/querying, log search/correlation, AgentOps and the Next.js UI are implemented. Trace diagnostics remain explicit. Detailed log debug export is disabled; the trace debug path remains metadata-only for the Python application. PostgreSQL now stores Session 8 evaluation metadata/results. OTLP metrics ingestion remains planned.
 
 ## Request and span lifecycle
 
@@ -110,7 +120,7 @@ The waterfall iteratively traverses the supplied forest with visited-ID guards, 
 
 ## Planned next step
 
-Session 7 adds execution observability below. Session 8 will evaluate RAG quality; Session 9 will compare versions and add gates. No user metrics ingestion/dashboard, service map, alerting, durable queue or enterprise auth has been implemented. Session 4's delivery and measurement limits remain.
+Session 8 adds offline constrained RAG evaluation above; Session 9 will compare versions and add gates. No user metrics ingestion/dashboard, service map, alerting, durable queue or enterprise auth has been implemented. Session 4's delivery and measurement limits remain.
 
 ## Log-specific path and invariants
 

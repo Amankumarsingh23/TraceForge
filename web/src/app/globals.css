@@ -1000,3 +1000,10 @@ footer {
 .agent-operations td:first-child { min-width: 180px; }
 .agent-operations .mono { font-size: 11px; }
 .agent-panel details p { overflow-wrap: anywhere; }
+.evaluation-panel { margin:24px 0; padding:24px; overflow:hidden; }
+.evaluation-panel pre { white-space:pre-wrap; overflow-wrap:anywhere; max-height:500px; overflow:auto; padding:16px; background:#f5f7fb; }
+.evaluation-table { border-collapse:collapse; width:100%; min-width:600px; }
+.evaluation-table td,.evaluation-table th { text-align:left; vertical-align:top; padding:14px; border-bottom:1px solid #dbe3ee; }
+.evaluation-table small { display:block; margin-top:8px; }
+.evaluation-panel article { border-top:1px solid #dbe3ee; padding:18px 0; }
+@media(max-width:650px){.topbar {height:auto;min-height:72px;flex-wrap:wrap;padding-top:12px;gap:4px 20px;} .topbar nav{flex-basis:100%;flex-wrap:wrap;} .topbar nav a{padding:12px 2px;} .evaluation-panel{padding:16px;} }

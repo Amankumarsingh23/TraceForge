@@ -187,6 +187,34 @@ def test_http_bounds_and_parent_propagation(engine):
     assert http.parent.span_id == int("b" * 16, 16)
 
 
+def test_evaluation_request_metadata_context_and_no_label_input(engine):
+    with TestClient(create_app(engine[0])) as client:
+        response = client.post(
+            "/ask",
+            json={
+                "question": "refund eligibility window",
+                "top_k": 5,
+                "context_limit": 1,
+                "output_format": "structured",
+                "evaluation_run_id": "a" * 32,
+                "evaluation_case_id": "support-001",
+            },
+        )
+        assert response.status_code == 200
+        value = response.json()
+        assert value["structured_output"]["claims"] and len(value["context_document_ids"]) == 1
+        assert set(value["supplied_document_hashes"]) == set(value["context_document_ids"])
+        rejected = client.post(
+            "/ask", json={"question": "refund", "expected_facts": ["PRIVATE_LABEL"]}
+        )
+        assert rejected.status_code == 422 and "PRIVATE_LABEL" not in rejected.text
+    spans = engine[1].get_finished_spans()
+    retrieval = next(s for s in spans if s.name == "retrieval")
+    assert retrieval.attributes["traceforge.evaluation.run_id"] == "a" * 32
+    assert retrieval.attributes["traceforge.evaluation.case_id"] == "support-001"
+    assert not any("PRIVATE_LABEL" in str(s.attributes) for s in spans)
+
+
 @pytest.mark.asyncio
 @pytest.mark.parametrize(
     "status,kind,retryable",

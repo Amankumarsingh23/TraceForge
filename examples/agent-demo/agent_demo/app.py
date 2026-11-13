@@ -24,6 +24,10 @@ class Ask(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
     question: str = Field(min_length=1, max_length=1000)
     top_k: int = Field(default=4, ge=1, le=5)
+    context_limit: int = Field(default=2, ge=1, le=3)
+    output_format: Literal["text", "structured"] = "text"
+    evaluation_run_id: str | None = Field(default=None, pattern=r"^[a-f0-9]{32}$")
+    evaluation_case_id: str | None = Field(default=None, pattern=r"^[A-Za-z0-9_-]{1,64}$")
     scenario: Literal[
         "normal",
         "no_results",
@@ -124,7 +128,8 @@ def create_app(agent=None):
 
     @app.get("/healthz")
     async def health():
-        return {"status": "ready", "mode": app.state.agent.provider.mode}
+        return {"status": "ready", "mode": app.state.agent.provider.mode,
+                "provider":app.state.agent.provider.name,"requested_model":app.state.agent.provider.model}
 
     @app.post("/ask")
     async def ask(value: Ask, request: Request):
@@ -149,7 +154,23 @@ def create_app(agent=None):
                     value.max_model_calls, value.max_tool_calls, value.max_steps, value.max_attempts
                 )
                 result = await asyncio.wait_for(
-                    engine.run(value.question, run_id, value.top_k, value.scenario, limits),
+                    engine.run(
+                        value.question,
+                        run_id,
+                        value.top_k,
+                        value.scenario,
+                        limits,
+                        value.context_limit,
+                        value.output_format,
+                        {
+                            k: v
+                            for k, v in {
+                                "traceforge.evaluation.run_id": value.evaluation_run_id,
+                                "traceforge.evaluation.case_id": value.evaluation_case_id,
+                            }.items()
+                            if v
+                        },
+                    ),
                     timeout=20,
                 )
                 span.set_attribute("http.response.status_code", 200)

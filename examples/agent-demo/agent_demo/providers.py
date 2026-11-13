@@ -8,6 +8,7 @@ from urllib.parse import urlsplit
 import httpx
 
 from .accounting import Usage, normalize_usage
+from .constrained import CONTRACT, generate
 
 IDENTITY = re.compile(r"[A-Za-z0-9_.:/-]{1,128}")
 TOOL_SCHEMA = {
@@ -169,10 +170,15 @@ class FixtureProvider:
             )
         else:
             context = json.loads(messages[0]["content"].split("\nCONTEXT_JSON:\n", 1)[1])
-            content = "Fixture adapter (no live inference): " + (
-                context[0]["text"]
-                if context
-                else "No matching synthetic support documents were retrieved."
+            content = (
+                json.dumps(generate(question, context))
+                if CONTRACT in messages[0]["content"]
+                else "Fixture adapter (no live inference): "
+                + (
+                    context[0]["text"]
+                    if context
+                    else "No matching synthetic support documents were retrieved."
+                )
             )
         usage = (
             None

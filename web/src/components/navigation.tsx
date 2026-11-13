@@ -5,6 +5,7 @@ export function Navigation() {
   const path = usePathname();
   return (
     <nav aria-label="Main navigation">
+      <Link href="/evaluations" aria-current={path.startsWith("/evaluations") ? "page" : undefined}>Evaluations</Link>
       <Link
         href="/traces"
         aria-current={path.startsWith("/traces") ? "page" : undefined}

@@ -1,4 +1,33 @@
-# TraceForge — Session 7
+# TraceForge — Session 8
+
+## Session 8: trace-linked RAG evaluation
+
+The existing Python agent now supports an opt-in constrained synthetic output contract and context cap. A separate evaluation runner executes the actual `/ask` path, without sending relevance labels/reference facts to it. A versioned 35-case synthetic dataset (30 retrieval-eligible, five unanswerable) and 12 independent source facts provide exact retrieval and closed-domain quality checks. Results persist transactionally in PostgreSQL and link to actual ClickHouse traces through new bounded Go APIs and `/evaluations` views. These are fixture engineering measurements, not validated live-model quality or general semantic entailment.
+
+```powershell
+# Repository root; preserve existing .env and database volumes.
+docker compose up -d --build --wait --wait-timeout 180
+# In examples/agent-demo, install updated requirements.lock and start the fixture agent:
+cd examples/agent-demo
+.\.venv\Scripts\python.exe -m pip install -r requirements.lock
+.\.venv\Scripts\python.exe -m agent_demo
+```
+
+In another root terminal, run `.\scripts\session08-evaluate.ps1` for a baseline or `.\scripts\session08-evaluate.ps1 -Experiments` for the explicit K=1/3/5, context-loss, faulty-output, timeout, unavailable-lookup and deterministic-repeat diagnostics. The wrapper reads the existing PostgreSQL password into process environment without printing/rewriting it, restores environment/location, refuses a live server, and applies the versioned metadata migration through the runner. Direct CLI from `examples/agent-demo`: `python -m evaluation.runner --k 3 --context-limit 2 --report ../../artifacts/session08/baseline.json`; set `POSTGRES_PASSWORD` server-side first. No paid calls are made by default.
+
+The runner uses one sequential request at a time, at most one model call/attempt and no executable tools per document-only case, bounded HTTP/SQL/trace lookups, new run IDs and frozen hashes/configuration. `--case-id support-030` selects a diagnostic case. `--fault` identifies an explicit controlled transformation of the original actual output; both original and evaluated outputs are preserved. `--execution-failure timeout` injects a fixture failure; `--trace-unavailable` uses a deliberately unavailable local lookup while retaining the real trace identity. A result can persist before a trace is queryable. Source version/checksum and Git dirty state are recorded honestly.
+
+Measured baseline K=3/context=2: Recall 0.983333, Precision 0.400000, Hit 1.000000, MRR 0.966667 over 30 eligible/scored cases (five N/A); context/required-fact coverage 0.955556; constrained overall correctness 32/35. Groundedness and citation support were 1.0 over 30 applicable cases, while three answers remained incomplete. These scores are specific to deterministic synthetic generation and author-reviewed labels. Independent human review/calibration, live generation and judge verification remain pending. See the journal for all actual numerators, run IDs and failure/repeat results.
+
+Read-only endpoints: `GET /api/v1/evaluations`, `/{run_id}`, `/{run_id}/cases`, `/{run_id}/cases/{case_id}` under that prefix. Lists accept `limit` 1–50 and `after` cursor; defaults 25. Query deadlines, four slots/pool connections, read-only PostgreSQL sessions and 4MiB response cap apply. Missing traces do not block evaluation reads. PostgreSQL failures produce explicit evaluation errors while trace/log APIs retain their existing storage boundary. Credentials remain server-side; local Compose uses internal plaintext PostgreSQL and loopback host binding, not production tenant/auth/TLS enforcement.
+
+Start the existing `web` production build/server and open `/evaluations`, select a run/case, inspect expected facts versus actual supplied IDs, claim/citation judgments, numerator/denominator/coverage and actual trace navigation. N/A, pending and execution failures remain distinct from zero. The UI prominently identifies diagnostic transforms. Free-form output gets semantic-review pending, never fabricated quality scores.
+
+Checks: Python Ruff/pytest/pip check; opt in `TRACEFORGE_PG_TEST=1` with server-side PostgreSQL credentials for persistence tests. Go `go test ./cmd/... ./internal/...`, `go vet ./cmd/... ./internal/...`, `docker build --target verify -t traceforge-verify:s8 .`; PostgreSQL repository integration: `go test -tags integration ./internal/evaluations`. Existing Session 6/7 smoke scripts exercise prior storage/AgentOps paths; the Session 4 smoke covers isolated graceful/forced shutdown. Frontend lint/typecheck/tests/build and Playwright use real local SQL/API data; `TRACEFORGE_BROWSER_OUTAGE=1` enables controlled outage cases that restore services in finally.
+
+Live evaluation requires both CLI `--allow-live --allow-billable` and the separately configured authorized Session 7 live server. No live or judge calls were performed. Static synthetic inputs are the only default dataset; raw application content remains excluded from general telemetry. Initial labels have implementation-author review, not independent human calibration. No deployment gates, automatic promotion or cross-run comparison platform exists.
+
+Details: [metric formulas and edge policies](docs/evaluation/metric-definitions.md), [dataset/manual review rubric](docs/evaluation/dataset-and-rubric.md), [ADR 0008](docs/adr/0008-evaluation-provenance-and-postgres.md), [Session 8 evidence and five answers](docs/engineering-journal/session-08.md). Local `learning-notes/session-08-rag-evaluation.md` remains ignored and uncommitted.
 
 ## Session 7: AgentOps execution
 
@@ -56,7 +85,7 @@ Only after separately authorizing billing and starting that live server, run `py
 
 See [Session 7 evidence and five answers](docs/engineering-journal/session-07.md), [ADR 0007](docs/adr/0007-agent-attempt-accounting.md), and local ignored `learning-notes/session-07-agentops-execution.md`. Recall@K, MRR, groundedness and experiment gates remain Sessions 8–9.
 
-A local trace-and-log investigation tool: gateway/payment → Collector → independently bounded Go trace/log writers → ClickHouse → Go query APIs → Next.js waterfall, log search and span correlation. Backend exports wait for confirmed writes. Trace diagnostics remain explicit; log rows preserve genuine repeats and replays. PostgreSQL has no application schema. OTLP metrics ingestion and AgentOps evaluation remain planned.
+A local trace/log and AgentOps investigation tool: application → Collector → bounded Go writers → ClickHouse → query APIs → Next.js investigation, with Python evaluation metadata in PostgreSQL. Backend exports wait for confirmed writes. Trace completeness remains unknown; log rows preserve repeats/replays. OTLP metrics ingestion remains planned.
 
 ## Session 6: structured logs and exact correlation
 
@@ -213,7 +242,7 @@ docker compose exec -T clickhouse sh -c 'clickhouse-client --user traceforge --p
 docker compose exec -T postgres sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql -h 127.0.0.1 -U traceforge -d traceforge -v ON_ERROR_STOP=1 -c "SELECT 1"'
 ```
 
-Both should return 1. PostgreSQL's health check establishes readiness; its SQL command additionally verifies authenticated connectivity. The receiver creates ClickHouse's `traceforge.spans` table through migration 0001. PostgreSQL still has no application schema.
+Both should return 1. PostgreSQL's health check establishes readiness; its SQL command additionally verifies authenticated connectivity. The receiver creates ClickHouse's `traceforge.spans` table through migration 0001. Session 8's Python runner separately applies PostgreSQL evaluation migration 0001.
 
 ## Start or upgrade the backend
 
@@ -543,4 +572,4 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Database unhealthy: inspect `docker compose logs clickhouse postgres`; verify credentials match existing volumes.
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
-See `ARCHITECTURE.md`, ADRs 0004–0007, the failure model and Session 4–7 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Quality evaluation remains planned.
+See `ARCHITECTURE.md`, ADRs 0004–0008, the failure model and Session 4–8 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Session 8 constrained evaluation is implemented; live semantic review and Session 9 gates remain pending.

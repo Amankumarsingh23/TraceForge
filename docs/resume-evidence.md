@@ -1,6 +1,8 @@
 # Resume evidence
 
-Session 7 adds fixture-verified AgentOps execution and a bounded canonical attempt summary inside trace detail. Python/Collector/SQL/API/browser evidence, hypothetical pricing, replay invariance and source minimization are recorded in [its journal](engineering-journal/session-07.md). The real compatible adapter is implemented and mock-tested; live execution/billing and answer quality remain unverified. Do not describe deterministic fixture responses as live LLM inference or claim a RAG evaluator.
+Session 8 adds fixture-verified trace-linked RAG evaluation: 35 author-reviewed synthetic cases, exact retrieval/context metrics, constrained fact/citation/abstention judgments, transactional PostgreSQL persistence, bounded read-only Go APIs and focused Next run/case investigation. [Measured evidence and limitations](engineering-journal/session-08.md) include K sweeps, context truncation, seven explicit faulty-output transforms, execution/trace-lookup failures and deterministic repeat. Independent human calibration, semantic review of free-form live answers, LLM judging and live-model quality remain pending.
+
+The historical Session 7 checkpoint added fixture-verified AgentOps execution and canonical attempt summaries; it did not include evaluation. Its Python/Collector/SQL/API/browser evidence, hypothetical pricing, replay invariance and source minimization are recorded in [its journal](engineering-journal/session-07.md). The compatible live adapter remains mock-tested only. Session 8 adds the constrained evaluator above; neither milestone establishes live-model quality or actual billing.
 
 Claims must match recorded executions. Session 4 adds short, hardware/workload-specific local benchmark evidence; it does not establish universal or sustainable capacity.
 
@@ -27,7 +29,9 @@ Claims must match recorded executions. Session 4 adds short, hardware/workload-s
 | Python AgentOps execution instrumentation | IMPLEMENTED; FIXTURE VERIFIED | Actual BM25 over 12 docs, actual read-only tool, bounded loop, Python OTLP traces/logs through Collector/SQL/API/UI |
 | Canonical attempt usage and estimated cost | IMPLEMENTED AND VERIFIED LOCALLY | Versioned hypothetical rates, unknown coverage, decimal nano-USD, replay-invariant accounting; no AI-specific ingestion/table |
 | Live OpenAI-compatible adapter | IMPLEMENTED; MOCK TRANSPORT VERIFIED; LIVE PENDING | Explicit opt-in, bounded HTTPS requests, sanitized failures; no billable call or billing reconciliation |
-| RAG metrics, versioning, experiment comparisons and gates | PLANNED | Sessions 8–9 |
+| Versioned synthetic RAG evaluation and trace-linked results | IMPLEMENTED AND VERIFIED OFFLINE | Session 8: 35 cases/12 facts; actual retrieval/context measurements, constrained judgments, PostgreSQL constraints/transactions, SQL/API/browser/trace checks |
+| Independent human/LLM-judge calibrated live quality | PENDING | No live generation, paid judge calls, human annotations or agreement analysis |
+| Experiment comparisons and deployment gates | PLANNED | Session 9 |
 | Service graphs, metrics, SLOs, alerts and sampling | PLANNED | Sessions 10–13 |
 | Tenant isolation and production privacy/security hardening | PLANNED | Session 14, with controls introduced as needed earlier |
 | Reproducible scale benchmarks and final demonstrations | PLANNED | Session 15 |

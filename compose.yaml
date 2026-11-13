@@ -6,6 +6,8 @@ services:
       CLICKHOUSE_PROTOCOL: native
       CLICKHOUSE_USER: traceforge
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?Set CLICKHOUSE_PASSWORD in .env}
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
     ports:
       - "127.0.0.1:4319:4319"
       - "127.0.0.1:8082:8082"

@@ -1,14 +1,19 @@
 import asyncio
+import hashlib
 import json
 import re
+from contextvars import ContextVar
 from dataclasses import dataclass
 
 from opentelemetry.trace import SpanKind
 
 from .accounting import Pricing, Usage, estimate_nano
+from .constrained import CONTRACT, decode
 from .providers import ProviderFailure
 from .retrieval import DATA, PROMPT_VERSION, RETRIEVER_VERSION, Retriever
 from .telemetry import CONVENTION
+
+EVALUATION = ContextVar("evaluation", default={})
 
 
 class AgentFailure(Exception):
@@ -50,6 +55,7 @@ class Agent:
 
     def base(self, run_id, role):
         return {
+            **EVALUATION.get(),
             "traceforge.run.id": run_id,
             "traceforge.operation.kind": role,
             "traceforge.provider.mode": self.provider.mode,
@@ -93,7 +99,28 @@ class Agent:
             span.set_attribute("traceforge.cost.nano_units", cost)
         return cost
 
-    async def run(self, question, run_id, top_k=4, scenario="normal", limits=Limits()):
+    async def run(
+        self,
+        question,
+        run_id,
+        top_k=4,
+        scenario="normal",
+        limits=Limits(),
+        context_limit=2,
+        output_format="text",
+        evaluation=None,
+    ):
+        token = EVALUATION.set(evaluation or {})
+        try:
+            return await self._execute(
+                question, run_id, top_k, scenario, limits, context_limit, output_format
+            )
+        finally:
+            EVALUATION.reset(token)
+
+    async def _execute(
+        self, question, run_id, top_k, scenario, limits, context_limit, output_format
+    ):
         if (
             not 1 <= limits.model_calls <= 3
             or not 0 <= limits.tool_calls <= 2
@@ -106,7 +133,16 @@ class Agent:
         base = self.base(run_id, "agent") | {"gen_ai.operation.name": "invoke_agent"}
         with self.telemetry.span("invoke_agent support-agent", base) as agent_span:
             try:
-                return await self._run(question, run_id, top_k, scenario, limits, agent_span)
+                return await self._run(
+                    question,
+                    run_id,
+                    top_k,
+                    scenario,
+                    limits,
+                    agent_span,
+                    context_limit,
+                    output_format,
+                )
             except asyncio.CancelledError:
                 self.telemetry.fail(agent_span, "request_deadline_or_canceled")
                 self.telemetry.event(
@@ -122,7 +158,9 @@ class Agent:
                 self.telemetry.event("agent execution failed", run_id, "internal_error")
                 raise AgentFailure("internal_error") from None
 
-    async def _run(self, question, run_id, top_k, scenario, limits, agent_span):
+    async def _run(
+        self, question, run_id, top_k, scenario, limits, agent_span, context_limit, output_format
+    ):
         with self.telemetry.span(
             "retrieval",
             self.base(run_id, "retrieval")
@@ -135,7 +173,7 @@ class Agent:
             hits = self.retriever.search(
                 "zzzxqvnomatch" if scenario == "no_results" else question, top_k
             )
-            documents = self.retriever.supplied(hits)
+            documents = self.retriever.supplied(hits, context_limit)
             ids = [h.document.id for h in hits]
             context_ids = [d.id for d in documents]
             span.set_attributes(
@@ -152,6 +190,7 @@ class Agent:
             {
                 "role": "system",
                 "content": self.prompt
+                + ("\n" + CONTRACT if output_format == "structured" else "")
                 + "\nCONTEXT_JSON:\n"
                 + json.dumps([{"id": d.id, "title": d.title, "text": d.text} for d in documents]),
             },
@@ -346,5 +385,11 @@ class Agent:
                 "provider": self.provider.name,
                 "requested_model": self.provider.model,
                 "response_model": result.response_model,
+                "structured_output": decode(result.content)
+                if output_format == "structured"
+                else None,
+                "supplied_document_hashes": {
+                    d.id: hashlib.sha256(d.text.encode()).hexdigest() for d in documents
+                },
             }
         raise AgentFailure("max_model_calls_reached")
