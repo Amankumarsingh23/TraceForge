@@ -50,11 +50,11 @@ func NewHandler(repo Repository) http.Handler {
 			after := q.Get("after")
 			invalid := malformed || e != nil || limit < 1 || limit > 50 || run != "" && !runPattern.MatchString(run) || caseID != "" && !casePattern.MatchString(caseID)
 			for k, vs := range q {
-				if (k != "limit" && k != "after") || len(vs) != 1 || vs[0] == "" || kind == "run" || kind == "case" {
+				if (k != "limit" && k != "after") || len(vs) != 1 || vs[0] == "" || kind == "run" || kind == "case" || kind == "comparison" || kind == "decision" {
 					invalid = true
 				}
 			}
-			if kind == "runs" && after != "" && !runPattern.MatchString(after) || kind == "cases" && after != "" && !casePattern.MatchString(after) {
+			if (kind == "runs" || kind == "comparisons") && after != "" && !runPattern.MatchString(after) || kind == "experiments" && after != "" && !regexp.MustCompile(`^[a-f0-9]{64}$`).MatchString(after) || (kind == "cases" || kind == "comparison_cases") && after != "" && !casePattern.MatchString(after) {
 				invalid = true
 			}
 			if invalid {
@@ -104,5 +104,10 @@ func NewHandler(repo Repository) http.Handler {
 	mux.HandleFunc("/api/v1/evaluations/{run_id}", handle("run"))
 	mux.HandleFunc("/api/v1/evaluations/{run_id}/cases", handle("cases"))
 	mux.HandleFunc("/api/v1/evaluations/{run_id}/cases/{case_id}", handle("case"))
+	mux.HandleFunc("/api/v1/experiments", handle("experiments"))
+	mux.HandleFunc("/api/v1/comparisons", handle("comparisons"))
+	mux.HandleFunc("/api/v1/comparisons/{run_id}", handle("comparison"))
+	mux.HandleFunc("/api/v1/comparisons/{run_id}/cases", handle("comparison_cases"))
+	mux.HandleFunc("/api/v1/gates/{run_id}", handle("decision"))
 	return mux
 }

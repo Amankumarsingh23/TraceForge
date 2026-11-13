@@ -1,5 +1,7 @@
 # Resume evidence
 
+Session9 adds verified offline paired configuration comparison and immutable release-policy evidence. Actual context/retrieval candidates, fixed-cutoff deltas, case regressions, coverage-aware exact cost, local latency/seeded diagnostics, PostgreSQL policy history and trace-linked comparison UI are implemented. PASS/FAIL/INCONCLUSIVE outcomes were measured/tested with explicit fixture scope. Live-model validation, independent human review, actual deployment and production statistical claims remain pending; no paid calls were made. See [Session9](engineering-journal/session-09.md).
+
 Session 8 adds fixture-verified trace-linked RAG evaluation: 35 author-reviewed synthetic cases, exact retrieval/context metrics, constrained fact/citation/abstention judgments, transactional PostgreSQL persistence, bounded read-only Go APIs and focused Next run/case investigation. [Measured evidence and limitations](engineering-journal/session-08.md) include K sweeps, context truncation, seven explicit faulty-output transforms, execution/trace-lookup failures and deterministic repeat. Independent human calibration, semantic review of free-form live answers, LLM judging and live-model quality remain pending.
 
 The historical Session 7 checkpoint added fixture-verified AgentOps execution and canonical attempt summaries; it did not include evaluation. Its Python/Collector/SQL/API/browser evidence, hypothetical pricing, replay invariance and source minimization are recorded in [its journal](engineering-journal/session-07.md). The compatible live adapter remains mock-tested only. Session 8 adds the constrained evaluator above; neither milestone establishes live-model quality or actual billing.
@@ -31,7 +33,7 @@ Claims must match recorded executions. Session 4 adds short, hardware/workload-s
 | Live OpenAI-compatible adapter | IMPLEMENTED; MOCK TRANSPORT VERIFIED; LIVE PENDING | Explicit opt-in, bounded HTTPS requests, sanitized failures; no billable call or billing reconciliation |
 | Versioned synthetic RAG evaluation and trace-linked results | IMPLEMENTED AND VERIFIED OFFLINE | Session 8: 35 cases/12 facts; actual retrieval/context measurements, constrained judgments, PostgreSQL constraints/transactions, SQL/API/browser/trace checks |
 | Independent human/LLM-judge calibrated live quality | PENDING | No live generation, paid judge calls, human annotations or agreement analysis |
-| Experiment comparisons and deployment gates | PLANNED | Session 9 |
+| Paired experiments and release-policy evidence | IMPLEMENTED AND VERIFIED OFFLINE | Session9: frozen manifests, actual candidates/fixed cutoff, paired coverage/regressions, immutable policies/decisions, SQL/API/browser trace links; no deployment |
 | Service graphs, metrics, SLOs, alerts and sampling | PLANNED | Sessions 10–13 |
 | Tenant isolation and production privacy/security hardening | PLANNED | Session 14, with controls introduced as needed earlier |
 | Reproducible scale benchmarks and final demonstrations | PLANNED | Session 15 |

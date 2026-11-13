@@ -44,6 +44,24 @@ func Open(ctx context.Context) (*Store, error) {
 func (s *Store) Close()              { s.pool.Close() }
 func decode(raw []byte) (any, error) { var v any; e := json.Unmarshal(raw, &v); return v, e }
 func (s *Store) Read(ctx context.Context, kind, run, caseID string, limit int, after string) (any, error) {
+	if kind == "comparison" || kind == "decision" {
+		sql := `SELECT to_jsonb(c) FROM eval_comparisons c WHERE comparison_id=$1`
+		if kind == "decision" {
+			sql = `SELECT to_jsonb(d) FROM gate_decisions d WHERE decision_id=$1`
+		}
+		var raw []byte
+		err := s.pool.QueryRow(ctx, sql, run).Scan(&raw)
+		if errors.Is(err, pgx.ErrNoRows) {
+			return nil, ErrNotFound
+		}
+		if err != nil {
+			return nil, err
+		}
+		return decode(raw)
+	}
+	if kind == "comparisons" || kind == "experiments" || kind == "comparison_cases" {
+		return s.readComparisons(ctx, kind, run, limit, after)
+	}
 	if kind == "run" || kind == "case" {
 		sql := `SELECT to_jsonb(r) FROM eval_runs r WHERE run_id=$1`
 		args := []any{run}
@@ -108,4 +126,55 @@ func (s *Store) Read(ctx context.Context, kind, run, caseID string, limit int, a
 		return nil, rows.Err()
 	}
 	return map[string]any{key: items, "next_cursor": next, "consistency": "non_snapshot", "trace_linkage": "independent_eventual_visibility"}, nil
+}
+
+func (s *Store) readComparisons(ctx context.Context, kind, run string, limit int, after string) (any, error) {
+	sql := `SELECT jsonb_build_object('comparison_id',comparison_id,'baseline_run_id',baseline_run_id,'candidate_run_id',candidate_run_id,'created_at',created_at,'decisions',(SELECT coalesce(jsonb_agg(jsonb_build_object('decision_id',decision_id,'outcome',outcome,'policy_checksum',policy_checksum)),'[]') FROM gate_decisions d WHERE d.comparison_id=c.comparison_id)) FROM eval_comparisons c WHERE comparison_id>$1 ORDER BY comparison_id LIMIT $2`
+	args := []any{after, limit + 1}
+	key := "comparisons"
+	idKey := "comparison_id"
+	if kind == "experiments" {
+		sql = `SELECT to_jsonb(c) FROM experiment_configs c WHERE checksum>$1 ORDER BY checksum LIMIT $2`
+		key = "experiments"
+		idKey = "checksum"
+	}
+	if kind == "comparison_cases" {
+		var exists bool
+		if err := s.pool.QueryRow(ctx, `SELECT EXISTS(SELECT 1 FROM eval_comparisons WHERE comparison_id=$1)`, run).Scan(&exists); err != nil {
+			return nil, err
+		}
+		if !exists {
+			return nil, ErrNotFound
+		}
+		sql = `SELECT v FROM eval_comparisons c CROSS JOIN LATERAL jsonb_array_elements(c.result->'cases') v WHERE comparison_id=$1 AND v->>'case_id'>$2 ORDER BY v->>'case_id' LIMIT $3`
+		args = []any{run, after, limit + 1}
+		key = "cases"
+		idKey = "case_id"
+	}
+	rows, err := s.pool.Query(ctx, sql, args...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []any{}
+	next := ""
+	for rows.Next() {
+		var raw []byte
+		if err := rows.Scan(&raw); err != nil {
+			return nil, err
+		}
+		value, err := decode(raw)
+		if err != nil {
+			return nil, err
+		}
+		if len(items) == limit {
+			next = items[len(items)-1].(map[string]any)[idKey].(string)
+			break
+		}
+		items = append(items, value)
+	}
+	if rows.Err() != nil {
+		return nil, rows.Err()
+	}
+	return map[string]any{key: items, "next_cursor": next, "consistency": "non_snapshot"}, nil
 }

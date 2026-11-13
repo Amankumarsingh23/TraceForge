@@ -25,10 +25,28 @@ class Store:
     def migrate(self):
         with self.connection.transaction():
             self.connection.execute("SELECT pg_advisory_xact_lock(88001)")
-            self.connection.execute((ROOT / "migrations/0001_evaluations.sql").read_text())
+            for migration in sorted((ROOT / "migrations").glob("*.sql")):
+                self.connection.execute(migration.read_text())
 
     def start(self, dataset, digest, run_id, config):
         with self.connection.transaction():
+            manifest = config.get("manifest")
+            if manifest:
+                self.connection.execute(
+                    "INSERT INTO experiment_configs VALUES(%s,%s,%s,%s) ON CONFLICT DO NOTHING",
+                    (
+                        manifest["config_id"],
+                        manifest["version"],
+                        manifest["checksum"],
+                        Jsonb(manifest["content"]),
+                    ),
+                )
+                existing = self.connection.execute(
+                    "SELECT checksum FROM experiment_configs WHERE config_id=%s AND version=%s",
+                    (manifest["config_id"], manifest["version"]),
+                ).fetchone()
+                if existing[0] != manifest["checksum"]:
+                    raise ValueError("immutable manifest version mismatch")
             self.connection.execute(
                 "INSERT INTO eval_datasets VALUES(%s,%s,%s,%s,%s) ON CONFLICT DO NOTHING",
                 (
@@ -54,6 +72,11 @@ class Store:
                 "INSERT INTO eval_runs(run_id,dataset_id,dataset_version,dataset_checksum,configuration,status) VALUES(%s,%s,%s,%s,%s,'running')",
                 (run_id, dataset["dataset_id"], dataset["version"], digest, Jsonb(config)),
             )
+            if manifest:
+                self.connection.execute(
+                    "UPDATE eval_runs SET manifest_checksum=%s WHERE run_id=%s",
+                    (manifest["checksum"], run_id),
+                )
 
     def save(self, run_id, dataset, case, result):
         with self.connection.transaction():

@@ -1,0 +1,14 @@
+{
+ "policy_id":"support-offline","version":"v1","scope":"offline fixture engineering; not production approval",
+ "critical_cases":["support-025","support-026","support-027","support-028","support-029","support-030"],
+ "critical_rationale":"All pre-existing multi-document/truncation cases designated before Session 9 candidate execution",
+ "rules":[
+  {"id":"fixture-scope","op":"require_mode","threshold":"fixture","mandatory":true},
+  {"id":"quality-floor","op":"min","metric":"correctness","unit":"fraction","threshold":"0.9","mandatory":true},
+  {"id":"quality-delta","op":"max_degradation","metric":"correctness","unit":"fraction","threshold":"0.01","mandatory":true},
+  {"id":"coverage","op":"min_coverage","metric":"correctness","unit":"fraction","threshold":"1","mandatory":true},
+  {"id":"paired-cases","op":"min_matched","metric":"correctness","unit":"count","threshold":"35","mandatory":true},
+  {"id":"execution","op":"max_failure_rate","metric":"execution_success","unit":"fraction","threshold":"0","mandatory":true},
+  {"id":"critical","op":"no_critical_regression","mandatory":true}
+ ]
+}

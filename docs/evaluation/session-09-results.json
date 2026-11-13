@@ -1,0 +1,5832 @@
+{
+  "scope": "Session 9 offline fixture engineering; no production approval",
+  "evidence": {
+    "identical": {
+      "comparison_id": "0beb1c4f2614649c1bfefc2c21e85907",
+      "decision_id": "a08753e11bf7426db8b9cc71292eb303",
+      "outcome": "PASS"
+    },
+    "context_regression": {
+      "comparison_id": "93f78066ea994914dc7d13d449440f10",
+      "decision_id": "d0e59f76978445d5b230a04df86ce003",
+      "outcome": "FAIL"
+    },
+    "retrieval_change": {
+      "comparison_id": "0614deac4e5eaf4379ea0680667d8864",
+      "decision_id": "91d3a4ff188e40019eb459076da2d862",
+      "outcome": "FAIL"
+    },
+    "policy_v2": {
+      "comparison_id": "0beb1c4f2614649c1bfefc2c21e85907",
+      "decision_id": "055d41d1d5cf43eba1e728878ca76afd",
+      "outcome": "FAIL"
+    },
+    "production_profile": {
+      "comparison_id": "0beb1c4f2614649c1bfefc2c21e85907",
+      "decision_id": "348493671ac644f4b92171a400599bda",
+      "outcome": "INCONCLUSIVE"
+    },
+    "missing_cost": {
+      "comparison_id": "34476590129cdd255bbc5eb14fe2d875",
+      "decision_id": "6cbaf910f2a346c29da0c6e8ffb3d63d",
+      "outcome": "INCONCLUSIVE"
+    },
+    "legacy_reuse": {
+      "comparison_id": "598927b2135a777fa824b2ef6005f5f1",
+      "decision_id": "4232c846006f4536b706182170a63fcc",
+      "outcome": "PASS"
+    },
+    "run_ids": {
+      "baseline": "0002c8ab390947c199f1b2839a6c8e36",
+      "repeat": "312a76ee5f56422e9d12259a9a9ffe26",
+      "context1": "e729ba5408c249cf8ffe71c33815b39a",
+      "k1": "a5401afe5acc409483bb40fcb572e03d",
+      "missing_usage": "dd81f0a0cb484d7bbbfa011cb37cf8eb"
+    },
+    "baseline_failures": [
+      {
+        "case_id": "support-025",
+        "expected_facts": [
+          "refund_window",
+          "damage_report_window"
+        ],
+        "relevant_ids": [
+          "D01",
+          "D02"
+        ],
+        "retrieved_ids": [
+          "D07",
+          "D02",
+          "D11"
+        ],
+        "supplied_ids": [
+          "D07",
+          "D02"
+        ],
+        "output": {
+          "contract": "CONSTRAINED_SUPPORT_V1",
+          "claims": [
+            {
+              "key": "damage_report_window",
+              "value": "7 days",
+              "citations": [
+                "D02"
+              ]
+            },
+            {
+              "key": "refund_processing",
+              "value": "five synthetic business days",
+              "citations": [
+                "D07"
+              ]
+            }
+          ],
+          "abstained": false,
+          "answer": "damage_report_window: 7 days. [D02] refund_processing: five synthetic business days. [D07]"
+        },
+        "metrics": {
+          "recall": {
+            "value": 0.5,
+            "numerator": 1,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "precision": {
+            "value": 0.3333333333333333,
+            "numerator": 1,
+            "denominator": 3,
+            "status": "scored"
+          },
+          "hit": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "rr": {
+            "value": 0.5,
+            "numerator": 1,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "context_coverage": {
+            "value": 0.5,
+            "numerator": 1,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "context_retention": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "groundedness": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "required_fact_coverage": {
+            "value": 0.5,
+            "numerator": 1,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "correctness": {
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "citation_validity": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "citation_availability": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "citation_correctness": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "citation_coverage": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "abstention": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          }
+        }
+      },
+      {
+        "case_id": "support-029",
+        "expected_facts": [
+          "cancellation",
+          "address_review"
+        ],
+        "relevant_ids": [
+          "D08",
+          "D09"
+        ],
+        "retrieved_ids": [
+          "D09",
+          "D02",
+          "D08"
+        ],
+        "supplied_ids": [
+          "D09",
+          "D02"
+        ],
+        "output": {
+          "contract": "CONSTRAINED_SUPPORT_V1",
+          "claims": [
+            {
+              "key": "address_review",
+              "value": "address changes require a review before shipment",
+              "citations": [
+                "D09"
+              ]
+            }
+          ],
+          "abstained": false,
+          "answer": "address_review: address changes require a review before shipment. [D09]"
+        },
+        "metrics": {
+          "recall": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "precision": {
+            "value": 0.6666666666666666,
+            "numerator": 2,
+            "denominator": 3,
+            "status": "scored"
+          },
+          "hit": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "rr": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "context_coverage": {
+            "value": 0.5,
+            "numerator": 1,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "context_retention": {
+            "value": 0.5,
+            "numerator": 1,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "groundedness": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "required_fact_coverage": {
+            "value": 0.5,
+            "numerator": 1,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "correctness": {
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "citation_validity": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "citation_availability": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "citation_correctness": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "citation_coverage": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "abstention": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          }
+        }
+      },
+      {
+        "case_id": "support-030",
+        "expected_facts": [
+          "refund_window",
+          "damage_report_window",
+          "packaging"
+        ],
+        "relevant_ids": [
+          "D01",
+          "D02",
+          "D06"
+        ],
+        "retrieved_ids": [
+          "D06",
+          "D02",
+          "D01"
+        ],
+        "supplied_ids": [
+          "D06",
+          "D02"
+        ],
+        "output": {
+          "contract": "CONSTRAINED_SUPPORT_V1",
+          "claims": [
+            {
+              "key": "damage_report_window",
+              "value": "7 days",
+              "citations": [
+                "D02"
+              ]
+            },
+            {
+              "key": "packaging",
+              "value": "Keep original packaging",
+              "citations": [
+                "D06"
+              ]
+            }
+          ],
+          "abstained": false,
+          "answer": "damage_report_window: 7 days. [D02] packaging: Keep original packaging. [D06]"
+        },
+        "metrics": {
+          "recall": {
+            "value": 1.0,
+            "numerator": 3,
+            "denominator": 3,
+            "status": "scored"
+          },
+          "precision": {
+            "value": 1.0,
+            "numerator": 3,
+            "denominator": 3,
+            "status": "scored"
+          },
+          "hit": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "rr": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "context_coverage": {
+            "value": 0.6666666666666666,
+            "numerator": 2,
+            "denominator": 3,
+            "status": "scored"
+          },
+          "context_retention": {
+            "value": 0.6666666666666666,
+            "numerator": 2,
+            "denominator": 3,
+            "status": "scored"
+          },
+          "groundedness": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "required_fact_coverage": {
+            "value": 0.6666666666666666,
+            "numerator": 2,
+            "denominator": 3,
+            "status": "scored"
+          },
+          "correctness": {
+            "value": 0.0,
+            "numerator": 0,
+            "denominator": 1,
+            "status": "scored"
+          },
+          "citation_validity": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "citation_availability": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "citation_correctness": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "citation_coverage": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "status": "scored"
+          },
+          "abstention": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "status": "scored"
+          }
+        }
+      }
+    ]
+  },
+  "comparisons": {
+    "identical": {
+      "comparison_id": "0beb1c4f2614649c1bfefc2c21e85907",
+      "decision_id": "a08753e11bf7426db8b9cc71292eb303",
+      "baseline_run_id": "0002c8ab390947c199f1b2839a6c8e36",
+      "candidate_run_id": "312a76ee5f56422e9d12259a9a9ffe26",
+      "config_diff": {},
+      "metrics": {
+        "recall": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9833333333333333,
+          "candidate": 0.9833333333333333,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9833333333333333,
+          "candidate_full_mean": 0.9833333333333333,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "rr": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9666666666666667,
+          "candidate": 0.9666666666666667,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9666666666666667,
+          "candidate_full_mean": 0.9666666666666667,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_retention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9722222222222222,
+          "candidate": 0.9722222222222222,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9722222222222222,
+          "candidate_full_mean": 0.9722222222222222,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9142857142857143,
+          "candidate": 0.9142857142857143,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9142857142857143,
+          "candidate_full_mean": 0.9142857142857143,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "groundedness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "required_fact_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "abstention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "execution_success": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": null
+        },
+        "latency_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 6.99621999977223,
+          "candidate": 4.906702857676594,
+          "absolute_delta": -2.0895171420956364,
+          "relative_delta": -0.2986637272932616,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 4.906702857676594,
+          "bootstrap": null
+        },
+        "latency_p95_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 13.658620000933297,
+          "candidate": 7.278909999513413,
+          "absolute_delta": -6.379710001419884,
+          "relative_delta": -0.46708305824336255,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 4.906702857676594,
+          "bootstrap": null
+        },
+        "cost_nano_usd": {
+          "unit": "nano-USD",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": "800000",
+          "candidate": "800000",
+          "absolute_delta": "0",
+          "relative_delta": "0",
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": "800000",
+          "candidate_full_mean": "800000",
+          "bootstrap": null,
+          "baseline_known_total_nano_usd": "28000000",
+          "candidate_known_total_nano_usd": "28000000",
+          "baseline_usage_complete_cases": 35,
+          "candidate_usage_complete_cases": 35,
+          "baseline_total_nano_usd": "28000000",
+          "candidate_total_nano_usd": "28000000",
+          "pricing_version": "hypothetical-2026-11-13",
+          "currency": "USD",
+          "provenance": "synthetic_fixture",
+          "baseline_input_known": "42000",
+          "candidate_input_known": "42000",
+          "baseline_output_known": "3500",
+          "candidate_output_known": "3500"
+        }
+      },
+      "transitions": {
+        "both_correct": 32,
+        "both_incorrect": 3,
+        "improved": 0,
+        "regressed": 0,
+        "missing_ineligible": 0
+      },
+      "latency": {
+        "baseline": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        },
+        "candidate": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 4.906702857676594,
+            "p50": 4.218300000502495,
+            "p95": 7.278909999513413,
+            "p99": 17.135586001168075,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 4.906702857676594,
+            "p50": 4.218300000502495,
+            "p95": 7.278909999513413,
+            "p99": 17.135586001168075,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        }
+      },
+      "decision": {
+        "gate_engine_version": "gate-v1",
+        "outcome": "PASS",
+        "policy_id": "support-offline",
+        "policy_version": "v1",
+        "policy_checksum": "44f77e856291340024c0d6316ded0c174f6fb9fb37e41acf48f417cf650e131a",
+        "policy": {
+          "policy_id": "support-offline",
+          "version": "v1",
+          "scope": "offline fixture engineering; not production approval",
+          "critical_cases": [
+            "support-025",
+            "support-026",
+            "support-027",
+            "support-028",
+            "support-029",
+            "support-030"
+          ],
+          "critical_rationale": "All pre-existing multi-document/truncation cases designated before Session 9 candidate execution",
+          "rules": [
+            {
+              "id": "fixture-scope",
+              "op": "require_mode",
+              "threshold": "fixture",
+              "mandatory": true
+            },
+            {
+              "id": "quality-floor",
+              "op": "min",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.9",
+              "mandatory": true
+            },
+            {
+              "id": "quality-delta",
+              "op": "max_degradation",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.01",
+              "mandatory": true
+            },
+            {
+              "id": "coverage",
+              "op": "min_coverage",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "1",
+              "mandatory": true
+            },
+            {
+              "id": "paired-cases",
+              "op": "min_matched",
+              "metric": "correctness",
+              "unit": "count",
+              "threshold": "35",
+              "mandatory": true
+            },
+            {
+              "id": "execution",
+              "op": "max_failure_rate",
+              "metric": "execution_success",
+              "unit": "fraction",
+              "threshold": "0",
+              "mandatory": true
+            },
+            {
+              "id": "critical",
+              "op": "no_critical_regression",
+              "mandatory": true
+            }
+          ]
+        },
+        "rules": [
+          {
+            "id": "fixture-scope",
+            "op": "require_mode",
+            "threshold": "fixture",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "fixture",
+            "reason": "evidence mode scope"
+          },
+          {
+            "id": "quality-floor",
+            "op": "min",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.9",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 0.9142857142857143,
+            "reason": "min: 0.9142857142857143 vs 0.9 fraction"
+          },
+          {
+            "id": "quality-delta",
+            "op": "max_degradation",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.01",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "0.0",
+            "reason": "max_degradation: 0.0 vs 0.01 fraction"
+          },
+          {
+            "id": "coverage",
+            "op": "min_coverage",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "1",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 1.0,
+            "reason": "min_coverage: 1.0 vs 1 fraction"
+          },
+          {
+            "id": "paired-cases",
+            "op": "min_matched",
+            "metric": "correctness",
+            "unit": "count",
+            "threshold": "35",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 35,
+            "reason": "min_matched: 35 vs 35 count"
+          },
+          {
+            "id": "execution",
+            "op": "max_failure_rate",
+            "metric": "execution_success",
+            "unit": "fraction",
+            "threshold": "0",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 0.0,
+            "reason": "max_failure_rate: 0.0 vs 0 fraction"
+          },
+          {
+            "id": "critical",
+            "op": "no_critical_regression",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": [],
+            "reason": "protected cases: {'regressions': [], 'missing': []}"
+          }
+        ],
+        "release_allowed": true,
+        "scope": "offline fixture engineering; not production approval",
+        "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+      }
+    },
+    "context_regression": {
+      "comparison_id": "93f78066ea994914dc7d13d449440f10",
+      "decision_id": "d0e59f76978445d5b230a04df86ce003",
+      "baseline_run_id": "0002c8ab390947c199f1b2839a6c8e36",
+      "candidate_run_id": "e729ba5408c249cf8ffe71c33815b39a",
+      "config_diff": {
+        "configuration_checksum": {
+          "baseline": "914b95687ab4d5a0219d27aec306005a27e08a6cbb4fb4830963d74f8b045732",
+          "candidate": "456c6f3b79b75c9f9bf6ffb8bfade2f00cc7bc00c85907914f9a4af1c435c4e4"
+        },
+        "context_limit": {
+          "baseline": 2,
+          "candidate": 1
+        }
+      },
+      "metrics": {
+        "recall": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9833333333333333,
+          "candidate": 0.9833333333333333,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9833333333333333,
+          "candidate_full_mean": 0.9833333333333333,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "rr": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9666666666666667,
+          "candidate": 0.9666666666666667,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9666666666666667,
+          "candidate_full_mean": 0.9666666666666667,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.8444444444444444,
+          "absolute_delta": -0.11111111111111116,
+          "relative_delta": -0.1162790697674419,
+          "percentage_point_delta": -11.111111111111116,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.8444444444444444,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.20569444444444446,
+              -0.03333333333333333
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_retention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9722222222222222,
+          "candidate": 0.8444444444444444,
+          "absolute_delta": -0.12777777777777777,
+          "relative_delta": -0.13142857142857142,
+          "percentage_point_delta": -12.777777777777777,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9722222222222222,
+          "candidate_full_mean": 0.8444444444444444,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.23902777777777778,
+              -0.03888888888888888
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9142857142857143,
+          "candidate": 0.8,
+          "absolute_delta": -0.11428571428571421,
+          "relative_delta": -0.12499999999999993,
+          "percentage_point_delta": -11.428571428571422,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9142857142857143,
+          "candidate_full_mean": 0.8,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.22857142857142856,
+              -0.02857142857142857
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "groundedness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "required_fact_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.8444444444444444,
+          "absolute_delta": -0.11111111111111116,
+          "relative_delta": -0.1162790697674419,
+          "percentage_point_delta": -11.111111111111116,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.8444444444444444,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.20569444444444446,
+              -0.03333333333333333
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "abstention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "execution_success": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": null
+        },
+        "latency_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 6.99621999977223,
+          "candidate": 6.036734285381889,
+          "absolute_delta": -0.9594857143903415,
+          "relative_delta": -0.1371434452349381,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 6.036734285381889,
+          "bootstrap": null
+        },
+        "latency_p95_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 13.658620000933297,
+          "candidate": 7.90278999811562,
+          "absolute_delta": -5.755830002817677,
+          "relative_delta": -0.4214064087312173,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 6.036734285381889,
+          "bootstrap": null
+        },
+        "cost_nano_usd": {
+          "unit": "nano-USD",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": "800000",
+          "candidate": "800000",
+          "absolute_delta": "0",
+          "relative_delta": "0",
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": "800000",
+          "candidate_full_mean": "800000",
+          "bootstrap": null,
+          "baseline_known_total_nano_usd": "28000000",
+          "candidate_known_total_nano_usd": "28000000",
+          "baseline_usage_complete_cases": 35,
+          "candidate_usage_complete_cases": 35,
+          "baseline_total_nano_usd": "28000000",
+          "candidate_total_nano_usd": "28000000",
+          "pricing_version": "hypothetical-2026-11-13",
+          "currency": "USD",
+          "provenance": "synthetic_fixture",
+          "baseline_input_known": "42000",
+          "candidate_input_known": "42000",
+          "baseline_output_known": "3500",
+          "candidate_output_known": "3500"
+        }
+      },
+      "transitions": {
+        "both_correct": 28,
+        "both_incorrect": 3,
+        "improved": 0,
+        "regressed": 4,
+        "missing_ineligible": 0
+      },
+      "latency": {
+        "baseline": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        },
+        "candidate": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.036734285381889,
+            "p50": 5.37840000106371,
+            "p95": 7.90278999811562,
+            "p99": 16.671729999579796,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.036734285381889,
+            "p50": 5.37840000106371,
+            "p95": 7.90278999811562,
+            "p99": 16.671729999579796,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        }
+      },
+      "decision": {
+        "gate_engine_version": "gate-v1",
+        "outcome": "FAIL",
+        "policy_id": "support-offline",
+        "policy_version": "v1",
+        "policy_checksum": "44f77e856291340024c0d6316ded0c174f6fb9fb37e41acf48f417cf650e131a",
+        "policy": {
+          "policy_id": "support-offline",
+          "version": "v1",
+          "scope": "offline fixture engineering; not production approval",
+          "critical_cases": [
+            "support-025",
+            "support-026",
+            "support-027",
+            "support-028",
+            "support-029",
+            "support-030"
+          ],
+          "critical_rationale": "All pre-existing multi-document/truncation cases designated before Session 9 candidate execution",
+          "rules": [
+            {
+              "id": "fixture-scope",
+              "op": "require_mode",
+              "threshold": "fixture",
+              "mandatory": true
+            },
+            {
+              "id": "quality-floor",
+              "op": "min",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.9",
+              "mandatory": true
+            },
+            {
+              "id": "quality-delta",
+              "op": "max_degradation",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.01",
+              "mandatory": true
+            },
+            {
+              "id": "coverage",
+              "op": "min_coverage",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "1",
+              "mandatory": true
+            },
+            {
+              "id": "paired-cases",
+              "op": "min_matched",
+              "metric": "correctness",
+              "unit": "count",
+              "threshold": "35",
+              "mandatory": true
+            },
+            {
+              "id": "execution",
+              "op": "max_failure_rate",
+              "metric": "execution_success",
+              "unit": "fraction",
+              "threshold": "0",
+              "mandatory": true
+            },
+            {
+              "id": "critical",
+              "op": "no_critical_regression",
+              "mandatory": true
+            }
+          ]
+        },
+        "rules": [
+          {
+            "id": "fixture-scope",
+            "op": "require_mode",
+            "threshold": "fixture",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "fixture",
+            "reason": "evidence mode scope"
+          },
+          {
+            "id": "quality-floor",
+            "op": "min",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.9",
+            "mandatory": true,
+            "outcome": "FAIL",
+            "observed": 0.8,
+            "reason": "min: 0.8 vs 0.9 fraction"
+          },
+          {
+            "id": "quality-delta",
+            "op": "max_degradation",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.01",
+            "mandatory": true,
+            "outcome": "FAIL",
+            "observed": "0.11428571428571421",
+            "reason": "max_degradation: 0.11428571428571421 vs 0.01 fraction"
+          },
+          {
+            "id": "coverage",
+            "op": "min_coverage",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "1",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 1.0,
+            "reason": "min_coverage: 1.0 vs 1 fraction"
+          },
+          {
+            "id": "paired-cases",
+            "op": "min_matched",
+            "metric": "correctness",
+            "unit": "count",
+            "threshold": "35",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 35,
+            "reason": "min_matched: 35 vs 35 count"
+          },
+          {
+            "id": "execution",
+            "op": "max_failure_rate",
+            "metric": "execution_success",
+            "unit": "fraction",
+            "threshold": "0",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 0.0,
+            "reason": "max_failure_rate: 0.0 vs 0 fraction"
+          },
+          {
+            "id": "critical",
+            "op": "no_critical_regression",
+            "mandatory": true,
+            "outcome": "FAIL",
+            "observed": [
+              "support-026",
+              "support-027",
+              "support-028"
+            ],
+            "reason": "protected cases: {'regressions': ['support-026', 'support-027', 'support-028'], 'missing': []}"
+          }
+        ],
+        "release_allowed": false,
+        "scope": "offline fixture engineering; not production approval",
+        "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+      }
+    },
+    "retrieval_change": {
+      "comparison_id": "0614deac4e5eaf4379ea0680667d8864",
+      "decision_id": "91d3a4ff188e40019eb459076da2d862",
+      "baseline_run_id": "0002c8ab390947c199f1b2839a6c8e36",
+      "candidate_run_id": "a5401afe5acc409483bb40fcb572e03d",
+      "config_diff": {
+        "configuration_checksum": {
+          "baseline": "914b95687ab4d5a0219d27aec306005a27e08a6cbb4fb4830963d74f8b045732",
+          "candidate": "19b84c7eb0f0531340fcb871d715f490a7629e5d43aee87b9ceb75d7fb87a9ff"
+        },
+        "k": {
+          "baseline": 3,
+          "candidate": 1
+        }
+      },
+      "metrics": {
+        "recall": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9833333333333333,
+          "candidate": 0.8444444444444444,
+          "absolute_delta": -0.13888888888888884,
+          "relative_delta": -0.1412429378531073,
+          "percentage_point_delta": -13.888888888888884,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9833333333333333,
+          "candidate_full_mean": 0.8444444444444444,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.2388888888888889,
+              -0.05
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "rr": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9666666666666667,
+          "candidate": 0.9333333333333333,
+          "absolute_delta": -0.033333333333333326,
+          "relative_delta": -0.03448275862068965,
+          "percentage_point_delta": -3.3333333333333326,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9666666666666667,
+          "candidate_full_mean": 0.9333333333333333,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.08333333333333333,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.8444444444444444,
+          "absolute_delta": -0.11111111111111116,
+          "relative_delta": -0.1162790697674419,
+          "percentage_point_delta": -11.111111111111116,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.8444444444444444,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.20569444444444446,
+              -0.03333333333333333
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_retention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9702380952380952,
+          "candidate": 1.0,
+          "absolute_delta": 0.029761904761904767,
+          "relative_delta": 0.030674846625766878,
+          "percentage_point_delta": 2.9761904761904767,
+          "matched": 28,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 28,
+            "scored": 28,
+            "not_applicable": 7,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9722222222222222,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 28,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0773809523809524
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9142857142857143,
+          "candidate": 0.8,
+          "absolute_delta": -0.11428571428571421,
+          "relative_delta": -0.12499999999999993,
+          "percentage_point_delta": -11.428571428571422,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9142857142857143,
+          "candidate_full_mean": 0.8,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.22857142857142856,
+              -0.02857142857142857
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "groundedness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "required_fact_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.8444444444444444,
+          "absolute_delta": -0.11111111111111116,
+          "relative_delta": -0.1162790697674419,
+          "percentage_point_delta": -11.111111111111116,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.8444444444444444,
+          "bootstrap": {
+            "status": "diagnostic_only",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              -0.20569444444444446,
+              -0.03333333333333333
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "abstention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "execution_success": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": null
+        },
+        "latency_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 6.99621999977223,
+          "candidate": 5.620617142787004,
+          "absolute_delta": -1.3756028569852266,
+          "relative_delta": -0.19662086913076074,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 5.620617142787004,
+          "bootstrap": null
+        },
+        "latency_p95_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 13.658620000933297,
+          "candidate": 9.72875000043131,
+          "absolute_delta": -3.929870000501987,
+          "relative_delta": -0.28772086786464945,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 5.620617142787004,
+          "bootstrap": null
+        },
+        "cost_nano_usd": {
+          "unit": "nano-USD",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": "800000",
+          "candidate": "800000",
+          "absolute_delta": "0",
+          "relative_delta": "0",
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": "800000",
+          "candidate_full_mean": "800000",
+          "bootstrap": null,
+          "baseline_known_total_nano_usd": "28000000",
+          "candidate_known_total_nano_usd": "28000000",
+          "baseline_usage_complete_cases": 35,
+          "candidate_usage_complete_cases": 35,
+          "baseline_total_nano_usd": "28000000",
+          "candidate_total_nano_usd": "28000000",
+          "pricing_version": "hypothetical-2026-11-13",
+          "currency": "USD",
+          "provenance": "synthetic_fixture",
+          "baseline_input_known": "42000",
+          "candidate_input_known": "42000",
+          "baseline_output_known": "3500",
+          "candidate_output_known": "3500"
+        }
+      },
+      "transitions": {
+        "both_correct": 28,
+        "both_incorrect": 3,
+        "improved": 0,
+        "regressed": 4,
+        "missing_ineligible": 0
+      },
+      "latency": {
+        "baseline": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        },
+        "candidate": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 5.620617142787004,
+            "p50": 4.680300000472926,
+            "p95": 9.72875000043131,
+            "p99": 18.74183399995669,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 5.620617142787004,
+            "p50": 4.680300000472926,
+            "p95": 9.72875000043131,
+            "p99": 18.74183399995669,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        }
+      },
+      "decision": {
+        "gate_engine_version": "gate-v1",
+        "outcome": "FAIL",
+        "policy_id": "support-offline",
+        "policy_version": "v1",
+        "policy_checksum": "44f77e856291340024c0d6316ded0c174f6fb9fb37e41acf48f417cf650e131a",
+        "policy": {
+          "policy_id": "support-offline",
+          "version": "v1",
+          "scope": "offline fixture engineering; not production approval",
+          "critical_cases": [
+            "support-025",
+            "support-026",
+            "support-027",
+            "support-028",
+            "support-029",
+            "support-030"
+          ],
+          "critical_rationale": "All pre-existing multi-document/truncation cases designated before Session 9 candidate execution",
+          "rules": [
+            {
+              "id": "fixture-scope",
+              "op": "require_mode",
+              "threshold": "fixture",
+              "mandatory": true
+            },
+            {
+              "id": "quality-floor",
+              "op": "min",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.9",
+              "mandatory": true
+            },
+            {
+              "id": "quality-delta",
+              "op": "max_degradation",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.01",
+              "mandatory": true
+            },
+            {
+              "id": "coverage",
+              "op": "min_coverage",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "1",
+              "mandatory": true
+            },
+            {
+              "id": "paired-cases",
+              "op": "min_matched",
+              "metric": "correctness",
+              "unit": "count",
+              "threshold": "35",
+              "mandatory": true
+            },
+            {
+              "id": "execution",
+              "op": "max_failure_rate",
+              "metric": "execution_success",
+              "unit": "fraction",
+              "threshold": "0",
+              "mandatory": true
+            },
+            {
+              "id": "critical",
+              "op": "no_critical_regression",
+              "mandatory": true
+            }
+          ]
+        },
+        "rules": [
+          {
+            "id": "fixture-scope",
+            "op": "require_mode",
+            "threshold": "fixture",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "fixture",
+            "reason": "evidence mode scope"
+          },
+          {
+            "id": "quality-floor",
+            "op": "min",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.9",
+            "mandatory": true,
+            "outcome": "FAIL",
+            "observed": 0.8,
+            "reason": "min: 0.8 vs 0.9 fraction"
+          },
+          {
+            "id": "quality-delta",
+            "op": "max_degradation",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.01",
+            "mandatory": true,
+            "outcome": "FAIL",
+            "observed": "0.11428571428571421",
+            "reason": "max_degradation: 0.11428571428571421 vs 0.01 fraction"
+          },
+          {
+            "id": "coverage",
+            "op": "min_coverage",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "1",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 1.0,
+            "reason": "min_coverage: 1.0 vs 1 fraction"
+          },
+          {
+            "id": "paired-cases",
+            "op": "min_matched",
+            "metric": "correctness",
+            "unit": "count",
+            "threshold": "35",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 35,
+            "reason": "min_matched: 35 vs 35 count"
+          },
+          {
+            "id": "execution",
+            "op": "max_failure_rate",
+            "metric": "execution_success",
+            "unit": "fraction",
+            "threshold": "0",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 0.0,
+            "reason": "max_failure_rate: 0.0 vs 0 fraction"
+          },
+          {
+            "id": "critical",
+            "op": "no_critical_regression",
+            "mandatory": true,
+            "outcome": "FAIL",
+            "observed": [
+              "support-026",
+              "support-027",
+              "support-028"
+            ],
+            "reason": "protected cases: {'regressions': ['support-026', 'support-027', 'support-028'], 'missing': []}"
+          }
+        ],
+        "release_allowed": false,
+        "scope": "offline fixture engineering; not production approval",
+        "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+      }
+    },
+    "policy_v2": {
+      "comparison_id": "0beb1c4f2614649c1bfefc2c21e85907",
+      "decision_id": "055d41d1d5cf43eba1e728878ca76afd",
+      "baseline_run_id": "0002c8ab390947c199f1b2839a6c8e36",
+      "candidate_run_id": "312a76ee5f56422e9d12259a9a9ffe26",
+      "config_diff": {},
+      "metrics": {
+        "recall": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9833333333333333,
+          "candidate": 0.9833333333333333,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9833333333333333,
+          "candidate_full_mean": 0.9833333333333333,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "rr": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9666666666666667,
+          "candidate": 0.9666666666666667,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9666666666666667,
+          "candidate_full_mean": 0.9666666666666667,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_retention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9722222222222222,
+          "candidate": 0.9722222222222222,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9722222222222222,
+          "candidate_full_mean": 0.9722222222222222,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9142857142857143,
+          "candidate": 0.9142857142857143,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9142857142857143,
+          "candidate_full_mean": 0.9142857142857143,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "groundedness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "required_fact_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "abstention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "execution_success": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": null
+        },
+        "latency_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 6.99621999977223,
+          "candidate": 4.906702857676594,
+          "absolute_delta": -2.0895171420956364,
+          "relative_delta": -0.2986637272932616,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 4.906702857676594,
+          "bootstrap": null
+        },
+        "latency_p95_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 13.658620000933297,
+          "candidate": 7.278909999513413,
+          "absolute_delta": -6.379710001419884,
+          "relative_delta": -0.46708305824336255,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 4.906702857676594,
+          "bootstrap": null
+        },
+        "cost_nano_usd": {
+          "unit": "nano-USD",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": "800000",
+          "candidate": "800000",
+          "absolute_delta": "0",
+          "relative_delta": "0",
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": "800000",
+          "candidate_full_mean": "800000",
+          "bootstrap": null,
+          "baseline_known_total_nano_usd": "28000000",
+          "candidate_known_total_nano_usd": "28000000",
+          "baseline_usage_complete_cases": 35,
+          "candidate_usage_complete_cases": 35,
+          "baseline_total_nano_usd": "28000000",
+          "candidate_total_nano_usd": "28000000",
+          "pricing_version": "hypothetical-2026-11-13",
+          "currency": "USD",
+          "provenance": "synthetic_fixture",
+          "baseline_input_known": "42000",
+          "candidate_input_known": "42000",
+          "baseline_output_known": "3500",
+          "candidate_output_known": "3500"
+        }
+      },
+      "transitions": {
+        "both_correct": 32,
+        "both_incorrect": 3,
+        "improved": 0,
+        "regressed": 0,
+        "missing_ineligible": 0
+      },
+      "latency": {
+        "baseline": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        },
+        "candidate": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 4.906702857676594,
+            "p50": 4.218300000502495,
+            "p95": 7.278909999513413,
+            "p99": 17.135586001168075,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 4.906702857676594,
+            "p50": 4.218300000502495,
+            "p95": 7.278909999513413,
+            "p99": 17.135586001168075,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        }
+      },
+      "decision": {
+        "gate_engine_version": "gate-v1",
+        "outcome": "FAIL",
+        "policy_id": "support-offline",
+        "policy_version": "v2-strict",
+        "policy_checksum": "517c2d01977320d692aea4976cf8da8fe5f271f5fa40fbc00532b8d022d4a97d",
+        "policy": {
+          "policy_id": "support-offline",
+          "version": "v2-strict",
+          "scope": "offline fixture engineering; not production approval",
+          "critical_cases": [
+            "support-025",
+            "support-026",
+            "support-027",
+            "support-028",
+            "support-029",
+            "support-030"
+          ],
+          "critical_rationale": "All pre-existing multi-document/truncation cases designated before Session 9 candidate execution",
+          "rules": [
+            {
+              "id": "fixture-scope",
+              "op": "require_mode",
+              "threshold": "fixture",
+              "mandatory": true
+            },
+            {
+              "id": "quality-floor",
+              "op": "min",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.99",
+              "mandatory": true
+            },
+            {
+              "id": "quality-delta",
+              "op": "max_degradation",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.01",
+              "mandatory": true
+            },
+            {
+              "id": "coverage",
+              "op": "min_coverage",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "1",
+              "mandatory": true
+            },
+            {
+              "id": "paired-cases",
+              "op": "min_matched",
+              "metric": "correctness",
+              "unit": "count",
+              "threshold": "35",
+              "mandatory": true
+            },
+            {
+              "id": "execution",
+              "op": "max_failure_rate",
+              "metric": "execution_success",
+              "unit": "fraction",
+              "threshold": "0",
+              "mandatory": true
+            },
+            {
+              "id": "critical",
+              "op": "no_critical_regression",
+              "mandatory": true
+            }
+          ]
+        },
+        "rules": [
+          {
+            "id": "fixture-scope",
+            "op": "require_mode",
+            "threshold": "fixture",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "fixture",
+            "reason": "evidence mode scope"
+          },
+          {
+            "id": "quality-floor",
+            "op": "min",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.99",
+            "mandatory": true,
+            "outcome": "FAIL",
+            "observed": 0.9142857142857143,
+            "reason": "min: 0.9142857142857143 vs 0.99 fraction"
+          },
+          {
+            "id": "quality-delta",
+            "op": "max_degradation",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.01",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "0.0",
+            "reason": "max_degradation: 0.0 vs 0.01 fraction"
+          },
+          {
+            "id": "coverage",
+            "op": "min_coverage",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "1",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 1.0,
+            "reason": "min_coverage: 1.0 vs 1 fraction"
+          },
+          {
+            "id": "paired-cases",
+            "op": "min_matched",
+            "metric": "correctness",
+            "unit": "count",
+            "threshold": "35",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 35,
+            "reason": "min_matched: 35 vs 35 count"
+          },
+          {
+            "id": "execution",
+            "op": "max_failure_rate",
+            "metric": "execution_success",
+            "unit": "fraction",
+            "threshold": "0",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 0.0,
+            "reason": "max_failure_rate: 0.0 vs 0 fraction"
+          },
+          {
+            "id": "critical",
+            "op": "no_critical_regression",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": [],
+            "reason": "protected cases: {'regressions': [], 'missing': []}"
+          }
+        ],
+        "release_allowed": false,
+        "scope": "offline fixture engineering; not production approval",
+        "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+      }
+    },
+    "production_profile": {
+      "comparison_id": "0beb1c4f2614649c1bfefc2c21e85907",
+      "decision_id": "348493671ac644f4b92171a400599bda",
+      "baseline_run_id": "0002c8ab390947c199f1b2839a6c8e36",
+      "candidate_run_id": "312a76ee5f56422e9d12259a9a9ffe26",
+      "config_diff": {},
+      "metrics": {
+        "recall": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9833333333333333,
+          "candidate": 0.9833333333333333,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9833333333333333,
+          "candidate_full_mean": 0.9833333333333333,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "rr": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9666666666666667,
+          "candidate": 0.9666666666666667,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9666666666666667,
+          "candidate_full_mean": 0.9666666666666667,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_retention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9722222222222222,
+          "candidate": 0.9722222222222222,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9722222222222222,
+          "candidate_full_mean": 0.9722222222222222,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9142857142857143,
+          "candidate": 0.9142857142857143,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9142857142857143,
+          "candidate_full_mean": 0.9142857142857143,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "groundedness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "required_fact_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "abstention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "execution_success": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": null
+        },
+        "latency_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 6.99621999977223,
+          "candidate": 4.906702857676594,
+          "absolute_delta": -2.0895171420956364,
+          "relative_delta": -0.2986637272932616,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 4.906702857676594,
+          "bootstrap": null
+        },
+        "latency_p95_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 13.658620000933297,
+          "candidate": 7.278909999513413,
+          "absolute_delta": -6.379710001419884,
+          "relative_delta": -0.46708305824336255,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 4.906702857676594,
+          "bootstrap": null
+        },
+        "cost_nano_usd": {
+          "unit": "nano-USD",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": "800000",
+          "candidate": "800000",
+          "absolute_delta": "0",
+          "relative_delta": "0",
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": "800000",
+          "candidate_full_mean": "800000",
+          "bootstrap": null,
+          "baseline_known_total_nano_usd": "28000000",
+          "candidate_known_total_nano_usd": "28000000",
+          "baseline_usage_complete_cases": 35,
+          "candidate_usage_complete_cases": 35,
+          "baseline_total_nano_usd": "28000000",
+          "candidate_total_nano_usd": "28000000",
+          "pricing_version": "hypothetical-2026-11-13",
+          "currency": "USD",
+          "provenance": "synthetic_fixture",
+          "baseline_input_known": "42000",
+          "candidate_input_known": "42000",
+          "baseline_output_known": "3500",
+          "candidate_output_known": "3500"
+        }
+      },
+      "transitions": {
+        "both_correct": 32,
+        "both_incorrect": 3,
+        "improved": 0,
+        "regressed": 0,
+        "missing_ineligible": 0
+      },
+      "latency": {
+        "baseline": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        },
+        "candidate": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 4.906702857676594,
+            "p50": 4.218300000502495,
+            "p95": 7.278909999513413,
+            "p99": 17.135586001168075,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 4.906702857676594,
+            "p50": 4.218300000502495,
+            "p95": 7.278909999513413,
+            "p99": 17.135586001168075,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        }
+      },
+      "decision": {
+        "gate_engine_version": "gate-v1",
+        "outcome": "INCONCLUSIVE",
+        "policy_id": "production-evidence",
+        "policy_version": "v1",
+        "policy_checksum": "4acc7ea3494fe6d5627294081d74d33ac2ac9c7b22b623093b96584ebeb23146",
+        "policy": {
+          "policy_id": "production-evidence",
+          "version": "v1",
+          "scope": "production-oriented evidence requirements; no deployment",
+          "critical_cases": [
+            "support-030"
+          ],
+          "rules": [
+            {
+              "id": "live",
+              "op": "require_mode",
+              "threshold": "live",
+              "mandatory": true
+            },
+            {
+              "id": "semantic-validation",
+              "op": "require_semantic_review",
+              "threshold": "independent_verified",
+              "mandatory": true
+            },
+            {
+              "id": "coverage",
+              "op": "min_coverage",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "1",
+              "mandatory": true
+            },
+            {
+              "id": "cost",
+              "op": "max_relative_increase",
+              "metric": "cost_nano_usd",
+              "unit": "fraction",
+              "threshold": "0.1",
+              "mandatory": true
+            }
+          ]
+        },
+        "rules": [
+          {
+            "id": "live",
+            "op": "require_mode",
+            "threshold": "live",
+            "mandatory": true,
+            "outcome": "INCONCLUSIVE",
+            "observed": "fixture",
+            "reason": "evidence mode scope"
+          },
+          {
+            "id": "semantic-validation",
+            "op": "require_semantic_review",
+            "threshold": "independent_verified",
+            "mandatory": true,
+            "outcome": "INCONCLUSIVE",
+            "observed": "independent_review_pending",
+            "reason": "independent semantic validation required"
+          },
+          {
+            "id": "coverage",
+            "op": "min_coverage",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "1",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 1.0,
+            "reason": "min_coverage: 1.0 vs 1 fraction"
+          },
+          {
+            "id": "cost",
+            "op": "max_relative_increase",
+            "metric": "cost_nano_usd",
+            "unit": "fraction",
+            "threshold": "0.1",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "0",
+            "reason": "max_relative_increase: 0 vs 0.1 fraction"
+          }
+        ],
+        "release_allowed": false,
+        "scope": "production-oriented evidence requirements; no deployment",
+        "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+      }
+    },
+    "missing_cost": {
+      "comparison_id": "34476590129cdd255bbc5eb14fe2d875",
+      "decision_id": "6cbaf910f2a346c29da0c6e8ffb3d63d",
+      "baseline_run_id": "0002c8ab390947c199f1b2839a6c8e36",
+      "candidate_run_id": "dd81f0a0cb484d7bbbfa011cb37cf8eb",
+      "config_diff": {
+        "configuration_checksum": {
+          "baseline": "914b95687ab4d5a0219d27aec306005a27e08a6cbb4fb4830963d74f8b045732",
+          "candidate": "44903f903d20a8409143de97db90ae550a990f35758d9d4807a59cd777e91009"
+        },
+        "execution_failure": {
+          "baseline": null,
+          "candidate": "missing_usage"
+        }
+      },
+      "metrics": {
+        "recall": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9833333333333333,
+          "candidate": 0.9833333333333333,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9833333333333333,
+          "candidate_full_mean": 0.9833333333333333,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "rr": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9666666666666667,
+          "candidate": 0.9666666666666667,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9666666666666667,
+          "candidate_full_mean": 0.9666666666666667,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_retention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9722222222222222,
+          "candidate": 0.9722222222222222,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9722222222222222,
+          "candidate_full_mean": 0.9722222222222222,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9142857142857143,
+          "candidate": 0.9142857142857143,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9142857142857143,
+          "candidate_full_mean": 0.9142857142857143,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "groundedness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "required_fact_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "abstention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "execution_success": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": null
+        },
+        "latency_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 6.99621999977223,
+          "candidate": 5.445854285582235,
+          "absolute_delta": -1.5503657141899954,
+          "relative_delta": -0.22160048057958,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 5.445854285582235,
+          "bootstrap": null
+        },
+        "latency_p95_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 13.658620000933297,
+          "candidate": 7.353770000190703,
+          "absolute_delta": -6.304850000742594,
+          "relative_delta": -0.46160227023753364,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.99621999977223,
+          "candidate_full_mean": 5.445854285582235,
+          "bootstrap": null
+        },
+        "cost_nano_usd": {
+          "unit": "nano-USD",
+          "direction": "lower",
+          "status": "incompatible",
+          "reasons": [
+            "cost_coverage_incomplete"
+          ],
+          "baseline": null,
+          "candidate": null,
+          "absolute_delta": null,
+          "relative_delta": null,
+          "percentage_point_delta": null,
+          "matched": 0,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 0,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 0.0
+          },
+          "baseline_full_mean": "800000",
+          "candidate_full_mean": null,
+          "bootstrap": null,
+          "baseline_known_total_nano_usd": "28000000",
+          "candidate_known_total_nano_usd": "0",
+          "baseline_usage_complete_cases": 35,
+          "candidate_usage_complete_cases": 0,
+          "baseline_total_nano_usd": "28000000",
+          "candidate_total_nano_usd": null,
+          "pricing_version": "hypothetical-2026-11-13",
+          "currency": "USD",
+          "provenance": "synthetic_fixture",
+          "baseline_input_known": "42000",
+          "candidate_input_known": "0",
+          "baseline_output_known": "3500",
+          "candidate_output_known": "0"
+        }
+      },
+      "transitions": {
+        "both_correct": 32,
+        "both_incorrect": 3,
+        "improved": 0,
+        "regressed": 0,
+        "missing_ineligible": 0
+      },
+      "latency": {
+        "baseline": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        },
+        "candidate": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 5.445854285582235,
+            "p50": 4.963499999576015,
+            "p95": 7.353770000190703,
+            "p99": 13.660438000370021,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 5.445854285582235,
+            "p50": 4.963499999576015,
+            "p95": 7.353770000190703,
+            "p99": 13.660438000370021,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        }
+      },
+      "decision": {
+        "gate_engine_version": "gate-v1",
+        "outcome": "INCONCLUSIVE",
+        "policy_id": "cost-evidence",
+        "policy_version": "v1",
+        "policy_checksum": "6191cc713509591a7e209fe9538199207b80b9b538676c7170c3d0a27ec445ef",
+        "policy": {
+          "policy_id": "cost-evidence",
+          "version": "v1",
+          "scope": "offline fixture cost coverage only",
+          "rules": [
+            {
+              "id": "complete-price",
+              "op": "max",
+              "metric": "cost_nano_usd",
+              "unit": "nano-USD",
+              "threshold": "10000000",
+              "mandatory": true
+            }
+          ]
+        },
+        "rules": [
+          {
+            "id": "complete-price",
+            "op": "max",
+            "metric": "cost_nano_usd",
+            "unit": "nano-USD",
+            "threshold": "10000000",
+            "mandatory": true,
+            "outcome": "INCONCLUSIVE",
+            "observed": null,
+            "reason": "required evidence unavailable"
+          }
+        ],
+        "release_allowed": false,
+        "scope": "offline fixture cost coverage only",
+        "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+      }
+    },
+    "legacy_reuse": {
+      "comparison_id": "598927b2135a777fa824b2ef6005f5f1",
+      "decision_id": "4232c846006f4536b706182170a63fcc",
+      "baseline_run_id": "e30593d7c0c74dda9edf3c5137eb9866",
+      "candidate_run_id": "0002c8ab390947c199f1b2839a6c8e36",
+      "config_diff": {
+        "configuration_checksum": {
+          "baseline": "0608461eed5b9e57b4566d8f104748607ab85689775ed81816be25a801d45f0f",
+          "candidate": "914b95687ab4d5a0219d27aec306005a27e08a6cbb4fb4830963d74f8b045732"
+        },
+        "currency": {
+          "baseline": null,
+          "candidate": "USD"
+        },
+        "generation": {
+          "baseline": null,
+          "candidate": {
+            "tools": "read_only_allowlist; disabled in eval",
+            "sampling": "provider_default",
+            "max_completion_tokens": 256
+          }
+        },
+        "git_commit": {
+          "baseline": "bdc192f649a42e52794c23772031cb8725a73712",
+          "candidate": "d6ccdc111ae0b9908929a9b50556c166e6ac7af6"
+        },
+        "measurement_version": {
+          "baseline": null,
+          "candidate": "http-wall-ms-v1"
+        },
+        "metric_k": {
+          "baseline": null,
+          "candidate": 3
+        },
+        "pricing_version": {
+          "baseline": null,
+          "candidate": "hypothetical-2026-11-13"
+        },
+        "runtime": {
+          "baseline": null,
+          "candidate": {
+            "python": "3.13.15",
+            "warmup": "none",
+            "platform": "Windows",
+            "latency_scope": "HTTP request only; scoring/export lookup excluded",
+            "http_timeout_seconds": 25,
+            "agent_deadline_seconds": 20
+          }
+        },
+        "scoring_definition": {
+          "baseline": null,
+          "candidate": "constrained-evidence-v1:macro-v1:precision-denominator-K"
+        },
+        "source_checksum": {
+          "baseline": "5f1d1729f7477bc5639c9219a204353adf0abf41056d40165d19b6b2f7ab0eaa",
+          "candidate": "0b93c3892a96968f8719854e53eb4ce0e0d01dbe8d153f7b241324053e02b3f0"
+        }
+      },
+      "metrics": {
+        "recall": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9833333333333333,
+          "candidate": 0.9833333333333333,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9833333333333333,
+          "candidate_full_mean": 0.9833333333333333,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "rr": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9666666666666667,
+          "candidate": 0.9666666666666667,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9666666666666667,
+          "candidate_full_mean": 0.9666666666666667,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "context_retention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9722222222222222,
+          "candidate": 0.9722222222222222,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9722222222222222,
+          "candidate_full_mean": 0.9722222222222222,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9142857142857143,
+          "candidate": 0.9142857142857143,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9142857142857143,
+          "candidate_full_mean": 0.9142857142857143,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "groundedness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_correctness": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "citation_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "required_fact_coverage": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 0.9555555555555556,
+          "candidate": 0.9555555555555556,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 30,
+          "baseline_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 30,
+            "scored": 30,
+            "not_applicable": 5,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 0.9555555555555556,
+          "candidate_full_mean": 0.9555555555555556,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 30,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "abstention": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": {
+            "status": "degenerate",
+            "n": 35,
+            "seed": 9,
+            "resamples": 1000,
+            "method": "paired percentile 95%; linear R7",
+            "interval": [
+              0.0,
+              0.0
+            ],
+            "warning": "synthetic correlated cases; no production significance claim"
+          }
+        },
+        "execution_success": {
+          "unit": "fraction",
+          "direction": "higher",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "absolute_delta": 0.0,
+          "relative_delta": 0.0,
+          "percentage_point_delta": 0.0,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 1.0,
+          "candidate_full_mean": 1.0,
+          "bootstrap": null
+        },
+        "latency_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 6.465154285511484,
+          "candidate": 6.99621999977223,
+          "absolute_delta": 0.5310657142607464,
+          "relative_delta": 0.08214277506893738,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.465154285511484,
+          "candidate_full_mean": 6.99621999977223,
+          "bootstrap": null
+        },
+        "latency_p95_ms": {
+          "unit": "ms",
+          "direction": "lower",
+          "status": "scored",
+          "reasons": [],
+          "baseline": 7.352029999856313,
+          "candidate": 13.658620000933297,
+          "absolute_delta": 6.306590001076984,
+          "relative_delta": 0.857802539053872,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": 6.465154285511484,
+          "candidate_full_mean": 6.99621999977223,
+          "bootstrap": null
+        },
+        "cost_nano_usd": {
+          "unit": "nano-USD",
+          "direction": "lower",
+          "status": "incompatible",
+          "reasons": [
+            "pricing_incompatible_or_unknown"
+          ],
+          "baseline": null,
+          "candidate": null,
+          "absolute_delta": null,
+          "relative_delta": null,
+          "percentage_point_delta": null,
+          "matched": 35,
+          "baseline_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "candidate_counts": {
+            "eligible": 35,
+            "scored": 35,
+            "not_applicable": 0,
+            "missing": 0,
+            "errors": 0,
+            "coverage": 1.0
+          },
+          "baseline_full_mean": "800000",
+          "candidate_full_mean": "800000",
+          "bootstrap": null,
+          "baseline_known_total_nano_usd": "28000000",
+          "candidate_known_total_nano_usd": "28000000",
+          "baseline_usage_complete_cases": 35,
+          "candidate_usage_complete_cases": 35,
+          "baseline_total_nano_usd": null,
+          "candidate_total_nano_usd": null,
+          "pricing_version": null,
+          "currency": null,
+          "provenance": "synthetic_fixture",
+          "baseline_input_known": "42000",
+          "candidate_input_known": "42000",
+          "baseline_output_known": "3500",
+          "candidate_output_known": "3500"
+        }
+      },
+      "transitions": {
+        "both_correct": 32,
+        "both_incorrect": 3,
+        "improved": 0,
+        "regressed": 0,
+        "missing_ineligible": 0
+      },
+      "latency": {
+        "baseline": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.465154285511484,
+            "p50": 5.806500001199311,
+            "p95": 7.352029999856313,
+            "p99": 21.748980000811496,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.465154285511484,
+            "p50": 5.806500001199311,
+            "p95": 7.352029999856313,
+            "p99": 21.748980000811496,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        },
+        "candidate": {
+          "all_attempts": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "successful": {
+            "n": 35,
+            "mean": 6.99621999977223,
+            "p50": 5.365599998185644,
+            "p95": 13.658620000933297,
+            "p99": 21.864931999662033,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          },
+          "failed": {
+            "n": 0,
+            "mean": null,
+            "p50": null,
+            "p95": null,
+            "p99": null,
+            "quantile_method": "linear R7: (n-1)*p",
+            "warning": "small sample; local offline workload, not production tail latency"
+          }
+        }
+      },
+      "decision": {
+        "gate_engine_version": "gate-v1",
+        "outcome": "PASS",
+        "policy_id": "support-offline",
+        "policy_version": "v1",
+        "policy_checksum": "44f77e856291340024c0d6316ded0c174f6fb9fb37e41acf48f417cf650e131a",
+        "policy": {
+          "policy_id": "support-offline",
+          "version": "v1",
+          "scope": "offline fixture engineering; not production approval",
+          "critical_cases": [
+            "support-025",
+            "support-026",
+            "support-027",
+            "support-028",
+            "support-029",
+            "support-030"
+          ],
+          "critical_rationale": "All pre-existing multi-document/truncation cases designated before Session 9 candidate execution",
+          "rules": [
+            {
+              "id": "fixture-scope",
+              "op": "require_mode",
+              "threshold": "fixture",
+              "mandatory": true
+            },
+            {
+              "id": "quality-floor",
+              "op": "min",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.9",
+              "mandatory": true
+            },
+            {
+              "id": "quality-delta",
+              "op": "max_degradation",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "0.01",
+              "mandatory": true
+            },
+            {
+              "id": "coverage",
+              "op": "min_coverage",
+              "metric": "correctness",
+              "unit": "fraction",
+              "threshold": "1",
+              "mandatory": true
+            },
+            {
+              "id": "paired-cases",
+              "op": "min_matched",
+              "metric": "correctness",
+              "unit": "count",
+              "threshold": "35",
+              "mandatory": true
+            },
+            {
+              "id": "execution",
+              "op": "max_failure_rate",
+              "metric": "execution_success",
+              "unit": "fraction",
+              "threshold": "0",
+              "mandatory": true
+            },
+            {
+              "id": "critical",
+              "op": "no_critical_regression",
+              "mandatory": true
+            }
+          ]
+        },
+        "rules": [
+          {
+            "id": "fixture-scope",
+            "op": "require_mode",
+            "threshold": "fixture",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "fixture",
+            "reason": "evidence mode scope"
+          },
+          {
+            "id": "quality-floor",
+            "op": "min",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.9",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 0.9142857142857143,
+            "reason": "min: 0.9142857142857143 vs 0.9 fraction"
+          },
+          {
+            "id": "quality-delta",
+            "op": "max_degradation",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "0.01",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": "0.0",
+            "reason": "max_degradation: 0.0 vs 0.01 fraction"
+          },
+          {
+            "id": "coverage",
+            "op": "min_coverage",
+            "metric": "correctness",
+            "unit": "fraction",
+            "threshold": "1",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 1.0,
+            "reason": "min_coverage: 1.0 vs 1 fraction"
+          },
+          {
+            "id": "paired-cases",
+            "op": "min_matched",
+            "metric": "correctness",
+            "unit": "count",
+            "threshold": "35",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 35,
+            "reason": "min_matched: 35 vs 35 count"
+          },
+          {
+            "id": "execution",
+            "op": "max_failure_rate",
+            "metric": "execution_success",
+            "unit": "fraction",
+            "threshold": "0",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": 0.0,
+            "reason": "max_failure_rate: 0.0 vs 0 fraction"
+          },
+          {
+            "id": "critical",
+            "op": "no_critical_regression",
+            "mandatory": true,
+            "outcome": "PASS",
+            "observed": [],
+            "reason": "protected cases: {'regressions': [], 'missing': []}"
+          }
+        ],
+        "release_allowed": true,
+        "scope": "offline fixture engineering; not production approval",
+        "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+      }
+    }
+  }
+}

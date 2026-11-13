@@ -89,7 +89,16 @@ export async function forwardTelemetry(
   path: string,
   options: { origin?: string; transport?: typeof fetch } = {},
 ) {
-  if (!/^\/api\/v1\/(?:logs|traces(?:\/[a-f0-9]{32}(?:\/(?:logs|agent-summary))?)?|evaluations(?:\/[a-f0-9]{32}(?:\/cases(?:\/[A-Za-z0-9_-]{1,64})?)?)?)$/.test(path))
+  if (
+    !(
+      /^\/api\/v1\/(?:logs|traces(?:\/[a-f0-9]{32}(?:\/(?:logs|agent-summary))?)?|evaluations(?:\/[a-f0-9]{32}(?:\/cases(?:\/[A-Za-z0-9_-]{1,64})?)?)?)$/.test(
+        path,
+      ) ||
+      /^\/api\/v1\/(?:experiments|comparisons(?:\/[a-f0-9]{32}(?:\/cases)?)?|gates\/[a-f0-9]{32})$/.test(
+        path,
+      )
+    )
+  )
     return error(400, "invalid_api_path", "Unsupported telemetry API path.");
   const query = new URL(request.url).searchParams;
   let origin: URL;

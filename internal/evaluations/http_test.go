@@ -73,3 +73,22 @@ func TestEvaluationSafeErrorsAndMethod(t *testing.T) {
 		t.Fatal(w.Code)
 	}
 }
+
+func TestComparisonRoutes(t *testing.T) {
+	id := strings.Repeat("b", 32)
+	for _, tc := range []struct {
+		path, kind string
+		code       int
+	}{
+		{"/experiments", "experiments", 200}, {"/experiments?after=" + strings.Repeat("a", 64), "experiments", 200}, {"/comparisons", "comparisons", 200}, {"/comparisons/" + id, "comparison", 200}, {"/comparisons/" + id + "/cases?limit=2&after=support-010", "comparison_cases", 200}, {"/gates/" + id, "decision", 200}, {"/comparisons/" + id + "?limit=2", "", 400}, {"/gates/bad", "", 400}, {"/comparisons?limit=51", "", 400}, {"/experiments?after=bad", "", 400},
+	} {
+		t.Run(tc.path, func(t *testing.T) {
+			f := &fakeRepo{}
+			w := httptest.NewRecorder()
+			NewHandler(f).ServeHTTP(w, httptest.NewRequest("GET", "/api/v1"+tc.path, nil))
+			if w.Code != tc.code || tc.code == 200 && f.kind != tc.kind {
+				t.Fatalf("%d %s", w.Code, w.Body)
+			}
+		})
+	}
+}

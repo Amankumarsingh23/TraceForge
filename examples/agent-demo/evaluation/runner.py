@@ -3,6 +3,7 @@ import asyncio
 import copy
 import hashlib
 import json
+import platform
 import subprocess
 import time
 import uuid
@@ -13,6 +14,7 @@ from agent_demo.constrained import render
 from agent_demo.retrieval import DATA, PROMPT_VERSION, RETRIEVER_VERSION
 
 from .dataset import ROOT, checksum, load
+from .manifest import freeze
 from .metrics import aggregate, retrieval, score
 from .scoring import QUALITY, VERSION, evaluate
 from .store import Store
@@ -79,7 +81,11 @@ async def run(
     trace_unavailable=False,
     allow_live=False,
     allow_billable=False,
+    metric_k=None,
 ):
+    metric_k = k if metric_k is None else metric_k
+    if type(metric_k) is not int or not 1 <= metric_k <= 5:
+        raise ValueError("invalid evaluation cutoff")
     if type(k) is not int or not 1 <= k <= 5 or not 1 <= context_limit <= 3:
         raise ValueError("invalid execution bounds")
     dataset, corpus, digest = load()
@@ -111,6 +117,24 @@ async def run(
             for p in sorted(folder.rglob("*.py"))
         }
         config = {
+            "metric_k": metric_k,
+            "measurement_version": "http-wall-ms-v1",
+            "scoring_definition": "constrained-evidence-v1:macro-v1:precision-denominator-K",
+            "pricing_version": "hypothetical-2026-11-13" if mode == "fixture" else "unknown",
+            "currency": "USD" if mode == "fixture" else "unknown",
+            "generation": {
+                "max_completion_tokens": 256,
+                "sampling": "provider_default",
+                "tools": "read_only_allowlist; disabled in eval",
+            },
+            "runtime": {
+                "python": platform.python_version(),
+                "platform": platform.system(),
+                "http_timeout_seconds": 25,
+                "agent_deadline_seconds": 20,
+                "warmup": "none",
+                "latency_scope": "HTTP request only; scoring/export lookup excluded",
+            },
             "provider": health.json().get("provider"),
             "requested_model": health.json().get("requested_model"),
             "pricing_checksum": hashlib.sha256((DATA / "pricing.json").read_bytes()).hexdigest(),
@@ -146,6 +170,7 @@ async def run(
             "max_tool_calls": 0,
         }
         config["configuration_checksum"] = checksum(config)
+        config["manifest"] = freeze(config)
         store = Store()
         store.migrate()
         store.start(dataset, digest, run_id, config)
@@ -207,7 +232,7 @@ async def run(
                             value["retrieved_document_ids"],
                             supplied,
                             case["relevant_document_ids"],
-                            k,
+                            metric_k,
                         )
                         semantic, judgments, status = evaluate(
                             content,
@@ -300,6 +325,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--k", type=int, default=3)
     parser.add_argument("--context-limit", type=int, default=2)
+    parser.add_argument("--metric-k", type=int)
     parser.add_argument("--case-id")
     parser.add_argument("--fault", choices=FAULTS)
     parser.add_argument("--execution-failure", choices=["timeout", "permanent_error"])

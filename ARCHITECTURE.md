@@ -1,4 +1,12 @@
-# Session 8 architecture
+# Session 9 architecture
+
+## Frozen experiments and release decisions
+
+Session8 runner → canonical allowlisted manifest at run start → actual baseline/candidate executions with fixed scoring cutoff → pure paired comparison → validated versioned policy → immutable PostgreSQL comparison/decision → read-only Go APIs → focused Next case/trace investigation. Existing telemetry ingestion, canonical attempt accounting and evaluator semantics are reused. Intended config differences remain visible; dataset/mode/rubric incompatibilities and metric-specific cutoff/pricing failures cannot manufacture deltas.
+
+Migration0002 adds experiment manifests and comparison/policy/decision metadata, references existing evaluation runs, uses parameterized transactional inserts and idempotent identities, and rejects history updates/deletes. No full ClickHouse data is copied. The new comparison engine preserves failed/missing/N/A cases, reports matched and full cohorts, exact money subtotals/coverage, successful/failed latency distributions and seeded paired-bootstrap diagnostics. Gate precedence is invalid→INCONCLUSIVE, confirmed mandatory violation→FAIL, missing required evidence→INCONCLUSIVE, otherwise PASS in the declared scope. Critical categories are independent input, not selected after results. Live mode and independent semantic review are required by the production-oriented profile and remain unavailable here.
+
+New GET endpoints reuse the bounded read-only PostgreSQL handler/pool. The frontend uses fixed same-origin proxies, presents backend deltas/decisions without recalculating scoring, filters transitions and links both real traces. There is no automatic deployment, model promotion, production CI integration, new auth system or Session10 analytics. See ADR0009 and Session9 evidence.
 
 ## Transactional RAG evaluation
 
@@ -120,7 +128,7 @@ The waterfall iteratively traverses the supplied forest with visited-ID guards, 
 
 ## Planned next step
 
-Session 8 adds offline constrained RAG evaluation above; Session 9 will compare versions and add gates. No user metrics ingestion/dashboard, service map, alerting, durable queue or enterprise auth has been implemented. Session 4's delivery and measurement limits remain.
+Session9 adds offline paired comparisons and release-policy evidence above; Session10 service analytics remains planned. No user metrics ingestion/dashboard, service map, alerting, durable queue or enterprise auth has been implemented. Session4's delivery and measurement limits remain.
 
 ## Log-specific path and invariants
 

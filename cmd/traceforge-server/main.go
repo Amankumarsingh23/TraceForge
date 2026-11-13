@@ -143,6 +143,9 @@ func run() error {
 	evaluationQueries := evaluations.NewHandler(evaluationRepo)
 	mux.Handle("/api/v1/evaluations", evaluationQueries)
 	mux.Handle("/api/v1/evaluations/", evaluationQueries)
+	for _, prefix := range []string{"/api/v1/experiments", "/api/v1/comparisons", "/api/v1/comparisons/", "/api/v1/gates/"} {
+		mux.Handle(prefix, evaluationQueries)
+	}
 	logQueries := logs.NewQueryHandler(store)
 	mux.Handle("/api/v1/logs", logQueries)
 	mux.Handle("/api/v1/traces/{trace_id}/logs", logQueries)

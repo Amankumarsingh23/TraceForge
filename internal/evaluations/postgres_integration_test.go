@@ -71,4 +71,34 @@ func TestPostgresRead(t *testing.T) {
 	if !errors.As(err, &denied) || denied.Code != "25006" {
 		t.Fatal("query connection is not read-only")
 	}
+	if raw, e := os.ReadFile("../../artifacts/session09/evidence.json"); e == nil {
+		var evidence struct {
+			Identical struct {
+				ComparisonID string `json:"comparison_id"`
+				DecisionID   string `json:"decision_id"`
+			} `json:"identical"`
+		}
+		if json.Unmarshal(raw, &evidence) != nil {
+			t.Fatal("bad comparison evidence")
+		}
+		for _, kind := range []string{"comparison", "comparison_cases", "decision", "comparisons", "experiments"} {
+			id := evidence.Identical.ComparisonID
+			if kind == "decision" {
+				id = evidence.Identical.DecisionID
+			}
+			if _, err := s.Read(context.Background(), kind, id, "", 2, ""); err != nil {
+				t.Fatalf("%s unavailable", kind)
+			}
+		}
+		page, err := s.Read(context.Background(), "experiments", "", "", 1, "")
+		if err != nil {
+			t.Fatal("manifest page")
+		}
+		cursor := page.(map[string]any)["next_cursor"].(string)
+		if cursor != "" {
+			if _, err := s.Read(context.Background(), "experiments", "", "", 1, cursor); err != nil {
+				t.Fatal("manifest cursor")
+			}
+		}
+	}
 }

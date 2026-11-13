@@ -1,4 +1,18 @@
-# TraceForge — Session 8
+# TraceForge — Session 9
+
+## Session 9: paired experiments and release-policy evidence
+
+The existing evaluator now freezes a hashed experiment manifest and separates retrieval depth from metric cutoff. Pure Python compares stable case IDs, retains failures/N/A/coverage, computes paired quality/latency/cost deltas and descriptive/seeded-bootstrap diagnostics, then evaluates versioned PASS/FAIL/INCONCLUSIVE policies. PostgreSQL stores immutable manifests/comparisons/policies/decisions; Go remains read-only; `/comparisons` links both actual evaluations and execution traces. **Offline PASS is not production approval; no deployment or paid model/judge call occurs.**
+
+With the fixture agent and healthy local stack running, invoke `.\scripts\session09-experiments.ps1` from the root. It reads/restores the existing PostgreSQL password without printing or editing `.env`, runs five actual35-case configurations, registers migration0002 and saves local evidence under ignored `artifacts/session09`. Baseline/repeat use retrievalK3/context2; candidates use context1 or retrievalK1, always scored at evaluationK3. An explicit missing-usage fixture tests cost evidence. Independent critical cases were designated from existing multi-document/truncation categories before candidate execution. Controlled gate-only fixtures remain separate from measured application runs.
+
+Measured baseline correctness32/35 falls to28/35 for both real candidates (four regressions). Context1 preserves Recall@3=0.983333 but reduces supplied coverage0.955556→0.844444; retrievalK1 reduces Recall@3 to0.844444. Identical quality deltas are zero. All ordinary runs have35 matched correctness cases/30 retrieval-eligible pairs. Hypothetical complete cost is28000000 nano-USD ($0.028) per run,42000 input/3500 output synthetic tokens; missing usage is unknown. Local HTTP timing is descriptive only. Exact frozen IDs, distributions and decisions are in the journal/results JSON.
+
+CLI from the Python directory with server-side `POSTGRES_PASSWORD`: `python -m evaluation.compare_cli BASELINE_ID CANDIDATE_ID --policy evaluation/policies/offline-v1.json --report ../../artifacts/session09/comparison.json`. The evaluation runner adds `--metric-k 3` independently of `--k`. Stable config IDs have content-derived immutable versions; new policy versions create separate decisions, same comparison/policy retries return the same record. Open `/comparisons` in the existing Next app and select a persisted gate link. Compare actual config differences, correctly labeled percentage-point deltas, matched/full-run cohorts, cost coverage, critical regressions and both trace links. Filters use server-generated case transitions.
+
+New GET APIs: `/api/v1/experiments`, `/api/v1/comparisons`, `/api/v1/comparisons/{id}`, `/api/v1/comparisons/{id}/cases`, `/api/v1/gates/{id}`. Lists support limit1–50/after. Existing four-slot deadlines, read-only PostgreSQL pool, parameterized queries, cancellation and response caps apply. No write API or browser credentials. Production TLS/auth/tenant isolation and live/human semantic validation remain pending.
+
+Checks reuse Go unit/vet/Linux race, Python Ruff/pytest/pip check (set `TRACEFORGE_PG_TEST=1` for actual persistence), frontend lint/typecheck/tests/build and browser checks. `TRACEFORGE_BROWSER_OUTAGE=1` enables controlled outages with restoration; do not overlap those with DB-dependent evaluation tests. Full policies/edge rules: [comparison contract](docs/evaluation/experiment-comparison.md), [gate policy](docs/evaluation/gate-policy.md), [ADR0009](docs/adr/0009-comparison-provenance-and-gates.md), [Session9 report and five answers](docs/engineering-journal/session-09.md). Learning note `learning-notes/session-09-experiments-and-gates.md` remains ignored. Stop after Session9; no service analytics/metrics work is included.
 
 ## Session 8: trace-linked RAG evaluation
 
@@ -572,4 +586,4 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Database unhealthy: inspect `docker compose logs clickhouse postgres`; verify credentials match existing volumes.
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
-See `ARCHITECTURE.md`, ADRs 0004–0008, the failure model and Session 4–8 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Session 8 constrained evaluation is implemented; live semantic review and Session 9 gates remain pending.
+See `ARCHITECTURE.md`, ADRs0004–0009, the failure model and Session4–9 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Offline comparisons/gates are implemented; live semantic review and Session10 analytics remain pending.
