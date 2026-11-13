@@ -1,0 +1,4 @@
+{
+  "version": "pricing-fixture-v1",
+  "entries": [{"provider":"traceforge_fixture","model":"fixture-support-v1","currency":"USD","input_per_million":"0.50","output_per_million":"2.00","cached_input_per_million":"0.10","version":"hypothetical-2026-11-13","source":"https://example.invalid/traceforge/hypothetical-fixture-pricing","hypothetical":true}]
+}

@@ -1,5 +1,7 @@
 # Resume evidence
 
+Session 7 adds fixture-verified AgentOps execution and a bounded canonical attempt summary inside trace detail. Python/Collector/SQL/API/browser evidence, hypothetical pricing, replay invariance and source minimization are recorded in [its journal](engineering-journal/session-07.md). The real compatible adapter is implemented and mock-tested; live execution/billing and answer quality remain unverified. Do not describe deterministic fixture responses as live LLM inference or claim a RAG evaluator.
+
 Claims must match recorded executions. Session 4 adds short, hardware/workload-specific local benchmark evidence; it does not establish universal or sustainable capacity.
 
 | Capability | Status | Evidence |
@@ -22,7 +24,9 @@ Claims must match recorded executions. Session 4 adds short, hardware/workload-s
 | Precise interactive waterfall and inspector | IMPLEMENTED AND VERIFIED LOCALLY | BigInt timing, iterative backend forest, canonical logical bars, anomaly diagnostics, raw timestamps/attributes/events; real demo and 1000-span browser verification |
 | OTLP structured log ingestion and storage | IMPLEMENTED AND VERIFIED LOCALLY | official LogsService, all groups, typed/redacted normalization, optional timestamps/context, independent bounded writer and repeatable migration 0002 |
 | Trace/span log correlation and log search | IMPLEMENTED AND VERIFIED LOCALLY | exact trace+span predicates, standalone/trace-only rows, retained repeats/replays, bounded cursor API, actual SDK/Collector/SQL/browser verification |
-| AgentOps instrumentation | PLANNED | Session 7 |
+| Python AgentOps execution instrumentation | IMPLEMENTED; FIXTURE VERIFIED | Actual BM25 over 12 docs, actual read-only tool, bounded loop, Python OTLP traces/logs through Collector/SQL/API/UI |
+| Canonical attempt usage and estimated cost | IMPLEMENTED AND VERIFIED LOCALLY | Versioned hypothetical rates, unknown coverage, decimal nano-USD, replay-invariant accounting; no AI-specific ingestion/table |
+| Live OpenAI-compatible adapter | IMPLEMENTED; MOCK TRANSPORT VERIFIED; LIVE PENDING | Explicit opt-in, bounded HTTPS requests, sanitized failures; no billable call or billing reconciliation |
 | RAG metrics, versioning, experiment comparisons and gates | PLANNED | Sessions 8–9 |
 | Service graphs, metrics, SLOs, alerts and sampling | PLANNED | Sessions 10–13 |
 | Tenant isolation and production privacy/security hardening | PLANNED | Session 14, with controls introduced as needed earlier |

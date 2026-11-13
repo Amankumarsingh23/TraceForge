@@ -13,6 +13,7 @@ import { ErrorPanel } from "./error-panel";
 import { SpanInspector } from "./span-inspector";
 import { Waterfall } from "./waterfall";
 import { CorrelatedLogs } from "./correlated-logs";
+import { AgentSummary } from "./agent-summary";
 export function DetailExplorer({ traceId }: { traceId: string }) {
   const [revision, setRevision] = useState(0);
   return (
@@ -145,6 +146,7 @@ function DetailRequest({
             </p>
           )}
           <Diagnostics data={trace.diagnostics} />
+          <AgentSummary traceId={traceId} selectSpan={(id) => setSelected(flatten(trace).find(row => row.span.span_id === id)?.span ?? null)} />
           <div className="investigation-grid">
             <Waterfall
               trace={trace}

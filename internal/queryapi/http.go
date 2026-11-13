@@ -42,6 +42,7 @@ func NewHandler(repo Repository, c Config) (http.Handler, error) {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/v1/traces", h.search)
 	mux.HandleFunc("/api/v1/traces/{trace_id}", h.detail)
+	mux.HandleFunc("/api/v1/traces/{trace_id}/agent-summary", h.agentSummary)
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { writeError(w, 404, "not_found", "API route not found") })
 	return mux, nil
 }
@@ -103,6 +104,9 @@ func writeResult(ctx context.Context, w http.ResponseWriter, v any) {
 	_, _ = w.Write(b)
 }
 func (h *handler) detail(w http.ResponseWriter, r *http.Request) {
+	h.readDetail(w, r, false)
+}
+func (h *handler) readDetail(w http.ResponseWriter, r *http.Request, agent bool) {
 	if !method(w, r) {
 		return
 	}
@@ -130,7 +134,11 @@ func (h *handler) detail(w http.ResponseWriter, r *http.Request) {
 		failure(w, e)
 		return
 	}
-	writeResult(ctx, w, d)
+	if agent {
+		writeResult(ctx, w, summarizeAgent(d))
+	} else {
+		writeResult(ctx, w, d)
+	}
 }
 func (h *handler) search(w http.ResponseWriter, r *http.Request) {
 	if !method(w, r) {

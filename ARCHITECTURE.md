@@ -1,4 +1,18 @@
-# Session 6 architecture
+# Session 7 architecture
+
+## AgentOps execution and projection
+
+Python loopback HTTP → strict bounded request → HTTP SERVER span → agent INTERNAL span → actual BM25 retrieval → logical chat CLIENT span → provider-attempt CLIENT children → optional validated tool INTERNAL span → next logical chat → finalization. W3C extraction links incoming parent context; active SDK context supplies child parents and correlated logs. Twelve synthetic D01–D12 documents have a corpus version; top-4 retrieval defaults to only two supplied documents. No vector database or evaluator is introduced.
+
+The explicit fixture provider returns deterministic responses/tool proposals with synthetic usage. The separately enabled HTTPS-compatible provider performs nonstreaming Chat Completions requests; no automatic retries/fallback, redirects or environment proxy use. It caps body bytes and never emits provider error bodies. The agent owns retries and actual function execution. Request/response sizes, deadlines, admission and model/tool/step/attempt limits bound work, without an exact monetary/process-memory guarantee.
+
+The development GenAI convention is pinned to `open-telemetry/semantic-conventions-genai@e6658f14c9d9ea0760825f029cb82e7673f48fab`. Official operation/provider/model/usage/prompt fields coexist with namespaced run/version/retrieval/accounting metadata. Logical inference spans cover retries; diagnostic attempt spans hold the sole accounting counters. ADR 0007 records this deliberate adaptation. No GenAI metrics instruments are introduced.
+
+Python owns bounded batch trace/log processors and OTLP/gRPC exporters. Signals enter existing Collector pipelines and generic tables. Metadata-only source emission precedes receiver sanitization. Four exact typed usage counters bypass the token-key redactor without accepting credential strings. Exception events use fixed type/message fields. Inputs still exist in memory and reach the configured live provider. Loopback deployment has no production authentication or tenant partitioning.
+
+`GET /api/v1/traces/{id}/agent-summary` shares the bounded read/reconstruction path. A finite canonical-forest traversal groups run IDs and emits an allowlisted projection. Only provider-attempt accounting spans contribute usage/cost; raw duplicates and logical/agent parents do not. Go independently recomputes decimal pricing snapshots with rational arithmetic and half-up integer nano-USD; known coverage and null incomplete estimates remain explicit. Cached input/reasoning are subsets. Prices are provider/response-model scoped; fixture rates are hypothetical, live prices unknown by default. Existing diagnostics preserve conflicts/gaps/duplicates and unknown completeness.
+
+Next adds one fixed same-origin route and a focused trace-detail panel using existing cancellation/deadline/body bounds. Selecting an operation chooses its canonical waterfall node and log context; it does not reconstruct a second graph. The journal records fixture/replay/privacy/browser evidence and pending live execution.
 
 ```mermaid
 flowchart LR
@@ -96,7 +110,7 @@ The waterfall iteratively traverses the supplied forest with visited-ID guards, 
 
 ## Planned next step
 
-Session 7 will introduce LLM/agent observability. No metrics ingestion/dashboard, service map, alerting, durable queue, enterprise auth or AgentOps/RAG implementation has been started. Session 4's delivery and measurement limits remain; Session 6 adds logs and exact ID correlation.
+Session 7 adds execution observability below. Session 8 will evaluate RAG quality; Session 9 will compare versions and add gates. No user metrics ingestion/dashboard, service map, alerting, durable queue or enterprise auth has been implemented. Session 4's delivery and measurement limits remain.
 
 ## Log-specific path and invariants
 

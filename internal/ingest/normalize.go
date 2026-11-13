@@ -84,6 +84,22 @@ func safeString(s string) string {
 // It only operates on cloned messages so the incoming request is never mutated.
 func attrs(kvs []*common.KeyValue) error { budget := 256; return sanitizeAttrs(kvs, 0, &budget) }
 
+// GenAI usage counters are public numerical telemetry, not credential tokens.
+// Only exact current semantic keys with bounded integer values bypass the
+// conservative token-key rule; strings and unrelated keys remain redacted.
+func publicGenAIUsage(key string, value *common.AnyValue) bool {
+	switch key {
+	case "gen_ai.usage.input_tokens", "gen_ai.usage.output_tokens", "gen_ai.usage.cache_read.input_tokens", "gen_ai.usage.reasoning.output_tokens":
+	default:
+		return false
+	}
+	if value == nil {
+		return false
+	}
+	v, ok := value.Value.(*common.AnyValue_IntValue)
+	return ok && v.IntValue >= 0 && v.IntValue <= 10000000
+}
+
 // SanitizeAttributes and SanitizeValue apply the existing bounded typed-value
 // policy to caller-owned clones. Log ingestion adds its free-form text policy.
 func SanitizeAttributes(kvs []*common.KeyValue) error { return attrs(kvs) }
@@ -101,7 +117,7 @@ func sanitizeAttrs(kvs []*common.KeyValue, depth int, budget *int) error {
 		if err := sanitizeValue(kv.Value, depth+1, budget); err != nil {
 			return err
 		}
-		if sensitive(kv.Key) {
+		if sensitive(kv.Key) && !publicGenAIUsage(kv.Key, kv.Value) {
 			kv.Value = &common.AnyValue{Value: &common.AnyValue_StringValue{StringValue: "[REDACTED]"}}
 		}
 	}

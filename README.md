@@ -1,4 +1,60 @@
-# TraceForge — Session 6
+# TraceForge — Session 7
+
+## Session 7: AgentOps execution
+
+`examples/agent-demo` is a bounded Python 3.13 support application: actual BM25 retrieval over 12 versioned synthetic documents, actual read-only order lookup, explicit fixture/live providers, and OTLP/gRPC traces and correlated logs through the existing Collector and generic storage. Default **fixture** mode is deterministic; it is not live inference. The separately configured HTTPS OpenAI-compatible adapter is mock-transport tested; live execution remains pending, with no billable calls made.
+
+```powershell
+docker compose up -d --build
+cd examples/agent-demo
+py -3.13 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.lock
+.\.venv\Scripts\python.exe -m agent_demo
+```
+
+In another terminal at the repository root:
+
+```powershell
+$body = @{question='Refund for damaged delivery and order status DEMO-1002'} | ConvertTo-Json
+$run = Invoke-RestMethod http://127.0.0.1:8084/ask -Method Post -ContentType application/json -Body $body
+$run | Select-Object run_id,trace_id,mode,retrieved_document_ids,context_document_ids
+Invoke-RestMethod "http://127.0.0.1:8082/api/v1/traces/$($run.trace_id)/agent-summary"
+# Open /traces/<trace_id> in the existing Next app (web: npm run build; npm run start).
+```
+
+The AgentOps panel separates retrieved IDs/ranks/scores from supplied context IDs, logical calls from attempts, function entry from tool rejection, and known usage/cost subtotals from complete observed estimates. Operation buttons select actual waterfall spans and correlated logs. Conventional traces keep their existing UI. Trace completeness remains unknown; this is execution evidence, not answer-quality measurement.
+
+`POST /ask`: question 1–1000 characters, `top_k` 1–5 (default 4; only two documents supplied). Limits can only be lowered: `max_model_calls` 1–3, `max_tool_calls` 0–2, `max_steps` 1–6, `max_attempts` 1–2 including the initial attempt per call. Body ≤8192 bytes/read ≤2s, four active agents, admission wait 50ms, execution deadline 20s, attempt deadline 5.5s, tool timeout 100ms. At most six provider attempts, 256 requested completion tokens each. Responses after execution starts carry run/trace IDs, including controlled errors. Loopback port 8084 has no authentication or tenant isolation; use only synthetic data.
+
+Fixture `scenario` values: normal, no_results, retry, timeout, permanent_error, missing_usage, bad_arguments, unknown_tool, tool_timeout, unknown_order, max_steps. Use `max_steps:1` for the step-bound fixture. No-results substitutes an unmatched lexical query; provider errors are adapter injections, while tool timeout uses an actual cancellable delay. These fixtures do not establish real provider failure behavior.
+
+### Usage, pricing and privacy
+
+The bounded summary endpoint uses canonical reconstructed spans, grouping run IDs and summing only provider-attempt spans marked `traceforge.usage.accounting=attempt`. Parent/logical totals are never added again; physical telemetry replay cannot add usage. Missing/failed usage remains unknown, not zero. Known subtotals and complete-attempt coverage are explicit. The full observed estimate is null if any observed attempt lacks required usage/pricing; observed coverage never proves complete telemetry or actual billing.
+
+Fixture usage is labeled `synthetic_fixture`; versioned prices are hypothetical: input $0.50/million, output $2.00/million, cached input $0.10/million. Cached input is subtracted from ordinary input; reasoning is already part of output. Python Decimal and Go rational arithmetic independently round each attempt half up to integer nano-USD. Two fixture calls report 3000 input/400 output and $0.002300000 estimated cost. Live pricing is unknown unless explicitly configured by provider and **response** model; no real prices are hardcoded.
+
+Telemetry contains bounded IDs, versions, outcomes, counts and fixed messages. Raw questions/prompts/document text/answers/tool arguments/results, keys and provider error bodies are omitted at source. The existing receiver redactor preserves only four exact nonnegative integer GenAI usage keys up to 10 million; strings and credential-like keys remain redacted. This is not universal secret detection. Inputs remain in application memory and reach the configured provider in live mode. Credentials and `learning-notes/` must never be committed.
+
+### Verify and optionally enable live execution
+
+```powershell
+# In examples/agent-demo:
+.\.venv\Scripts\python.exe -m ruff check agent_demo tests
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m pip check
+# Repository root, with fixture app and stack running:
+.\scripts\session07-smoke.ps1
+docker build --target verify -t traceforge-verify:s7 .
+# Existing frontend: npm run lint/typecheck/test/build, then start and test:browser.
+# TRACEFORGE_BROWSER_OUTAGE=1 enables the two controlled outage browser checks.
+```
+
+Live mode requires both `TRACEFORGE_AGENT_MODE=live` and `TRACEFORGE_ALLOW_LIVE=1`, plus process-environment `TRACEFORGE_PROVIDER_URL` (HTTPS `/v1` base), `TRACEFORGE_PROVIDER_API_KEY`, `TRACEFORGE_PROVIDER_MODEL`, optional `TRACEFORGE_PROVIDER_NAME` (default openai), and optional `TRACEFORGE_PRICING_FILE` matching `data/pricing.json`. There is no dotenv loading, credential discovery, automatic provider retry or fixture fallback. Choose a provider/model supporting nonstreaming Chat Completions with the implemented strict tool schema. Actual authentication/model compatibility remain unverified.
+
+Only after separately authorizing billing and starting that live server, run `python -m agent_demo.smoke --allow-billable` from the activated environment. It sends exactly one question with one call/attempt, zero executable tools, 256 requested completion tokens, and prints only identity/error metadata. Default checks never invoke it. Never paste credentials into tracked files or transcripts.
+
+See [Session 7 evidence and five answers](docs/engineering-journal/session-07.md), [ADR 0007](docs/adr/0007-agent-attempt-accounting.md), and local ignored `learning-notes/session-07-agentops-execution.md`. Recall@K, MRR, groundedness and experiment gates remain Sessions 8–9.
 
 A local trace-and-log investigation tool: gateway/payment → Collector → independently bounded Go trace/log writers → ClickHouse → Go query APIs → Next.js waterfall, log search and span correlation. Backend exports wait for confirmed writes. Trace diagnostics remain explicit; log rows preserve genuine repeats and replays. PostgreSQL has no application schema. OTLP metrics ingestion and AgentOps evaluation remain planned.
 
@@ -487,4 +543,4 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Database unhealthy: inspect `docker compose logs clickhouse postgres`; verify credentials match existing volumes.
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
-See `ARCHITECTURE.md`, ADRs 0004–0006, the failure model and the Session 4–6 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Session 7 AgentOps has not begun.
+See `ARCHITECTURE.md`, ADRs 0004–0007, the failure model and Session 4–7 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Quality evaluation remains planned.

@@ -17,6 +17,36 @@ import (
 func str(key, value string) *common.KeyValue {
 	return &common.KeyValue{Key: key, Value: &common.AnyValue{Value: &common.AnyValue_StringValue{StringValue: value}}}
 }
+func TestGenAIUsageNumericException(t *testing.T) {
+	for _, tc := range []struct {
+		key    string
+		value  *common.AnyValue
+		public bool
+	}{
+		{"gen_ai.usage.input_tokens", &common.AnyValue{Value: &common.AnyValue_IntValue{IntValue: 1200}}, true},
+		{"gen_ai.usage.output_tokens", &common.AnyValue{Value: &common.AnyValue_IntValue{IntValue: 0}}, true},
+		{"gen_ai.usage.input_tokens", &common.AnyValue{Value: &common.AnyValue_StringValue{StringValue: "SECRET"}}, false},
+		{"gen_ai.usage.input_tokens", &common.AnyValue{Value: &common.AnyValue_IntValue{IntValue: -1}}, false},
+		{"gen_ai.usage.input_tokens", &common.AnyValue{Value: &common.AnyValue_IntValue{IntValue: 10000001}}, false},
+		{"access_token", &common.AnyValue{Value: &common.AnyValue_IntValue{IntValue: 1234}}, false},
+	} {
+		t.Run(tc.key+tc.value.String(), func(t *testing.T) {
+			req := fixture()
+			first(req).Attributes = []*common.KeyValue{{Key: tc.key, Value: tc.value}}
+			rows, _, e := Normalize(context.Background(), req)
+			if e != nil || len(rows) != 1 {
+				t.Fatal(e)
+			}
+			redacted := strings.Contains(rows[0].SpanAttributesJSON, "REDACTED")
+			if redacted == tc.public {
+				t.Fatalf("unexpected sanitization: %s", rows[0].SpanAttributesJSON)
+			}
+			if strings.Contains(rows[0].SpanJSON, "SECRET") {
+				t.Fatal("secret in complete span")
+			}
+		})
+	}
+}
 func fixture() *collector.ExportTraceServiceRequest {
 	return &collector.ExportTraceServiceRequest{ResourceSpans: []*trace.ResourceSpans{{Resource: &resource.Resource{Attributes: []*common.KeyValue{str("service.name", "gateway")}}, ScopeSpans: []*trace.ScopeSpans{{Scope: &common.InstrumentationScope{Name: "test", Version: "1"}, Spans: []*trace.Span{{TraceId: bytes.Repeat([]byte{1}, 16), SpanId: bytes.Repeat([]byte{2}, 8), Name: "operation", Kind: trace.Span_SPAN_KIND_SERVER, StartTimeUnixNano: 1700000000000000123, EndTimeUnixNano: 1700000000000000456}}}}}}}
 }

@@ -1,0 +1,17 @@
+{
+  "version": "support-kb-v1",
+  "documents": [
+    {"id":"D01","title":"Refund eligibility","text":"Synthetic store refunds are available within 30 days of delivery when eligibility checks pass. The demo does not approve real refunds."},
+    {"id":"D02","title":"Damaged product returns","text":"A damaged product may be returned. Report the damage within 7 days, keep the packaging, and request a return review. Synthetic support can explain the process but cannot issue payments."},
+    {"id":"D03","title":"Order tracking","text":"Order status and delivery tracking are available using a synthetic DEMO order identifier. Use the order status lookup tool for the current stored status."},
+    {"id":"D04","title":"Delivery delays","text":"A delivery delay can occur while an order is in transit. Review order tracking before contacting synthetic support."},
+    {"id":"D05","title":"Payment methods","text":"The synthetic store documents card and voucher payment methods. Never provide actual card details to this demo."},
+    {"id":"D06","title":"Return packaging","text":"Keep original packaging for a damaged product return. Include the synthetic order reference in the return request."},
+    {"id":"D07","title":"Refund processing","text":"An eligible refund review may take five synthetic business days after a returned item is checked. This demonstration makes no real transfers."},
+    {"id":"D08","title":"Canceling an order","text":"A processing order may be eligible for cancellation review. Delivered orders use the return process instead."},
+    {"id":"D09","title":"Address updates","text":"Delivery address changes require a review before shipment. This read-only demonstration cannot update an address."},
+    {"id":"D10","title":"Warranty support","text":"Synthetic warranty support explains replacement eligibility for manufacturing defects. No real customer records are accessed."},
+    {"id":"D11","title":"Missing package","text":"For a missing package, check the delivery tracking and stored order status. A delivered status is not proof that the customer received the package."},
+    {"id":"D12","title":"Privacy guidance","text":"Use only synthetic questions and demo order identifiers. Do not enter passwords, access credentials, personal addresses, or payment details."}
+  ]
+}
