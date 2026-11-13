@@ -1,4 +1,10 @@
-# Session 9 architecture
+# Session 10 architecture
+
+## Bounded trace-derived analytics
+
+UTC scope → parameterized SERVER/CLIENT candidate discovery (128 IDs + overflow sentinel) → one full-trace bulk hydration (20,000 rows /16MiB) → existing Session3 canonical reconstruction → eligible SERVER counts and combined duration distributions → CLIENT-start confirmed CLIENT→SERVER pairing → versioned Go JSON → fixed Next proxies → services/detail/bucket bars/directed SVG graph → actual trace and correlated-log investigation.
+
+Service identity includes name/namespace/environment/workload; unmarked origin remains unknown. No name/timing/link heuristic creates an edge. Distinct retry spans count distinctly; physical replay does not. Both reads share a bounded context and existing ClickHouse row/byte/memory/throw settings; API uses two slots and a four-second deadline. Service/edge/bucket allocations and serialized response bytes are capped; overflow is an explicit failure. Two reads are not a snapshot, completeness remains unknown, and filters do not establish tenant isolation. No new schema, preaggregation, general metrics ingestion or SLO work. See ADR0010 and the full analytics contract.
 
 ## Frozen experiments and release decisions
 
@@ -6,7 +12,7 @@ Session8 runner → canonical allowlisted manifest at run start → actual basel
 
 Migration0002 adds experiment manifests and comparison/policy/decision metadata, references existing evaluation runs, uses parameterized transactional inserts and idempotent identities, and rejects history updates/deletes. No full ClickHouse data is copied. The new comparison engine preserves failed/missing/N/A cases, reports matched and full cohorts, exact money subtotals/coverage, successful/failed latency distributions and seeded paired-bootstrap diagnostics. Gate precedence is invalid→INCONCLUSIVE, confirmed mandatory violation→FAIL, missing required evidence→INCONCLUSIVE, otherwise PASS in the declared scope. Critical categories are independent input, not selected after results. Live mode and independent semantic review are required by the production-oriented profile and remain unavailable here.
 
-New GET endpoints reuse the bounded read-only PostgreSQL handler/pool. The frontend uses fixed same-origin proxies, presents backend deltas/decisions without recalculating scoring, filters transitions and links both real traces. There is no automatic deployment, model promotion, production CI integration, new auth system or Session10 analytics. See ADR0009 and Session9 evidence.
+New GET endpoints reuse the bounded read-only PostgreSQL handler/pool. The frontend uses fixed same-origin proxies, presents backend deltas/decisions without recalculating scoring, filters transitions and links both real traces. Session9 added no automatic deployment, model promotion, production CI integration or new auth system; Session10 analytics is described above. See ADR0009 and Session9 evidence.
 
 ## Transactional RAG evaluation
 

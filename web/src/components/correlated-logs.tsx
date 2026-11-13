@@ -29,7 +29,7 @@ export function CorrelatedLogs({
   };
   const path = logSearchPath(filters, cursor, traceId);
   return (
-    <section className="panel log-panel" aria-label="Correlated logs">
+    <section id="correlated-logs" className="panel log-panel" aria-label="Correlated logs">
       <div className="panel-heading">
         <div>
           <h2>Correlated logs</h2>

@@ -1,4 +1,26 @@
-# TraceForge — Session 9
+# TraceForge — Session 10
+
+## Session 10: observed service RED and directed dependencies
+
+`/services` now summarizes canonical inbound SERVER requests; `/services/{id}` shows request/error/latency bucket trends and actual trace/log evidence. `/service-graph` shows only confirmed CLIENT→SERVER parent pairs. Identities retain namespace/environment and explicit synthetic/fixture/live/unknown origin. Exact replay cannot inflate counts. These are bounded **trace-derived observations**, not OTLP metrics or complete production traffic measurements.
+
+GET `/api/v1/services`, `/api/v1/services/{id}/metrics`, `/api/v1/services/{id}/dependencies`, `/api/v1/service-graph` share `trace-red/v1`. UTC `[from,to)` ≤1 hour; bucket sizes 60/300/900 seconds; exact namespace/environment/workload/identity filters. SERVER-start requests and CLIENT-start edges deliberately differ. Whole-window nearest-rank percentiles use combined canonical samples; empty samples are null. Queries exceeding candidate/row/byte/service/edge/bucket/time budgets fail visibly. Fixed same-origin proxies keep the backend origin server-side.
+
+```powershell
+docker compose up -d --build --wait --wait-timeout 180
+go build -o bin/shop-demo-session06.exe ./cmd/shop-demo
+New-Item -ItemType Directory -Force artifacts/session10 | Out-Null
+$env:TRACEFORGE_SERVICE_NAMESPACE = 'session10-'+[DateTime]::UtcNow.ToString('yyyyMMddHHmmss')
+$env:TRACEFORGE_SERVICE_NAMESPACE | Set-Content artifacts/session10/namespace.txt
+.\scripts\restart-demo.ps1
+Remove-Item Env:TRACEFORGE_SERVICE_NAMESPACE
+.\scripts\session10-smoke.ps1
+# Then start the existing Next app and open /services with the saved evidence query.
+```
+
+Create `artifacts/session10` first on a fresh checkout. The smoke wrapper executes 80 normal, 15 delayed (100ms), 5 failed **real HTTP** requests; finite-polls telemetry and verifies independent SERVER/pair counts, errors, HTTP status, duration samples and replay stability. It saves absolute bounds, actual trace IDs and results locally. Last measured isolated run: each service100 requests,5 ERROR (5%),54.692164 observations/s in1.8284155s; payment p95=100.7715ms, gateway p95=101.0056ms;100 confirmed pairs. This sequential local synthetic run is evidence of implementation behavior, not throughput capacity or a production benchmark.
+
+See [metric definitions and API budgets](docs/analytics/metric-definitions.md), [ADR0010](docs/adr/0010-bounded-canonical-service-analytics.md), [Session10 report and five answers](docs/engineering-journal/session-10.md). Existing Go/Python/frontend/browser checks remain; run the new tagged `TestAnalyticsCrossWindowBulkAndBudget` integration case before browser analytics budget checks. Learning note `learning-notes/session-10-service-analytics.md` stays ignored. Stop after Session10; OTLP metrics ingestion is planned for Session11.
 
 ## Session 9: paired experiments and release-policy evidence
 
@@ -12,7 +34,7 @@ CLI from the Python directory with server-side `POSTGRES_PASSWORD`: `python -m e
 
 New GET APIs: `/api/v1/experiments`, `/api/v1/comparisons`, `/api/v1/comparisons/{id}`, `/api/v1/comparisons/{id}/cases`, `/api/v1/gates/{id}`. Lists support limit1–50/after. Existing four-slot deadlines, read-only PostgreSQL pool, parameterized queries, cancellation and response caps apply. No write API or browser credentials. Production TLS/auth/tenant isolation and live/human semantic validation remain pending.
 
-Checks reuse Go unit/vet/Linux race, Python Ruff/pytest/pip check (set `TRACEFORGE_PG_TEST=1` for actual persistence), frontend lint/typecheck/tests/build and browser checks. `TRACEFORGE_BROWSER_OUTAGE=1` enables controlled outages with restoration; do not overlap those with DB-dependent evaluation tests. Full policies/edge rules: [comparison contract](docs/evaluation/experiment-comparison.md), [gate policy](docs/evaluation/gate-policy.md), [ADR0009](docs/adr/0009-comparison-provenance-and-gates.md), [Session9 report and five answers](docs/engineering-journal/session-09.md). Learning note `learning-notes/session-09-experiments-and-gates.md` remains ignored. Stop after Session9; no service analytics/metrics work is included.
+Checks reuse Go unit/vet/Linux race, Python Ruff/pytest/pip check (set `TRACEFORGE_PG_TEST=1` for actual persistence), frontend lint/typecheck/tests/build and browser checks. `TRACEFORGE_BROWSER_OUTAGE=1` enables controlled outages with restoration; do not overlap those with DB-dependent evaluation tests. Full policies/edge rules: [comparison contract](docs/evaluation/experiment-comparison.md), [gate policy](docs/evaluation/gate-policy.md), [ADR0009](docs/adr/0009-comparison-provenance-and-gates.md), [Session9 report and five answers](docs/engineering-journal/session-09.md). Learning note `learning-notes/session-09-experiments-and-gates.md` remains ignored. Session9 stopped before service analytics; see Session10 above for the newly implemented scope.
 
 ## Session 8: trace-linked RAG evaluation
 

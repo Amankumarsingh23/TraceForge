@@ -1,4 +1,4 @@
-# TraceForge failure model — through Session 6
+# TraceForge failure model — through Session 10
 
 Success means the receiver observed ClickHouse's synchronous insert confirmation for that export's accepted rows. It does not mean replicated/power-loss-safe storage, exactly-once delivery, or unconditional eventual delivery. `async_insert=0` and raw MergeTree rows remain in use; `insert_deduplicate=0` keeps replay behavior explicit.
 
@@ -49,3 +49,15 @@ Request/worker contexts have different roles. Canceling an individual request ca
 - The outage load generator saved a report with two retryable/unknown exports, zero acknowledged spans and unverified storage while the DB was down; a subsequent independent query found zero fixture rows.
 
 See session journals for IDs and actual command outputs. All local traffic remains synthetic/plaintext and loopback-published. Known attribute redaction is not comprehensive DLP or authentication; Collector debug output remains upstream of that boundary.
+
+## Session 10: trace-derived analytics failure boundaries
+
+Service RED is canonical observed SERVER evidence, not unsampled traffic or business success. UNSET and missing HTTP response status remain explicit. Child ERROR alone never changes the SERVER denominator/numerator. Invalid durations do not become zero samples. Empty sample statistics are null.
+
+Two bounded reads discover candidate traces and hydrate their complete rows; no N+1 and no time filter before CLIENT/SERVER pairing. Cross-window pairs belong to CLIENT start. Raw conflicting variants can increase candidate discovery conservatively, then canonical selection decides eligibility. Physical replay does not increase logical counts; contradictory variants remain diagnosed. Sampling, missing/late exports and non-snapshot reads can still change results and topology completeness remains unknown.
+
+Too many candidates/physical rows/bytes/services/edges/buckets or known ClickHouse scan/memory overflow means413 with **no partial result**. Narrowing identity filters does not bypass discovery limits. Deadlines/cancellation propagate; storage unavailability is503, never an empty service graph. Two analytics slots limit concurrency. ClickHouse limits may overshoot within a processed part and are not process isolation. General Go process-heap profiling is not claimed.
+
+Unmatched CLIENTs, missing SERVER parents, wrong parent kinds, ambiguous SERVER children, same-service pairs, missing names, duplicates/conflicts, cycles and timing warnings remain diagnostics. Names/timing/SpanLinks do not create confirmed edges; missing SERVER is not proof a remote operation was not received. Distinct retry IDs remain distinct attempts. CLIENT/SERVER status and latency evidence remain independent; no exact network-latency subtraction.
+
+Stable service IDs include namespace/environment/workload; unknown origin is not labeled live. Identity filters and hashes are not authentication or tenant isolation. Existing loopback restrictions still apply. Same-origin fixed proxies do not accept arbitrary destinations or expose database credentials. Trace/log links use actual observations; existing correlated logs are explicitly limited to the last24 hours. Full definitions and budgets: [analytics contract](analytics/metric-definitions.md).

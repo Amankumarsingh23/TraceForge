@@ -203,6 +203,24 @@ test("log search and correlation report real outage and recover", async ({
   }
   await page.getByRole("button", { name: "Retry request" }).click();
   await expect(page.locator("section[role=alert]")).toHaveCount(0);
+  // Bind recovery evidence to the persisted request, not the moving last-hour default.
+  const observed = await (
+    await page.request.get(`/api/traces/${demo.failed.trace_id}`)
+  ).json();
+  await page
+    .getByRole("textbox", { name: "Logs from UTC" })
+    .fill(
+      new Date(
+        Date.parse(observed.observed_time_envelope.start_time) - 1000,
+      ).toISOString(),
+    );
+  await page
+    .getByRole("textbox", { name: "Logs to UTC" })
+    .fill(
+      new Date(
+        Date.parse(observed.observed_time_envelope.end_time) + 1000,
+      ).toISOString(),
+    );
   await page
     .getByRole("textbox", { name: "Trace ID", exact: true })
     .fill(demo.failed.trace_id);

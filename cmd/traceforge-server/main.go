@@ -15,6 +15,7 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	"traceforge/internal/analytics"
 	"traceforge/internal/evaluations"
 	"traceforge/internal/ingest"
 	"traceforge/internal/logs"
@@ -152,6 +153,10 @@ func run() error {
 	mux.Handle("/debug/log-ingestion", logServer.HealthHandler())
 	mux.Handle("/metrics/logs", logServer.HealthHandler())
 	mux.Handle("/api/v1/", queries)
+	analyticsQueries := analytics.NewHandler(store)
+	mux.Handle("/api/v1/services", analyticsQueries)
+	mux.Handle("/api/v1/services/", analyticsQueries)
+	mux.Handle("/api/v1/service-graph", analyticsQueries)
 	mux.Handle("/", server.HealthHandler())
 	httpServer := &http.Server{Handler: mux, ReadHeaderTimeout: 2 * time.Second, ReadTimeout: 3 * time.Second, WriteTimeout: 6 * time.Second, IdleTimeout: 15 * time.Second}
 	errCh := make(chan error, 2)
