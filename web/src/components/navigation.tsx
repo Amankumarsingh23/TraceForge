@@ -6,6 +6,12 @@ export function Navigation() {
   return (
     <nav aria-label="Main navigation">
       <Link
+        href="/metrics"
+        aria-current={path.startsWith("/metrics") ? "page" : undefined}
+      >
+        Metrics
+      </Link>
+      <Link
         href="/services"
         aria-current={path.startsWith("/services") ? "page" : undefined}
       >

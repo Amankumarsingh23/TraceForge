@@ -1030,3 +1030,9 @@ footer {
 .service-graph svg a { color: #0b7285; }
 .service-graph svg rect { fill: #e7f2f4; }
 .analytics-page figure { color: #0b7285; }
+.metric-series { border: 1px solid #b6c6d8; border-radius: 10px; margin: 24px 0; padding: 20px; }
+.metric-series pre { max-height: 400px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.metric-series code { overflow-wrap: anywhere; }
+.metrics-page > label select { max-width: 100%; }
+.metrics-page p { overflow-wrap: anywhere; }
+.metric-series figure { margin: 20px 0; }

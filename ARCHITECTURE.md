@@ -1,4 +1,12 @@
-# Session 10 architecture
+# Session 11 architecture
+
+## Direct metric streams and interval semantics
+
+Fixed-route application instruments → shared lifetime writer/resource identity → OTel MeterProvider/Views/cardinality limit/periodic reader → independent Collector metrics exporter → official MetricsService → bounded normalization and lifetime admission → two immediate request-batch persistence slots → synchronous raw MergeTree metric points. No queue-admission ACK, trace-row reuse or exactly-once source-event claim.
+
+UTC/name/service/namespace candidate discovery → bounded bulk hydration with1h predecessor horizon → canonical stream/point replay/conflict selection → independent writer cumulative/delta conversion → fully covered interval aggregation and compatible histogram merge → versioned API → fixed Next proxy → metrics/native-series/rates/gauge/signed-state/distribution views. Cumulative bucket counts are differenced before merging; percentile bucket ranges retain information limits. Unknown starts, missing values, overlaps, resets, overflow and source coverage remain explicit. No incomplete subtotal is labeled a complete traffic rate.
+
+Migration0003 indexes discovery fields and exact UInt64 point times beside lossless typed JSON and database ingestion time. Full canonical keys are stored/compared with hashes. New SDK/exporter versions match existing OTel1.47.0. Application metrics, receiver Prometheus self-monitoring and Session10 trace-derived RED remain distinct. Independent signal budgets share ClickHouse/pool resources; local cardinality guards reset at receiver restart. Namespace is not authenticated tenant isolation. See metric contract and ADR0011; no SLO/alert/major optimization work was added.
 
 ## Bounded trace-derived analytics
 

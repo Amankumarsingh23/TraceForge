@@ -3,6 +3,7 @@ package telemetry
 import (
 	"context"
 	"errors"
+	"github.com/google/uuid"
 	"go.opentelemetry.io/contrib/bridges/otelslog"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc"
@@ -14,8 +15,10 @@ import (
 	"time"
 )
 
+var processInstance = uuid.NewString()
+
 func serviceResource(service string) *resource.Resource {
-	return resource.NewSchemaless(attribute.String("service.name", service), attribute.String("service.version", "0.1.0"), attribute.String("deployment.environment.name", "local"), attribute.String("service.namespace", os.Getenv("TRACEFORGE_SERVICE_NAMESPACE")), attribute.String("traceforge.workload.kind", "synthetic"))
+	return resource.NewSchemaless(attribute.String("service.name", service), attribute.String("service.instance.id", processInstance), attribute.String("service.version", "0.1.0"), attribute.String("deployment.environment.name", "local"), attribute.String("service.namespace", os.Getenv("TRACEFORGE_SERVICE_NAMESPACE")), attribute.String("traceforge.workload.kind", "synthetic"))
 }
 func NewLogProvider(ctx context.Context, service, endpoint string) (*sdklog.LoggerProvider, *slog.Logger, error) {
 	u, e := url.Parse(endpoint)

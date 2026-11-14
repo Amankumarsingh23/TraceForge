@@ -1,4 +1,27 @@
-# TraceForge — Session 10
+# TraceForge — Session 11
+
+## Session 11: direct OTLP metrics
+
+The real gateway/payment applications now export completed requests, HTTP≥500 errors, duration histograms, active-request UpDownCounters and actual goroutine Gauges through an independent SDK/Collector/official MetricsService pipeline. A raw ClickHouse table preserves exact typed points. Per-writer temporal normalization handles cumulative/delta intervals, replay, resets, missing history/values, overlap and compatible histogram ranges. `/metrics` displays actual native-resolution points, rates, source identities and coverage; service detail links distinguish them from trace-derived RED.
+
+```powershell
+New-Item -ItemType Directory -Force artifacts/session11 | Out-Null
+docker compose up -d --build --wait --wait-timeout 180
+# Restart Collector when its bind-mounted config has changed.
+docker compose restart otel-collector
+go build -o bin/shop-demo-session06.exe ./cmd/shop-demo
+.\scripts\session11-smoke.ps1
+```
+
+The smoke driver creates a fresh namespace, restarts owned demo binaries, executes actual80/15/5 normal/delayed/failed checkouts, finite-polls metric and trace visibility, verifies direct100 requests/5 errors/histogram100 per service, replays frozen metric rows, then restarts payment and verifies a new writer's five increments. Absolute bounds and real trace IDs remain in ignored artifacts. Default metric export interval2s is configurable with `--metric-interval`. No paid calls or SLOs are involved.
+
+Last measured scope:100 direct requests/5 errors/100 histogram observations per service; observed covered counter rates gateway50.009547/s and payment50.014167/s over about2s of actual exported coverage. Selected query window4.7078993s has incomplete source coverage, so a complete-window direct rate is withheld. Trace-derived100 SERVER observations/window yield21.240896/s instead; do not force these different denominators to agree. Direct p95 falls in(.1,.25]s; exact trace p95=100.7163ms. This is a short local synthetic verification, not a production capacity/coverage result.
+
+GET `/api/v1/metrics`, `/api/v1/metrics/series`, `/api/v1/metrics/query` share `otlp-metrics/v1`; filters from/to UTC Z, name/service/namespace and optional stream_id. Window≤1h,32 candidate streams,12,000 physical points,1h predecessor horizon and16MiB input/response; no silent truncation/resampling. Two independent metric persistence slots batch one bounded export each; success requires database confirmation. Lifetime cardinality caps and SDK overflow are visible and documented, not durable tenant quotas.
+
+Run actual metric fixtures with `go test -tags integration -count=1 ./tests/integration -run '^(TestMetricStorageTemporalReplayAndCardinality|TestSDKMetricOverflowPreservesObservedTotal)$' -v` after setting existing local ClickHouse credentials server-side. Normal regression commands remain applicable; browser tests need the generated evidence files, a production Next build/start and `TRACEFORGE_BROWSER_OUTAGE=1` to exercise actual database failures. Keep database-dependent tests separate from intentional outages. Verify Linux race with `docker build --target verify -t traceforge-verify:s11 .`.
+
+See [metric semantics/schema/limits](docs/metrics/metric-semantics.md), [ADR0011](docs/adr/0011-metric-streams-temporality-and-cardinality.md), [actual Session11 report and worked review](docs/engineering-journal/session-11.md). Local teaching note `learning-notes/session-11-otlp-metrics.md` stays ignored. Authentication/tenant enforcement, complete traffic, live-provider/independent semantic validation and Session3's learner assessment remain pending. Stop after Session11; SLOs/alerts remain Session12 work.
 
 ## Session 10: observed service RED and directed dependencies
 
@@ -20,7 +43,7 @@ Remove-Item Env:TRACEFORGE_SERVICE_NAMESPACE
 
 Create `artifacts/session10` first on a fresh checkout. The smoke wrapper executes 80 normal, 15 delayed (100ms), 5 failed **real HTTP** requests; finite-polls telemetry and verifies independent SERVER/pair counts, errors, HTTP status, duration samples and replay stability. It saves absolute bounds, actual trace IDs and results locally. Last measured isolated run: each service100 requests,5 ERROR (5%),54.692164 observations/s in1.8284155s; payment p95=100.7715ms, gateway p95=101.0056ms;100 confirmed pairs. This sequential local synthetic run is evidence of implementation behavior, not throughput capacity or a production benchmark.
 
-See [metric definitions and API budgets](docs/analytics/metric-definitions.md), [ADR0010](docs/adr/0010-bounded-canonical-service-analytics.md), [Session10 report and five answers](docs/engineering-journal/session-10.md). Existing Go/Python/frontend/browser checks remain; run the new tagged `TestAnalyticsCrossWindowBulkAndBudget` integration case before browser analytics budget checks. Learning note `learning-notes/session-10-service-analytics.md` stays ignored. Stop after Session10; OTLP metrics ingestion is planned for Session11.
+See [metric definitions and API budgets](docs/analytics/metric-definitions.md), [ADR0010](docs/adr/0010-bounded-canonical-service-analytics.md), [Session10 report and five answers](docs/engineering-journal/session-10.md). Existing Go/Python/frontend/browser checks remain; run the new tagged `TestAnalyticsCrossWindowBulkAndBudget` integration case before browser analytics budget checks. Learning note `learning-notes/session-10-service-analytics.md` stays ignored. At the Session10 checkpoint OTLP metrics were still planned; Session11 above implements its bounded subset.
 
 ## Session 9: paired experiments and release-policy evidence
 

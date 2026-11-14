@@ -1,4 +1,4 @@
-# TraceForge failure model — through Session 10
+# TraceForge failure model — through Session 11
 
 Success means the receiver observed ClickHouse's synchronous insert confirmation for that export's accepted rows. It does not mean replicated/power-loss-safe storage, exactly-once delivery, or unconditional eventual delivery. `async_insert=0` and raw MergeTree rows remain in use; `insert_deduplicate=0` keeps replay behavior explicit.
 
@@ -61,3 +61,15 @@ Too many candidates/physical rows/bytes/services/edges/buckets or known ClickHou
 Unmatched CLIENTs, missing SERVER parents, wrong parent kinds, ambiguous SERVER children, same-service pairs, missing names, duplicates/conflicts, cycles and timing warnings remain diagnostics. Names/timing/SpanLinks do not create confirmed edges; missing SERVER is not proof a remote operation was not received. Distinct retry IDs remain distinct attempts. CLIENT/SERVER status and latency evidence remain independent; no exact network-latency subtraction.
 
 Stable service IDs include namespace/environment/workload; unknown origin is not labeled live. Identity filters and hashes are not authentication or tenant isolation. Existing loopback restrictions still apply. Same-origin fixed proxies do not accept arbitrary destinations or expose database credentials. Trace/log links use actual observations; existing correlated logs are explicitly limited to the last24 hours. Full definitions and budgets: [analytics contract](analytics/metric-definitions.md).
+
+## Session11 metric boundaries
+
+Metric success confirms synchronous ClickHouse persistence for accepted points, not SDK/Collector admission, replicated durability or source-event exactly-once behavior. Failed/ambiguous writes return UNAVAILABLE and can replay physical rows on retry. Partly invalid/unsupported/cardinality-limited exports persist valid siblings and count rejected_data_points exactly. Two metric slots, no inter-request queue and bounded request batches protect separate trace/log budgets; database/pool/CPU remain shared resources. Metric admission closes/drains before pool shutdown.
+
+Canonical stream/point replay prevents duplicate exported observations inflating increments/distributions. Conflicting content/definitions and unknown accumulation starts remain unreliable. Separate instances normalize independently. Missing initial history is not counted as new traffic; compatible missing cumulative exports can recover only combined increments. Explicit no-value is not zero and does not restart a cumulative sequence. Unexplained decreases cannot create negative monotonic rates or invented resets. Delta overlaps are excluded; partial boundary intervals are not split proportionally into exact counts.
+
+Gauge observations are not totals or indefinitely current values. Histogram boundaries/units/source populations must agree before incremental distributions merge; cumulative min/max and per-series percentiles are not subtracted/averaged. Overflow/infinite percentile buckets keep unbounded endpoints. Incomplete metric coverage uses observed seconds and withholds complete-window rates; selected span-start and exported completion intervals can legitimately produce different rates.
+
+V1 rejects unsupported/nested/exemplar-bearing or sensitive identity data instead of redacting distinct streams into collisions. Full canonical keys protect hash collision/conflict handling. Bounded SDK overflow preserves aggregate observations while losing original dimension coverage, which is surfaced. Local backend admission limits reset at receiver restart and do not enforce a durable multi-node quota. Query budgets fail explicitly; predecessor history and two-read non-snapshot visibility remain limited. Actual database outage returned503 for reads and UNAVAILABLE for metric export, then recovered.
+
+No metrics feature grants authenticated tenant isolation, comprehensive DLP, production TLS/IAM, SLO correctness or complete production traffic. See [metric semantics](metrics/metric-semantics.md) and [actual Session11 evidence](engineering-journal/session-11.md).

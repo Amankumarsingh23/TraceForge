@@ -300,6 +300,18 @@ export function ServicesView({
                 {selected.identity.workload}
               </p>
               <Summary stats={selected.stats} />
+              <section>
+                <h2>Directly instrumented metrics</h2>
+                <p>
+                  Separate completion-time counters and histograms; these do not
+                  replace the trace-derived SERVER-start RED above.
+                </p>
+                <Link
+                  href={`/metrics?${new URLSearchParams({ from: data.query.from, to: data.query.to, service: selected.identity.name, ...(selected.identity.namespace ? { namespace: selected.identity.namespace } : {}) })}`}
+                >
+                  Explore direct OTLP metrics for {selected.identity.name}
+                </Link>
+              </section>
               <Trend
                 service={selected}
                 metric="rate_per_second"

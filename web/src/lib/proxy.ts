@@ -94,7 +94,7 @@ export async function forwardTelemetry(
       /^\/api\/v1\/(?:logs|traces(?:\/[a-f0-9]{32}(?:\/(?:logs|agent-summary))?)?|evaluations(?:\/[a-f0-9]{32}(?:\/cases(?:\/[A-Za-z0-9_-]{1,64})?)?)?)$/.test(
         path,
       ) ||
-      /^\/api\/v1\/(?:services(?:\/[a-f0-9]{32}\/(?:metrics|dependencies))?|service-graph|experiments|comparisons(?:\/[a-f0-9]{32}(?:\/cases)?)?|gates\/[a-f0-9]{32})$/.test(
+      /^\/api\/v1\/(?:metrics(?:\/(?:series|query))?|services(?:\/[a-f0-9]{32}\/(?:metrics|dependencies))?|service-graph|experiments|comparisons(?:\/[a-f0-9]{32}(?:\/cases)?)?|gates\/[a-f0-9]{32})$/.test(
         path,
       )
     )

@@ -2,9 +2,11 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"flag"
 	"fmt"
 	collectorlogs "go.opentelemetry.io/proto/otlp/collector/logs/v1"
+	collectormetrics "go.opentelemetry.io/proto/otlp/collector/metrics/v1"
 	collector "go.opentelemetry.io/proto/otlp/collector/trace/v1"
 	"golang.org/x/net/netutil"
 	"google.golang.org/grpc"
@@ -19,6 +21,7 @@ import (
 	"traceforge/internal/evaluations"
 	"traceforge/internal/ingest"
 	"traceforge/internal/logs"
+	"traceforge/internal/metricdata"
 	"traceforge/internal/queryapi"
 	"traceforge/internal/storage"
 )
@@ -135,7 +138,18 @@ func run() error {
 	grpcServer := grpc.NewServer(grpc.MaxRecvMsgSize(ingest.MaxMessageBytes), grpc.MaxConcurrentStreams(8), grpc.ConnectionTimeout(5*time.Second))
 	collector.RegisterTraceServiceServer(grpcServer, server)
 	collectorlogs.RegisterLogsServiceServer(grpcServer, logServer)
+	metricServer := metricdata.NewServer(store)
+	collectormetrics.RegisterMetricsServiceServer(grpcServer, metricServer)
+	defer func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 4*time.Second)
+		defer cancel()
+		_ = metricServer.Shutdown(ctx)
+	}()
 	mux := http.NewServeMux()
+	metricQueries := metricdata.NewHandler(store)
+	mux.Handle("/api/v1/metrics", metricQueries)
+	mux.Handle("/api/v1/metrics/", metricQueries)
+	mux.HandleFunc("/debug/metric-ingestion", func(w http.ResponseWriter, r *http.Request) { _ = json.NewEncoder(w).Encode(metricServer.Snapshot()) })
 	var evaluationRepo evaluations.Repository
 	if metadata, err := evaluations.Open(context.Background()); err == nil {
 		defer metadata.Close()
@@ -175,10 +189,11 @@ func run() error {
 		}
 	}
 	drainCtx, drainCancel := context.WithTimeout(context.Background(), *drainTimeout)
-	drained := make(chan error, 2)
+	drained := make(chan error, 3)
 	go func() { drained <- server.Shutdown(drainCtx) }()
 	go func() { drained <- logServer.Shutdown(drainCtx) }()
-	for range 2 {
+	go func() { drained <- metricServer.Shutdown(drainCtx) }()
+	for range 3 {
 		if err := <-drained; err != nil {
 			log.Print("signal ingestion drain timed out; unresolved outcomes are failed/unknown")
 		}

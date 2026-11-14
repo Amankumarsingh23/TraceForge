@@ -18,6 +18,7 @@ func run() error {
 	service := flag.String("service", "gateway", "gateway or payment")
 	port := flag.Int("port", 0, "loopback HTTP port (default 8080/8081)")
 	paymentURL := flag.String("payment-url", "http://localhost:8081", "payment origin")
+	metricInterval := flag.Duration("metric-interval", 2*time.Second, "local metric export interval (200ms..1m)")
 	flag.Parse()
 	if *service != "gateway" && *service != "payment" {
 		return fmt.Errorf("invalid service")
@@ -43,6 +44,21 @@ func run() error {
 	if err != nil {
 		return err
 	}
+	mp, err := telemetry.NewMeterProvider(context.Background(), *service, endpoint, *metricInterval)
+	if err != nil {
+		_ = tp.Shutdown(context.Background())
+		return err
+	}
+	defer func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if e := mp.ForceFlush(ctx); e != nil {
+			log.Print("metric force flush failed; delivery unconfirmed")
+		}
+		if e := mp.Shutdown(ctx); e != nil {
+			log.Print("metric shutdown failed; delivery unconfirmed")
+		}
+	}()
 	lp, logger, err := telemetry.NewLogProvider(context.Background(), *service, endpoint)
 	if err != nil {
 		_ = tp.Shutdown(context.Background())
@@ -71,6 +87,14 @@ func run() error {
 		}
 	}
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	route := "/charge"
+	if *service == "gateway" {
+		route = "/checkout"
+	}
+	handler, err = telemetry.InstrumentInbound(mp, route, handler)
+	if err != nil {
+		return err
+	}
 	defer stop()
 	server := &http.Server{Addr: fmt.Sprintf("127.0.0.1:%d", *port), Handler: handler, ReadHeaderTimeout: 2 * time.Second, ReadTimeout: 5 * time.Second, WriteTimeout: 6 * time.Second, IdleTimeout: 30 * time.Second}
 	log.Printf("%s listening on %s", *service, server.Addr)
