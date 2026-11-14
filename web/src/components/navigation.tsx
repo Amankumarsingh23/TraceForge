@@ -6,6 +6,18 @@ export function Navigation() {
   return (
     <nav aria-label="Main navigation">
       <Link
+        href="/slos"
+        aria-current={path.startsWith("/slos") ? "page" : undefined}
+      >
+        SLOs
+      </Link>
+      <Link
+        href="/alerts"
+        aria-current={path.startsWith("/alerts") ? "page" : undefined}
+      >
+        Alerts
+      </Link>
+      <Link
         href="/metrics"
         aria-current={path.startsWith("/metrics") ? "page" : undefined}
       >

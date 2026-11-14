@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS slo_versions(key text PRIMARY KEY,slo_id text NOT NULL,version integer NOT NULL,checksum text NOT NULL,definition jsonb NOT NULL,UNIQUE(slo_id,version));
+CREATE TABLE IF NOT EXISTS slo_evaluations(id text PRIMARY KEY,slo_key text NOT NULL REFERENCES slo_versions(key),cutoff timestamptz NOT NULL,revision integer NOT NULL,result jsonb NOT NULL,UNIQUE(slo_key,cutoff,revision));
+CREATE INDEX IF NOT EXISTS slo_eval_history ON slo_evaluations(slo_key,cutoff DESC,id);
+CREATE TABLE IF NOT EXISTS slo_alert_heads(fingerprint text PRIMARY KEY,slo_key text NOT NULL REFERENCES slo_versions(key),head jsonb NOT NULL);
+CREATE TABLE IF NOT EXISTS slo_incidents(id text PRIMARY KEY,fingerprint text NOT NULL,slo_key text NOT NULL REFERENCES slo_versions(key),state text NOT NULL CHECK(state IN ('FIRING','RESOLVED')),result jsonb NOT NULL);
+CREATE UNIQUE INDEX IF NOT EXISTS slo_one_active_incident ON slo_incidents(fingerprint) WHERE state='FIRING';
+CREATE TABLE IF NOT EXISTS slo_alert_events(id text PRIMARY KEY,incident_id text NOT NULL REFERENCES slo_incidents(id),cutoff timestamptz NOT NULL,result jsonb NOT NULL);
+CREATE OR REPLACE FUNCTION slo_immutable() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'immutable reliability history'; END $$;
+DROP TRIGGER IF EXISTS slo_definition_immutable ON slo_versions;
+CREATE TRIGGER slo_definition_immutable BEFORE UPDATE OR DELETE ON slo_versions FOR EACH ROW EXECUTE FUNCTION slo_immutable();
+DROP TRIGGER IF EXISTS slo_evaluation_immutable ON slo_evaluations;
+CREATE TRIGGER slo_evaluation_immutable BEFORE UPDATE OR DELETE ON slo_evaluations FOR EACH ROW EXECUTE FUNCTION slo_immutable();
+DROP TRIGGER IF EXISTS slo_event_immutable ON slo_alert_events;
+CREATE TRIGGER slo_event_immutable BEFORE UPDATE OR DELETE ON slo_alert_events FOR EACH ROW EXECUTE FUNCTION slo_immutable();

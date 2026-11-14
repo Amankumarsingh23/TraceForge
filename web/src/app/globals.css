@@ -1036,3 +1036,6 @@ footer {
 .metrics-page > label select { max-width: 100%; }
 .metrics-page p { overflow-wrap: anywhere; }
 .metric-series figure { margin: 20px 0; }
+.slo-window { border: 1px solid #b6c6d8; padding: 18px; border-radius: 10px; margin: 20px 0; }
+.reliability-page pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 450px; overflow: auto; }
+.reliability-page p,.reliability-page li { overflow-wrap: anywhere; }

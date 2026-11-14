@@ -15,6 +15,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 	"traceforge/internal/analytics"
@@ -23,6 +24,7 @@ import (
 	"traceforge/internal/logs"
 	"traceforge/internal/metricdata"
 	"traceforge/internal/queryapi"
+	"traceforge/internal/reliability"
 	"traceforge/internal/storage"
 )
 
@@ -146,6 +148,40 @@ func run() error {
 		_ = metricServer.Shutdown(ctx)
 	}()
 	mux := http.NewServeMux()
+	var reliabilityReader reliability.Reader
+	stopReliability := func() {}
+	if reliabilityStore, e := reliability.Open(context.Background()); e == nil {
+		defer reliabilityStore.Close()
+		migrationCtx, done := context.WithTimeout(context.Background(), 4*time.Second)
+		err := reliabilityStore.Migrate(migrationCtx)
+		done()
+		if err != nil {
+			log.Print("reliability metadata migration unavailable; APIs may be degraded")
+		}
+		reliabilityReader = reliabilityStore
+		schedulerCtx, stopScheduler := context.WithCancel(context.Background())
+		schedulerDone := make(chan struct{})
+		stopReliability = func() { stopScheduler(); <-schedulerDone }
+		defer stopReliability()
+		go func() {
+			defer close(schedulerDone)
+			active := os.Getenv("TRACEFORGE_SLO_ACTIVE")
+			if active == "" {
+				return
+			}
+			cadence := 10 * time.Second
+			if value := os.Getenv("TRACEFORGE_SLO_CADENCE"); value != "" {
+				if parsed, e := time.ParseDuration(value); e == nil {
+					cadence = parsed
+				}
+			}
+			reliability.Run(schedulerCtx, reliability.RealClock{}, reliabilityStore, reliability.Sources{Metric: reliability.MetricSource{Repo: store}, Provider: reliability.ProviderSource{Repo: store}}, strings.Split(active, ","), cadence, 3*time.Second)
+		}()
+	}
+	reliabilityQueries := reliability.NewHandler(reliabilityReader)
+	for _, prefix := range []string{"/api/v1/slos", "/api/v1/slos/", "/api/v1/alerts", "/api/v1/alerts/", "/api/v1/slo-evaluations/", "/api/v1/alert-heads", "/api/v1/provider-reliability"} {
+		mux.Handle(prefix, reliabilityQueries)
+	}
 	metricQueries := metricdata.NewHandler(store)
 	mux.Handle("/api/v1/metrics", metricQueries)
 	mux.Handle("/api/v1/metrics/", metricQueries)
@@ -189,6 +225,7 @@ func run() error {
 		}
 	}
 	drainCtx, drainCancel := context.WithTimeout(context.Background(), *drainTimeout)
+	stopReliability()
 	drained := make(chan error, 3)
 	go func() { drained <- server.Shutdown(drainCtx) }()
 	go func() { drained <- logServer.Shutdown(drainCtx) }()

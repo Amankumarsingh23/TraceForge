@@ -632,3 +632,10 @@ This preserves named volumes. Removing volumes deletes database data. Collector 
 - Split trace: retain `r.Context()` and use `otelhttp.NewTransport`; a plain transport does not inject context. A test demonstrates this failure without changing the working implementation.
 
 See `ARCHITECTURE.md`, ADRs0004–0009, the failure model and Session4–9 journals for current behavior and evidence. Prior journals remain historical. Local learning notes are Git-ignored; each session has its own note. Offline comparisons/gates are implemented; live semantic review and Session10 analytics remain pending.
+# Session12: local reliability management
+
+Session12 adds immutable service availability/latency and provider-attempt/logical-operation objectives, exact error budgets, aligned multiwindow burn decisions and PostgreSQL-backed incident history. Read `/slos`, `/alerts` and `/provider-reliability` in the local interface. UNKNOWN evidence never resolves an active incident. Definitions are configured through `cmd/slo-evaluate`, not an HTTP write endpoint.
+
+Run the existing Compose stack, build `bin/slo-evaluate.exe` and `bin/shop-demo-session06.exe`, then use `./scripts/session12-smoke.ps1` for the controlled fixture/synthetic demo. It temporarily enables the scheduler, restarts the backend, stops/restores ClickHouse and saves ignored evidence. Keep the stack local and do not run other outage tests concurrently. Scheduler defaults disabled; enable explicitly with `TRACEFORGE_SLO_ACTIVE` and optional `TRACEFORGE_SLO_CADENCE`.
+
+See [Session12 measured report and review answers](docs/engineering-journal/session-12.md), [SLI definitions](docs/slo/sli-and-budget-definitions.md), [alerting policy](docs/slo/alerting-policy.md) and [ADR0012](docs/adr/0012-observed-slos-and-persistent-incidents.md). Raw source windows are bounded to one hour; observed interval coverage does not prove complete traffic, and fixture results do not establish live-provider reliability. External paging, production authentication/tenant isolation and long-window rollups remain planned.
