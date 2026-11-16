@@ -7,7 +7,7 @@ from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 RETRIEVER_VERSION = "bm25-v1"
-PROMPT_VERSION = "support-v1"
+PROMPT_VERSION = "support-v2-security"
 
 
 @dataclass(frozen=True)

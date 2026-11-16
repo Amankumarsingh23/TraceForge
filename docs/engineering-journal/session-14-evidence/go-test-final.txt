@@ -1,0 +1,20 @@
+?   	traceforge/cmd/otel-loadgen	[no test files]
+?   	traceforge/cmd/shop-demo	[no test files]
+?   	traceforge/cmd/slo-evaluate	[no test files]
+?   	traceforge/cmd/traceforge-secure	[no test files]
+?   	traceforge/cmd/traceforge-server	[no test files]
+ok  	traceforge/internal/analytics	(cached)
+ok  	traceforge/internal/demo	(cached)
+ok  	traceforge/internal/evaluations	(cached)
+ok  	traceforge/internal/ingest	(cached)
+ok  	traceforge/internal/loadgen	(cached)
+ok  	traceforge/internal/logs	(cached)
+ok  	traceforge/internal/metricdata	0.496s
+ok  	traceforge/internal/queryapi	(cached)
+ok  	traceforge/internal/reliability	0.523s
+ok  	traceforge/internal/security	0.529s
+ok  	traceforge/internal/storage	(cached)
+ok  	traceforge/internal/telemetry	(cached)
+?   	traceforge/internal/tenant	[no test files]
+ok  	traceforge/internal/traces	(cached)
+?   	traceforge/web/node_modules/flatted/golang/pkg/flatted	[no test files]

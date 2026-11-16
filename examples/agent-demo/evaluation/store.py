@@ -1,4 +1,7 @@
+import json
 import os
+import ssl
+import urllib.request
 
 import psycopg
 from psycopg.types.json import Jsonb
@@ -8,6 +11,24 @@ from .dataset import ROOT
 
 class Store:
     def __init__(self):
+        tenant = os.getenv("TRACEFORGE_TRUSTED_TENANT", "legacy")
+        if tenant not in {"legacy", "alpha", "beta"}:
+            raise ValueError("invalid trusted job tenant")
+        schema = "public" if tenant == "legacy" else "tf_tenant_" + tenant
+        if tenant != "legacy":
+            key = os.environ["TRACEFORGE_JOB_KEY"]
+            request = urllib.request.Request(
+                os.environ["TRACEFORGE_AUTH_IDENTITY_URL"],
+                headers={"Authorization": "Bearer " + key},
+            )
+            with urllib.request.urlopen(
+                request,
+                context=ssl.create_default_context(cafile=os.environ["TRACEFORGE_CA_FILE"]),
+                timeout=2,
+            ) as response:
+                identity = json.load(response)
+            if identity["tenant"] != tenant or "manage" not in identity["scopes"]:
+                raise ValueError("trusted job not authorized for tenant metadata")
         self.connection = psycopg.connect(
             host=os.getenv("POSTGRES_HOST", "127.0.0.1"),
             port=int(os.getenv("POSTGRES_PORT", "5432")),
@@ -15,7 +36,7 @@ class Store:
             user=os.getenv("POSTGRES_USER", "traceforge"),
             password=os.environ["POSTGRES_PASSWORD"],
             connect_timeout=3,
-            options="-c statement_timeout=3000 -c lock_timeout=1000",
+            options=f"-c statement_timeout=3000 -c lock_timeout=1000 -c search_path={schema}",
             autocommit=True,
         )
 

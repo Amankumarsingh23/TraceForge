@@ -159,6 +159,11 @@ func run() error {
 			log.Print("reliability metadata migration unavailable; APIs may be degraded")
 		}
 		reliabilityReader = reliabilityStore
+		if owner := os.Getenv("TRACEFORGE_TRUSTED_TENANT"); owner == "alpha" || owner == "beta" {
+			manage := reliability.ManageHandler(reliabilityStore, reliability.Sources{Metric: reliability.MetricSource{Repo: store}, Provider: reliability.ProviderSource{Repo: store}})
+			mux.Handle("/internal/security/slos", manage)
+			mux.Handle("/internal/security/evaluate", manage)
+		}
 		schedulerCtx, stopScheduler := context.WithCancel(context.Background())
 		schedulerDone := make(chan struct{})
 		stopReliability = func() { stopScheduler(); <-schedulerDone }
@@ -192,6 +197,8 @@ func run() error {
 		evaluationRepo = metadata
 	}
 	evaluationQueries := evaluations.NewHandler(evaluationRepo)
+	mux.Handle("/api/v1/security/evaluations", evaluations.SecurityHandler(evaluationRepo))
+	mux.Handle("/api/v1/security/evaluations/", evaluations.SecurityHandler(evaluationRepo))
 	mux.Handle("/api/v1/evaluations", evaluationQueries)
 	mux.Handle("/api/v1/evaluations/", evaluationQueries)
 	for _, prefix := range []string{"/api/v1/experiments", "/api/v1/comparisons", "/api/v1/comparisons/", "/api/v1/gates/"} {

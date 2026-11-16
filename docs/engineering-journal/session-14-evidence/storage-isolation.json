@@ -1,0 +1,77 @@
+[
+  {
+    "check": "all private foreign keys bind within owner schema",
+    "count": 26
+  },
+  {
+    "check": "foreign run absent under owner-only search_path",
+    "owner": "alpha"
+  },
+  {
+    "check": "foreign run absent under owner-only search_path",
+    "owner": "beta"
+  },
+  {
+    "check": "stored credential verifiers are fixed 32-byte digests",
+    "count": 11
+  },
+  {
+    "check": "nine ownership columns are materialized constants",
+    "columns": [
+      {
+        "database": "tf_tenant_alpha",
+        "table": "logs",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'alpha'"
+      },
+      {
+        "database": "tf_tenant_alpha",
+        "table": "metric_points",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'alpha'"
+      },
+      {
+        "database": "tf_tenant_alpha",
+        "table": "spans",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'alpha'"
+      },
+      {
+        "database": "tf_tenant_beta",
+        "table": "logs",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'beta'"
+      },
+      {
+        "database": "tf_tenant_beta",
+        "table": "metric_points",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'beta'"
+      },
+      {
+        "database": "tf_tenant_beta",
+        "table": "spans",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'beta'"
+      },
+      {
+        "database": "traceforge",
+        "table": "logs",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'legacy'"
+      },
+      {
+        "database": "traceforge",
+        "table": "metric_points",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'legacy'"
+      },
+      {
+        "database": "traceforge",
+        "table": "spans",
+        "default_kind": "MATERIALIZED",
+        "default_expression": "'legacy'"
+      }
+    ]
+  }
+]

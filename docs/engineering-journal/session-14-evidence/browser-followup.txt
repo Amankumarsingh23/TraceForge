@@ -1,0 +1,41 @@
+npm notice run traceforge-web@0.5.0 test:browser
+npm notice run playwright test --grep real logs search supports|real metric backend outage
+
+Running 2 tests using 1 worker
+
+(node:31684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\logs.spec.ts:57:1 › real logs search supports severity, standalone records and structured details (851ms)
+  x  2 tests\metrics.spec.ts:111:1 › real metric backend outage rejects export and recovers (53.8s)
+
+
+  1) tests\metrics.spec.ts:111:1 › real metric backend outage rejects export and recovers ──────────
+
+    Error: spawnSync go ETIMEDOUT
+
+      128 |       "503",
+      129 |     );
+    > 130 |     const output = execFileSync(
+          |                    ^
+      131 |       "go",
+      132 |       [
+      133 |         "test",
+        at C:\placement projects\TraceForge\web\tests\metrics.spec.ts:130:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\metrics.spec.ts:111:1 › real metric backend outage rejects export and recovers ───────────
+  1 passed (56.0s)

@@ -8,11 +8,16 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"os"
 	"time"
+	"traceforge/internal/tenant"
 )
 
 type Store struct{ pool *pgxpool.Pool }
 
 func Open(ctx context.Context) (*Store, error) {
+	owner, e := tenant.Current()
+	if e != nil {
+		return nil, e
+	}
 	// Explicit identity avoids OS-user discovery in the scratch/non-root image.
 	// PostgreSQL is restricted to the local Compose network/loopback in this session.
 	cfg, err := pgxpool.ParseConfig("user=traceforge dbname=traceforge host=127.0.0.1 sslmode=disable")
@@ -32,6 +37,7 @@ func Open(ctx context.Context) (*Store, error) {
 	cfg.MinConns = 0
 	cfg.ConnConfig.RuntimeParams["statement_timeout"] = "1800"
 	cfg.ConnConfig.RuntimeParams["default_transaction_read_only"] = "on"
+	cfg.ConnConfig.RuntimeParams["search_path"] = tenant.Schema(owner)
 	if cfg.ConnConfig.Password == "" {
 		return nil, errors.New("PostgreSQL password not configured")
 	}

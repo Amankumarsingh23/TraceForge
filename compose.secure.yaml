@@ -1,0 +1,102 @@
+# Opt-in secure local demonstration. Fixed tenant backends have no host ports.
+services:
+  traceforge-server:
+    ports: !reset []
+  otel-collector:
+    ports: !reset []
+  tenant-alpha:
+    image: traceforge-traceforge-server
+    environment:
+      TRACEFORGE_TRUSTED_TENANT: alpha
+      CLICKHOUSE_ADDR: clickhouse:9000
+      CLICKHOUSE_PROTOCOL: native
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?}
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    mem_limit: 384m
+    cpus: 1
+  tenant-beta:
+    image: traceforge-traceforge-server
+    environment:
+      TRACEFORGE_TRUSTED_TENANT: beta
+      CLICKHOUSE_ADDR: clickhouse:9000
+      CLICKHOUSE_PROTOCOL: native
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?}
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    mem_limit: 384m
+    cpus: 1
+  secure-gateway:
+    build:
+      context: .
+      target: secure
+    command: ["-http=0.0.0.0:8444", "-grpc=0.0.0.0:4334", "-cert-dir=/private/certs"]
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+      TRACEFORGE_BACKEND_ALPHA: tenant-alpha
+      TRACEFORGE_BACKEND_BETA: tenant-beta
+      TRACEFORGE_BACKEND_LEGACY: traceforge-server
+    ports:
+      - "127.0.0.1:8444:8444"
+      - "127.0.0.1:4334:4334"
+    volumes:
+      - ./artifacts/session14/private:/private:ro
+    depends_on: [tenant-alpha, tenant-beta, traceforge-server]
+    mem_limit: 192m
+    cpus: 1
+  secure-bootstrap:
+    build:
+      context: .
+      target: secure
+    profiles: [tools]
+    command: ["-mode=bootstrap", "-file=/private/credentials.json", "-cert-dir=/private/certs"]
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+      CLICKHOUSE_ADDR: clickhouse:9000
+      CLICKHOUSE_PROTOCOL: native
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:?}
+    volumes:
+      - ./artifacts/session14/private:/private
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  collector-alpha:
+    image: otel/opentelemetry-collector-contrib:0.165.0
+    user: "65532:65532"
+    command: ["--config=/etc/otelcol/config.yaml"]
+    environment:
+      TENANT_INGEST_KEY: ${ALPHA_INGEST_KEY:?Set generated private key in process environment}
+    volumes:
+      - ./otel-collector.secure.yaml:/etc/otelcol/config.yaml:ro
+      - ./artifacts/session14/private/certs:/certs:ro
+    ports:
+      - "127.0.0.1:4330:4317"
+    depends_on: [secure-gateway]
+    mem_limit: 192m
+  collector-beta:
+    image: otel/opentelemetry-collector-contrib:0.165.0
+    user: "65532:65532"
+    command: ["--config=/etc/otelcol/config.yaml"]
+    environment:
+      TENANT_INGEST_KEY: ${BETA_INGEST_KEY:?Set generated private key in process environment}
+    volumes:
+      - ./otel-collector.secure.yaml:/etc/otelcol/config.yaml:ro
+      - ./artifacts/session14/private/certs:/certs:ro
+    ports:
+      - "127.0.0.1:4331:4317"
+    depends_on: [secure-gateway]
+    mem_limit: 192m

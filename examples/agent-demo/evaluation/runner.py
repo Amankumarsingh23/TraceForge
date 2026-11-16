@@ -144,7 +144,7 @@ async def run(
             "corpus_version": corpus["version"],
             "corpus_checksum": checksum(corpus),
             "prompt_version": PROMPT_VERSION,
-            "prompt_checksum": hashlib.sha256((DATA / "prompt-v1.txt").read_bytes()).hexdigest(),
+            "prompt_checksum": hashlib.sha256((DATA / "prompt-v2.txt").read_bytes()).hexdigest(),
             "retriever_version": RETRIEVER_VERSION,
             "evaluator_version": VERSION,
             "evaluator_type": "constrained_exact_evidence",

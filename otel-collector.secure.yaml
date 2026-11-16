@@ -1,0 +1,48 @@
+extensions:
+  bearertokenauth:
+    token: ${env:TENANT_INGEST_KEY}
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+        tls:
+          cert_file: /certs/server.crt
+          key_file: /certs/server.key
+        auth:
+          authenticator: bearertokenauth
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 96
+    spike_limit_mib: 24
+exporters:
+  otlp/tenant:
+    endpoint: secure-gateway:4334
+    tls:
+      ca_file: /certs/server.crt
+    auth:
+      authenticator: bearertokenauth
+    timeout: 6s
+    sending_queue:
+      queue_size: 16
+      num_consumers: 1
+    retry_on_failure:
+      initial_interval: 1s
+      max_interval: 3s
+      max_elapsed_time: 10s
+service:
+  extensions: [bearertokenauth]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter]
+      exporters: [otlp/tenant]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter]
+      exporters: [otlp/tenant]
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter]
+      exporters: [otlp/tenant]

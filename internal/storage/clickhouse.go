@@ -7,8 +7,10 @@ import (
 	"github.com/ClickHouse/clickhouse-go/v2"
 	"github.com/ClickHouse/clickhouse-go/v2/lib/driver"
 	"os"
+	"strings"
 	"time"
 	"traceforge/internal/ingest"
+	"traceforge/internal/tenant"
 )
 
 //go:embed migrations/0001_spans.sql
@@ -23,6 +25,9 @@ var MetricMigration string
 //go:embed migrations/0004_log_trace_index.sql
 var LogTraceIndexMigration string
 
+//go:embed migrations/0005_tenant_ownership.sql
+var TenantOwnershipMigration string
+
 type Store struct {
 	Conn     driver.Conn
 	Database string
@@ -30,9 +35,16 @@ type Store struct {
 
 // Open uses existing local credentials, never a DSN containing a password.
 func Open(ctx context.Context) (*Store, error) {
+	owner, e := tenant.Current()
+	if e != nil {
+		return nil, e
+	}
 	database := os.Getenv("CLICKHOUSE_DATABASE")
 	if database == "" {
-		database = "traceforge"
+		database = tenant.Database(owner)
+	}
+	if owner != "legacy" && database != tenant.Database(owner) {
+		return nil, errors.New("trusted tenant/database mismatch")
 	}
 	if err := validateDatabase(database); err != nil {
 		return nil, err
@@ -82,6 +94,20 @@ func (s *Store) Migrate(ctx context.Context) error {
 	}
 	if err := s.exec(ctx, LogTraceIndexMigration); err != nil {
 		return errors.New("ClickHouse migration 0004 failed; check index support and permissions")
+	}
+	owner := "legacy"
+	for _, id := range []string{"alpha", "beta"} {
+		if s.Database == tenant.Database(id) {
+			owner = id
+		}
+	}
+	for _, q := range strings.Split(strings.ReplaceAll(TenantOwnershipMigration, "{tenant}", owner), ";") {
+		if strings.TrimSpace(q) == "" {
+			continue
+		}
+		if err := s.exec(ctx, q); err != nil {
+			return errors.New("ClickHouse migration0005 ownership failed")
+		}
 	}
 	return nil
 }

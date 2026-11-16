@@ -1,0 +1,475 @@
+{
+  "settings": "use_query_condition_cache=0;use_query_cache=0;warm OS caches;threads2",
+  "datasets": [
+    {
+      "database": "tf_bench_s13_20261114132435_100000",
+      "reference_table": "logs_uncached_1794821485759141400",
+      "measurements": {
+        "reference": {
+          "p50_ms": 39.18744999100454,
+          "p95_ms": 358.9256000122987,
+          "samples": 10,
+          "checksum": "dc347cf93e09418b2b2b33caf30d70d04221cd69973332966b863db0084fa48d"
+        },
+        "bloom": {
+          "p50_ms": 10.990850001689978,
+          "p95_ms": 33.468600013293326,
+          "samples": 10,
+          "checksum": "dc347cf93e09418b2b2b33caf30d70d04221cd69973332966b863db0084fa48d"
+        }
+      },
+      "explain": {
+        "reference": "Output: log_id, source_event_id, trace_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n\nSorting (Sorting for ORDER BY)\n\u2502  Prefix sort description: effective_time ASC, log_id ASC\n\u2502  Result sort description: effective_time ASC, log_id ASC\n\u2514\u2500\u2500ReadFromMergeTree (tf_bench_s13_20261114132435_100000.logs_uncached_1794821485759141400)\n      Read type: InOrder\n      Parts: 2 | Granules: 14\n      Output: trace_id, log_id, source_event_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n      Prewhere filter\n      Prewhere filter column:  trace_id = '0000a431a66e742c244b828d9eeb124e'\n      Virtual row conversions\n      Indexes:\n        Min-Max\n          Condition: true\n          Parts: 2/2\n          Granules: 14/14\n        Partition\n          Condition: true\n          Parts: 2/2\n          Granules: 14/14\n        PrimaryKey\n          Condition: true\n          Parts: 2/2\n          Granules: 14/14\n        Ranges: 2\n",
+        "bloom": "Output: log_id, source_event_id, trace_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n\nSorting (Sorting for ORDER BY)\n\u2502  Prefix sort description: effective_time ASC, log_id ASC\n\u2502  Result sort description: effective_time ASC, log_id ASC\n\u2514\u2500\u2500ReadFromMergeTree (tf_bench_s13_20261114132435_100000.logs_bloom)\n      Read type: InOrder\n      Parts: 1 | Granules: 1\n      Output: trace_id, log_id, source_event_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n      Prewhere filter\n      Prewhere filter column:  trace_id = '0000a431a66e742c244b828d9eeb124e'\n      Virtual row conversions\n      Indexes:\n        Min-Max\n          Condition: true\n          Parts: 2/2\n          Granules: 14/14\n        Partition\n          Condition: true\n          Parts: 2/2\n          Granules: 14/14\n        PrimaryKey\n          Condition: true\n          Parts: 2/2\n          Granules: 14/14\n        Skip\n          Name: s13_trace_bloom\n          Description: bloom_filter GRANULARITY 1\n          Parts: 1/2\n          Granules: 1/14\n        Ranges: 1\n"
+      },
+      "storage": [
+        {
+          "table": "logs_bloom",
+          "parts": 2,
+          "rows": 100023,
+          "disk_bytes": 5901951
+        },
+        {
+          "table": "logs_uncached_1794821485759141400",
+          "parts": 2,
+          "rows": 100023,
+          "disk_bytes": 5877467
+        }
+      ]
+    },
+    {
+      "database": "tf_bench_s13_20261114132435_300000",
+      "reference_table": "logs_uncached_1794821493974988900",
+      "measurements": {
+        "reference": {
+          "p50_ms": 14.774800001760013,
+          "p95_ms": 39.738699997542426,
+          "samples": 10,
+          "checksum": "dc347cf93e09418b2b2b33caf30d70d04221cd69973332966b863db0084fa48d"
+        },
+        "bloom": {
+          "p50_ms": 25.684950000140816,
+          "p95_ms": 37.22210001433268,
+          "samples": 10,
+          "checksum": "dc347cf93e09418b2b2b33caf30d70d04221cd69973332966b863db0084fa48d"
+        }
+      },
+      "explain": {
+        "reference": "Output: log_id, source_event_id, trace_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n\nSorting (Sorting for ORDER BY)\n\u2502  Prefix sort description: effective_time ASC, log_id ASC\n\u2502  Result sort description: effective_time ASC, log_id ASC\n\u2514\u2500\u2500ReadFromMergeTree (tf_bench_s13_20261114132435_300000.logs_uncached_1794821493974988900)\n      Read type: InOrder\n      Parts: 2 | Granules: 38\n      Output: trace_id, log_id, source_event_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n      Prewhere filter\n      Prewhere filter column:  trace_id = '0000a431a66e742c244b828d9eeb124e'\n      Virtual row conversions\n      Indexes:\n        Min-Max\n          Condition: true\n          Parts: 2/2\n          Granules: 38/38\n        Partition\n          Condition: true\n          Parts: 2/2\n          Granules: 38/38\n        PrimaryKey\n          Condition: true\n          Parts: 2/2\n          Granules: 38/38\n        Ranges: 2\n",
+        "bloom": "Output: log_id, source_event_id, trace_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n\nSorting (Sorting for ORDER BY)\n\u2502  Prefix sort description: effective_time ASC, log_id ASC\n\u2502  Result sort description: effective_time ASC, log_id ASC\n\u2514\u2500\u2500ReadFromMergeTree (tf_bench_s13_20261114132435_300000.logs_bloom)\n      Read type: InOrder\n      Parts: 1 | Granules: 1\n      Output: trace_id, log_id, source_event_id, span_id, trace_flags, service_name, severity_number, severity_text, event_time, observed_time, effective_time, time_source, body_text, body_json, attributes_json, resource_attributes_json, scope_name, scope_version, event_name, resource_json, scope_json, record_json, resource_schema_url, scope_schema_url, ingested_at\n      Prewhere filter\n      Prewhere filter column:  trace_id = '0000a431a66e742c244b828d9eeb124e'\n      Virtual row conversions\n      Indexes:\n        Min-Max\n          Condition: true\n          Parts: 2/2\n          Granules: 38/38\n        Partition\n          Condition: true\n          Parts: 2/2\n          Granules: 38/38\n        PrimaryKey\n          Condition: true\n          Parts: 2/2\n          Granules: 38/38\n        Skip\n          Name: s13_trace_bloom\n          Description: bloom_filter GRANULARITY 1\n          Parts: 1/2\n          Granules: 1/38\n        Ranges: 1\n"
+      },
+      "storage": [
+        {
+          "table": "logs_bloom",
+          "parts": 2,
+          "rows": 300096,
+          "disk_bytes": 17628697
+        },
+        {
+          "table": "logs_uncached_1794821493974988900",
+          "parts": 2,
+          "rows": 300096,
+          "disk_bytes": 17554773
+        }
+      ]
+    }
+  ],
+  "query_log": [
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-warmup-644d0cfd",
+      "query_duration_ms": 176,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 12098589,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-c2eebe34",
+      "query_duration_ms": 7,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-8ebe10b0",
+      "query_duration_ms": 27,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-9d5a66b2",
+      "query_duration_ms": 341,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895278,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-557a9171",
+      "query_duration_ms": 17,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-8f73f9df",
+      "query_duration_ms": 9,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-dc636ac2",
+      "query_duration_ms": 169,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-348ea265",
+      "query_duration_ms": 86,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-3a74b989",
+      "query_duration_ms": 7,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-285b68f1",
+      "query_duration_ms": 23,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-8748dc61",
+      "query_duration_ms": 33,
+      "read_rows": 100023,
+      "read_bytes": 4827917,
+      "memory_usage": 9895262,
+      "selected_parts": 2,
+      "selected_marks": 14
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-warmup-d94e3abf",
+      "query_duration_ms": 447,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 11821432,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-b25de960",
+      "query_duration_ms": 7,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-772f5068",
+      "query_duration_ms": 7,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-8a97c696",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-1b95df7a",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-6df999f7",
+      "query_duration_ms": 8,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-c55e195b",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815496,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-fd2ceaa1",
+      "query_duration_ms": 7,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-0bf99b84",
+      "query_duration_ms": 9,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-9835b406",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-86da7671",
+      "query_duration_ms": 5,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9815368,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-warmup-ef508770",
+      "query_duration_ms": 26,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 12385412,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-effa0f88",
+      "query_duration_ms": 19,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 10022245,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-a225a45d",
+      "query_duration_ms": 14,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 10022245,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-2d3f7c15",
+      "query_duration_ms": 11,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 10022405,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-0393e56a",
+      "query_duration_ms": 21,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 12024855,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-df87668a",
+      "query_duration_ms": 10,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 10022245,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-da2d032b",
+      "query_duration_ms": 8,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 10022245,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-d9280e74",
+      "query_duration_ms": 9,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 12024855,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-e6c3010e",
+      "query_duration_ms": 8,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 12024855,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-e118e0dd",
+      "query_duration_ms": 14,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 12024919,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-reference-bdbd822a",
+      "query_duration_ms": 9,
+      "read_rows": 300096,
+      "read_bytes": 11830472,
+      "memory_usage": 12024919,
+      "selected_parts": 2,
+      "selected_marks": 38
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-warmup-8a3bbc2d",
+      "query_duration_ms": 35,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 12017072,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-7c333f0a",
+      "query_duration_ms": 9,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-bf3358f3",
+      "query_duration_ms": 8,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-846e36e8",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-fc819149",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-5925c9b8",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-96398203",
+      "query_duration_ms": 8,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-80ec2c62",
+      "query_duration_ms": 12,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-3a3acaa9",
+      "query_duration_ms": 6,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-40c0ce1f",
+      "query_duration_ms": 8,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    },
+    {
+      "query_id": "s13-20261116093125-cache-controlled-bloom-0cf75d2f",
+      "query_duration_ms": 10,
+      "read_rows": 8192,
+      "read_bytes": 1613832,
+      "memory_usage": 9866853,
+      "selected_parts": 1,
+      "selected_marks": 1
+    }
+  ]
+}

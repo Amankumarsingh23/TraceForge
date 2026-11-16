@@ -1,0 +1,97 @@
+=== RUN   TestEvaluationRoutesAndBounds
+=== RUN   TestEvaluationRoutesAndBounds/?limit=3&broken=%
+=== RUN   TestEvaluationRoutesAndBounds/#00
+=== RUN   TestEvaluationRoutesAndBounds/?limit=1&after=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+=== RUN   TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+=== RUN   TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cases?limit=50&after=support-001
+=== RUN   TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cases/support-001
+=== RUN   TestEvaluationRoutesAndBounds/?limit=0
+=== RUN   TestEvaluationRoutesAndBounds/?limit=51
+=== RUN   TestEvaluationRoutesAndBounds/?limit=1&limit=2
+=== RUN   TestEvaluationRoutesAndBounds/?unknown=x
+=== RUN   TestEvaluationRoutesAndBounds/?after=bad!
+=== RUN   TestEvaluationRoutesAndBounds//bad
+=== RUN   TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?limit=1
+=== RUN   TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cases/support-001?after=x
+=== RUN   TestEvaluationRoutesAndBounds/?limit=
+--- PASS: TestEvaluationRoutesAndBounds (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?limit=3&broken=% (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/#00 (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?limit=1&after=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cases?limit=50&after=support-001 (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cases/support-001 (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?limit=0 (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?limit=51 (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?limit=1&limit=2 (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?unknown=x (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?after=bad! (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds//bad (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?limit=1 (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cases/support-001?after=x (0.00s)
+    --- PASS: TestEvaluationRoutesAndBounds/?limit= (0.00s)
+=== RUN   TestEvaluationSafeErrorsAndMethod
+--- PASS: TestEvaluationSafeErrorsAndMethod (0.00s)
+=== RUN   TestComparisonRoutes
+=== RUN   TestComparisonRoutes//experiments
+=== RUN   TestComparisonRoutes//experiments?after=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+=== RUN   TestComparisonRoutes//comparisons
+=== RUN   TestComparisonRoutes//comparisons/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+=== RUN   TestComparisonRoutes//comparisons/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/cases?limit=2&after=support-010
+=== RUN   TestComparisonRoutes//gates/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+=== RUN   TestComparisonRoutes//comparisons/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb?limit=2
+=== RUN   TestComparisonRoutes//gates/bad
+=== RUN   TestComparisonRoutes//comparisons?limit=51
+=== RUN   TestComparisonRoutes//experiments?after=bad
+--- PASS: TestComparisonRoutes (0.00s)
+    --- PASS: TestComparisonRoutes//experiments (0.00s)
+    --- PASS: TestComparisonRoutes//experiments?after=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (0.00s)
+    --- PASS: TestComparisonRoutes//comparisons (0.00s)
+    --- PASS: TestComparisonRoutes//comparisons/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb (0.00s)
+    --- PASS: TestComparisonRoutes//comparisons/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/cases?limit=2&after=support-010 (0.00s)
+    --- PASS: TestComparisonRoutes//gates/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb (0.00s)
+    --- PASS: TestComparisonRoutes//comparisons/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb?limit=2 (0.00s)
+    --- PASS: TestComparisonRoutes//gates/bad (0.00s)
+    --- PASS: TestComparisonRoutes//comparisons?limit=51 (0.00s)
+    --- PASS: TestComparisonRoutes//experiments?after=bad (0.00s)
+=== RUN   TestPostgresRead
+--- PASS: TestPostgresRead (0.25s)
+PASS
+ok  	traceforge/internal/evaluations	0.736s
+=== RUN   TestOversizedEvidenceCannotFire
+--- PASS: TestOversizedEvidenceCannotFire (0.03s)
+=== RUN   TestExactBudgetArithmetic
+--- PASS: TestExactBudgetArithmetic (0.00s)
+=== RUN   TestEmptyAndInvalidPopulations
+--- PASS: TestEmptyAndInvalidPopulations (0.00s)
+=== RUN   TestAlignedMultiWindowRulesAndUnknown
+--- PASS: TestAlignedMultiWindowRulesAndUnknown (0.00s)
+=== RUN   TestThresholdBoundaryAndConfirmation
+--- PASS: TestThresholdBoundaryAndConfirmation (0.00s)
+=== RUN   TestStaleEvaluationAndNewIncident
+--- PASS: TestStaleEvaluationAndNewIncident (0.00s)
+=== RUN   TestDefinitionValidation
+--- PASS: TestDefinitionValidation (0.00s)
+=== RUN   TestReliabilityHTTPBoundsAndSanitizedUnavailable
+--- PASS: TestReliabilityHTTPBoundsAndSanitizedUnavailable (0.00s)
+=== RUN   TestMatchedAvailabilityAndWeightedCounts
+--- PASS: TestMatchedAvailabilityAndWeightedCounts (0.00s)
+=== RUN   TestWeightedWriterPopulationNotAveragePercentages
+--- PASS: TestWeightedWriterPopulationNotAveragePercentages (0.00s)
+=== RUN   TestHistogramObjectiveBoundary
+--- PASS: TestHistogramObjectiveBoundary (0.00s)
+=== RUN   TestMetricMissingWriterOutageAndIntervalMismatch
+--- PASS: TestMetricMissingWriterOutageAndIntervalMismatch (0.00s)
+=== RUN   TestUndeclaredAndOversizedWindowsRemainUnknown
+--- PASS: TestUndeclaredAndOversizedWindowsRemainUnknown (0.00s)
+=== RUN   TestPersistentLifecycleConcurrencyAndRevisions
+    postgres_integration_test.go:130: 12 concurrent evaluations -> one incident/event; UNKNOWN and stale/revision preserve active state; reopened pool preserves history; recovery/new episode and immutability verified
+--- PASS: TestPersistentLifecycleConcurrencyAndRevisions (3.49s)
+=== RUN   TestProviderAttemptsLogicalRecoveryAndUsage
+--- PASS: TestProviderAttemptsLogicalRecoveryAndUsage (0.00s)
+=== RUN   TestProviderRateLimitAndLiveIsolation
+--- PASS: TestProviderRateLimitAndLiveIsolation (0.00s)
+=== RUN   TestSchedulerAlignedClockAndBoundedShutdown
+--- PASS: TestSchedulerAlignedClockAndBoundedShutdown (0.00s)
+PASS
+ok  	traceforge/internal/reliability	4.142s

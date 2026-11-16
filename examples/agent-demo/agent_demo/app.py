@@ -1,10 +1,13 @@
 import asyncio
+import json
 import os
+import ssl
 import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
 
+import httpx
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -111,10 +114,26 @@ def create_app(agent=None):
         else:
             app.state.agent = agent
         app.state.slots = asyncio.Semaphore(4)
+        app.state.tenant_slots = {name: asyncio.Semaphore(2) for name in ("alpha", "beta")}
+        app.state.secure_agents = {}
+        if os.getenv("TRACEFORGE_AGENT_REQUIRE_AUTH") == "1":
+            keys = json.loads(Path(os.environ["TRACEFORGE_AGENT_CREDENTIALS_FILE"]).read_text())
+            for tenant in ("alpha", "beta"):
+                endpoint = os.environ["TRACEFORGE_SECURE_OTLP_" + tenant.upper()]
+                telemetry = Telemetry(
+                    endpoint,
+                    tenant=tenant,
+                    authorization=keys[tenant],
+                    ca_file=os.environ["TRACEFORGE_CA_FILE"],
+                )
+                app.state.secure_agents[tenant] = Agent(FixtureProvider(), telemetry, tenant=tenant)
         yield
         if owned:
             await app.state.agent.provider.close()
             await asyncio.to_thread(app.state.agent.telemetry.shutdown)
+        for engine in app.state.secure_agents.values():
+            await engine.provider.close()
+            await asyncio.to_thread(engine.telemetry.shutdown)
 
     app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
     app.add_middleware(BodyLimit)
@@ -128,12 +147,41 @@ def create_app(agent=None):
 
     @app.get("/healthz")
     async def health():
-        return {"status": "ready", "mode": app.state.agent.provider.mode,
-                "provider":app.state.agent.provider.name,"requested_model":app.state.agent.provider.model}
+        return {
+            "status": "ready",
+            "mode": app.state.agent.provider.mode,
+            "provider": app.state.agent.provider.name,
+            "requested_model": app.state.agent.provider.model,
+        }
 
     @app.post("/ask")
     async def ask(value: Ask, request: Request):
         engine = app.state.agent
+        tenant_slot = None
+        if app.state.secure_agents:
+            try:
+                context = ssl.create_default_context(cafile=os.environ["TRACEFORGE_CA_FILE"])
+                async with httpx.AsyncClient(verify=context, trust_env=False, timeout=2) as client:
+                    auth = await client.get(
+                        os.environ["TRACEFORGE_AUTH_URL"],
+                        headers={"Authorization": request.headers.get("authorization", "")},
+                    )
+                if auth.status_code != 200:
+                    return JSONResponse(
+                        {"error": {"code": "authentication_required"}},
+                        status_code=503 if auth.status_code == 503 else 401,
+                    )
+                identity = auth.json()
+                engine = app.state.secure_agents.get(identity["tenant"])
+                if engine is None or "read" not in identity["scopes"]:
+                    return JSONResponse(
+                        {"error": {"code": "tenant_not_authorized"}}, status_code=403
+                    )
+                tenant_slot = app.state.tenant_slots[identity["tenant"]]
+            except (OSError, httpx.HTTPError, ValueError, KeyError):
+                return JSONResponse(
+                    {"error": {"code": "authorization_unavailable"}}, status_code=503
+                )
         run_id = uuid.uuid4().hex
         context = TraceContextTextMapPropagator().extract(
             dict(request.headers), getter=DefaultGetter()
@@ -147,7 +195,11 @@ def create_app(agent=None):
             trace_id = format(span.get_span_context().trace_id, "032x")
             identity = {"run_id": run_id, "trace_id": trace_id, "mode": engine.provider.mode}
             acquired = False
+            tenant_acquired = False
             try:
+                if tenant_slot is not None:
+                    await asyncio.wait_for(tenant_slot.acquire(), timeout=0.05)
+                    tenant_acquired = True
                 await asyncio.wait_for(app.state.slots.acquire(), timeout=0.05)
                 acquired = True
                 limits = Limits(
@@ -197,6 +249,8 @@ def create_app(agent=None):
             finally:
                 if acquired:
                     app.state.slots.release()
+                if tenant_acquired:
+                    tenant_slot.release()
 
     return app
 

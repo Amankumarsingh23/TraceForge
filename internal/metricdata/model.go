@@ -73,7 +73,7 @@ func Hash(s string) string  { h := sha256.Sum256([]byte(s)); return hex.EncodeTo
 func encoded(v any) string  { b, _ := json.Marshal(v); return string(b) }
 func finite(v float64) bool { return !math.IsNaN(v) && !math.IsInf(v, 0) }
 
-var sensitive = regexp.MustCompile(`(?i)(password|passwd|authorization|cookie|api.?key|token|secret|prompt|request.?id|user.?id|trace.?id|span.?id)`)
+var sensitive = regexp.MustCompile(`(?i)(password|passwd|authorization|cookie|api.?key|token|secret|prompt|request.?id|user.?id|trace.?id|span.?id|email|phone|private.?key|credential)`)
 
 func text(s string, n int) bool {
 	return len(s) <= n && utf8.ValidString(s) && ingest.SanitizeText(s) == s && !strings.Contains(s, "-----BEGIN")
@@ -229,7 +229,7 @@ func Normalize(req *collector.ExportMetricsServiceRequest) ([]Point, int, error)
 					continue
 				}
 				n := supportedCount(m)
-				if re != nil || se != nil || scope.DroppedAttributesCount > 0 || rv["service.name"] == "" || rv["service.instance.id"] == "" || !text(m.Name, 128) || m.Name == "" || !text(m.Unit, 64) || !text(m.Description, 512) || !text(scope.Name, 128) || !text(scope.Version, 128) || !text(r.SchemaUrl, 256) || !text(s.SchemaUrl, 256) || len(m.Metadata) > 0 {
+				if re != nil || se != nil || scope.DroppedAttributesCount > 0 || rv["service.name"] == "" || rv["service.instance.id"] == "" || !text(m.Name, 128) || m.Name == "" || !text(m.Unit, 64) || !text(m.Description, 512) || !text(scope.Name, 128) || !text(scope.Version, 128) || !text(r.SchemaUrl, 256) || !text(s.SchemaUrl, 256) || len(m.Metadata) > 0 || sensitive.MatchString(m.Name+" "+m.Unit+" "+m.Description+" "+scope.Name+" "+scope.Version+" "+r.SchemaUrl+" "+s.SchemaUrl) {
 					rejected += n
 					continue
 				}

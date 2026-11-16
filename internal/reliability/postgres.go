@@ -9,6 +9,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"os"
 	"time"
+	"traceforge/internal/tenant"
 )
 
 //go:embed migration.sql
@@ -19,6 +20,10 @@ var ErrTooLarge = errors.New("reliability response budget exceeded")
 type Store struct{ pool *pgxpool.Pool }
 
 func Open(ctx context.Context) (*Store, error) {
+	owner, err := tenant.Current()
+	if err != nil {
+		return nil, err
+	}
 	cfg, e := pgxpool.ParseConfig("user=traceforge dbname=traceforge host=127.0.0.1 sslmode=disable")
 	if e != nil {
 		return nil, e
@@ -34,6 +39,7 @@ func Open(ctx context.Context) (*Store, error) {
 	cfg.MaxConns = 4
 	cfg.ConnConfig.RuntimeParams["statement_timeout"] = "2500"
 	cfg.ConnConfig.RuntimeParams["lock_timeout"] = "2000"
+	cfg.ConnConfig.RuntimeParams["search_path"] = tenant.Schema(owner)
 	pool, e := pgxpool.NewWithConfig(ctx, cfg)
 	if e != nil {
 		return nil, e

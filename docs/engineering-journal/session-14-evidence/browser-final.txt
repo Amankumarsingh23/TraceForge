@@ -1,0 +1,130 @@
+npm notice run traceforge-web@0.5.0 test:browser
+npm notice run playwright test
+
+Running 48 tests using 1 worker
+
+(node:31296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\agent.spec.ts:10:1 › real stored agent execution links retrieval, attempts and tool to the waterfall (1.8s)
+  ok  2 tests\agent.spec.ts:37:1 › retry and missing usage retain unknown cost and failed attempts (1.9s)
+  ok  3 tests\agent.spec.ts:50:1 › mobile agent panel remains bounded and selectable (936ms)
+  ok  4 tests\analytics.spec.ts:11:1 › actual service metrics, bucket charts and failed trace/log links (4.7s)
+  ok  5 tests\analytics.spec.ts:77:1 › directed graph nodes and actual paired-call evidence are navigable (2.5s)
+  ok  6 tests\analytics.spec.ts:106:1 › honest empty and invalid-window states use real same-origin API (970ms)
+  ok  7 tests\analytics.spec.ts:123:1 › small screen analytics preserves evidence and bounded-query errors (1.4s)
+  ok  8 tests\analytics.spec.ts:142:1 › real analytics storage outage returns an honest error and recovers (17.5s)
+  ok  9 tests\comparisons.spec.ts:16:1 › real comparison shows regressions and both actual execution traces (2.4s)
+  ok 10 tests\comparisons.spec.ts:57:1 › persisted PASS and live-profile INCONCLUSIVE keep their policy scope (1.3s)
+  ok 11 tests\comparisons.spec.ts:71:1 › comparison list and mobile gate remain usable (1.5s)
+  ok 12 tests\evaluations.spec.ts:29:1 › persisted evaluation run exposes denominators, paginates and opens actual case trace (2.1s)
+  ok 13 tests\evaluations.spec.ts:65:1 › wrong citation is distinct from groundedness and pending trace is honest (801ms)
+  ok 14 tests\evaluations.spec.ts:79:1 › execution failures stay visible and mobile layout does not overflow (809ms)
+  ok 15 tests\evaluations.spec.ts:101:1 › PostgreSQL outage leaves trace queries available and evaluations recover (5.5s)
+  ok 16 tests\live.spec.ts:30:1 › real payment search opens a full gateway/payment trace and actual inspector (2.9s)
+Observed payment.process normal=4263000ns delayed=500617500ns
+  ok 17 tests\live.spec.ts:72:1 › normal versus delayed payment reflects the actual recorded delay (1.3s)
+  ok 18 tests\live.spec.ts:98:1 › failed payment exposes actual error status and exception event (1.1s)
+  ok 19 tests\live.spec.ts:117:1 › historical and replay traces retain five bars while reporting physical duplicates (900ms)
+  ok 20 tests\live.spec.ts:134:1 › anomaly graph exposes all canonical spans, missing parent, cycle and conflict (1.0s)
+  ok 21 tests\live.spec.ts:157:1 › 1000-span supported trace stays selectable, collapsible and scrollable (2.5s)
+  ok 22 tests\live.spec.ts:175:1 › actual invalid, missing and oversized traces show explicit errors (989ms)
+  ok 23 tests\live.spec.ts:192:1 › empty search and invalid window are distinguished (1.2s)
+  ok 24 tests\live.spec.ts:207:1 › cursor pagination changes pages and changing filters resets it (917ms)
+  ok 25 tests\live.spec.ts:224:1 › mobile layout preserves the investigation controls (782ms)
+  ok 26 tests\live.spec.ts:237:1 › keyboard can select and clear a span (654ms)
+  ok 27 tests\live.spec.ts:250:1 › real ClickHouse outage shows an honest error and recovers (10.8s)
+  ok 28 tests\logs.spec.ts:18:1 › failed payment span exposes its exact logs and links back to the real trace (1.4s)
+  ok 29 tests\logs.spec.ts:41:1 › switching all trace versus selected span retains the correct row counts (964ms)
+  x  30 tests\logs.spec.ts:57:1 › real logs search supports severity, standalone records and structured details (11.6s)
+(node:4732) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 31 tests\logs.spec.ts:82:1 › repeated/replayed physical log rows paginate without merging events (1.2s)
+  ok 32 tests\logs.spec.ts:110:1 › trace-only logs are visible and a missing associated trace remains honest (1.2s)
+  ok 33 tests\logs.spec.ts:136:1 › mobile log records remain expandable and readable (962ms)
+  ok 34 tests\logs.spec.ts:154:1 › log search and correlation report real outage and recover (10.4s)
+  ok 35 tests\metrics.spec.ts:20:1 › real request counter values, rates and replay diagnostics (1.3s)
+  ok 36 tests\metrics.spec.ts:44:1 › histogram range, real gauge and signed Sum keep their semantics (1.7s)
+  ok 37 tests\metrics.spec.ts:76:1 › restart keeps independent writer identities and combined observed increments (677ms)
+  ok 38 tests\metrics.spec.ts:91:1 › SDK overflow, budget and empty scopes remain honest on mobile (1.4s)
+  x  39 tests\metrics.spec.ts:111:1 › real metric backend outage rejects export and recovers (8.9s)
+(node:1448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 40 tests\reliability.spec.ts:16:1 › persisted breach has exact budgets and source drilldown (787ms)
+  ok 41 tests\reliability.spec.ts:41:1 › one resolved incident retains exactly two contributing events (1.0s)
+  ok 42 tests\reliability.spec.ts:62:1 › backend outage remains unknown with no budget (421ms)
+  ok 43 tests\reliability.spec.ts:74:1 › histogram threshold reports measured slow requests on mobile (491ms)
+  ok 44 tests\reliability.spec.ts:87:1 › fixture attempts differ from logical operations and link actual traces (1.1s)
+  ok 45 tests\reliability.spec.ts:117:1 › absent live data stays unknown and invalid proxy filters are rejected (656ms)
+  ok 46 tests\sampling.spec.ts:8:1 › an actually sampled-out root remains a missing trace with no success inference (692ms)
+  ok 47 tests\sampling.spec.ts:36:1 › retained tail error opens the actual full gateway/payment trace (654ms)
+  ok 48 tests\sampling.spec.ts:51:1 › retained evaluation links honestly to actually expired isolated raw evidence (1.2s)
+
+
+  1) tests\logs.spec.ts:57:1 › real logs search supports severity, standalone records and structured details
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.log-record').first()
+    Expected substring: "ERROR"
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" locator('.log-record').first() with timeout 10000ms
+      - waiting for locator('.log-record').first()
+
+
+      64 |   await page.getByLabel("Minimum severity").selectOption("17");
+      65 |   await page.getByRole("button", { name: "Search logs" }).click();
+    > 66 |   await expect(page.locator(".log-record").first()).toContainText("ERROR");
+         |                                                     ^
+      67 |   await expect(page.locator(".log-record").first()).toContainText(
+      68 |     "payment failure",
+      69 |   );
+        at C:\placement projects\TraceForge\web\tests\logs.spec.ts:66:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\logs-real-logs-search-supp-b6ac1-ords-and-structured-details\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\logs-real-logs-search-supp-b6ac1-ords-and-structured-details\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\logs-real-logs-search-supp-b6ac1-ords-and-structured-details\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\logs-real-logs-search-supp-b6ac1-ords-and-structured-details\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests\metrics.spec.ts:111:1 › real metric backend outage rejects export and recovers ──────────
+
+    Error: spawnSync go ENOENT
+
+      128 |       "503",
+      129 |     );
+    > 130 |     const output = execFileSync(
+          |                    ^
+      131 |       "go",
+      132 |       [
+      133 |         "test",
+        at C:\placement projects\TraceForge\web\tests\metrics.spec.ts:130:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\metrics-real-metric-backen-a50e3-rejects-export-and-recovers\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests\logs.spec.ts:57:1 › real logs search supports severity, standalone records and structured details
+    tests\metrics.spec.ts:111:1 › real metric backend outage rejects export and recovers ───────────
+  46 passed (2.1m)

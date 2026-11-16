@@ -2,6 +2,7 @@ import logging
 from contextlib import contextmanager
 from urllib.parse import urlsplit
 
+import grpc
 from opentelemetry import trace
 from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
@@ -17,10 +18,18 @@ CONVENTION = "genai@e6658f14c9d9ea0760825f029cb82e7673f48fab"
 
 
 class Telemetry:
-    def __init__(self, endpoint="http://127.0.0.1:4317", provider=None, log_provider=None):
+    def __init__(
+        self,
+        endpoint="http://127.0.0.1:4317",
+        provider=None,
+        log_provider=None,
+        tenant="legacy",
+        authorization=None,
+        ca_file=None,
+    ):
         url = urlsplit(endpoint)
         if (
-            url.scheme != "http"
+            url.scheme not in {"http", "https"}
             or not url.hostname
             or not url.port
             or url.username
@@ -35,15 +44,25 @@ class Telemetry:
                 "service.name": "support-agent",
                 "service.version": "0.7.0",
                 "deployment.environment.name": "local",
+                **({"traceforge.tenant.id": tenant} if tenant != "legacy" else {}),
             }
         )
         # AgentOps/evaluation runs are protected from ambient SDK head sampling.
         # The local default Collector must also remain unsampled for these runs.
         self.provider = provider or TracerProvider(resource=resource, sampler=ALWAYS_ON)
+        transport = {"endpoint": endpoint, "insecure": url.scheme == "http", "timeout": 3}
+        if authorization:
+            transport["headers"] = {"authorization": "Bearer " + authorization}
+        if url.scheme == "https":
+            from pathlib import Path
+
+            transport["credentials"] = grpc.ssl_channel_credentials(
+                root_certificates=Path(ca_file).read_bytes() if ca_file else None
+            )
         if provider is None:
             self.provider.add_span_processor(
                 BatchSpanProcessor(
-                    OTLPSpanExporter(endpoint=endpoint, insecure=True, timeout=3),
+                    OTLPSpanExporter(**transport),
                     max_queue_size=512,
                     max_export_batch_size=128,
                     schedule_delay_millis=1000,
@@ -58,7 +77,7 @@ class Telemetry:
             if log_provider is None:
                 self.logs.add_log_record_processor(
                     BatchLogRecordProcessor(
-                        OTLPLogExporter(endpoint=endpoint, insecure=True, timeout=3),
+                        OTLPLogExporter(**transport),
                         max_queue_size=512,
                         max_export_batch_size=128,
                         schedule_delay_millis=1000,

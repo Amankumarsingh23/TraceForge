@@ -11,7 +11,7 @@ import (
 var benchmarkDatabase = regexp.MustCompile(`^tf_bench_[a-z0-9_]{1,48}$`)
 
 func validateDatabase(name string) error {
-	if name != "traceforge" && !benchmarkDatabase.MatchString(name) {
+	if name != "traceforge" && name != "tf_tenant_alpha" && name != "tf_tenant_beta" && !benchmarkDatabase.MatchString(name) {
 		return fmt.Errorf("database must be traceforge or an isolated tf_bench_ identifier")
 	}
 	return nil

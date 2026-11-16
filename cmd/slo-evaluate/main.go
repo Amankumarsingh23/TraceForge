@@ -10,10 +10,27 @@ import (
 	"os"
 	"time"
 	"traceforge/internal/reliability"
+	"traceforge/internal/security"
 	"traceforge/internal/storage"
+	"traceforge/internal/tenant"
 )
 
 func run() error {
+	owner, e := tenant.Current()
+	if e != nil {
+		return e
+	}
+	if owner != "legacy" {
+		registry, err := security.Open(context.Background())
+		if err != nil {
+			return err
+		}
+		defer registry.Close()
+		identity, err := registry.Authenticate(context.Background(), os.Getenv("TRACEFORGE_JOB_KEY"))
+		if err != nil || identity.Tenant != owner || !identity.Allows("manage") {
+			return fmt.Errorf("trusted tenant job authorization denied")
+		}
+	}
 	file := flag.String("file", "", "bounded JSON array of immutable SLO definitions")
 	key := flag.String("key", "", "evaluate only this key")
 	cutoffText := flag.String("cutoff", "", "whole-second UTC cutoff (default now minus3s)")

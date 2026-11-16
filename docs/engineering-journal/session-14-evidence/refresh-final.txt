@@ -1,0 +1,51 @@
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/policy
+    agent_test.go:182: policy trace=4b5000072d5d6aa7b509d40e99d60ea1 spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/tool
+    agent_test.go:182: tool trace=0584dfb69418d680a5c668244fe98c1e spans=9 logs=3 calls=2 attempts=2 cost=2300000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/retry
+    agent_test.go:182: retry trace=1a3d2690e67f4bdfcb81ac584a17a6fe spans=7 logs=4 calls=1 attempts=2 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/missing_usage
+    agent_test.go:182: missing_usage trace=0c4c06344dcc88c69dad15e67c9acb94 spans=6 logs=2 calls=1 attempts=1 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/no_results
+    agent_test.go:182: no_results trace=bf3b792d235fa94068660ef4feede6c2 spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/timeout
+    agent_test.go:182: timeout trace=ae40f38ad8aebeab936e6b0160268887 spans=6 logs=5 calls=1 attempts=2 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/permanent
+    agent_test.go:182: permanent trace=99bdd5541434fc875ebb826e2e4dce75 spans=5 logs=3 calls=1 attempts=1 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/bad_arguments
+    agent_test.go:182: bad_arguments trace=a3259f54dfac4bb1721980f3cd75682f spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/unknown_tool
+    agent_test.go:182: unknown_tool trace=1f7ee2e079cbd9c43661b78916ce5f22 spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/tool_timeout
+    agent_test.go:182: tool_timeout trace=9627aa2f0fa6e8d4c7c464e28b23af07 spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/unknown_order
+    agent_test.go:182: unknown_order trace=0f60ccbdb4a381c44a5884f558279d60 spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/max_steps
+    agent_test.go:182: max_steps trace=ca6ad1e4127a0e62d269b9cb9de73c79 spans=5 logs=2 calls=1 attempts=1 cost=800000
+--- PASS: TestAgentExecutionStoragePrivacyAndReplay (12.39s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/policy (1.33s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/tool (1.01s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/retry (0.93s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/missing_usage (1.07s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/no_results (0.87s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/timeout (1.14s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/permanent (0.88s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/bad_arguments (1.09s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/unknown_tool (1.09s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/tool_timeout (0.99s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/unknown_order (0.88s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/max_steps (1.08s)
+=== RUN   TestRealDemoLogCorrelation
+=== RUN   TestRealDemoLogCorrelation/normal
+    logs_test.go:295: normal trace=faddcecedf5410c9bb16294bf94d2813 payment.process=23ec6e529dd6f18a trace_logs=5 payment_logs=2 HTTP=200
+=== RUN   TestRealDemoLogCorrelation/delayed
+    logs_test.go:295: delayed trace=27c719191bbf323d0841a20834c81a5b payment.process=d6ad2af91189796a trace_logs=6 payment_logs=3 HTTP=200
+=== RUN   TestRealDemoLogCorrelation/failed
+    logs_test.go:295: failed trace=f536c09f73cf35e2eac67e5f6360ef13 payment.process=fe60aab0ffd838e6 trace_logs=5 payment_logs=2 HTTP=502
+--- PASS: TestRealDemoLogCorrelation (12.93s)
+    --- PASS: TestRealDemoLogCorrelation/normal (2.89s)
+    --- PASS: TestRealDemoLogCorrelation/delayed (5.00s)
+    --- PASS: TestRealDemoLogCorrelation/failed (5.02s)
+PASS
+ok  	traceforge/tests/integration	26.001s

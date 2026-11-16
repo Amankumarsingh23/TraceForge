@@ -1,0 +1,1108 @@
+{
+  "checks": [
+    {
+      "label": "missing HTTP credential",
+      "passed": true
+    },
+    {
+      "label": "invalid HTTP credential",
+      "passed": true
+    },
+    {
+      "label": "read cannot ingest",
+      "passed": true
+    },
+    {
+      "label": "ingest cannot read",
+      "passed": true
+    },
+    {
+      "label": "foreign tenant payload denied",
+      "passed": true
+    },
+    {
+      "label": "alpha synchronous ingest",
+      "passed": true
+    },
+    {
+      "label": "beta synchronous ingest",
+      "passed": true
+    },
+    {
+      "label": "beta unique object ingest",
+      "passed": true
+    },
+    {
+      "label": "alpha log ingest",
+      "passed": true
+    },
+    {
+      "label": "beta log ingest",
+      "passed": true
+    },
+    {
+      "label": "alpha metric ingest",
+      "passed": true
+    },
+    {
+      "label": "beta metric ingest",
+      "passed": true
+    },
+    {
+      "label": "alpha same IDs isolated",
+      "passed": true,
+      "duration": 100000000
+    },
+    {
+      "label": "beta same IDs isolated",
+      "passed": true,
+      "duration": 900000000
+    },
+    {
+      "label": "foreign unique trace hidden",
+      "passed": true
+    },
+    {
+      "label": "alpha key rejected at beta Collector",
+      "passed": true
+    },
+    {
+      "label": "authenticated alpha Collector path",
+      "passed": true
+    },
+    {
+      "label": "cross-tenant metadata hidden /api/v1/evaluations/638d19b595ceaca454c5f93b912a35b8",
+      "passed": true
+    },
+    {
+      "label": "owner metadata readable /api/v1/evaluations/638d19b595ceaca454c5f93b912a35b8",
+      "passed": true
+    },
+    {
+      "label": "cross-tenant metadata hidden /api/v1/evaluations/638d19b595ceaca454c5f93b912a35b8/cases/C01",
+      "passed": true
+    },
+    {
+      "label": "owner metadata readable /api/v1/evaluations/638d19b595ceaca454c5f93b912a35b8/cases/C01",
+      "passed": true
+    },
+    {
+      "label": "cross-tenant metadata hidden /api/v1/comparisons/048e4e93268c7aa26383dfca3a32ba91",
+      "passed": true
+    },
+    {
+      "label": "owner metadata readable /api/v1/comparisons/048e4e93268c7aa26383dfca3a32ba91",
+      "passed": true
+    },
+    {
+      "label": "cross-tenant metadata hidden /api/v1/gates/e1d0bb664222b863bca18d59fb51b8e5",
+      "passed": true
+    },
+    {
+      "label": "owner metadata readable /api/v1/gates/e1d0bb664222b863bca18d59fb51b8e5",
+      "passed": true
+    },
+    {
+      "label": "cross-tenant metadata hidden /api/v1/security/evaluations/cab66565ee02c09afa2986dda2c75bcf",
+      "passed": true
+    },
+    {
+      "label": "owner metadata readable /api/v1/security/evaluations/cab66565ee02c09afa2986dda2c75bcf",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/logs?trace_id=7574b87f0f36867a1d4ac14f72e97453&from=2026-11-16T09%3A13%3A32Z&to=2026-11-16T09%3A14%3A02Z",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/traces/7574b87f0f36867a1d4ac14f72e97453/logs?from=2026-11-16T09%3A13%3A32Z&to=2026-11-16T09%3A14%3A02Z",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/metrics/query?from=2026-11-16T09%3A13%3A32Z&to=2026-11-16T09%3A14%3A02Z",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/metrics/series?from=2026-11-16T09%3A13%3A32Z&to=2026-11-16T09%3A14%3A02Z",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/services?from=2026-11-16T09%3A13%3A32Z&to=2026-11-16T09%3A14%3A02Z",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/service-graph?from=2026-11-16T09%3A13%3A32Z&to=2026-11-16T09%3A14%3A02Z",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/evaluations",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/experiments",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/comparisons",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/slos",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/alerts",
+      "passed": true
+    },
+    {
+      "label": "tenant scoped list /api/v1/provider-reliability",
+      "passed": true
+    },
+    {
+      "label": "read cannot manage SLO",
+      "passed": true
+    },
+    {
+      "label": "alpha frozen SLO registered",
+      "passed": true
+    },
+    {
+      "label": "alpha SLO counts isolated",
+      "passed": true
+    },
+    {
+      "label": "beta frozen SLO registered",
+      "passed": true
+    },
+    {
+      "label": "beta SLO counts isolated",
+      "passed": true
+    },
+    {
+      "label": "new credential active",
+      "passed": true
+    },
+    {
+      "label": "revocation immediate",
+      "passed": true
+    },
+    {
+      "label": "bounded pressure admission and beta progress",
+      "passed": true
+    },
+    {
+      "label": "private diagnostics require manage",
+      "passed": true
+    },
+    {
+      "label": "PostgreSQL failure closes new authorization",
+      "passed": true
+    },
+    {
+      "label": "auth recovery preserves firing",
+      "passed": true
+    },
+    {
+      "label": "storage outage no false persistence ACK",
+      "passed": true
+    },
+    {
+      "label": "ClickHouse outage persists unknown",
+      "passed": true
+    },
+    {
+      "label": "unknown never resolves firing",
+      "passed": true
+    },
+    {
+      "label": "fresh metric recovery ingest",
+      "passed": true
+    },
+    {
+      "label": "valid recovery measured",
+      "passed": true
+    },
+    {
+      "label": "one incident two lifecycle events",
+      "passed": true
+    },
+    {
+      "label": "credential remains scoped after gateway restart",
+      "passed": true
+    },
+    {
+      "label": "replay accepted within same tenant",
+      "passed": true
+    },
+    {
+      "label": "replay logical identity stable",
+      "passed": true
+    }
+  ],
+  "pressure": {
+    "alpha_offered": 50,
+    "alpha_statuses": {
+      "OK": 2,
+      "RESOURCE_EXHAUSTED": 48
+    },
+    "beta": [
+      {
+        "status": "OK",
+        "ms": 111.36380000971258
+      },
+      {
+        "status": "OK",
+        "ms": 108.28220000257716
+      },
+      {
+        "status": "OK",
+        "ms": 114.68180001247674
+      },
+      {
+        "status": "OK",
+        "ms": 115.15769999823533
+      },
+      {
+        "status": "OK",
+        "ms": 116.30330001935363
+      }
+    ],
+    "elapsed_seconds": 1.3399300999881234
+  },
+  "outages": {
+    "postgres_http": 503,
+    "postgres_grpc": "UNAVAILABLE",
+    "clickhouse_grpc": "UNAVAILABLE",
+    "unknown_evaluation": {
+      "status": "UNKNOWN",
+      "id": "43ed1334e25d2cca55902c57fb63db4945a121eaa7cf67a1fb68d0d4c91a6708",
+      "slo_key": "s14-c257d2e1b2-v1",
+      "definition": {
+        "id": "s14-c257d2e1b2",
+        "version": 1,
+        "description": "Authenticated synthetic matched intervals",
+        "kind": "availability",
+        "source_version": "otlp-metrics/v1",
+        "service": "s14-payment",
+        "namespace": "security-c257d2e1b2",
+        "environment": "local",
+        "mode": "synthetic",
+        "provider": "",
+        "route": "/charge",
+        "expected_writers": [
+          "same-writer"
+        ],
+        "target": "0.9",
+        "window_seconds": 20,
+        "min_count": 1,
+        "min_coverage": "0.3",
+        "rules": [
+          {
+            "id": "fast",
+            "version": 1,
+            "long_seconds": 20,
+            "short_seconds": 10,
+            "threshold": "2",
+            "severity": "critical",
+            "confirm": 1,
+            "recover": 1
+          }
+        ]
+      },
+      "cutoff": "2026-11-16T09:14:04Z",
+      "revision": 1,
+      "overall": {
+        "evidence": {
+          "status": "BACKEND_UNAVAILABLE",
+          "reason": "metric read unavailable, canceled or over budget",
+          "from": "2026-11-16T09:13:44Z",
+          "to": "2026-11-16T09:14:04Z",
+          "total": "",
+          "good": "",
+          "bad": "",
+          "coverage": 0,
+          "diagnostics": {},
+          "trace_ids": []
+        },
+        "budget": null
+      },
+      "rules": [
+        {
+          "rule": {
+            "id": "fast",
+            "version": 1,
+            "long_seconds": 20,
+            "short_seconds": 10,
+            "threshold": "2",
+            "severity": "critical",
+            "confirm": 1,
+            "recover": 1
+          },
+          "long": {
+            "evidence": {
+              "status": "BACKEND_UNAVAILABLE",
+              "reason": "metric read unavailable, canceled or over budget",
+              "from": "2026-11-16T09:13:44Z",
+              "to": "2026-11-16T09:14:04Z",
+              "total": "",
+              "good": "",
+              "bad": "",
+              "coverage": 0,
+              "diagnostics": {},
+              "trace_ids": []
+            },
+            "budget": null
+          },
+          "short": {
+            "evidence": {
+              "status": "BACKEND_UNAVAILABLE",
+              "reason": "metric read unavailable, canceled or over budget",
+              "from": "2026-11-16T09:13:54Z",
+              "to": "2026-11-16T09:14:04Z",
+              "total": "",
+              "good": "",
+              "bad": "",
+              "coverage": 0,
+              "diagnostics": {},
+              "trace_ids": []
+            },
+            "budget": null
+          },
+          "decision": "UNKNOWN"
+        }
+      ],
+      "created_at": "2026-11-16T09:14:07.107623633Z"
+    },
+    "recovery_ingest_statuses": [
+      "OK"
+    ]
+  },
+  "tag": "c257d2e1b2",
+  "shared_trace": "58d9cdc94354e89b2665b0e8c5bf1ffc",
+  "beta_only_trace": "7574b87f0f36867a1d4ac14f72e97453",
+  "cutoff": 1794820432,
+  "metadata_ids": {
+    "run": "638d19b595ceaca454c5f93b912a35b8",
+    "comparison": "048e4e93268c7aa26383dfca3a32ba91",
+    "gate": "e1d0bb664222b863bca18d59fb51b8e5",
+    "security": "cab66565ee02c09afa2986dda2c75bcf"
+  },
+  "alpha_evaluation": {
+    "status": "MEASURED",
+    "id": "70d3299b213f72f9102f2a4fdc5a3d45a1345685f8b9fe8f13132751377c8191",
+    "slo_key": "s14-c257d2e1b2-v1",
+    "definition": {
+      "id": "s14-c257d2e1b2",
+      "version": 1,
+      "description": "Authenticated synthetic matched intervals",
+      "kind": "availability",
+      "source_version": "otlp-metrics/v1",
+      "service": "s14-payment",
+      "namespace": "security-c257d2e1b2",
+      "environment": "local",
+      "mode": "synthetic",
+      "provider": "",
+      "route": "/charge",
+      "expected_writers": [
+        "same-writer"
+      ],
+      "target": "0.9",
+      "window_seconds": 20,
+      "min_count": 1,
+      "min_coverage": "0.3",
+      "rules": [
+        {
+          "id": "fast",
+          "version": 1,
+          "long_seconds": 20,
+          "short_seconds": 10,
+          "threshold": "2",
+          "severity": "critical",
+          "confirm": 1,
+          "recover": 1
+        }
+      ]
+    },
+    "cutoff": "2026-11-16T09:13:52Z",
+    "revision": 1,
+    "overall": {
+      "evidence": {
+        "status": "MEASURED",
+        "reason": "",
+        "from": "2026-11-16T09:13:32Z",
+        "to": "2026-11-16T09:13:52Z",
+        "total": "3",
+        "good": "2",
+        "bad": "1",
+        "coverage": 0.4,
+        "diagnostics": {
+          "expected_writers": [
+            "same-writer"
+          ],
+          "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+          "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+          "source": "otlp-metrics/v1"
+        },
+        "trace_ids": [],
+        "details": {
+          "same-writer": {
+            "bad": "1",
+            "counterpart": {
+              "physical_points": 1,
+              "canonical_points": 1,
+              "replays": 0,
+              "conflicts": 0,
+              "resets": 0,
+              "gaps": 1,
+              "overlaps": 0,
+              "baselines": 0,
+              "unknown_sequence_start_points": 0,
+              "invalid_decreases": 0,
+              "boundary_intervals": 0,
+              "no_recorded_values": 0,
+              "overflow": false,
+              "definition_conflict": false
+            },
+            "covered_nanoseconds": 8000000000,
+            "intervals": [
+              {
+                "start_ns": "1794820423000000000",
+                "end_ns": "1794820431000000000",
+                "increment": "3",
+                "rate_per_second": 0.375,
+                "count": "",
+                "sum": null,
+                "buckets": []
+              }
+            ],
+            "request": {
+              "physical_points": 1,
+              "canonical_points": 1,
+              "replays": 0,
+              "conflicts": 0,
+              "resets": 0,
+              "gaps": 1,
+              "overlaps": 0,
+              "baselines": 0,
+              "unknown_sequence_start_points": 0,
+              "invalid_decreases": 0,
+              "boundary_intervals": 0,
+              "no_recorded_values": 0,
+              "overflow": false,
+              "definition_conflict": false
+            },
+            "total": "3"
+          }
+        }
+      },
+      "budget": {
+        "sli": "2/3",
+        "bad_fraction": "1/3",
+        "allowed_bad_fraction": "1/10",
+        "allowed_bad_events": "3/10",
+        "budget_consumed": "10/3",
+        "budget_remaining": "-7/10",
+        "burn_rate": "10/3",
+        "meets_target": false
+      }
+    },
+    "rules": [
+      {
+        "rule": {
+          "id": "fast",
+          "version": 1,
+          "long_seconds": 20,
+          "short_seconds": 10,
+          "threshold": "2",
+          "severity": "critical",
+          "confirm": 1,
+          "recover": 1
+        },
+        "long": {
+          "evidence": {
+            "status": "MEASURED",
+            "reason": "",
+            "from": "2026-11-16T09:13:32Z",
+            "to": "2026-11-16T09:13:52Z",
+            "total": "3",
+            "good": "2",
+            "bad": "1",
+            "coverage": 0.4,
+            "diagnostics": {
+              "expected_writers": [
+                "same-writer"
+              ],
+              "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+              "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+              "source": "otlp-metrics/v1"
+            },
+            "trace_ids": [],
+            "details": {
+              "same-writer": {
+                "bad": "1",
+                "counterpart": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "covered_nanoseconds": 8000000000,
+                "intervals": [
+                  {
+                    "start_ns": "1794820423000000000",
+                    "end_ns": "1794820431000000000",
+                    "increment": "3",
+                    "rate_per_second": 0.375,
+                    "count": "",
+                    "sum": null,
+                    "buckets": []
+                  }
+                ],
+                "request": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "total": "3"
+              }
+            }
+          },
+          "budget": {
+            "sli": "2/3",
+            "bad_fraction": "1/3",
+            "allowed_bad_fraction": "1/10",
+            "allowed_bad_events": "3/10",
+            "budget_consumed": "10/3",
+            "budget_remaining": "-7/10",
+            "burn_rate": "10/3",
+            "meets_target": false
+          }
+        },
+        "short": {
+          "evidence": {
+            "status": "MEASURED",
+            "reason": "",
+            "from": "2026-11-16T09:13:42Z",
+            "to": "2026-11-16T09:13:52Z",
+            "total": "3",
+            "good": "2",
+            "bad": "1",
+            "coverage": 0.8,
+            "diagnostics": {
+              "expected_writers": [
+                "same-writer"
+              ],
+              "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+              "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+              "source": "otlp-metrics/v1"
+            },
+            "trace_ids": [],
+            "details": {
+              "same-writer": {
+                "bad": "1",
+                "counterpart": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "covered_nanoseconds": 8000000000,
+                "intervals": [
+                  {
+                    "start_ns": "1794820423000000000",
+                    "end_ns": "1794820431000000000",
+                    "increment": "3",
+                    "rate_per_second": 0.375,
+                    "count": "",
+                    "sum": null,
+                    "buckets": []
+                  }
+                ],
+                "request": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "total": "3"
+              }
+            }
+          },
+          "budget": {
+            "sli": "2/3",
+            "bad_fraction": "1/3",
+            "allowed_bad_fraction": "1/10",
+            "allowed_bad_events": "3/10",
+            "budget_consumed": "10/3",
+            "budget_remaining": "-7/10",
+            "burn_rate": "10/3",
+            "meets_target": false
+          }
+        },
+        "decision": "BREACH"
+      }
+    ],
+    "created_at": "2026-11-16T09:13:54.283999192Z"
+  },
+  "beta_evaluation": {
+    "status": "MEASURED",
+    "id": "70d3299b213f72f9102f2a4fdc5a3d45a1345685f8b9fe8f13132751377c8191",
+    "slo_key": "s14-c257d2e1b2-v1",
+    "definition": {
+      "id": "s14-c257d2e1b2",
+      "version": 1,
+      "description": "Authenticated synthetic matched intervals",
+      "kind": "availability",
+      "source_version": "otlp-metrics/v1",
+      "service": "s14-payment",
+      "namespace": "security-c257d2e1b2",
+      "environment": "local",
+      "mode": "synthetic",
+      "provider": "",
+      "route": "/charge",
+      "expected_writers": [
+        "same-writer"
+      ],
+      "target": "0.9",
+      "window_seconds": 20,
+      "min_count": 1,
+      "min_coverage": "0.3",
+      "rules": [
+        {
+          "id": "fast",
+          "version": 1,
+          "long_seconds": 20,
+          "short_seconds": 10,
+          "threshold": "2",
+          "severity": "critical",
+          "confirm": 1,
+          "recover": 1
+        }
+      ]
+    },
+    "cutoff": "2026-11-16T09:13:52Z",
+    "revision": 1,
+    "overall": {
+      "evidence": {
+        "status": "MEASURED",
+        "reason": "",
+        "from": "2026-11-16T09:13:32Z",
+        "to": "2026-11-16T09:13:52Z",
+        "total": "7",
+        "good": "5",
+        "bad": "2",
+        "coverage": 0.4,
+        "diagnostics": {
+          "expected_writers": [
+            "same-writer"
+          ],
+          "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+          "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+          "source": "otlp-metrics/v1"
+        },
+        "trace_ids": [],
+        "details": {
+          "same-writer": {
+            "bad": "2",
+            "counterpart": {
+              "physical_points": 1,
+              "canonical_points": 1,
+              "replays": 0,
+              "conflicts": 0,
+              "resets": 0,
+              "gaps": 1,
+              "overlaps": 0,
+              "baselines": 0,
+              "unknown_sequence_start_points": 0,
+              "invalid_decreases": 0,
+              "boundary_intervals": 0,
+              "no_recorded_values": 0,
+              "overflow": false,
+              "definition_conflict": false
+            },
+            "covered_nanoseconds": 8000000000,
+            "intervals": [
+              {
+                "start_ns": "1794820423000000000",
+                "end_ns": "1794820431000000000",
+                "increment": "7",
+                "rate_per_second": 0.875,
+                "count": "",
+                "sum": null,
+                "buckets": []
+              }
+            ],
+            "request": {
+              "physical_points": 1,
+              "canonical_points": 1,
+              "replays": 0,
+              "conflicts": 0,
+              "resets": 0,
+              "gaps": 1,
+              "overlaps": 0,
+              "baselines": 0,
+              "unknown_sequence_start_points": 0,
+              "invalid_decreases": 0,
+              "boundary_intervals": 0,
+              "no_recorded_values": 0,
+              "overflow": false,
+              "definition_conflict": false
+            },
+            "total": "7"
+          }
+        }
+      },
+      "budget": {
+        "sli": "5/7",
+        "bad_fraction": "2/7",
+        "allowed_bad_fraction": "1/10",
+        "allowed_bad_events": "7/10",
+        "budget_consumed": "20/7",
+        "budget_remaining": "-13/10",
+        "burn_rate": "20/7",
+        "meets_target": false
+      }
+    },
+    "rules": [
+      {
+        "rule": {
+          "id": "fast",
+          "version": 1,
+          "long_seconds": 20,
+          "short_seconds": 10,
+          "threshold": "2",
+          "severity": "critical",
+          "confirm": 1,
+          "recover": 1
+        },
+        "long": {
+          "evidence": {
+            "status": "MEASURED",
+            "reason": "",
+            "from": "2026-11-16T09:13:32Z",
+            "to": "2026-11-16T09:13:52Z",
+            "total": "7",
+            "good": "5",
+            "bad": "2",
+            "coverage": 0.4,
+            "diagnostics": {
+              "expected_writers": [
+                "same-writer"
+              ],
+              "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+              "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+              "source": "otlp-metrics/v1"
+            },
+            "trace_ids": [],
+            "details": {
+              "same-writer": {
+                "bad": "2",
+                "counterpart": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "covered_nanoseconds": 8000000000,
+                "intervals": [
+                  {
+                    "start_ns": "1794820423000000000",
+                    "end_ns": "1794820431000000000",
+                    "increment": "7",
+                    "rate_per_second": 0.875,
+                    "count": "",
+                    "sum": null,
+                    "buckets": []
+                  }
+                ],
+                "request": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "total": "7"
+              }
+            }
+          },
+          "budget": {
+            "sli": "5/7",
+            "bad_fraction": "2/7",
+            "allowed_bad_fraction": "1/10",
+            "allowed_bad_events": "7/10",
+            "budget_consumed": "20/7",
+            "budget_remaining": "-13/10",
+            "burn_rate": "20/7",
+            "meets_target": false
+          }
+        },
+        "short": {
+          "evidence": {
+            "status": "MEASURED",
+            "reason": "",
+            "from": "2026-11-16T09:13:42Z",
+            "to": "2026-11-16T09:13:52Z",
+            "total": "7",
+            "good": "5",
+            "bad": "2",
+            "coverage": 0.8,
+            "diagnostics": {
+              "expected_writers": [
+                "same-writer"
+              ],
+              "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+              "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+              "source": "otlp-metrics/v1"
+            },
+            "trace_ids": [],
+            "details": {
+              "same-writer": {
+                "bad": "2",
+                "counterpart": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "covered_nanoseconds": 8000000000,
+                "intervals": [
+                  {
+                    "start_ns": "1794820423000000000",
+                    "end_ns": "1794820431000000000",
+                    "increment": "7",
+                    "rate_per_second": 0.875,
+                    "count": "",
+                    "sum": null,
+                    "buckets": []
+                  }
+                ],
+                "request": {
+                  "physical_points": 1,
+                  "canonical_points": 1,
+                  "replays": 0,
+                  "conflicts": 0,
+                  "resets": 0,
+                  "gaps": 1,
+                  "overlaps": 0,
+                  "baselines": 0,
+                  "unknown_sequence_start_points": 0,
+                  "invalid_decreases": 0,
+                  "boundary_intervals": 0,
+                  "no_recorded_values": 0,
+                  "overflow": false,
+                  "definition_conflict": false
+                },
+                "total": "7"
+              }
+            }
+          },
+          "budget": {
+            "sli": "5/7",
+            "bad_fraction": "2/7",
+            "allowed_bad_fraction": "1/10",
+            "allowed_bad_events": "7/10",
+            "budget_consumed": "20/7",
+            "budget_remaining": "-13/10",
+            "burn_rate": "20/7",
+            "meets_target": false
+          }
+        },
+        "decision": "BREACH"
+      }
+    ],
+    "created_at": "2026-11-16T09:13:54.343843283Z"
+  },
+  "slo_key": "s14-c257d2e1b2-v1",
+  "alpha_incident": {
+    "fingerprint": "e22cf44bf95a7b6b9663c850823192c381f05a7842a4e474bb8409e3ae47e911",
+    "first_fired": "2026-11-16T09:13:52Z",
+    "id": "7f568c435e2d1a1b7bdecac0933579a3831a974a4869434b9a8f5d327c35c730",
+    "last_evaluation": "70d3299b213f72f9102f2a4fdc5a3d45a1345685f8b9fe8f13132751377c8191",
+    "resolved_at": null,
+    "rule_id": "fast",
+    "severity": "critical",
+    "slo_key": "s14-c257d2e1b2-v1",
+    "state": "FIRING"
+  },
+  "beta_incident": {
+    "fingerprint": "e22cf44bf95a7b6b9663c850823192c381f05a7842a4e474bb8409e3ae47e911",
+    "first_fired": "2026-11-16T09:13:52Z",
+    "id": "7f568c435e2d1a1b7bdecac0933579a3831a974a4869434b9a8f5d327c35c730",
+    "last_evaluation": "70d3299b213f72f9102f2a4fdc5a3d45a1345685f8b9fe8f13132751377c8191",
+    "resolved_at": null,
+    "rule_id": "fast",
+    "severity": "critical",
+    "slo_key": "s14-c257d2e1b2-v1",
+    "state": "FIRING"
+  },
+  "diagnostics": {
+    "config": {
+      "queue_requests": 64,
+      "in_flight": 32,
+      "pending_requests": 128,
+      "buffered_spans": 16384,
+      "buffered_bytes": 134217728,
+      "batch_target": 1000,
+      "workers": 1,
+      "batch_wait_ns": 100000000,
+      "admission_wait_ns": 50000000,
+      "write_timeout_ns": 3000000000,
+      "export_timeout_ns": 5000000000
+    },
+    "requests": 10,
+    "received_spans": 10,
+    "persisted_spans": 9,
+    "invalid_spans": 0,
+    "persistence_failures": 1,
+    "admission_rejections": 0,
+    "batches": 8,
+    "queue": 0,
+    "peak_queue": 1,
+    "in_flight": 0,
+    "pending_requests": 0,
+    "reserved_spans": 0,
+    "reserved_bytes": 0,
+    "peak_reserved_bytes": 99456,
+    "heap_alloc_bytes": 3109128,
+    "goroutines": 17,
+    "resident_bytes": 28573696,
+    "state": "running",
+    "recent_batches": [
+      {
+        "sequence": 1,
+        "spans": 1,
+        "requests": 1,
+        "insert_ns": 7448978,
+        "wait_ns": 100144665,
+        "success": true
+      },
+      {
+        "sequence": 2,
+        "spans": 1,
+        "requests": 1,
+        "insert_ns": 7491409,
+        "wait_ns": 100550281,
+        "success": true
+      },
+      {
+        "sequence": 3,
+        "spans": 1,
+        "requests": 1,
+        "insert_ns": 4459749,
+        "wait_ns": 100647652,
+        "success": true
+      },
+      {
+        "sequence": 4,
+        "spans": 2,
+        "requests": 2,
+        "insert_ns": 6453971,
+        "wait_ns": 100751438,
+        "success": true
+      },
+      {
+        "sequence": 5,
+        "spans": 1,
+        "requests": 1,
+        "insert_ns": 1001752357,
+        "wait_ns": 100910473,
+        "success": false
+      },
+      {
+        "sequence": 6,
+        "spans": 1,
+        "requests": 1,
+        "insert_ns": 14999867,
+        "wait_ns": 101056073,
+        "success": true
+      },
+      {
+        "sequence": 7,
+        "spans": 1,
+        "requests": 1,
+        "insert_ns": 6003454,
+        "wait_ns": 100085405,
+        "success": true
+      },
+      {
+        "sequence": 8,
+        "spans": 2,
+        "requests": 2,
+        "insert_ns": 8858677,
+        "wait_ns": 101176283,
+        "success": true
+      }
+    ]
+  }
+}

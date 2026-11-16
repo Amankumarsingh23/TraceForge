@@ -1,3 +1,4 @@
+import { sessionCredential } from "./session";
 import { timestampNS } from "./timeline";
 import { validTraceId } from "./contracts";
 
@@ -94,7 +95,7 @@ export async function forwardTelemetry(
       /^\/api\/v1\/(?:logs|traces(?:\/[a-f0-9]{32}(?:\/(?:logs|agent-summary))?)?|evaluations(?:\/[a-f0-9]{32}(?:\/cases(?:\/[A-Za-z0-9_-]{1,64})?)?)?)$/.test(
         path,
       ) ||
-      /^\/api\/v1\/(?:slos(?:\/[a-z0-9_-]{1,80}(?:\/evaluations)?)?|alerts(?:\/[a-f0-9]{64})?|slo-evaluations\/[a-f0-9]{64}|alert-heads|provider-reliability|metrics(?:\/(?:series|query))?|services(?:\/[a-f0-9]{32}\/(?:metrics|dependencies))?|service-graph|experiments|comparisons(?:\/[a-f0-9]{32}(?:\/cases)?)?|gates\/[a-f0-9]{32})$/.test(
+      /^\/api\/v1\/(?:security\/(?:session|evaluations(?:\/[a-f0-9]{32})?)|slos(?:\/[a-z0-9_-]{1,80}(?:\/evaluations)?)?|alerts(?:\/[a-f0-9]{64})?|slo-evaluations\/[a-f0-9]{64}|alert-heads|provider-reliability|metrics(?:\/(?:series|query))?|services(?:\/[a-f0-9]{32}\/(?:metrics|dependencies))?|service-graph|experiments|comparisons(?:\/[a-f0-9]{32}(?:\/cases)?)?|gates\/[a-f0-9]{32})$/.test(
         path,
       )
     )
@@ -125,6 +126,12 @@ export async function forwardTelemetry(
     );
   }
 
+  const credential =
+    process.env.TRACEFORGE_REQUIRE_AUTH === "1"
+      ? await sessionCredential(request)
+      : null;
+  if (process.env.TRACEFORGE_REQUIRE_AUTH === "1" && !credential)
+    return error(401, "session_required", "Authentication required");
   const upstream = new URL(path, origin);
   upstream.search = query.toString();
   const signal = AbortSignal.any([request.signal, AbortSignal.timeout(5000)]);
@@ -133,7 +140,10 @@ export async function forwardTelemetry(
       signal,
       cache: "no-store",
       redirect: "error",
-      headers: { Accept: "application/json" },
+      headers: {
+        Accept: "application/json",
+        ...(credential ? { Authorization: `Bearer ${credential}` } : {}),
+      },
     });
     if (
       !(response.headers.get("content-type") ?? "").includes("application/json")

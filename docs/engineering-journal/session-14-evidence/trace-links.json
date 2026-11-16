@@ -1,0 +1,249 @@
+{
+  "cases": [
+    {
+      "tenant": "alpha",
+      "case_id": "A01",
+      "trace_id": "2d1136fa4e273424964d16f1b3c37d27",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A02",
+      "trace_id": "74f0b984c31cd656f0796bc21b8e984d",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A03",
+      "trace_id": "2b31d30d7378c4c3e33ea4c1fff54f69",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A04",
+      "trace_id": "4ab3d372b9b3418a69ffdc94e6ec316b",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A05",
+      "trace_id": "1a4c6f2f27ed0e28d05b32937d5a24df",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A06",
+      "trace_id": "78e459bab2a98a50e990e8d449ab5c54",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A07",
+      "trace_id": "370c9d7ad188faf153e687f039ea18db",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A08",
+      "trace_id": "9cfabf6b93ff3b52f2061ca1ad972a66",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A10",
+      "trace_id": "f2af030939bb5b66464f2127b4c45c6d",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A11",
+      "trace_id": "e523c1b232461aadb195048b6a440787",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A12",
+      "trace_id": "7855f77df509a024ed31bd5831e19496",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A13",
+      "trace_id": "c8ccce4bd9977406e535cad663a13833",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A15",
+      "trace_id": "4b33ccb9b00ce17ae1343550f625a0c7",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A17",
+      "trace_id": "ee52d9bead352f5743991d3306c3f526",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A18",
+      "trace_id": "955716d90fcb8db782840998eb0f0c86",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A19",
+      "trace_id": "9f3ae1ebe10196a78980e1222c37e1fe",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "A20",
+      "trace_id": "0fa4cb7e9da8ae9face626b62b6ad4cc",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "F01",
+      "trace_id": "bdbee019a94e8d78dcaa9a0c08a34417",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "F02",
+      "trace_id": "b0915a266cfc8b7b3ee34366b676b292",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "F03",
+      "trace_id": "6b5ddaeb6068860fe7fb502b69df3d91",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "F04",
+      "trace_id": "ad3c40f940249d7e5c7413cbef479411",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "B01",
+      "trace_id": "dbfe74a1bbc35a5c03169622bf774f3e",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "B02",
+      "trace_id": "94d86c0155308abe81efa52bc7714edf",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "alpha",
+      "case_id": "B03",
+      "trace_id": "0e89060d3a97163bb8feff3c5e64883f",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "beta",
+      "case_id": "A09",
+      "trace_id": "6ee5660af4197fe65fd4cc6c5744ca02",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "beta",
+      "case_id": "A14",
+      "trace_id": "a73bb27ab067e4e7edf4559f8d936aa3",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "beta",
+      "case_id": "A16",
+      "trace_id": "81327701ce5da96781db1754e0e2bc5a",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "beta",
+      "case_id": "B04",
+      "trace_id": "838cb676ae67d9ab55fd339b0dbe53f9",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "beta",
+      "case_id": "B05",
+      "trace_id": "883e010ff51523be2f6d1ee0669a0cb5",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    },
+    {
+      "tenant": "beta",
+      "case_id": "B06",
+      "trace_id": "699cd3799039d4da2421be50d1cd2438",
+      "owner_status": 200,
+      "foreign_status": 404,
+      "tested_payload_absent": true
+    }
+  ],
+  "private_host_ports_closed": [
+    8082,
+    4319,
+    4317
+  ]
+}

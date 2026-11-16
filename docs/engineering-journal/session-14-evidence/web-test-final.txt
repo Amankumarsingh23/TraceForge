@@ -1,0 +1,14 @@
+npm notice run traceforge-web@0.5.0 test
+npm notice run vitest run
+
+ RUN  v5.1.0 C:/placement projects/TraceForge/web
+
+
+ Test Files  17 passed (17)
+      Tests  70 passed (70)
+   Start at  15:03:12
+   Duration  8.56s (environment 64%, setup 28%, tests 4%, import 2%, transform 2%)
+
+Environment  jsdom was created 17 times · 59.31s total, 64% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments

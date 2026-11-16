@@ -49,7 +49,12 @@ func text(s string, max int) bool { return len(s) <= max && utf8.ValidString(s) 
 func sensitive(key string) bool {
 	k := strings.ToLower(key)
 	k = strings.NewReplacer(".", "", "_", "", "-", "", "[", "", "]", "", " ", "").Replace(k)
-	for _, word := range []string{"authorization", "password", "passwd", "secret", "token", "apikey", "credential", "cookie", "privatekey"} {
+	for _, exact := range []string{"prompt", "completion", "genaiprompt", "genaicompletion", "genaiinputmessages", "genaioutputmessages", "toolarguments"} {
+		if k == exact {
+			return true
+		}
+	}
+	for _, word := range []string{"authorization", "password", "passwd", "secret", "token", "apikey", "credential", "cookie", "privatekey", "email", "phone", "ssn", "creditcard"} {
 		if strings.Contains(k, word) {
 			return true
 		}
@@ -241,6 +246,13 @@ func normalizeSpan(rs *trace.ResourceSpans, ss *trace.ScopeSpans, original *trac
 	if !text(scope.Name, 1024) || !text(scope.Version, 1024) {
 		return r, errors.New("scope text limit")
 	}
+	s.Name = safeString(s.Name)
+	s.TraceState = safeString(s.TraceState)
+	scope.Name = safeString(scope.Name)
+	scope.Version = safeString(scope.Version)
+	if s.Status != nil {
+		s.Status.Message = safeString(s.Status.Message)
+	}
 	for _, set := range [][]*common.KeyValue{res.Attributes, scope.Attributes, s.Attributes} {
 		if err := attrs(set); err != nil {
 			return r, err
@@ -253,6 +265,7 @@ func normalizeSpan(rs *trace.ResourceSpans, ss *trace.ScopeSpans, original *trac
 		if err := attrs(ev.Attributes); err != nil {
 			return r, err
 		}
+		ev.Name = safeString(ev.Name)
 	}
 	for _, link := range s.Links {
 		if link == nil || !validID(link.TraceId, 16) || !validID(link.SpanId, 8) || !text(link.TraceState, 512) {
@@ -261,6 +274,7 @@ func normalizeSpan(rs *trace.ResourceSpans, ss *trace.ScopeSpans, original *trac
 		if err := attrs(link.Attributes); err != nil {
 			return r, err
 		}
+		link.TraceState = safeString(link.TraceState)
 	}
 	r.ServiceName = "unknown_service"
 	for _, kv := range res.Attributes {
@@ -280,8 +294,8 @@ func normalizeSpan(rs *trace.ResourceSpans, ss *trace.ScopeSpans, original *trac
 	r.StatusMessage = s.GetStatus().GetMessage()
 	r.ScopeName = scope.Name
 	r.ScopeVersion = scope.Version
-	r.ResourceSchemaURL = rs.SchemaUrl
-	r.ScopeSchemaURL = ss.SchemaUrl
+	r.ResourceSchemaURL = safeString(rs.SchemaUrl)
+	r.ScopeSchemaURL = safeString(ss.SchemaUrl)
 	var err error
 	for _, pair := range []struct {
 		target *string

@@ -169,7 +169,19 @@ class FixtureProvider:
                 f"Fixture adapter: synthetic order {result['order_id']} is {result['status']}."
             )
         else:
-            context = json.loads(messages[0]["content"].split("\nCONTEXT_JSON:\n", 1)[1])
+            untrusted = next(
+                (
+                    m["content"]
+                    for m in messages
+                    if m["content"].startswith("UNTRUSTED_CONTEXT_JSON:\n")
+                ),
+                None,
+            )
+            context = json.loads(
+                untrusted.split("\n", 1)[1]
+                if untrusted
+                else messages[0]["content"].split("\nCONTEXT_JSON:\n", 1)[1]
+            )
             content = (
                 json.dumps(generate(question, context))
                 if CONTRACT in messages[0]["content"]

@@ -1,0 +1,8 @@
+=== RUN   TestSession13CrossPartitionHydrationAndPredecessor
+    session13_test.go:95: tf_bench_boundary_1794821656070322000: two monthly partitions hydrated, cross-window edge1, cumulative previous-partition predecessor gives5
+--- PASS: TestSession13CrossPartitionHydrationAndPredecessor (0.65s)
+=== RUN   TestSession13LayoutsCanonicalMetricsSLOAndProvider
+    session13_test.go:259: reference=tf_bench_s13_20261114132435_300000 candidate=tf_bench_verify_1794821656706781900: replay/conflict canonical traces, RED/edges, metric predecessor and23/19 BREACH, provider4/2 unchanged
+--- PASS: TestSession13LayoutsCanonicalMetricsSLOAndProvider (4.47s)
+PASS
+ok  	traceforge/tests/integration	5.932s
