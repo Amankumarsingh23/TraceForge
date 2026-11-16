@@ -16,7 +16,7 @@ func (s *Store) InsertMetricPoints(ctx context.Context, points []metricdata.Poin
 	if len(points) == 0 {
 		return nil
 	}
-	batch, e := s.Conn.PrepareBatch(ctx, `INSERT INTO traceforge.metric_points (stream_id,metric_name,service_name,service_namespace,end_ns,start_ns,point_json)`)
+	batch, e := s.prepareBatch(ctx, `INSERT INTO traceforge.metric_points (stream_id,metric_name,service_name,service_namespace,end_ns,start_ns,point_json)`)
 	if e != nil {
 		return metricdata.ErrBackend
 	}
@@ -62,7 +62,7 @@ func (s *Store) MetricPoints(ctx context.Context, q metricdata.Query) ([]metricd
 	if lower.Before(time.Unix(0, 0)) {
 		lower = time.Unix(0, 0)
 	}
-	rows, e := s.Conn.Query(ctx, `SELECT stream_id FROM traceforge.metric_points WHERE end_ns > ? AND end_ns <= ? AND (metric_name=? OR ?='') AND (service_name=? OR ?='') AND (service_namespace=? OR ?='') GROUP BY stream_id ORDER BY stream_id LIMIT ?`, from, to, q.Name, q.Name, q.Service, q.Service, q.Namespace, q.Namespace, metricdata.MaxQuerySeries+1)
+	rows, e := s.query(ctx, `SELECT stream_id FROM traceforge.metric_points WHERE end_ns > ? AND end_ns <= ? AND (metric_name=? OR ?='') AND (service_name=? OR ?='') AND (service_namespace=? OR ?='') GROUP BY stream_id ORDER BY stream_id LIMIT ?`, from, to, q.Name, q.Name, q.Service, q.Service, q.Namespace, q.Namespace, metricdata.MaxQuerySeries+1)
 	if e != nil {
 		return nil, metricError(ctx, e)
 	}
@@ -88,7 +88,7 @@ func (s *Store) MetricPoints(ctx context.Context, q metricdata.Query) ([]metricd
 	}
 	// Discovery intentionally precedes exact stream filtering, so related conflicting
 	// definitions cannot be hidden by selecting a single definition's hash.
-	rows, e = s.Conn.Query(ctx, `SELECT point_json,ingested_at FROM traceforge.metric_points WHERE stream_id IN (?) AND end_ns >= ? AND end_ns <= ? ORDER BY stream_id,end_ns,ingested_at LIMIT ?`, ids, uint64(lower.UnixNano()), to, metricdata.MaxQueryRows+1)
+	rows, e = s.query(ctx, `SELECT point_json,ingested_at FROM traceforge.metric_points WHERE stream_id IN (?) AND end_ns >= ? AND end_ns <= ? ORDER BY stream_id,end_ns,ingested_at LIMIT ?`, ids, uint64(lower.UnixNano()), to, metricdata.MaxQueryRows+1)
 	if e != nil {
 		return nil, metricError(ctx, e)
 	}

@@ -1,0 +1,17 @@
+# Separate opt-in contrib Collector. Base Collector stays unchanged/unsampled.
+services:
+  sampling-collector:
+    image: otel/opentelemetry-collector-contrib:0.165.0
+    profiles: [sampling]
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./otel-collector.sampling.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - "127.0.0.1:4321:4317"
+      - "127.0.0.1:4322:4318"
+      - "127.0.0.1:8890:8888"
+    mem_limit: 192m
+    cpus: 1
+    depends_on:
+      traceforge-server:
+        condition: service_healthy

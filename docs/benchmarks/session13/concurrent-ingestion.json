@@ -1,0 +1,324 @@
+{
+  "load": {
+    "config": {
+      "total_spans": 10000,
+      "spans_per_request": 100,
+      "concurrency": 4,
+      "configured_spans_per_second": 0,
+      "seed": 42,
+      "services": 3,
+      "run_id": "26cd652abd8416f5",
+      "base_time": "2026-11-14T13:35:59.8895103Z",
+      "rpc_timeout_ns": 6000000000
+    },
+    "attempted_requests": 100,
+    "generated_spans": 10000,
+    "successful_requests": 100,
+    "acknowledged_spans": 10000,
+    "partial_requests": 0,
+    "rejected_spans": 0,
+    "retryable_failures": 0,
+    "permanent_failures": 0,
+    "unknown_outcomes": 0,
+    "elapsed_seconds": 3.0463884,
+    "actual_offered_spans_per_second": 3282.5755245128953,
+    "acknowledged_spans_per_second": 3282.5755245128953,
+    "p50_ack_ms": 120.2078,
+    "p95_ack_ms": 130.1291,
+    "p99_ack_ms": 156.6483,
+    "p95_all_outcomes_ms": 130.1291
+  },
+  "go_version": "go1.27.4",
+  "os": "windows",
+  "loadgen_cpus": 16,
+  "connections": 4,
+  "started": "2026-11-14T13:35:59.8895103Z",
+  "Before": {
+    "config": {
+      "queue_requests": 64,
+      "in_flight": 32,
+      "pending_requests": 128,
+      "buffered_spans": 16384,
+      "buffered_bytes": 134217728,
+      "batch_target": 1000,
+      "workers": 1,
+      "batch_wait_ns": 100000000,
+      "admission_wait_ns": 50000000,
+      "write_timeout_ns": 3000000000,
+      "export_timeout_ns": 5000000000
+    },
+    "requests": 0,
+    "received_spans": 0,
+    "persisted_spans": 0,
+    "invalid_spans": 0,
+    "persistence_failures": 0,
+    "admission_rejections": 0,
+    "batches": 0,
+    "queue": 0,
+    "peak_queue": 0,
+    "in_flight": 0,
+    "pending_requests": 0,
+    "reserved_spans": 0,
+    "reserved_bytes": 0,
+    "peak_reserved_bytes": 0,
+    "heap_alloc_bytes": 4052136,
+    "goroutines": 18,
+    "resident_bytes": 0,
+    "state": "running",
+    "recent_batches": []
+  },
+  "After": {
+    "config": {
+      "queue_requests": 64,
+      "in_flight": 32,
+      "pending_requests": 128,
+      "buffered_spans": 16384,
+      "buffered_bytes": 134217728,
+      "batch_target": 1000,
+      "workers": 1,
+      "batch_wait_ns": 100000000,
+      "admission_wait_ns": 50000000,
+      "write_timeout_ns": 3000000000,
+      "export_timeout_ns": 5000000000
+    },
+    "requests": 100,
+    "received_spans": 10000,
+    "persisted_spans": 10000,
+    "invalid_spans": 0,
+    "persistence_failures": 0,
+    "admission_rejections": 0,
+    "batches": 25,
+    "queue": 0,
+    "peak_queue": 3,
+    "in_flight": 0,
+    "pending_requests": 0,
+    "reserved_spans": 0,
+    "reserved_bytes": 0,
+    "peak_reserved_bytes": 17891840,
+    "heap_alloc_bytes": 5735944,
+    "goroutines": 30,
+    "resident_bytes": 0,
+    "state": "running",
+    "recent_batches": [
+      {
+        "sequence": 1,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 32514800,
+        "wait_ns": 100441900,
+        "success": true
+      },
+      {
+        "sequence": 2,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 11060900,
+        "wait_ns": 100458700,
+        "success": true
+      },
+      {
+        "sequence": 3,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 17084200,
+        "wait_ns": 100270300,
+        "success": true
+      },
+      {
+        "sequence": 4,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 12169000,
+        "wait_ns": 100524800,
+        "success": true
+      },
+      {
+        "sequence": 5,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 10361800,
+        "wait_ns": 100245300,
+        "success": true
+      },
+      {
+        "sequence": 6,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 12675100,
+        "wait_ns": 100484400,
+        "success": true
+      },
+      {
+        "sequence": 7,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 12756000,
+        "wait_ns": 100479600,
+        "success": true
+      },
+      {
+        "sequence": 8,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 11587700,
+        "wait_ns": 100420500,
+        "success": true
+      },
+      {
+        "sequence": 9,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 17797800,
+        "wait_ns": 100259700,
+        "success": true
+      },
+      {
+        "sequence": 10,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 13744600,
+        "wait_ns": 100344500,
+        "success": true
+      },
+      {
+        "sequence": 11,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 11430000,
+        "wait_ns": 100489100,
+        "success": true
+      },
+      {
+        "sequence": 12,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 9645200,
+        "wait_ns": 100216100,
+        "success": true
+      },
+      {
+        "sequence": 13,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 24540000,
+        "wait_ns": 100179300,
+        "success": true
+      },
+      {
+        "sequence": 14,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 14188700,
+        "wait_ns": 100541100,
+        "success": true
+      },
+      {
+        "sequence": 15,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 17894700,
+        "wait_ns": 100359000,
+        "success": true
+      },
+      {
+        "sequence": 16,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 11681800,
+        "wait_ns": 100193600,
+        "success": true
+      },
+      {
+        "sequence": 17,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 8795100,
+        "wait_ns": 100364100,
+        "success": true
+      },
+      {
+        "sequence": 18,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 9827000,
+        "wait_ns": 100434400,
+        "success": true
+      },
+      {
+        "sequence": 19,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 17853200,
+        "wait_ns": 100592500,
+        "success": true
+      },
+      {
+        "sequence": 20,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 13766900,
+        "wait_ns": 100221500,
+        "success": true
+      },
+      {
+        "sequence": 21,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 19353800,
+        "wait_ns": 100320900,
+        "success": true
+      },
+      {
+        "sequence": 22,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 10154500,
+        "wait_ns": 100240600,
+        "success": true
+      },
+      {
+        "sequence": 23,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 14820600,
+        "wait_ns": 100483100,
+        "success": true
+      },
+      {
+        "sequence": 24,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 10942500,
+        "wait_ns": 100285300,
+        "success": true
+      },
+      {
+        "sequence": 25,
+        "spans": 400,
+        "requests": 4,
+        "insert_ns": 12489000,
+        "wait_ns": 100468800,
+        "success": true
+      }
+    ]
+  },
+  "sampled_peak_heap_bytes": 9702520,
+  "sampled_peak_resident_bytes": 0,
+  "sampled_peak_goroutines": 36,
+  "sampled_peak_queue": 0,
+  "storage_verified": false,
+  "stored_rows": 0,
+  "unique_stored_spans": 0,
+  "confirmed_rows_per_second": 0,
+  "physical_duplicates": 0,
+  "insert_p50_ms": 12.6751,
+  "insert_p95_ms": 24.54,
+  "mean_batch_size": 400,
+  "batch_samples": 25,
+  "metric_samples_complete": true,
+  "active_database_parts": 0,
+  "parts_count_available": false,
+  "accounting_settled": true,
+  "storage_window_seconds": 3.0475009,
+  "final_diagnostics_available": true
+}

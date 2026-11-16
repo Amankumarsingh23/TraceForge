@@ -1,0 +1,408 @@
+[
+  {
+    "query_id": "s13-20261114133850-admin-11796e5c",
+    "label": "admin",
+    "sql": "SHOW CREATE TABLE traceforge.logs FORMAT TabSeparatedRaw",
+    "wall_ms": 49.78119999941555,
+    "checksum": "0914e42ff6ea386be9d1a814adde1805d55393f109b73879371b22c5dbc315c9"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-a83e6d28",
+    "label": "admin",
+    "sql": "CREATE TABLE tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800\n(\n    `log_id` FixedString(32),\n    `source_event_id` String,\n    `trace_id` String,\n    `span_id` String,\n    `trace_flags` UInt32,\n    `service_name` LowCardinality(String),\n    `severity_number` UInt8,\n    `severity_text` String,\n    `event_time` Nullable(DateTime64(9, 'UTC')),\n    `observed_time` Nullable(DateTime64(9, 'UTC')),\n    `effective_time` DateTime64(9, 'UTC'),\n    `time_source` LowCardinality(String),\n    `body_text` String,\n    `body_json` String,\n    `attributes_json` String,\n    `resource_attributes_json` String,\n    `scope_name` String,\n    `scope_version` String,\n    `event_name` String,\n    `resource_json` String,\n    `scope_json` String,\n    `record_json` String,\n    `resource_schema_url` String,\n    `scope_schema_url` String,\n    `ingested_at` DateTime64(9, 'UTC')\n)\nENGINE = MergeTree\nPARTITION BY toYYYYMM(effective_time)\nORDER BY (effective_time, log_id)\nSETTINGS index_granularity = 8192",
+    "wall_ms": 10.991099999955622,
+    "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "query_id": "s13-20261114133850-index-baseline-copy-5ea9b757",
+    "label": "index-baseline-copy",
+    "sql": "INSERT INTO tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 SELECT * FROM tf_bench_s13_20261114132435_100000.logs",
+    "wall_ms": 159.33489999952144,
+    "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-warmup-abb35be7",
+    "label": "cache-controlled-reference-warmup",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 12.678600000072038,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-98dfdea6",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.882699999958277,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-a84beb15",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 9.052999997948064,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-55d2dfab",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.555700002034428,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-f988a998",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 9.68049999937648,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-8c54425d",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 33.409600000595674,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-e419f658",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 11.207600000489037,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-8ee37e56",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.205699999962235,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-dd800316",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.379999999306165,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-32a095bf",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 10.295500000211177,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-0d636091",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.974299998953938,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-e23ce28e",
+    "label": "admin",
+    "sql": "EXPLAIN indexes=1 SELECT * FROM tf_bench_s13_20261114132435_100000.logs_uncached_1794663530831734800 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT TabSeparatedRaw",
+    "wall_ms": 6.208400001924019,
+    "checksum": "c935b57d1d8b2d6b24af7a2a0a569cc28513c0336b68435b53449069cd8f9795"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-warmup-c73305d1",
+    "label": "cache-controlled-bloom-warmup",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 31.46839999681106,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-efd08214",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.194599999114871,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-250e464d",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.426399999734713,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-297df715",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.643500000995118,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-f2e8b5d9",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 9.812799999053823,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-c857e0d9",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 33.75469999809866,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-c43bfbf7",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 29.402600001048995,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-78d726fb",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 32.67770000093151,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-d2415644",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.63759999992908,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-dfdbe03a",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.752899997285567,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-ddc65853",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 28.18189999743481,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-e3959b6c",
+    "label": "admin",
+    "sql": "EXPLAIN indexes=1 SELECT * FROM tf_bench_s13_20261114132435_100000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT TabSeparatedRaw",
+    "wall_ms": 27.42510000098264,
+    "checksum": "105c28a249e27b9973136f67279fbbf4cddb77db36fab8405cfe8b1ac7da0ced"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-5eb9059e",
+    "label": "admin",
+    "sql": "SELECT table,count() parts,sum(rows) rows,sum(bytes_on_disk) disk_bytes FROM system.parts WHERE active AND database='tf_bench_s13_20261114132435_100000' AND table IN ('logs_uncached_1794663530831734800','logs_bloom') GROUP BY table ORDER BY table FORMAT JSONEachRow",
+    "wall_ms": 4.696300002251519,
+    "checksum": "063f7f3bb01ef0d96bd749cf2112ce5c634c6314470b89d9a3e04463f002fdd5"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-76801ee1",
+    "label": "admin",
+    "sql": "SHOW CREATE TABLE traceforge.logs FORMAT TabSeparatedRaw",
+    "wall_ms": 2.7809000021079555,
+    "checksum": "0914e42ff6ea386be9d1a814adde1805d55393f109b73879371b22c5dbc315c9"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-5a1070b6",
+    "label": "admin",
+    "sql": "CREATE TABLE tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500\n(\n    `log_id` FixedString(32),\n    `source_event_id` String,\n    `trace_id` String,\n    `span_id` String,\n    `trace_flags` UInt32,\n    `service_name` LowCardinality(String),\n    `severity_number` UInt8,\n    `severity_text` String,\n    `event_time` Nullable(DateTime64(9, 'UTC')),\n    `observed_time` Nullable(DateTime64(9, 'UTC')),\n    `effective_time` DateTime64(9, 'UTC'),\n    `time_source` LowCardinality(String),\n    `body_text` String,\n    `body_json` String,\n    `attributes_json` String,\n    `resource_attributes_json` String,\n    `scope_name` String,\n    `scope_version` String,\n    `event_name` String,\n    `resource_json` String,\n    `scope_json` String,\n    `record_json` String,\n    `resource_schema_url` String,\n    `scope_schema_url` String,\n    `ingested_at` DateTime64(9, 'UTC')\n)\nENGINE = MergeTree\nPARTITION BY toYYYYMM(effective_time)\nORDER BY (effective_time, log_id)\nSETTINGS index_granularity = 8192",
+    "wall_ms": 12.807800001610303,
+    "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "query_id": "s13-20261114133850-index-baseline-copy-b491224a",
+    "label": "index-baseline-copy",
+    "sql": "INSERT INTO tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 SELECT * FROM tf_bench_s13_20261114132435_300000.logs",
+    "wall_ms": 317.537099999754,
+    "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-warmup-44879f89",
+    "label": "cache-controlled-reference-warmup",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 11.200100001587998,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-70176ad3",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 10.857000001124106,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-5731d9e8",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 34.88160000051721,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-c6a7fa51",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 11.296099997707643,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-a2105297",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 10.122399999090703,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-9c4810d8",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 10.605999999825144,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-97cd366d",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 12.748099998134421,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-1822a383",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 10.197100000368664,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-3914787f",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 22.692900001857197,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-cbf2eb7d",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 10.349500000302214,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-reference-e4ad731f",
+    "label": "cache-controlled-reference",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 36.32800000195857,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-232b2a4a",
+    "label": "admin",
+    "sql": "EXPLAIN indexes=1 SELECT * FROM tf_bench_s13_20261114132435_300000.logs_uncached_1794663531429492500 WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT TabSeparatedRaw",
+    "wall_ms": 4.549600002064835,
+    "checksum": "42c67fc1814815e5546c3e515d82d38cc9520520371d6abb2452f499abb1408f"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-warmup-0d5bfef3",
+    "label": "cache-controlled-bloom-warmup",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 30.544500001269625,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-7b65964a",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 8.10740000088117,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-9b90158a",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 28.87390000250889,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-f489d93e",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 31.24250000109896,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-2e3da240",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.533899999543792,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-cfbfa7bc",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.264800002303673,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-b5a1c695",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.385400000202935,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-9337bd5f",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.552600000053644,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-d1ecbca6",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.474899997760076,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-0092adab",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 23.80519999860553,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-cache-controlled-bloom-5139d42b",
+    "label": "cache-controlled-bloom",
+    "sql": "SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT JSONEachRow",
+    "wall_ms": 7.731000001513166,
+    "checksum": "26abb91450e49d0c28ac0fcf5a2616348e24e5c4b339f464f7b14e811b4e07ab"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-fda6ba9f",
+    "label": "admin",
+    "sql": "EXPLAIN indexes=1 SELECT * FROM tf_bench_s13_20261114132435_300000.logs_bloom WHERE trace_id='0000a431a66e742c244b828d9eeb124e' ORDER BY effective_time,log_id SETTINGS use_query_condition_cache=0 FORMAT TabSeparatedRaw",
+    "wall_ms": 4.9279999984719325,
+    "checksum": "884a81fe7383b7b291728b8149da6494ec21d7abe74ddb8c71b0698679904fd5"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-576ab0f7",
+    "label": "admin",
+    "sql": "SELECT table,count() parts,sum(rows) rows,sum(bytes_on_disk) disk_bytes FROM system.parts WHERE active AND database='tf_bench_s13_20261114132435_300000' AND table IN ('logs_uncached_1794663531429492500','logs_bloom') GROUP BY table ORDER BY table FORMAT JSONEachRow",
+    "wall_ms": 25.84239999850979,
+    "checksum": "cd686e519a2cb8ad8f1acbe7957adb0ab610ee5a145f2de95c8e2e8a67b38491"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-6766e130",
+    "label": "admin",
+    "sql": "SYSTEM FLUSH LOGS",
+    "wall_ms": 94.9038999970071,
+    "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "query_id": "s13-20261114133850-admin-a15b74ea",
+    "label": "admin",
+    "sql": "SELECT query_id,query_duration_ms,read_rows,read_bytes,memory_usage,ProfileEvents['SelectedParts'] selected_parts,ProfileEvents['SelectedMarks'] selected_marks FROM system.query_log WHERE type='QueryFinish' AND query_id LIKE 's13-20261114133850-cache-controlled-%' ORDER BY event_time_microseconds FORMAT JSONEachRow",
+    "wall_ms": 9.270499998820014,
+    "checksum": "161733aef0c7d7d2292512ceda94ca048947cc386e4e34b2372adcaf1ec3eed9"
+  }
+]

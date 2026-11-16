@@ -31,7 +31,7 @@ func (s *Store) AnalyticsRows(ctx context.Context, q analytics.Query) ([]traces.
 	}
 	ctx, cancel := queryContext(ctx)
 	defer cancel()
-	rows, e := s.Conn.Query(ctx, `SELECT trace_id FROM traceforge.spans WHERE start_time >= fromUnixTimestamp64Nano(?, 'UTC') AND start_time < fromUnixTimestamp64Nano(?, 'UTC') AND span_kind IN (2,3) GROUP BY trace_id ORDER BY trace_id LIMIT ?`, q.From.UnixNano(), q.To.UnixNano(), analytics.MaxTraces+1)
+	rows, e := s.query(ctx, `SELECT trace_id FROM traceforge.spans WHERE start_time >= fromUnixTimestamp64Nano(?, 'UTC') AND start_time < fromUnixTimestamp64Nano(?, 'UTC') AND span_kind IN (2,3) GROUP BY trace_id ORDER BY trace_id LIMIT ?`, q.From.UnixNano(), q.To.UnixNano(), analytics.MaxTraces+1)
 	if e != nil {
 		return nil, analyticsQueryError(ctx, e)
 	}
@@ -60,7 +60,7 @@ func (s *Store) AnalyticsRows(ctx context.Context, q analytics.Query) ([]traces.
 		return []traces.Record{}, nil
 	}
 	// Full trace hydration has no start-time filter; pairing may cross a boundary.
-	rows, e = s.Conn.Query(ctx, `SELECT trace_id,span_id,parent_span_id,service_name,span_name,span_kind,start_time,end_time,duration_ns,status_code,status_message,
+	rows, e = s.query(ctx, `SELECT trace_id,span_id,parent_span_id,service_name,span_name,span_kind,start_time,end_time,duration_ns,status_code,status_message,
  resource_attributes_json,span_attributes_json,scope_name,scope_version,events_json,links_json,resource_json,scope_json,span_json,resource_schema_url,scope_schema_url,ingested_at
  FROM traceforge.spans WHERE trace_id IN (?) ORDER BY trace_id,span_id,ingested_at LIMIT ?`, ids, analytics.MaxRows+1)
 	if e != nil {

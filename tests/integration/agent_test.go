@@ -121,7 +121,17 @@ func TestAgentExecutionStoragePrivacyAndReplay(t *testing.T) {
 				t.Fatal("span privacy", e, secrets)
 			}
 			var logs, secretLogs uint64
-			if e := db.Conn.QueryRow(ctx, `SELECT count(),countIf(position(concat(body_json,attributes_json,resource_json,record_json),'SESSION07_PRIVACY_MARKER') > 0) FROM traceforge.logs WHERE trace_id = ?`, identity.TraceID).Scan(&logs, &secretLogs); e != nil || logs == 0 || secretLogs != 0 {
+			// Trace and log exporters are independent. Faster trace/log lookup must
+			// not accidentally make trace visibility stand in for log visibility.
+			var logError error
+			for deadline := time.Now().Add(5 * time.Second); ; {
+				logError = db.Conn.QueryRow(ctx, `SELECT count(),countIf(position(concat(body_json,attributes_json,resource_json,record_json),'SESSION07_PRIVACY_MARKER') > 0) FROM traceforge.logs WHERE trace_id = ?`, identity.TraceID).Scan(&logs, &secretLogs)
+				if logError != nil || logs > 0 || secretLogs > 0 || time.Now().After(deadline) {
+					break
+				}
+				time.Sleep(100 * time.Millisecond)
+			}
+			if e := logError; e != nil || logs == 0 || secretLogs != 0 {
 				t.Fatal("log privacy/correlation", e, logs, secretLogs)
 			}
 			d := detail(t, identity.TraceID)

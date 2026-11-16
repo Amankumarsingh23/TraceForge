@@ -47,6 +47,14 @@ export function ErrorPanel({
           : "An unexpected response was received."}
       </p>
       <p>No successful result is available for this request.</p>
+      {resource === "traces" && status === 404 && (
+        <p>
+          The trace may be unexported, sampled out, expired or unavailable in
+          this storage scope. Its absence does not imply successful execution or
+          zero model usage. Retained evaluation and incident history can outlive
+          raw telemetry.
+        </p>
+      )}
       <button onClick={retry}>Retry request</button>
     </section>
   );

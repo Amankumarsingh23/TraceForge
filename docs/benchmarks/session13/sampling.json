@@ -1,0 +1,4187 @@
+{
+  "always": {
+    "profile": "always",
+    "namespace": "session13-always-55e08b1d09b8",
+    "ratio": "all SDK roots",
+    "offered": [
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "969564f46a4138992f36b2fa2b44eb46"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "65e97c49547a90d45298a4d4dd1ad791"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "60f62e4f777eee53c6c592a816eb905e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a8cb4cbcc4fb466921ee96d568446d38"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "df5619fbdc0972cb0cd03cb039293c38"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d0f4ec36a0d1ac1738e2e5fffe069e75"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "dd0541fd851e21a41335ac3f8c5c40f7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1055365138731f5bc81851e9438e1e9a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8eedcc635ecbcedd8f4548c66723a019"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9dd60bfab0cda00d6ad209adb617818d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "dbe9638007ef8139556889f2cadfe62e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1a6bdeb530642dbd5c1206a96a1b31e8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a3806bbd4bc502f7254597c43971ff04"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "f5d5a2e1480bd9aabd949a0b7935b1b5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1f241a21a4035c6e56a678d18d1f7068"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0ebdb2b969ddd07801a2398a2af5b857"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "34beb4497313fdc2bd5662211f90b6c2"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "138ac74d016b299067c95a69a6be1ad5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e67f8230706e8fb644454fa0133ef5ae"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8e30b2794df8050184deac939d326e17"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4b0bcf9c5793bc554d15af42fba6bc12"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0e2d28fc6815eacfc552d7932124174e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6fe28129a74306c83546633547c31293"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "fffe681889e4ad46b07c8ffc8cae1bb3"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d54a4bbcdbf1665c713be884859cae74"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "30a8368de0b8eabb9e1c3167027e22ec"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "94543ac9eadd01c8c5ff22fbcd2b17e0"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2053c6e2da68f9063e1dd6dddda79836"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ed78206daaa01c3e5d47906ed054766d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "f0871b270a971becacad67e9e8d3ceac"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1122b60319c8e7a389a441c11a441fe6"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "96a090944f16586710611a7506ed091e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "fa52045fce26d744c6ff986b0925cd94"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "cfc9248c07f69713dafe8c82fcf44b3d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1083c5e57b7fe99541eb3e28fef91058"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1b76e08d92720f87b4f5c753f6acbaff"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "aeb823c1a32f6b8481f20c9d2680a575"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5094ceb5c55c0a8ee4d81b8047c1ef0f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "dab8ebc3c8870824a17da73a30d8a846"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "109cb3b448def35978cdc90b0267c86b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e1d0186fa9105f47095fe20442b6cefb"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "589b6a5f33ad15c34fa519579836db92"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "55bf85ac90bd9a7de7a0054eef2c5cb7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "dccba6cd1c467da19a28489c4f91f379"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1248d146d8d588b8eafadd0919cab38c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5a2a9e3e0bbe65d9f33971c6c3ef0494"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9e8acd7a633725c0d10f27cbb4c300b7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b892d7e51bbb0da6e12bab3b48044b8e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "64e73cbe228db20a3aee414a26d35725"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "32756e00b1698ac698210ec6df543206"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5443e3493da86277877d4e2eaefb22e4"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5d5f7d324d21cc703ed22cedd06dc357"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9cc5e37240727812453931786a6b74eb"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "16574089eab644d75338f29c124b5046"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e09b2cade1a8e2d98b7f02d6dc2a1779"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4df786e5faba7dc01f77814a6380806c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5ef3f231f8ef3fda687bb37f43622a56"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0f1fed635935fba8f7f767bceccc7a57"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4d464231574cec4d543030926feedf4d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9091f35cf0535d9dfb64bef0b0d69357"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "411ef64485dcafe5cb39282e565d29da"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e223cca8c7be8f423796b5fd058d285d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "37fe1b65100fa8f7638c71828d0d38ac"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c559c577188640589e9fd9da0eebcd68"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "02ec5637564feb86ab0ab13c322bda1b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ee8b590f98d5bf2450dcae2ede6c4420"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "88fc636c291f2cbb1b2e6cb3f3ec77d3"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "292608fd76640512ca366103d5ae63fb"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e2bb9a5ffeffebd13da65a84a4111fd6"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2812ed87e21ea24685d13da754709c15"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "dd8e1aa539b8b0b98497354dc30cc5a1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4b3735e4243c127e90a5c2223504be78"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3b619459fd105328e8bca64782cb6f4d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8a38b24340a0bca4315bb884f6f10688"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "00e4ae5e0c78ce168c3e40458606ebde"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b235dece8bc10726cf658d57c4acb35a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a87fab0495873cf9fb026a27ff0ee530"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4700fdebb5406cf568a50bddb487debb"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "081caaf884acd81a49fda20b5c7ead83"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ab332e33626184a166c706d017074cf6"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "e35a6ec4d7e986c8e9c6e62df387b07c"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "d407fdfcc46eb14580f16e459ce6a961"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "a8c57a0698733713450c1d2b971a827f"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "8d346ad1674b752ad58a1ab33a9df618"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "500e69695e1c2d8d329d2966ba9709e9"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "f77806b6237c8296108559888e5ff690"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "13bfada919285cfa3b77c1f4e05399b3"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "afb32f9d0ea6a84380f89a9ef87baa72"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "835b4ff26b8605ddd0011ee7d9d644d0"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "da5c2060f3d5b58017199854abf4d0be"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "038b47b38c45826447b32f523ef6ad32"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "8f7691a78c0fb959dc51935e853e5982"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "faa63d832eb123dc91a1a44293aadb78"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "d4bddae22023f8ce659d02e18b05144c"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "e75c66a37fa6908a4eb89fa9bc3e1ddd"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "819ab5809f5b5601308c84b9e04d7035"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "2fc9a9db9f8073e0d6180ac5cee2c9de"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "7b34bae142a2d5ca61b846931919d288"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "56f2a8074eef9ff5e85f8ab8c7aaeee2"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "20bfceb3169dede44b4709d604e5e1f9"
+      }
+    ],
+    "stored": [
+      {
+        "trace_id": "00e4ae5e0c78ce168c3e40458606ebde",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "02ec5637564feb86ab0ab13c322bda1b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "038b47b38c45826447b32f523ef6ad32",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "081caaf884acd81a49fda20b5c7ead83",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "0e2d28fc6815eacfc552d7932124174e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "0ebdb2b969ddd07801a2398a2af5b857",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "0f1fed635935fba8f7f767bceccc7a57",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1055365138731f5bc81851e9438e1e9a",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1083c5e57b7fe99541eb3e28fef91058",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "109cb3b448def35978cdc90b0267c86b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1122b60319c8e7a389a441c11a441fe6",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1248d146d8d588b8eafadd0919cab38c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "138ac74d016b299067c95a69a6be1ad5",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "13bfada919285cfa3b77c1f4e05399b3",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "16574089eab644d75338f29c124b5046",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1a6bdeb530642dbd5c1206a96a1b31e8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1b76e08d92720f87b4f5c753f6acbaff",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1f241a21a4035c6e56a678d18d1f7068",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2053c6e2da68f9063e1dd6dddda79836",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "20bfceb3169dede44b4709d604e5e1f9",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "2812ed87e21ea24685d13da754709c15",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "292608fd76640512ca366103d5ae63fb",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2fc9a9db9f8073e0d6180ac5cee2c9de",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "30a8368de0b8eabb9e1c3167027e22ec",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "32756e00b1698ac698210ec6df543206",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "34beb4497313fdc2bd5662211f90b6c2",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "37fe1b65100fa8f7638c71828d0d38ac",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "3b619459fd105328e8bca64782cb6f4d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "411ef64485dcafe5cb39282e565d29da",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "4700fdebb5406cf568a50bddb487debb",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "4b0bcf9c5793bc554d15af42fba6bc12",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "4b3735e4243c127e90a5c2223504be78",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "4d464231574cec4d543030926feedf4d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "4df786e5faba7dc01f77814a6380806c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "500e69695e1c2d8d329d2966ba9709e9",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "5094ceb5c55c0a8ee4d81b8047c1ef0f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "5443e3493da86277877d4e2eaefb22e4",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "55bf85ac90bd9a7de7a0054eef2c5cb7",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "56f2a8074eef9ff5e85f8ab8c7aaeee2",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "589b6a5f33ad15c34fa519579836db92",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "5a2a9e3e0bbe65d9f33971c6c3ef0494",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "5d5f7d324d21cc703ed22cedd06dc357",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "5ef3f231f8ef3fda687bb37f43622a56",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "60f62e4f777eee53c6c592a816eb905e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "64e73cbe228db20a3aee414a26d35725",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "65e97c49547a90d45298a4d4dd1ad791",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "6fe28129a74306c83546633547c31293",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "7b34bae142a2d5ca61b846931919d288",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "819ab5809f5b5601308c84b9e04d7035",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "835b4ff26b8605ddd0011ee7d9d644d0",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "88fc636c291f2cbb1b2e6cb3f3ec77d3",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8a38b24340a0bca4315bb884f6f10688",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8d346ad1674b752ad58a1ab33a9df618",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8e30b2794df8050184deac939d326e17",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8eedcc635ecbcedd8f4548c66723a019",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8f7691a78c0fb959dc51935e853e5982",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "9091f35cf0535d9dfb64bef0b0d69357",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "94543ac9eadd01c8c5ff22fbcd2b17e0",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "969564f46a4138992f36b2fa2b44eb46",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "96a090944f16586710611a7506ed091e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9cc5e37240727812453931786a6b74eb",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9dd60bfab0cda00d6ad209adb617818d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9e8acd7a633725c0d10f27cbb4c300b7",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a3806bbd4bc502f7254597c43971ff04",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a87fab0495873cf9fb026a27ff0ee530",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a8c57a0698733713450c1d2b971a827f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a8cb4cbcc4fb466921ee96d568446d38",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ab332e33626184a166c706d017074cf6",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "aeb823c1a32f6b8481f20c9d2680a575",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "afb32f9d0ea6a84380f89a9ef87baa72",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "b235dece8bc10726cf658d57c4acb35a",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "b892d7e51bbb0da6e12bab3b48044b8e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c559c577188640589e9fd9da0eebcd68",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "cfc9248c07f69713dafe8c82fcf44b3d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d0f4ec36a0d1ac1738e2e5fffe069e75",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d407fdfcc46eb14580f16e459ce6a961",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d4bddae22023f8ce659d02e18b05144c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "d54a4bbcdbf1665c713be884859cae74",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "da5c2060f3d5b58017199854abf4d0be",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "dab8ebc3c8870824a17da73a30d8a846",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "dbe9638007ef8139556889f2cadfe62e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "dccba6cd1c467da19a28489c4f91f379",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "dd0541fd851e21a41335ac3f8c5c40f7",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "dd8e1aa539b8b0b98497354dc30cc5a1",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "df5619fbdc0972cb0cd03cb039293c38",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e09b2cade1a8e2d98b7f02d6dc2a1779",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e1d0186fa9105f47095fe20442b6cefb",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e223cca8c7be8f423796b5fd058d285d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e2bb9a5ffeffebd13da65a84a4111fd6",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e35a6ec4d7e986c8e9c6e62df387b07c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e67f8230706e8fb644454fa0133ef5ae",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e75c66a37fa6908a4eb89fa9bc3e1ddd",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "ed78206daaa01c3e5d47906ed054766d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ee8b590f98d5bf2450dcae2ede6c4420",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "f0871b270a971becacad67e9e8d3ceac",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "f5d5a2e1480bd9aabd949a0b7935b1b5",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "f77806b6237c8296108559888e5ff690",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "fa52045fce26d744c6ff986b0925cd94",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "faa63d832eb123dc91a1a44293aadb78",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "fffe681889e4ad46b07c8ffc8cae1bb3",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      }
+    ],
+    "direct_metrics": [
+      {
+        "stream_id": "50c7a23a6900aa73774632709c2e5636494df02bf86d153c647419f20fa09809",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"76c59a26-7933-4d5c-9307-b6aee634e4ed\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-always-55e08b1d09b8\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "2f0007d16eb886e0fe95802501ca347db5beafc6ee7b0dbf546b12b0c63c8d82",
+        "service": "payment",
+        "namespace": "session13-always-55e08b1d09b8",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "76c59a26-7933-4d5c-9307-b6aee634e4ed",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "76c59a26-7933-4d5c-9307-b6aee634e4ed"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-always-55e08b1d09b8"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662096577528600",
+        "end_ns": "1794662109177623200",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "a2c6327cb6b9c6873b0ce760834dd550ea768f8ad5a839c15ced460ba09dd0fb",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"76c59a26-7933-4d5c-9307-b6aee634e4ed\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-always-55e08b1d09b8\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "248e89ae79ad82455a8871b55ded2713f8cfa8c9c1001c36c1efe3565fd2f8c3",
+        "service": "payment",
+        "namespace": "session13-always-55e08b1d09b8",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "76c59a26-7933-4d5c-9307-b6aee634e4ed",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "76c59a26-7933-4d5c-9307-b6aee634e4ed"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-always-55e08b1d09b8"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662096577528600",
+        "end_ns": "1794662109177623200",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "17073f85c0e8898643338486306459c582a04e3911a091f8514513468d016640",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"08ac1ade-5440-4f47-ae39-6e114e84c0f3\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-always-55e08b1d09b8\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "f03ff467f6c3891a1ba21745ceb16aa7d3bc6c67a4643551e7caf5ac1d70e9ad",
+        "service": "gateway",
+        "namespace": "session13-always-55e08b1d09b8",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "08ac1ade-5440-4f47-ae39-6e114e84c0f3",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "08ac1ade-5440-4f47-ae39-6e114e84c0f3"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-always-55e08b1d09b8"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662096577528600",
+        "end_ns": "1794662109177118800",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "64dc578bb4b4c8ef1fdf380fb933271906db31c703bcf4ce95bafc543c8495a1",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"08ac1ade-5440-4f47-ae39-6e114e84c0f3\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-always-55e08b1d09b8\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "38646be7c93e286176b9e86135a30d2851c54daa94e66ac2fca9e65c2cdf967b",
+        "service": "gateway",
+        "namespace": "session13-always-55e08b1d09b8",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "08ac1ade-5440-4f47-ae39-6e114e84c0f3",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "08ac1ade-5440-4f47-ae39-6e114e84c0f3"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-always-55e08b1d09b8"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662096577528600",
+        "end_ns": "1794662109177118800",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      }
+    ],
+    "elapsed_seconds": 12.710697650909424,
+    "retained_by_kind": {
+      "normal": 80,
+      "delayed": 10,
+      "failed": 10
+    }
+  },
+  "head": {
+    "profile": "head",
+    "namespace": "session13-head-2e9f65a854d9",
+    "ratio": "0.2",
+    "offered": [
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ef6ffc3bf67debbdaea6fb8b7e3b5a41"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e30c7ba725bc753bb9db3186d3da516c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3254bd6b342471299da403f533996352"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3400411aaf7dc573b9acd220ddec7442"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5c8591fb87ad75056a2a564ccc67be80"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1236c545de8f208e0a322732022214c8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "727413880231b3261fa01ed8b591ad9a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a896d0fbaa797e46706cf8f5562e91b0"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4b15aabc78f4ee18701220fce91fb2f7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2bcfc25ba439885508719439d0db14ba"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e7afb1e09452db1352f8c2e04c854b85"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b5199dc7368ce977e77723c2be8fd388"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "49c22f198433d331a9800b9dee249d34"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "adb912e889fc20a1041c74b5693966f9"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5eaa31ee34c33e709f8ff6cf43679608"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6b4550fd871456d3b8c8da5ab708b0dc"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d579edf99761c8e57fc32c0091ac468f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e4dd892a9ecd678c43fac599b56d10ef"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a23c5e52146c79451e13a6bdb2e2c0f7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3a7c9b1bb3619a6e089eeecb3a0dbf28"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e2c65beb5446f50b42c3f2bd23cd820d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3c7750cff98d74bfb29c6e0395fd750d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5f9e2c24262f58a2ec06f197dafb736c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "50c60472fbeed923b6c8069f1e03c80b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c4bc814d7115d115f7fe88de0dd012ce"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "122506b66b504ea7db4482f11d50bc19"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "103d8739f9093609207050ed1ef5c43c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ea8ba0b1f49b942615ce690ffd2757b6"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "50d744c6f7ccf16e6273d28a1dc5852a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c895ce529d8e04e1173cc781dbd298fd"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "909a1e8fdcf10c24a8b4e77cc58ce9be"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b53e0b1477e175c209a17610d15517e8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ca3d9f15eea7b76044b879b17fd13d79"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "39cf49522845636a3fbb1bdb76044df2"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "805789806a030fc7f8cb1b16e4488738"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9bf4f9a5c9b71079bf9f9a5967a12190"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "37ff0f27f915456b4fd816d98de6fea6"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d825198fdd4ee5fe89d9b52b7cf361dd"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "32356a5c571eca28211ecb49730704a5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "7c26ca86f484a01c6b94403d33176f77"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3c73f41096738491b12a7a374b07aca7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "727e10283c9e52c19601b119242d59ed"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8c03c8404fc51283e6f5778cf5e66551"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "62707049cfd13ae98b4f77946aa6914d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "758217d42edfba0aacc472def6798966"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "85f397dd2726cf1f7ff6e2b577d0458c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c736154226fa0aeba7334bfb426836e2"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "df83e8f414a04240a22a7c163f819ba1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "327e76876a9ebdb150758454673566b7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1a1e2fce15d5cd737ac7c519f5fb04be"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9ab5da18e84613c72519846a99e9f79b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "be8d5aaeba2f207433a3a385581f25fc"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6fc429f207c58f32ae037514c3755651"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "93848c7f9fb77986ecb24497e9d010c9"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ea1e4c90df91656a7ca97d0b2ff22634"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "642f7b7596b1c945d2084cb73da56215"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "48a1ab585e4d6ebb3de1c0fea5fcf340"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "bcea0d41742a5491d79a33aed49f42ed"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "308fdf348da9ddfe37f6242cf295a302"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9f57af2c2a555b3f0ef07fe71a20523b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "cf3d6b341c9a64178eea447d747745b1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1f44d91fecfd126ea615ab8f3f8afa47"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "83a6384eb9905794a6e1bc966a7b9c13"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c8e45558a582eda9d0454a69a5524c1c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d455556939d9c6f4995935e1e2048c12"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5661516371a16fe74a735ad2b4c8deeb"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "eea8288569908a177e76145895de36d2"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c8a88cdbd9d76b534375097ccba0aad6"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8e9c86e070b6b5980e0cd739f9694544"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4256885d02aa7178e4592944c83e9988"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2cc8d3f4eba3a81602b25298b9aafa7b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2c37d22a68e4286ec91074f0b78f03fb"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e2c459a7549a815757af05ebdcb68870"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4e99c005c880274e476c9e9c42009ed0"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2545ea28b5c659f3739226eb9913a2ed"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "29cf8aa7ade8bde54a5f7faa4930a39e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "fdcc12fa73b32553c9aeb227f50fbc1b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "70eeb3f47a2de6ba80055ed81549a1f9"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "afda59a39aeb82b4c85904fe24473f94"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0a8011f23af5a8e225afdc22c848b6df"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "d1beb730003604f5f238088d3d10656f"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "979b6ea88ea7fb9f4a03a50c0207fa6b"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "9aba54fb6d36e6c0e8ac2c8a9fb7ffb8"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "4df41038cfce4614ff4af914d78914fd"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "74f1e08301fc9097c7afd03c63d8df08"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "c2dff90e45019eec7247bd5e615802ed"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "9c8e759ecb63438d8362ef1dcfc76ae3"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "837318f9dc73347aed7e0c798ef7ff87"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "a80e4efd6fb4420a6cb06676d474f959"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "82af6e1923569551c00fd468d402c1ed"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "0390ccd60633f8d430aabc3053c79c4e"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "b7a0246c0836c72308f13c1929a3703f"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "6484bf11ba0d751ebe283877f5c46d4f"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "8466bec64c809b26f8e5fe84f72df07e"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "bb0eeb3dbfa126c298c2a90e1037442e"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "9284c91acdad3b8d218f6d1fda23e344"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "0fea25b89415b20ca3cc9a4121d9f6f8"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "efecf2401e7c9d33ec7ca8bc243f9df7"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "166cf9291e372612dc0688f48748fd75"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "3895d7a1e5435c83f7099c3bbf64281f"
+      }
+    ],
+    "stored": [
+      {
+        "trace_id": "0390ccd60633f8d430aabc3053c79c4e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "0a8011f23af5a8e225afdc22c848b6df",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "103d8739f9093609207050ed1ef5c43c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1236c545de8f208e0a322732022214c8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2bcfc25ba439885508719439d0db14ba",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2cc8d3f4eba3a81602b25298b9aafa7b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "32356a5c571eca28211ecb49730704a5",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "3a7c9b1bb3619a6e089eeecb3a0dbf28",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "727413880231b3261fa01ed8b591ad9a",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8e9c86e070b6b5980e0cd739f9694544",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9284c91acdad3b8d218f6d1fda23e344",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "9ab5da18e84613c72519846a99e9f79b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9f57af2c2a555b3f0ef07fe71a20523b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a23c5e52146c79451e13a6bdb2e2c0f7",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "adb912e889fc20a1041c74b5693966f9",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "b53e0b1477e175c209a17610d15517e8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "b7a0246c0836c72308f13c1929a3703f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "c895ce529d8e04e1173cc781dbd298fd",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ea8ba0b1f49b942615ce690ffd2757b6",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      }
+    ],
+    "direct_metrics": [
+      {
+        "stream_id": "38fec135b10b888706614b225b054cd3560d60c80694522f73befb26a8897241",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"02b47a68-85ae-458d-9143-301605285681\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-head-2e9f65a854d9\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "e4fa8dc9627bb29d66116e7fd8a292d71f3027b192bd8815973386abbc1ddcc0",
+        "service": "payment",
+        "namespace": "session13-head-2e9f65a854d9",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "02b47a68-85ae-458d-9143-301605285681",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "02b47a68-85ae-458d-9143-301605285681"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-head-2e9f65a854d9"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662109360886400",
+        "end_ns": "1794662121961485400",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "e7bbfadb6dfffc454ee0200520fdc36b13e2f8791c6073305a7724f16b518f36",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"02b47a68-85ae-458d-9143-301605285681\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-head-2e9f65a854d9\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "4436a1190efc93f0dfe238bc6469befc059a1e69bc6d40064413ade6489cbbce",
+        "service": "payment",
+        "namespace": "session13-head-2e9f65a854d9",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "02b47a68-85ae-458d-9143-301605285681",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "02b47a68-85ae-458d-9143-301605285681"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-head-2e9f65a854d9"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662109360886400",
+        "end_ns": "1794662121961485400",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "d2a7621b9eae1b4b3f129e0877b8468365604e207ea1b15c4b03857084960806",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"49d35c9b-7414-4b7b-918f-d63184e1b1a3\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-head-2e9f65a854d9\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "b4d0ae0a2d962b32304f869edf235ac7cc931556fddfed7c9983b34a9bf691e5",
+        "service": "gateway",
+        "namespace": "session13-head-2e9f65a854d9",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "49d35c9b-7414-4b7b-918f-d63184e1b1a3",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "49d35c9b-7414-4b7b-918f-d63184e1b1a3"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-head-2e9f65a854d9"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662109361987500",
+        "end_ns": "1794662121961991900",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "dd3261032a4cdf5b56e7114cc253853757ec76efe8feacab63fbf0dfd9361108",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"49d35c9b-7414-4b7b-918f-d63184e1b1a3\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-head-2e9f65a854d9\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "51724ab9e3d92d34c97521be7b4a7871d8882e725422ec130fd8c95482900d5b",
+        "service": "gateway",
+        "namespace": "session13-head-2e9f65a854d9",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "49d35c9b-7414-4b7b-918f-d63184e1b1a3",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "49d35c9b-7414-4b7b-918f-d63184e1b1a3"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-head-2e9f65a854d9"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662109361987500",
+        "end_ns": "1794662121961991900",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      }
+    ],
+    "elapsed_seconds": 12.216736793518066,
+    "retained_by_kind": {
+      "normal": 16,
+      "delayed": 0,
+      "failed": 3
+    }
+  },
+  "tail": {
+    "profile": "tail",
+    "namespace": "session13-tail-8d3d33a60586",
+    "ratio": "all SDK roots",
+    "offered": [
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ebd19745565c0c1c9927a55367e33505"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "24453e7ad73b18b8e6283faff1497aa1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d3d640f50509531e90be7bfc8c0aef27"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b019cd61233dfb2c93710a1938667cfe"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9f60282f3bcb70b9c4ad06c40968809f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "abc9a23800c86c1b7d45b50755883625"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "446bf20c20bdd66a6327b1ef98a2f059"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e8f732f6da3246e5ff302752244d4c4e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "187f19ed56a4776e6547c757903ac3a3"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6583718876812fbbd0610699d54b16d7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3de477b192a03b61386afe91f486f5cf"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c28b1905e42f62f9324fab0083b3b155"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e3bb47a92ad0b083fb0bc0368750dc72"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "dee6cf20585f38d2d89a99b81d16139a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3931816853d5dda3315e2a7a9ecc6cf4"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1c9550ad824187467bd51567e29d04f9"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3a3f03b2fae2979180a5e20bccda62e3"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6a5569204d32df7fa652b10c7b7b4d1d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2c45ebdae67cc64f500264631307d1c0"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ba1f00956d00bf75be118dc867880845"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b3e01bca969889a91cc54a7642d47def"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "88f059dd2af0f39a204cee1a40432acd"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "98519273211f2be132d2cbb52100682e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c8c3140609ecd0106ab72e9c4d7da6c1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "7157c2361e01c266e0492ee80010707d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a4a3deeb983834097da54ecb99375de8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "efd56a29fa24e19f627149a952dcbe2c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "00687695a355ddedd90d5e1ffb4cbf50"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "813d7fd2d141cc16801954b6919ba7ad"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "184e2861163ca9a9f7251f35a60372f2"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "75792cca6cd16cc5858fb864205407a5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d24f75f30e587310c03100aac997342c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0d0d3350428f35314e82f1cb85947a11"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "f31ad5a47a13ca9d78b97f75cb36aefe"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e2d39eb61adcaed842c76b4971430a8a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "41782987884fad1149cd6f7ce77babc2"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "67192884bae50f8ed883f56e0568583f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3c5f50306238af40bd679ae7d2fcb76d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b7b2fa5399b20e087b9a53515b11b391"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b91f45a246d7c17c618501d31af94c98"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e51b352eb7a055af4aae79f7f8da80fb"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8a3d876b73ef479334817026fdd02293"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0abcbcb3d642bd47a88ba825d5017578"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "383da2ba3920a6fe9d926c3aba78b0d0"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "03afa1edb08904ac55709e1c9703e1ae"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "aec96a215cfd185721214f60068bd56d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "cdff347ff53da116dbdaa1e6753c25aa"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "17d355f45cb812c2d31913370be5861c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2a29273f8bd39eec9f349b973f097262"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0e2c4f89bc76cd6bfdcfefe201549bf8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9d5accd61dddb4e57e0faa74ddf5fa39"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6e4cdb28995246ee7c47fdd87af79e6e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "33fa86f71e05df7f29d0dbc5403e14f4"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "81fb6f493084eff60e1f173dc1fbab67"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1b60d4ade0639747139ab810cdba7ee6"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3a0a0adeb861e501fc4609bd3d1ec375"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "56567ac80c242aa56c7a9737b7af2670"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "cc10e615162e5ed83fcd022bb4d7fdac"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2ce79c4c17f38681b8b3089bad373977"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "7b465c6086b6cf5fcedbdb154f8ee299"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "61acf682cff494b200601fe219ae6e95"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "41725ca751ad089bc6fa68e1f23bedec"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d3141eb4ca8f7d6d7f1e4ec534065d12"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8c50f312c4c6ccda77f9c9672bd08150"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3aab411be62f3d1132ba01009cf059b5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "f366914f7d9614a2224278d9e2f91dee"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "804d0a4d1cfbb43ab29b97a3eef5f8a1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e343c4537ead8b778abe552aa438c23e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "81cba52fc8005018a0b8c2d4008c2009"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "411791cfa5337e01b9c14a1db710ea65"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "4930c72d18015c51f007a6b6e0bce69a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d405ffaaa61bdf590f1c2fcf346f226e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "93a3f6fe8b3f2a08194102523616c767"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "091787554995dedeb690268d6b21f6d6"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "fae41e5314a948dcdf398ac124f50a69"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "f25e5dd81ce599ed732b0c57c5d0349e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1c55b8ec9db7e98729a7cc888c4929c7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "78a2f70c7fc6b96dfd2b24f76a37fff9"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "28e2625501e3c1bec6faeec58dec6cfe"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "305d56eeff218ec624e86e65c9aa9411"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "3f8f060ac1dc0496b6cd73c8e35e2938"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "bfcbab64f4085414902fb22d743e355c"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "ca4a5f78d54c23a736174bfa23d9b3f2"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "87ff2dc572595e176720ed1dfb0e588c"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "197d37f7b29ff38725bb4f8321235ee9"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "58fc1f4271fdd41ff4dc3cfa1e33608d"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "7231d83e0ce6f8be1e53082d68bc84fc"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "05035ada3353adfd99ea244f24531ece"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "245e3ca5f57c8af25f7576ed75820c18"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "693d7e16fe974fd99b8f8dbdbb3a7e29"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "aa42dfde9fe72b7ae3d24b0cc424ac2e"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "d2b3f2b3d4e4a8df1a4e54ba49c38146"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "40b42ee4e7a9adc52af3781361a1c329"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "be99343ffd6ba6d10114807e34471538"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "2004e80f86c6421e2a644bbefecb74a0"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "35b4ef521bee008f2108ed51f408eb6f"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "05e56c5e756e143d243b0f3758f104cb"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "b3fed18a2ffad1c1499a3b5a07dc0dba"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "0e093428a4b98e0ea5ca69d88f487786"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "ec5083486c2310ad1f49692948be9a09"
+      }
+    ],
+    "stored": [
+      {
+        "trace_id": "00687695a355ddedd90d5e1ffb4cbf50",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "05035ada3353adfd99ea244f24531ece",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "05e56c5e756e143d243b0f3758f104cb",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "0e093428a4b98e0ea5ca69d88f487786",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "197d37f7b29ff38725bb4f8321235ee9",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2004e80f86c6421e2a644bbefecb74a0",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "245e3ca5f57c8af25f7576ed75820c18",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "35b4ef521bee008f2108ed51f408eb6f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "3f8f060ac1dc0496b6cd73c8e35e2938",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "40b42ee4e7a9adc52af3781361a1c329",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "446bf20c20bdd66a6327b1ef98a2f059",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "58fc1f4271fdd41ff4dc3cfa1e33608d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "693d7e16fe974fd99b8f8dbdbb3a7e29",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "7231d83e0ce6f8be1e53082d68bc84fc",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "87ff2dc572595e176720ed1dfb0e588c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8c50f312c4c6ccda77f9c9672bd08150",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "aa42dfde9fe72b7ae3d24b0cc424ac2e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "b3fed18a2ffad1c1499a3b5a07dc0dba",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "b7b2fa5399b20e087b9a53515b11b391",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "b91f45a246d7c17c618501d31af94c98",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "be99343ffd6ba6d10114807e34471538",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "bfcbab64f4085414902fb22d743e355c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c28b1905e42f62f9324fab0083b3b155",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ca4a5f78d54c23a736174bfa23d9b3f2",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d2b3f2b3d4e4a8df1a4e54ba49c38146",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "e51b352eb7a055af4aae79f7f8da80fb",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ec5083486c2310ad1f49692948be9a09",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "fae41e5314a948dcdf398ac124f50a69",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      }
+    ],
+    "direct_metrics": [
+      {
+        "stream_id": "86f62682a480aa69ed07144bc3540e13d1f6096a0ca114b7a0b2a283d0afe52e",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"ac3bdaef-a9e7-4ffa-b478-316cd644b3e5\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-tail-8d3d33a60586\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "d3f61b76d2db3f7c02e99a1de6342c5de203ae2af127187f8e147f50d2c09d5a",
+        "service": "payment",
+        "namespace": "session13-tail-8d3d33a60586",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "ac3bdaef-a9e7-4ffa-b478-316cd644b3e5",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "ac3bdaef-a9e7-4ffa-b478-316cd644b3e5"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-tail-8d3d33a60586"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662122116109500",
+        "end_ns": "1794662135116631600",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "cfaea6aecbbadde9fba72d8c699c6b2ea150cd1b4baf22812b00a62051781ebe",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"ac3bdaef-a9e7-4ffa-b478-316cd644b3e5\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-tail-8d3d33a60586\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "b6ce9f12a4f6eab3df79cfce382fe52f73e4c7a7a6cb1e9761942680195a9738",
+        "service": "payment",
+        "namespace": "session13-tail-8d3d33a60586",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "ac3bdaef-a9e7-4ffa-b478-316cd644b3e5",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "ac3bdaef-a9e7-4ffa-b478-316cd644b3e5"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-tail-8d3d33a60586"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662122116109500",
+        "end_ns": "1794662135116631600",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "09f5dd6a21f007dba489190822547f8f44b6f25f98fc8f474ac335deb156d4b6",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"afb92aeb-9c2d-4327-93f7-02d4ccc2c526\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-tail-8d3d33a60586\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "468a10c3b52527b4822e5b33666450bcc2f940dee4c3f1a633bbdeba4e58e659",
+        "service": "gateway",
+        "namespace": "session13-tail-8d3d33a60586",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "afb92aeb-9c2d-4327-93f7-02d4ccc2c526",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "afb92aeb-9c2d-4327-93f7-02d4ccc2c526"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-tail-8d3d33a60586"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662122116635800",
+        "end_ns": "1794662135116631600",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "58c852ca726cce596561e6c9e9398b49cfe8448f406026ef1653f2096e6c95d4",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"afb92aeb-9c2d-4327-93f7-02d4ccc2c526\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-tail-8d3d33a60586\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "1316d4315d8ad10de4bdd03a9dd46e83984e0ad3e635ca4ed1fe06b1ef8d8f3f",
+        "service": "gateway",
+        "namespace": "session13-tail-8d3d33a60586",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "afb92aeb-9c2d-4327-93f7-02d4ccc2c526",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "afb92aeb-9c2d-4327-93f7-02d4ccc2c526"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-tail-8d3d33a60586"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662122116635800",
+        "end_ns": "1794662135116631600",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      }
+    ],
+    "elapsed_seconds": 12.6619873046875,
+    "retained_by_kind": {
+      "normal": 8,
+      "delayed": 10,
+      "failed": 10
+    }
+  },
+  "probes": {
+    "late_ids": [
+      "9be008312e5b49eeb52cebb2ec9819c9",
+      "63d2ab3d153e4cec9a3f547d4bf0e324",
+      "811d09af14a144089748ddf38bdee5a3",
+      "bc6385621363424b8742902030a242cd",
+      "2b830728bbc144ad88dc12ca58626e59",
+      "f7e751558180462aa49f6767bfbe219d",
+      "d4fab28805884e94b7381863672cbd45",
+      "29adbd66e3ec4b089f03b06e29715495",
+      "e11a492310384f6f9c28be2ad513762c",
+      "046fa915d2f94e9395289c78ba238018",
+      "4b10ad1ad514427582e9bbc107a18210",
+      "c4bdf577e20c4940a195cef904455669",
+      "0ffe5fd6e0bd4f9b8906f332780df5fd",
+      "661c24de85e4451884cfdea4beaa425b",
+      "46dcb954cfee4b07b0faa910ba0aa562",
+      "09e304bd935d4fc38cbcc9d2a4c0e3e7",
+      "1342284bd5e046f9b3dcfa88136fe069",
+      "afa9a7aaee8d43ebacbc9cadfb87f900",
+      "6b79e6f4fed246d79638e8a27fab25ea",
+      "7e29fab2d4a54d4daa28e5321815b86b"
+    ],
+    "late_before": [
+      {
+        "trace_id": "811d09af14a144089748ddf38bdee5a3",
+        "spans": 1,
+        "errors": 0
+      },
+      {
+        "trace_id": "9be008312e5b49eeb52cebb2ec9819c9",
+        "spans": 1,
+        "errors": 0
+      },
+      {
+        "trace_id": "afa9a7aaee8d43ebacbc9cadfb87f900",
+        "spans": 1,
+        "errors": 0
+      },
+      {
+        "trace_id": "c4bdf577e20c4940a195cef904455669",
+        "spans": 1,
+        "errors": 0
+      }
+    ],
+    "late_after": [
+      {
+        "trace_id": "811d09af14a144089748ddf38bdee5a3",
+        "spans": 2,
+        "errors": 1
+      },
+      {
+        "trace_id": "9be008312e5b49eeb52cebb2ec9819c9",
+        "spans": 2,
+        "errors": 1
+      },
+      {
+        "trace_id": "afa9a7aaee8d43ebacbc9cadfb87f900",
+        "spans": 2,
+        "errors": 1
+      },
+      {
+        "trace_id": "c4bdf577e20c4940a195cef904455669",
+        "spans": 2,
+        "errors": 1
+      }
+    ],
+    "pressure_offered": 400,
+    "pressure_stored": [
+      {
+        "trace_id": "0b3c7d713d8e41adba96b71e16d5e60b",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "12aa5a55a8634045a3f00c9d34d42bc0",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "1d6f886b2dbd4cae9ed8581334e23d92",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "26475ddbd3f1432c893723e1351dcd5f",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "2a2d1fc1b8324212a656ffdf42b80c7b",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "341e53b9c2c248aaa7aac03070280155",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "3c0c3e0b70ee4525af4b22f6225838e0",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "3d61a7e6ea604c4a942fe1cb2e892f5b",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "3f1800b0b7824d9489ccfe815c099789",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "4ecb0bc3ed694655a614cee2edd24ccd",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "540f8a1b26e044e1a84f3981f33c62fd",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "6573612280cd4ef985b642a74b9f778e",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "6bdca56a97624419b0656293df5a039d",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "6f1300b08c7b4ffcbe6c46929bc8abe8",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "6f79e75bf1d1444088a2ce6dc83921f4",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "733f2cf13cfb499c87e4ce63a6ff089e",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "76ef831d39fe41d3b9fc19fc407f508c",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "785d3b4daab3403297d04803689b8e3c",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "8aefd184bf9a4b21a47e3386fcf44b87",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "a44ca3f3965c4a2b8df4d38dcb819ca9",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "c2c8115d4ad34bd0a4fb5cf92c83f0c7",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "cf4b455b9b834f6cb4741dfadc9ec2bf",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "d66dab212a9f49f2b667ac1b7453daeb",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "e6136708e19145258334ad201aa95eff",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "e6f6d96daa094cddbe6522be8f388172",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "eb020087492143c0b87d66df49153512",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "f332f81b930241769c120e6ae8df2578",
+        "spans": 1,
+        "errors": 1
+      },
+      {
+        "trace_id": "f85298ef22274e9aaee7b18d29544cd2",
+        "spans": 1,
+        "errors": 1
+      }
+    ],
+    "restarted_trace": "6be0b5c037d643a9bacba41009a8a3c9",
+    "restarted_stored": [
+      {
+        "trace_id": "6be0b5c037d643a9bacba41009a8a3c9",
+        "spans": 1,
+        "errors": 1
+      }
+    ]
+  }
+}

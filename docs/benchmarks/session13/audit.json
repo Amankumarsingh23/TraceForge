@@ -1,0 +1,3921 @@
+{
+  "schema": {
+    "spans": "CREATE TABLE traceforge.spans\n(\n    `trace_id` FixedString(32),\n    `span_id` FixedString(16),\n    `parent_span_id` String,\n    `service_name` LowCardinality(String),\n    `span_name` String,\n    `span_kind` UInt8,\n    `start_time` DateTime64(9, 'UTC'),\n    `end_time` DateTime64(9, 'UTC'),\n    `duration_ns` UInt64,\n    `status_code` UInt8,\n    `status_message` String,\n    `resource_attributes_json` String,\n    `span_attributes_json` String,\n    `scope_name` String,\n    `scope_version` String,\n    `events_json` String,\n    `links_json` String,\n    `resource_json` String,\n    `scope_json` String,\n    `span_json` String,\n    `resource_schema_url` String,\n    `scope_schema_url` String,\n    `ingested_at` DateTime64(3, 'UTC') DEFAULT now64(3)\n)\nENGINE = MergeTree\nPARTITION BY toYYYYMM(start_time)\nORDER BY (trace_id, start_time, span_id)\nSETTINGS index_granularity = 8192\n",
+    "logs": "CREATE TABLE traceforge.logs\n(\n    `log_id` FixedString(32),\n    `source_event_id` String,\n    `trace_id` String,\n    `span_id` String,\n    `trace_flags` UInt32,\n    `service_name` LowCardinality(String),\n    `severity_number` UInt8,\n    `severity_text` String,\n    `event_time` Nullable(DateTime64(9, 'UTC')),\n    `observed_time` Nullable(DateTime64(9, 'UTC')),\n    `effective_time` DateTime64(9, 'UTC'),\n    `time_source` LowCardinality(String),\n    `body_text` String,\n    `body_json` String,\n    `attributes_json` String,\n    `resource_attributes_json` String,\n    `scope_name` String,\n    `scope_version` String,\n    `event_name` String,\n    `resource_json` String,\n    `scope_json` String,\n    `record_json` String,\n    `resource_schema_url` String,\n    `scope_schema_url` String,\n    `ingested_at` DateTime64(9, 'UTC'),\n    INDEX s13_trace_bloom trace_id TYPE bloom_filter(0.01) GRANULARITY 1\n)\nENGINE = MergeTree\nPARTITION BY toYYYYMM(effective_time)\nORDER BY (effective_time, log_id)\nSETTINGS index_granularity = 8192\n",
+    "metric_points": "CREATE TABLE traceforge.metric_points\n(\n    `stream_id` String,\n    `metric_name` String,\n    `service_name` String,\n    `service_namespace` String,\n    `end_ns` UInt64,\n    `start_ns` UInt64,\n    `point_json` String,\n    `ingested_at` DateTime64(9, 'UTC') DEFAULT now64(9)\n)\nENGINE = MergeTree\nPARTITION BY toYYYYMM(fromUnixTimestamp64Nano(toInt64(end_ns), 'UTC'))\nORDER BY (metric_name, service_name, stream_id, end_ns)\nSETTINGS index_granularity = 8192\n"
+  },
+  "sampling": {
+    "always": {
+      "population": {
+        "physical_rows": 500,
+        "serialized_row_bytes": 1172650,
+        "f": "2026-11-14T13:14:56Z",
+        "t": "2026-11-14T13:15:00Z"
+      },
+      "actual_red_api": {
+        "version": "trace-red/v1",
+        "query": {
+          "from": "2026-11-14T13:14:56Z",
+          "to": "2026-11-14T13:15:00Z",
+          "bucket_seconds": 60,
+          "environment": "",
+          "namespace": "session13-always-55e08b1d09b8",
+          "workload": "",
+          "service_id": ""
+        },
+        "window_seconds": 4,
+        "units": "durations=ms; rate=observations/window_seconds; errors=explicit_ERROR/count; percentiles=nearest_rank",
+        "attribution": "inbound=SERVER start; edge=CLIENT start; UTC [from,to)",
+        "completeness": "unknown: sampled, missing and late telemetry; no traffic or business-success guarantee",
+        "non_snapshot": true,
+        "selection_complete": true,
+        "services": [
+          {
+            "identity": {
+              "id": "239114d8b7c43ec18c018ab0bb2238c0",
+              "name": "gateway",
+              "namespace": "session13-always-55e08b1d09b8",
+              "environment": "local",
+              "workload": "synthetic"
+            },
+            "stats": {
+              "count": 100,
+              "rate_per_second": 25,
+              "errors": 10,
+              "error_fraction": 0.1,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 90
+              },
+              "http_status": {
+                "200": 90,
+                "502": 10
+              },
+              "duration_samples": 100,
+              "mean_ms": 15.639556,
+              "p50_ms": 0.5429,
+              "p95_ms": 151.2935,
+              "p99_ms": 151.6396
+            },
+            "buckets": [
+              {
+                "from": "2026-11-14T13:14:56Z",
+                "to": "2026-11-14T13:15:00Z",
+                "seconds": 4,
+                "stats": {
+                  "count": 100,
+                  "rate_per_second": 25,
+                  "errors": 10,
+                  "error_fraction": 0.1,
+                  "status": {
+                    "ERROR": 10,
+                    "OK": 0,
+                    "OTHER": 0,
+                    "UNSET": 90
+                  },
+                  "http_status": {
+                    "200": 90,
+                    "502": 10
+                  },
+                  "duration_samples": 100,
+                  "mean_ms": 15.639556,
+                  "p50_ms": 0.5429,
+                  "p95_ms": 151.2935,
+                  "p99_ms": 151.6396
+                }
+              }
+            ],
+            "trace_ids": [
+              "2fc9a9db9f8073e0d6180ac5cee2c9de",
+              "819ab5809f5b5601308c84b9e04d7035",
+              "d4bddae22023f8ce659d02e18b05144c",
+              "038b47b38c45826447b32f523ef6ad32",
+              "e35a6ec4d7e986c8e9c6e62df387b07c"
+            ]
+          },
+          {
+            "identity": {
+              "id": "00cc6833a4c523b1720800620a8b1fef",
+              "name": "payment",
+              "namespace": "session13-always-55e08b1d09b8",
+              "environment": "local",
+              "workload": "synthetic"
+            },
+            "stats": {
+              "count": 100,
+              "rate_per_second": 25,
+              "errors": 10,
+              "error_fraction": 0.1,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 90
+              },
+              "http_status": {
+                "200": 90,
+                "503": 10
+              },
+              "duration_samples": 100,
+              "mean_ms": 15.186761999999998,
+              "p50_ms": 0,
+              "p95_ms": 150.695,
+              "p99_ms": 150.9196
+            },
+            "buckets": [
+              {
+                "from": "2026-11-14T13:14:56Z",
+                "to": "2026-11-14T13:15:00Z",
+                "seconds": 4,
+                "stats": {
+                  "count": 100,
+                  "rate_per_second": 25,
+                  "errors": 10,
+                  "error_fraction": 0.1,
+                  "status": {
+                    "ERROR": 10,
+                    "OK": 0,
+                    "OTHER": 0,
+                    "UNSET": 90
+                  },
+                  "http_status": {
+                    "200": 90,
+                    "503": 10
+                  },
+                  "duration_samples": 100,
+                  "mean_ms": 15.186761999999998,
+                  "p50_ms": 0,
+                  "p95_ms": 150.695,
+                  "p99_ms": 150.9196
+                }
+              }
+            ],
+            "trace_ids": [
+              "038b47b38c45826447b32f523ef6ad32",
+              "20bfceb3169dede44b4709d604e5e1f9",
+              "2fc9a9db9f8073e0d6180ac5cee2c9de",
+              "56f2a8074eef9ff5e85f8ab8c7aaeee2",
+              "afb32f9d0ea6a84380f89a9ef87baa72"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "239114d8b7c43ec18c018ab0bb2238c0",
+            "to": "00cc6833a4c523b1720800620a8b1fef",
+            "client": {
+              "count": 100,
+              "rate_per_second": 25,
+              "errors": 10,
+              "error_fraction": 0.1,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 90
+              },
+              "http_status": {
+                "200": 90,
+                "503": 10
+              },
+              "duration_samples": 100,
+              "mean_ms": 15.52767,
+              "p50_ms": 0.5364,
+              "p95_ms": 150.93,
+              "p99_ms": 151.6396
+            },
+            "server": {
+              "count": 100,
+              "rate_per_second": 25,
+              "errors": 10,
+              "error_fraction": 0.1,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 90
+              },
+              "http_status": {
+                "200": 90,
+                "503": 10
+              },
+              "duration_samples": 100,
+              "mean_ms": 15.186761999999998,
+              "p50_ms": 0,
+              "p95_ms": 150.695,
+              "p99_ms": 150.9196
+            },
+            "trace_ids": [
+              "2fc9a9db9f8073e0d6180ac5cee2c9de",
+              "819ab5809f5b5601308c84b9e04d7035",
+              "038b47b38c45826447b32f523ef6ad32",
+              "20bfceb3169dede44b4709d604e5e1f9",
+              "e35a6ec4d7e986c8e9c6e62df387b07c"
+            ]
+          }
+        ],
+        "diagnostics": {
+          "candidate_traces": 100,
+          "physical_rows": 500,
+          "canonical_spans": 500,
+          "duplicate_rows": 0,
+          "conflicting_groups": 0,
+          "missing_service_names": 0,
+          "unmatched_clients": 0,
+          "missing_server_parents": 0,
+          "wrong_parent_kinds": 0,
+          "ambiguous_clients": 0,
+          "same_service_pairs": 0,
+          "invalid_durations": 0,
+          "missing_parents_all_spans": 0,
+          "cycles": 0,
+          "timing_warnings": 0
+        },
+        "budgets": {
+          "api_seconds": 4,
+          "bucket_points": 4096,
+          "candidate_traces": 128,
+          "clickhouse_memory_bytes_per_query": 268435456,
+          "edges": 128,
+          "physical_rows": 20000,
+          "read_bytes_per_query": 134217728,
+          "read_rows_per_query": 1000000,
+          "rows_per_trace": 2000,
+          "serialized_bytes": 16777216,
+          "services": 64,
+          "storage_seconds": 3
+        },
+        "diagnostics_scope": "all candidate traces before identity filters; unmatched/ambiguous CLIENT and parent diagnostics use their owning span start window"
+      }
+    },
+    "head": {
+      "population": {
+        "physical_rows": 95,
+        "serialized_row_bytes": 223704,
+        "f": "2026-11-14T13:15:09Z",
+        "t": "2026-11-14T13:15:12Z"
+      },
+      "actual_red_api": {
+        "version": "trace-red/v1",
+        "query": {
+          "from": "2026-11-14T13:15:09Z",
+          "to": "2026-11-14T13:15:12Z",
+          "bucket_seconds": 60,
+          "environment": "",
+          "namespace": "session13-head-2e9f65a854d9",
+          "workload": "",
+          "service_id": ""
+        },
+        "window_seconds": 3,
+        "units": "durations=ms; rate=observations/window_seconds; errors=explicit_ERROR/count; percentiles=nearest_rank",
+        "attribution": "inbound=SERVER start; edge=CLIENT start; UTC [from,to)",
+        "completeness": "unknown: sampled, missing and late telemetry; no traffic or business-success guarantee",
+        "non_snapshot": true,
+        "selection_complete": true,
+        "services": [
+          {
+            "identity": {
+              "id": "e4f0219625b5109b08dc4100fcab9d1c",
+              "name": "gateway",
+              "namespace": "session13-head-2e9f65a854d9",
+              "environment": "local",
+              "workload": "synthetic"
+            },
+            "stats": {
+              "count": 19,
+              "rate_per_second": 6.333333333333333,
+              "errors": 3,
+              "error_fraction": 0.15789473684210525,
+              "status": {
+                "ERROR": 3,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 16
+              },
+              "http_status": {
+                "200": 16,
+                "502": 3
+              },
+              "duration_samples": 19,
+              "mean_ms": 0.5390105263157894,
+              "p50_ms": 0.5362,
+              "p95_ms": 1.2216,
+              "p99_ms": 1.2216
+            },
+            "buckets": [
+              {
+                "from": "2026-11-14T13:15:09Z",
+                "to": "2026-11-14T13:15:12Z",
+                "seconds": 3,
+                "stats": {
+                  "count": 19,
+                  "rate_per_second": 6.333333333333333,
+                  "errors": 3,
+                  "error_fraction": 0.15789473684210525,
+                  "status": {
+                    "ERROR": 3,
+                    "OK": 0,
+                    "OTHER": 0,
+                    "UNSET": 16
+                  },
+                  "http_status": {
+                    "200": 16,
+                    "502": 3
+                  },
+                  "duration_samples": 19,
+                  "mean_ms": 0.5390105263157894,
+                  "p50_ms": 0.5362,
+                  "p95_ms": 1.2216,
+                  "p99_ms": 1.2216
+                }
+              }
+            ],
+            "trace_ids": [
+              "b7a0246c0836c72308f13c1929a3703f",
+              "0390ccd60633f8d430aabc3053c79c4e",
+              "9284c91acdad3b8d218f6d1fda23e344",
+              "b53e0b1477e175c209a17610d15517e8",
+              "727413880231b3261fa01ed8b591ad9a"
+            ]
+          },
+          {
+            "identity": {
+              "id": "b80982288cb5f7516e50f7437dd04e7e",
+              "name": "payment",
+              "namespace": "session13-head-2e9f65a854d9",
+              "environment": "local",
+              "workload": "synthetic"
+            },
+            "stats": {
+              "count": 19,
+              "rate_per_second": 6.333333333333333,
+              "errors": 3,
+              "error_fraction": 0.15789473684210525,
+              "status": {
+                "ERROR": 3,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 16
+              },
+              "http_status": {
+                "200": 16,
+                "503": 3
+              },
+              "duration_samples": 19,
+              "mean_ms": 0.14715263157894737,
+              "p50_ms": 0,
+              "p95_ms": 0.5938,
+              "p99_ms": 0.5938
+            },
+            "buckets": [
+              {
+                "from": "2026-11-14T13:15:09Z",
+                "to": "2026-11-14T13:15:12Z",
+                "seconds": 3,
+                "stats": {
+                  "count": 19,
+                  "rate_per_second": 6.333333333333333,
+                  "errors": 3,
+                  "error_fraction": 0.15789473684210525,
+                  "status": {
+                    "ERROR": 3,
+                    "OK": 0,
+                    "OTHER": 0,
+                    "UNSET": 16
+                  },
+                  "http_status": {
+                    "200": 16,
+                    "503": 3
+                  },
+                  "duration_samples": 19,
+                  "mean_ms": 0.14715263157894737,
+                  "p50_ms": 0,
+                  "p95_ms": 0.5938,
+                  "p99_ms": 0.5938
+                }
+              }
+            ],
+            "trace_ids": [
+              "0390ccd60633f8d430aabc3053c79c4e",
+              "9284c91acdad3b8d218f6d1fda23e344",
+              "b7a0246c0836c72308f13c1929a3703f",
+              "3a7c9b1bb3619a6e089eeecb3a0dbf28",
+              "9ab5da18e84613c72519846a99e9f79b"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "e4f0219625b5109b08dc4100fcab9d1c",
+            "to": "b80982288cb5f7516e50f7437dd04e7e",
+            "client": {
+              "count": 19,
+              "rate_per_second": 6.333333333333333,
+              "errors": 3,
+              "error_fraction": 0.15789473684210525,
+              "status": {
+                "ERROR": 3,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 16
+              },
+              "http_status": {
+                "200": 16,
+                "503": 3
+              },
+              "duration_samples": 19,
+              "mean_ms": 0.5115105263157895,
+              "p50_ms": 0.5362,
+              "p95_ms": 1.2216,
+              "p99_ms": 1.2216
+            },
+            "server": {
+              "count": 19,
+              "rate_per_second": 6.333333333333333,
+              "errors": 3,
+              "error_fraction": 0.15789473684210525,
+              "status": {
+                "ERROR": 3,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 16
+              },
+              "http_status": {
+                "200": 16,
+                "503": 3
+              },
+              "duration_samples": 19,
+              "mean_ms": 0.14715263157894737,
+              "p50_ms": 0,
+              "p95_ms": 0.5938,
+              "p99_ms": 0.5938
+            },
+            "trace_ids": [
+              "b7a0246c0836c72308f13c1929a3703f",
+              "0390ccd60633f8d430aabc3053c79c4e",
+              "9284c91acdad3b8d218f6d1fda23e344",
+              "b53e0b1477e175c209a17610d15517e8",
+              "727413880231b3261fa01ed8b591ad9a"
+            ]
+          }
+        ],
+        "diagnostics": {
+          "candidate_traces": 19,
+          "physical_rows": 95,
+          "canonical_spans": 95,
+          "duplicate_rows": 0,
+          "conflicting_groups": 0,
+          "missing_service_names": 0,
+          "unmatched_clients": 0,
+          "missing_server_parents": 0,
+          "wrong_parent_kinds": 0,
+          "ambiguous_clients": 0,
+          "same_service_pairs": 0,
+          "invalid_durations": 0,
+          "missing_parents_all_spans": 0,
+          "cycles": 0,
+          "timing_warnings": 0
+        },
+        "budgets": {
+          "api_seconds": 4,
+          "bucket_points": 4096,
+          "candidate_traces": 128,
+          "clickhouse_memory_bytes_per_query": 268435456,
+          "edges": 128,
+          "physical_rows": 20000,
+          "read_bytes_per_query": 134217728,
+          "read_rows_per_query": 1000000,
+          "rows_per_trace": 2000,
+          "serialized_bytes": 16777216,
+          "services": 64,
+          "storage_seconds": 3
+        },
+        "diagnostics_scope": "all candidate traces before identity filters; unmatched/ambiguous CLIENT and parent diagnostics use their owning span start window"
+      }
+    },
+    "tail": {
+      "population": {
+        "physical_rows": 140,
+        "serialized_row_bytes": 336242,
+        "f": "2026-11-14T13:15:22Z",
+        "t": "2026-11-14T13:15:26Z"
+      },
+      "actual_red_api": {
+        "version": "trace-red/v1",
+        "query": {
+          "from": "2026-11-14T13:15:22Z",
+          "to": "2026-11-14T13:15:26Z",
+          "bucket_seconds": 60,
+          "environment": "",
+          "namespace": "session13-tail-8d3d33a60586",
+          "workload": "",
+          "service_id": ""
+        },
+        "window_seconds": 4,
+        "units": "durations=ms; rate=observations/window_seconds; errors=explicit_ERROR/count; percentiles=nearest_rank",
+        "attribution": "inbound=SERVER start; edge=CLIENT start; UTC [from,to)",
+        "completeness": "unknown: sampled, missing and late telemetry; no traffic or business-success guarantee",
+        "non_snapshot": true,
+        "selection_complete": true,
+        "services": [
+          {
+            "identity": {
+              "id": "54fc40bbf8c51bcf2736e38a1f94446c",
+              "name": "gateway",
+              "namespace": "session13-tail-8d3d33a60586",
+              "environment": "local",
+              "workload": "synthetic"
+            },
+            "stats": {
+              "count": 28,
+              "rate_per_second": 7,
+              "errors": 10,
+              "error_fraction": 0.35714285714285715,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 18
+              },
+              "http_status": {
+                "200": 18,
+                "502": 10
+              },
+              "duration_samples": 28,
+              "mean_ms": 54.255735714285706,
+              "p50_ms": 0.5605,
+              "p95_ms": 151.4804,
+              "p99_ms": 151.7502
+            },
+            "buckets": [
+              {
+                "from": "2026-11-14T13:15:22Z",
+                "to": "2026-11-14T13:15:26Z",
+                "seconds": 4,
+                "stats": {
+                  "count": 28,
+                  "rate_per_second": 7,
+                  "errors": 10,
+                  "error_fraction": 0.35714285714285715,
+                  "status": {
+                    "ERROR": 10,
+                    "OK": 0,
+                    "OTHER": 0,
+                    "UNSET": 18
+                  },
+                  "http_status": {
+                    "200": 18,
+                    "502": 10
+                  },
+                  "duration_samples": 28,
+                  "mean_ms": 54.255735714285706,
+                  "p50_ms": 0.5605,
+                  "p95_ms": 151.4804,
+                  "p99_ms": 151.7502
+                }
+              }
+            ],
+            "trace_ids": [
+              "05e56c5e756e143d243b0f3758f104cb",
+              "0e093428a4b98e0ea5ca69d88f487786",
+              "2004e80f86c6421e2a644bbefecb74a0",
+              "35b4ef521bee008f2108ed51f408eb6f",
+              "197d37f7b29ff38725bb4f8321235ee9"
+            ]
+          },
+          {
+            "identity": {
+              "id": "1cdf3fd6b621ca02d83cb2b2b4fa4cd9",
+              "name": "payment",
+              "namespace": "session13-tail-8d3d33a60586",
+              "environment": "local",
+              "workload": "synthetic"
+            },
+            "stats": {
+              "count": 28,
+              "rate_per_second": 7,
+              "errors": 10,
+              "error_fraction": 0.35714285714285715,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 18
+              },
+              "http_status": {
+                "200": 18,
+                "503": 10
+              },
+              "duration_samples": 28,
+              "mean_ms": 53.77333928571427,
+              "p50_ms": 0,
+              "p95_ms": 150.7556,
+              "p99_ms": 150.8156
+            },
+            "buckets": [
+              {
+                "from": "2026-11-14T13:15:22Z",
+                "to": "2026-11-14T13:15:26Z",
+                "seconds": 4,
+                "stats": {
+                  "count": 28,
+                  "rate_per_second": 7,
+                  "errors": 10,
+                  "error_fraction": 0.35714285714285715,
+                  "status": {
+                    "ERROR": 10,
+                    "OK": 0,
+                    "OTHER": 0,
+                    "UNSET": 18
+                  },
+                  "http_status": {
+                    "200": 18,
+                    "503": 10
+                  },
+                  "duration_samples": 28,
+                  "mean_ms": 53.77333928571427,
+                  "p50_ms": 0,
+                  "p95_ms": 150.7556,
+                  "p99_ms": 150.8156
+                }
+              }
+            ],
+            "trace_ids": [
+              "05e56c5e756e143d243b0f3758f104cb",
+              "0e093428a4b98e0ea5ca69d88f487786",
+              "2004e80f86c6421e2a644bbefecb74a0",
+              "35b4ef521bee008f2108ed51f408eb6f",
+              "197d37f7b29ff38725bb4f8321235ee9"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "54fc40bbf8c51bcf2736e38a1f94446c",
+            "to": "1cdf3fd6b621ca02d83cb2b2b4fa4cd9",
+            "client": {
+              "count": 28,
+              "rate_per_second": 7,
+              "errors": 10,
+              "error_fraction": 0.35714285714285715,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 18
+              },
+              "http_status": {
+                "200": 18,
+                "503": 10
+              },
+              "duration_samples": 28,
+              "mean_ms": 54.14153928571428,
+              "p50_ms": 0.5599,
+              "p95_ms": 151.4697,
+              "p99_ms": 151.7502
+            },
+            "server": {
+              "count": 28,
+              "rate_per_second": 7,
+              "errors": 10,
+              "error_fraction": 0.35714285714285715,
+              "status": {
+                "ERROR": 10,
+                "OK": 0,
+                "OTHER": 0,
+                "UNSET": 18
+              },
+              "http_status": {
+                "200": 18,
+                "503": 10
+              },
+              "duration_samples": 28,
+              "mean_ms": 53.77333928571427,
+              "p50_ms": 0,
+              "p95_ms": 150.7556,
+              "p99_ms": 150.8156
+            },
+            "trace_ids": [
+              "05e56c5e756e143d243b0f3758f104cb",
+              "0e093428a4b98e0ea5ca69d88f487786",
+              "2004e80f86c6421e2a644bbefecb74a0",
+              "35b4ef521bee008f2108ed51f408eb6f",
+              "197d37f7b29ff38725bb4f8321235ee9"
+            ]
+          }
+        ],
+        "diagnostics": {
+          "candidate_traces": 28,
+          "physical_rows": 140,
+          "canonical_spans": 140,
+          "duplicate_rows": 0,
+          "conflicting_groups": 0,
+          "missing_service_names": 0,
+          "unmatched_clients": 0,
+          "missing_server_parents": 0,
+          "wrong_parent_kinds": 0,
+          "ambiguous_clients": 0,
+          "same_service_pairs": 0,
+          "invalid_durations": 0,
+          "missing_parents_all_spans": 0,
+          "cycles": 0,
+          "timing_warnings": 0
+        },
+        "budgets": {
+          "api_seconds": 4,
+          "bucket_points": 4096,
+          "candidate_traces": 128,
+          "clickhouse_memory_bytes_per_query": 268435456,
+          "edges": 128,
+          "physical_rows": 20000,
+          "read_bytes_per_query": 134217728,
+          "read_rows_per_query": 1000000,
+          "rows_per_trace": 2000,
+          "serialized_bytes": 16777216,
+          "services": 64,
+          "storage_seconds": 3
+        },
+        "diagnostics_scope": "all candidate traces before identity filters; unmatched/ambiguous CLIENT and parent diagnostics use their owning span start window"
+      }
+    }
+  },
+  "cpu_profiles": [
+    {
+      "query_id": "s13-20261114132435-admin-400044a2",
+      "user_cpu_us": 1729,
+      "system_cpu_us": 636
+    },
+    {
+      "query_id": "s13-20261114132435-admin-f85175ce",
+      "user_cpu_us": 535,
+      "system_cpu_us": 18
+    },
+    {
+      "query_id": "s13-20261114132435-admin-c713e447",
+      "user_cpu_us": 935,
+      "system_cpu_us": 221
+    },
+    {
+      "query_id": "s13-20261114132435-admin-3715ae4a",
+      "user_cpu_us": 4682,
+      "system_cpu_us": 108
+    },
+    {
+      "query_id": "s13-20261114132435-admin-75acfb7d",
+      "user_cpu_us": 1119,
+      "system_cpu_us": 207
+    },
+    {
+      "query_id": "s13-20261114132435-admin-7f6bf288",
+      "user_cpu_us": 3487,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-admin-37e69d96",
+      "user_cpu_us": 1193,
+      "system_cpu_us": 165
+    },
+    {
+      "query_id": "s13-20261114132435-admin-c0f9ab42",
+      "user_cpu_us": 2442,
+      "system_cpu_us": 414
+    },
+    {
+      "query_id": "s13-20261114132435-admin-495e267a",
+      "user_cpu_us": 974,
+      "system_cpu_us": 403
+    },
+    {
+      "query_id": "s13-20261114132435-admin-69aedafd",
+      "user_cpu_us": 0,
+      "system_cpu_us": 2659
+    },
+    {
+      "query_id": "s13-20261114132435-admin-1940df32",
+      "user_cpu_us": 659,
+      "system_cpu_us": 517
+    },
+    {
+      "query_id": "s13-20261114132435-admin-6b08a022",
+      "user_cpu_us": 31,
+      "system_cpu_us": 3754
+    },
+    {
+      "query_id": "s13-20261114132435-admin-e1453090",
+      "user_cpu_us": 667,
+      "system_cpu_us": 362
+    },
+    {
+      "query_id": "s13-20261114132435-admin-1c2436b4",
+      "user_cpu_us": 2799,
+      "system_cpu_us": 34
+    },
+    {
+      "query_id": "s13-20261114132435-generate-3786019d",
+      "user_cpu_us": 70525,
+      "system_cpu_us": 31651
+    },
+    {
+      "query_id": "s13-20261114132435-generate-b280468e",
+      "user_cpu_us": 53792,
+      "system_cpu_us": 15478
+    },
+    {
+      "query_id": "s13-20261114132435-replay-e2661179",
+      "user_cpu_us": 19222,
+      "system_cpu_us": 22649
+    },
+    {
+      "query_id": "s13-20261114132435-conflicts-f5801536",
+      "user_cpu_us": 32163,
+      "system_cpu_us": 7761
+    },
+    {
+      "query_id": "s13-20261114132435-admin-63c5c887",
+      "user_cpu_us": 40620,
+      "system_cpu_us": 21008
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-bd1b14fd",
+      "user_cpu_us": 62563,
+      "system_cpu_us": 26454
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-48bea359",
+      "user_cpu_us": 38591,
+      "system_cpu_us": 27240
+    },
+    {
+      "query_id": "s13-20261114132435-admin-d1e22c5c",
+      "user_cpu_us": 52468,
+      "system_cpu_us": 372
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-44d0c02c",
+      "user_cpu_us": 40806,
+      "system_cpu_us": 100244
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-527f4e28",
+      "user_cpu_us": 33527,
+      "system_cpu_us": 19935
+    },
+    {
+      "query_id": "s13-20261114132435-admin-07576cae",
+      "user_cpu_us": 43875,
+      "system_cpu_us": 8820
+    },
+    {
+      "query_id": "s13-20261114132435-logs-generate-16820088",
+      "user_cpu_us": 104236,
+      "system_cpu_us": 27701
+    },
+    {
+      "query_id": "s13-20261114132435-insert-bloom-1476bc4d",
+      "user_cpu_us": 61658,
+      "system_cpu_us": 14937
+    },
+    {
+      "query_id": "s13-20261114132435-metric-copy-c8dba95c",
+      "user_cpu_us": 62165,
+      "system_cpu_us": 204584
+    },
+    {
+      "query_id": "s13-20261114132435-admin-43ca9560",
+      "user_cpu_us": 3336,
+      "system_cpu_us": 1897
+    },
+    {
+      "query_id": "s13-20261114132435-admin-98584a24",
+      "user_cpu_us": 2371,
+      "system_cpu_us": 530
+    },
+    {
+      "query_id": "s13-20261114132435-admin-519b65b2",
+      "user_cpu_us": 1268,
+      "system_cpu_us": 153
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-warmup-0efd5b4f",
+      "user_cpu_us": 4686,
+      "system_cpu_us": 921
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-17b1507b",
+      "user_cpu_us": 487,
+      "system_cpu_us": 3959
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-538f3653",
+      "user_cpu_us": 4340,
+      "system_cpu_us": 221
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-e680cfff",
+      "user_cpu_us": 4039,
+      "system_cpu_us": 257
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-64cede2f",
+      "user_cpu_us": 2667,
+      "system_cpu_us": 2017
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-85508600",
+      "user_cpu_us": 4262,
+      "system_cpu_us": 327
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-306d770e",
+      "user_cpu_us": 4020,
+      "system_cpu_us": 442
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-c1fee1c6",
+      "user_cpu_us": 1913,
+      "system_cpu_us": 3857
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-f5832e3c",
+      "user_cpu_us": 5124,
+      "system_cpu_us": 529
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-d575bba1",
+      "user_cpu_us": 4319,
+      "system_cpu_us": 805
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-1610f5cb",
+      "user_cpu_us": 4596,
+      "system_cpu_us": 482
+    },
+    {
+      "query_id": "s13-20261114132435-admin-7f0cd15c",
+      "user_cpu_us": 3276,
+      "system_cpu_us": 887
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-warmup-9a3c7a8b",
+      "user_cpu_us": 9892,
+      "system_cpu_us": 484
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-5f700466",
+      "user_cpu_us": 4232,
+      "system_cpu_us": 4229
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-e0aae909",
+      "user_cpu_us": 7693,
+      "system_cpu_us": 180
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-c59cf73b",
+      "user_cpu_us": 7613,
+      "system_cpu_us": 303
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-6f99510e",
+      "user_cpu_us": 6317,
+      "system_cpu_us": 650
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-341dcb39",
+      "user_cpu_us": 7264,
+      "system_cpu_us": 403
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-0e85fde4",
+      "user_cpu_us": 6683,
+      "system_cpu_us": 700
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-d604a6e4",
+      "user_cpu_us": 4504,
+      "system_cpu_us": 3055
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-cb9d8faa",
+      "user_cpu_us": 7340,
+      "system_cpu_us": 330
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-33eab9ed",
+      "user_cpu_us": 7678,
+      "system_cpu_us": 363
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-55f5e18d",
+      "user_cpu_us": 6870,
+      "system_cpu_us": 248
+    },
+    {
+      "query_id": "s13-20261114132435-admin-dd8545f4",
+      "user_cpu_us": 2186,
+      "system_cpu_us": 432
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-warmup-dbaf6a4c",
+      "user_cpu_us": 417,
+      "system_cpu_us": 4000
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-29aca251",
+      "user_cpu_us": 4446,
+      "system_cpu_us": 251
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-af7ad2ed",
+      "user_cpu_us": 4479,
+      "system_cpu_us": 373
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-8f7f9312",
+      "user_cpu_us": 4512,
+      "system_cpu_us": 250
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-b1bdee45",
+      "user_cpu_us": 4648,
+      "system_cpu_us": 419
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-e3c7999a",
+      "user_cpu_us": 4101,
+      "system_cpu_us": 202
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-d971d4e8",
+      "user_cpu_us": 240,
+      "system_cpu_us": 4588
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-90fa6f96",
+      "user_cpu_us": 1988,
+      "system_cpu_us": 2274
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-0b91ddcb",
+      "user_cpu_us": 4426,
+      "system_cpu_us": 86
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-851a434b",
+      "user_cpu_us": 4175,
+      "system_cpu_us": 114
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-0d8ef50d",
+      "user_cpu_us": 4405,
+      "system_cpu_us": 180
+    },
+    {
+      "query_id": "s13-20261114132435-admin-ecdf3319",
+      "user_cpu_us": 1954,
+      "system_cpu_us": 714
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-warmup-dc445e9e",
+      "user_cpu_us": 2707,
+      "system_cpu_us": 4744
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-1f6218a4",
+      "user_cpu_us": 6540,
+      "system_cpu_us": 526
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-fef0e1c4",
+      "user_cpu_us": 6405,
+      "system_cpu_us": 1109
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-8e0c90c3",
+      "user_cpu_us": 9952,
+      "system_cpu_us": 9584
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-c52bed48",
+      "user_cpu_us": 6469,
+      "system_cpu_us": 2090
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-52eae38e",
+      "user_cpu_us": 6529,
+      "system_cpu_us": 949
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-a5cd5ba9",
+      "user_cpu_us": 6832,
+      "system_cpu_us": 467
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-cdc83086",
+      "user_cpu_us": 2480,
+      "system_cpu_us": 14277
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-cdf42788",
+      "user_cpu_us": 5253,
+      "system_cpu_us": 2709
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-bf274f0e",
+      "user_cpu_us": 5256,
+      "system_cpu_us": 2966
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-60f16125",
+      "user_cpu_us": 4327,
+      "system_cpu_us": 3801
+    },
+    {
+      "query_id": "s13-20261114132435-admin-46060d4a",
+      "user_cpu_us": 3729,
+      "system_cpu_us": 348
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-warmup-3902b5d9",
+      "user_cpu_us": 4403,
+      "system_cpu_us": 3507
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-30b71449",
+      "user_cpu_us": 6138,
+      "system_cpu_us": 1834
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-4192e151",
+      "user_cpu_us": 4069,
+      "system_cpu_us": 3368
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-e2862b97",
+      "user_cpu_us": 5952,
+      "system_cpu_us": 1250
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-54662c80",
+      "user_cpu_us": 6096,
+      "system_cpu_us": 420
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-4181015e",
+      "user_cpu_us": 7396,
+      "system_cpu_us": 482
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-4e272755",
+      "user_cpu_us": 8330,
+      "system_cpu_us": 381
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-d06a9f9c",
+      "user_cpu_us": 6251,
+      "system_cpu_us": 1385
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-96ad27ad",
+      "user_cpu_us": 3779,
+      "system_cpu_us": 2689
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-b7a45ae9",
+      "user_cpu_us": 5459,
+      "system_cpu_us": 1270
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-cfaf02ac",
+      "user_cpu_us": 1790,
+      "system_cpu_us": 4922
+    },
+    {
+      "query_id": "s13-20261114132435-admin-6d134b18",
+      "user_cpu_us": 3543,
+      "system_cpu_us": 93
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-warmup-73a79f38",
+      "user_cpu_us": 5551,
+      "system_cpu_us": 1346
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-7b2b9855",
+      "user_cpu_us": 6005,
+      "system_cpu_us": 986
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-a3907d24",
+      "user_cpu_us": 6090,
+      "system_cpu_us": 1339
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-2852174a",
+      "user_cpu_us": 7614,
+      "system_cpu_us": 323
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-345e7fee",
+      "user_cpu_us": 6949,
+      "system_cpu_us": 509
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-2dfbb11f",
+      "user_cpu_us": 5942,
+      "system_cpu_us": 1473
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-5565a6ff",
+      "user_cpu_us": 6839,
+      "system_cpu_us": 293
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-ce3ccccd",
+      "user_cpu_us": 4358,
+      "system_cpu_us": 3380
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-981f81c3",
+      "user_cpu_us": 3631,
+      "system_cpu_us": 3817
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-b804870d",
+      "user_cpu_us": 9699,
+      "system_cpu_us": 468
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-ee1b72e4",
+      "user_cpu_us": 13396,
+      "system_cpu_us": 703
+    },
+    {
+      "query_id": "s13-20261114132435-admin-714a5f6d",
+      "user_cpu_us": 4591,
+      "system_cpu_us": 124
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-warmup-b383ee4c",
+      "user_cpu_us": 5407,
+      "system_cpu_us": 197
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-9af5719b",
+      "user_cpu_us": 4864,
+      "system_cpu_us": 294
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-ceca5173",
+      "user_cpu_us": 4568,
+      "system_cpu_us": 411
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-1e072f47",
+      "user_cpu_us": 4324,
+      "system_cpu_us": 342
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-f8cfd91f",
+      "user_cpu_us": 4221,
+      "system_cpu_us": 302
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-d95c2bca",
+      "user_cpu_us": 3487,
+      "system_cpu_us": 331
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-e2503fba",
+      "user_cpu_us": 3135,
+      "system_cpu_us": 437
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-45e0f818",
+      "user_cpu_us": 3955,
+      "system_cpu_us": 289
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-2aa53057",
+      "user_cpu_us": 3608,
+      "system_cpu_us": 326
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-0580d5e8",
+      "user_cpu_us": 248,
+      "system_cpu_us": 3367
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-c92a9bfa",
+      "user_cpu_us": 4169,
+      "system_cpu_us": 255
+    },
+    {
+      "query_id": "s13-20261114132435-admin-d078996a",
+      "user_cpu_us": 3350,
+      "system_cpu_us": 279
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-warmup-6c40cfd1",
+      "user_cpu_us": 4357,
+      "system_cpu_us": 207
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-a545b7ea",
+      "user_cpu_us": 4453,
+      "system_cpu_us": 306
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-f6f8c393",
+      "user_cpu_us": 2641,
+      "system_cpu_us": 782
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-8fee7d15",
+      "user_cpu_us": 3425,
+      "system_cpu_us": 227
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-7ce91f94",
+      "user_cpu_us": 3449,
+      "system_cpu_us": 251
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-4adf367b",
+      "user_cpu_us": 4303,
+      "system_cpu_us": 244
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-f43d5279",
+      "user_cpu_us": 4395,
+      "system_cpu_us": 386
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-e27bf942",
+      "user_cpu_us": 5064,
+      "system_cpu_us": 684
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-2c37c391",
+      "user_cpu_us": 5256,
+      "system_cpu_us": 254
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-afd18086",
+      "user_cpu_us": 3843,
+      "system_cpu_us": 424
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-0f83097c",
+      "user_cpu_us": 2042,
+      "system_cpu_us": 2696
+    },
+    {
+      "query_id": "s13-20261114132435-admin-5dd9b1bb",
+      "user_cpu_us": 3138,
+      "system_cpu_us": 373
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-warmup-6ae59b76",
+      "user_cpu_us": 3862,
+      "system_cpu_us": 253
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-02525bea",
+      "user_cpu_us": 3656,
+      "system_cpu_us": 387
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-1b10db7e",
+      "user_cpu_us": 3159,
+      "system_cpu_us": 372
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-a9452a06",
+      "user_cpu_us": 3985,
+      "system_cpu_us": 306
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-5cf6456d",
+      "user_cpu_us": 3476,
+      "system_cpu_us": 275
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-e9169929",
+      "user_cpu_us": 1469,
+      "system_cpu_us": 2483
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-b74a8d8f",
+      "user_cpu_us": 3746,
+      "system_cpu_us": 254
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-311f34c3",
+      "user_cpu_us": 3243,
+      "system_cpu_us": 137
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-bc2beb27",
+      "user_cpu_us": 4070,
+      "system_cpu_us": 297
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-5a2a8ac2",
+      "user_cpu_us": 4773,
+      "system_cpu_us": 439
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-2f4e448c",
+      "user_cpu_us": 2562,
+      "system_cpu_us": 668
+    },
+    {
+      "query_id": "s13-20261114132435-admin-2aa20df6",
+      "user_cpu_us": 2149,
+      "system_cpu_us": 700
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-warmup-024a8739",
+      "user_cpu_us": 5430,
+      "system_cpu_us": 437
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-73d2f264",
+      "user_cpu_us": 1704,
+      "system_cpu_us": 3212
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-0450fe69",
+      "user_cpu_us": 5133,
+      "system_cpu_us": 302
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-15d152fe",
+      "user_cpu_us": 897,
+      "system_cpu_us": 4342
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-38e3ea66",
+      "user_cpu_us": 4212,
+      "system_cpu_us": 169
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-dc772a39",
+      "user_cpu_us": 1354,
+      "system_cpu_us": 3104
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-f0680d10",
+      "user_cpu_us": 4641,
+      "system_cpu_us": 192
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-0d54f57c",
+      "user_cpu_us": 457,
+      "system_cpu_us": 5313
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-25e195af",
+      "user_cpu_us": 4279,
+      "system_cpu_us": 223
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-c828f7a4",
+      "user_cpu_us": 4357,
+      "system_cpu_us": 481
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-70ea66cf",
+      "user_cpu_us": 4482,
+      "system_cpu_us": 316
+    },
+    {
+      "query_id": "s13-20261114132435-admin-35d5fa3c",
+      "user_cpu_us": 2322,
+      "system_cpu_us": 717
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-warmup-bbaee166",
+      "user_cpu_us": 1329,
+      "system_cpu_us": 8429
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-096fb695",
+      "user_cpu_us": 9105,
+      "system_cpu_us": 441
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-ee58c7df",
+      "user_cpu_us": 7690,
+      "system_cpu_us": 451
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-17829cd4",
+      "user_cpu_us": 9671,
+      "system_cpu_us": 620
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-9f14985d",
+      "user_cpu_us": 7579,
+      "system_cpu_us": 330
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-d841fcd7",
+      "user_cpu_us": 3336,
+      "system_cpu_us": 3836
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-d9a56ca2",
+      "user_cpu_us": 6784,
+      "system_cpu_us": 280
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-aa35eef5",
+      "user_cpu_us": 7288,
+      "system_cpu_us": 309
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-a594b82c",
+      "user_cpu_us": 7068,
+      "system_cpu_us": 506
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-f1e1ebee",
+      "user_cpu_us": 7050,
+      "system_cpu_us": 336
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-64731b78",
+      "user_cpu_us": 5375,
+      "system_cpu_us": 2780
+    },
+    {
+      "query_id": "s13-20261114132435-admin-1ebc7c60",
+      "user_cpu_us": 1955,
+      "system_cpu_us": 838
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-warmup-c47c0500",
+      "user_cpu_us": 4843,
+      "system_cpu_us": 519
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-4c319f94",
+      "user_cpu_us": 4172,
+      "system_cpu_us": 360
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-9c6d75b8",
+      "user_cpu_us": 4550,
+      "system_cpu_us": 419
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-29cfcec9",
+      "user_cpu_us": 1284,
+      "system_cpu_us": 4400
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-b8a44176",
+      "user_cpu_us": 1012,
+      "system_cpu_us": 4784
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-1be97786",
+      "user_cpu_us": 4295,
+      "system_cpu_us": 359
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-6c3b018b",
+      "user_cpu_us": 4250,
+      "system_cpu_us": 346
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-e4ab3707",
+      "user_cpu_us": 4175,
+      "system_cpu_us": 318
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-d01fd3f6",
+      "user_cpu_us": 4511,
+      "system_cpu_us": 446
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-f0d19f7c",
+      "user_cpu_us": 4241,
+      "system_cpu_us": 313
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-77f056bc",
+      "user_cpu_us": 4190,
+      "system_cpu_us": 520
+    },
+    {
+      "query_id": "s13-20261114132435-admin-af0a74bf",
+      "user_cpu_us": 2473,
+      "system_cpu_us": 803
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-warmup-e17e5aa3",
+      "user_cpu_us": 1942,
+      "system_cpu_us": 4136
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-746ccc5b",
+      "user_cpu_us": 4181,
+      "system_cpu_us": 887
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-0ab37f4d",
+      "user_cpu_us": 4246,
+      "system_cpu_us": 1079
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-f5736e84",
+      "user_cpu_us": 4072,
+      "system_cpu_us": 1149
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-db189fe9",
+      "user_cpu_us": 533,
+      "system_cpu_us": 5530
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-3ab9c7cc",
+      "user_cpu_us": 1709,
+      "system_cpu_us": 3342
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-68103703",
+      "user_cpu_us": 4548,
+      "system_cpu_us": 771
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-22ba5b2f",
+      "user_cpu_us": 5331,
+      "system_cpu_us": 179
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-f2acb99b",
+      "user_cpu_us": 4891,
+      "system_cpu_us": 85
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-e299a48c",
+      "user_cpu_us": 3122,
+      "system_cpu_us": 2322
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-84aa84e6",
+      "user_cpu_us": 4195,
+      "system_cpu_us": 673
+    },
+    {
+      "query_id": "s13-20261114132435-admin-b26ed3a6",
+      "user_cpu_us": 2897,
+      "system_cpu_us": 519
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-warmup-90c81d8e",
+      "user_cpu_us": 3071,
+      "system_cpu_us": 1278
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-88a195bf",
+      "user_cpu_us": 3014,
+      "system_cpu_us": 1097
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-dc0b3b7b",
+      "user_cpu_us": 450,
+      "system_cpu_us": 4334
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-b0de2f9c",
+      "user_cpu_us": 3476,
+      "system_cpu_us": 1433
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-9fa4c038",
+      "user_cpu_us": 2770,
+      "system_cpu_us": 1385
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-d5239700",
+      "user_cpu_us": 3327,
+      "system_cpu_us": 1366
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-9729272d",
+      "user_cpu_us": 3854,
+      "system_cpu_us": 1068
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-98d50b27",
+      "user_cpu_us": 3513,
+      "system_cpu_us": 1103
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-8d6b9168",
+      "user_cpu_us": 3640,
+      "system_cpu_us": 1106
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-6e22f5d5",
+      "user_cpu_us": 3415,
+      "system_cpu_us": 615
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-2d26ef13",
+      "user_cpu_us": 528,
+      "system_cpu_us": 3714
+    },
+    {
+      "query_id": "s13-20261114132435-admin-5606293d",
+      "user_cpu_us": 2701,
+      "system_cpu_us": 212
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-warmup-08a28331",
+      "user_cpu_us": 3811,
+      "system_cpu_us": 646
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-530797af",
+      "user_cpu_us": 5071,
+      "system_cpu_us": 368
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-f24cf80d",
+      "user_cpu_us": 3825,
+      "system_cpu_us": 545
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-8240c844",
+      "user_cpu_us": 3504,
+      "system_cpu_us": 1234
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-f359104a",
+      "user_cpu_us": 4955,
+      "system_cpu_us": 202
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-9ffe5329",
+      "user_cpu_us": 4335,
+      "system_cpu_us": 301
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-216e907b",
+      "user_cpu_us": 4169,
+      "system_cpu_us": 382
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-e963e03b",
+      "user_cpu_us": 4121,
+      "system_cpu_us": 799
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-84cb169f",
+      "user_cpu_us": 4218,
+      "system_cpu_us": 429
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-05dc6310",
+      "user_cpu_us": 4376,
+      "system_cpu_us": 485
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-c117bf9f",
+      "user_cpu_us": 2752,
+      "system_cpu_us": 2335
+    },
+    {
+      "query_id": "s13-20261114132435-admin-d9d42040",
+      "user_cpu_us": 2458,
+      "system_cpu_us": 693
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-warmup-d7effaea",
+      "user_cpu_us": 7512,
+      "system_cpu_us": 444
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-7d9d1184",
+      "user_cpu_us": 7153,
+      "system_cpu_us": 368
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-c806d4b4",
+      "user_cpu_us": 6929,
+      "system_cpu_us": 270
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-c27d3d73",
+      "user_cpu_us": 5779,
+      "system_cpu_us": 490
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-605922c0",
+      "user_cpu_us": 1925,
+      "system_cpu_us": 3298
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-fa9bb271",
+      "user_cpu_us": 5657,
+      "system_cpu_us": 359
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-809bbedc",
+      "user_cpu_us": 5716,
+      "system_cpu_us": 487
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-db7d4d2d",
+      "user_cpu_us": 2874,
+      "system_cpu_us": 3435
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-7c4e60e0",
+      "user_cpu_us": 5050,
+      "system_cpu_us": 269
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-afd71c7f",
+      "user_cpu_us": 5922,
+      "system_cpu_us": 148
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-93be4be5",
+      "user_cpu_us": 5612,
+      "system_cpu_us": 191
+    },
+    {
+      "query_id": "s13-20261114132435-admin-f2ce221c",
+      "user_cpu_us": 2953,
+      "system_cpu_us": 164
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-warmup-66412446",
+      "user_cpu_us": 4484,
+      "system_cpu_us": 3650
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-6ed46a49",
+      "user_cpu_us": 6635,
+      "system_cpu_us": 134
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-6a7b597e",
+      "user_cpu_us": 867,
+      "system_cpu_us": 4447
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-291b06c4",
+      "user_cpu_us": 4910,
+      "system_cpu_us": 261
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-3bb0a4ef",
+      "user_cpu_us": 4627,
+      "system_cpu_us": 207
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-e558d8e4",
+      "user_cpu_us": 4738,
+      "system_cpu_us": 316
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-2ed2964a",
+      "user_cpu_us": 4714,
+      "system_cpu_us": 279
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-96bee939",
+      "user_cpu_us": 5221,
+      "system_cpu_us": 503
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-f5f04df3",
+      "user_cpu_us": 5081,
+      "system_cpu_us": 370
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-7d6fc214",
+      "user_cpu_us": 1116,
+      "system_cpu_us": 3900
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-b54bdd54",
+      "user_cpu_us": 4648,
+      "system_cpu_us": 313
+    },
+    {
+      "query_id": "s13-20261114132435-admin-f9d39abe",
+      "user_cpu_us": 2552,
+      "system_cpu_us": 477
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-warmup-896d3ebe",
+      "user_cpu_us": 4993,
+      "system_cpu_us": 351
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-67282913",
+      "user_cpu_us": 5111,
+      "system_cpu_us": 359
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-f34d4d61",
+      "user_cpu_us": 4769,
+      "system_cpu_us": 386
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-3fc234e3",
+      "user_cpu_us": 733,
+      "system_cpu_us": 4567
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-d6a2195c",
+      "user_cpu_us": 4771,
+      "system_cpu_us": 385
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-a9289d37",
+      "user_cpu_us": 5756,
+      "system_cpu_us": 403
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-7c8dd596",
+      "user_cpu_us": 4972,
+      "system_cpu_us": 454
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-c6752320",
+      "user_cpu_us": 4992,
+      "system_cpu_us": 332
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-b984a49a",
+      "user_cpu_us": 5164,
+      "system_cpu_us": 162
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-359899e7",
+      "user_cpu_us": 1403,
+      "system_cpu_us": 3773
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-69386b89",
+      "user_cpu_us": 1700,
+      "system_cpu_us": 4014
+    },
+    {
+      "query_id": "s13-20261114132435-admin-73d87474",
+      "user_cpu_us": 2236,
+      "system_cpu_us": 748
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-warmup-1a9ae935",
+      "user_cpu_us": 5026,
+      "system_cpu_us": 488
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-b2d5c1fd",
+      "user_cpu_us": 2366,
+      "system_cpu_us": 3180
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-26c8e857",
+      "user_cpu_us": 5065,
+      "system_cpu_us": 332
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-75d57550",
+      "user_cpu_us": 5151,
+      "system_cpu_us": 124
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-0614aae7",
+      "user_cpu_us": 5516,
+      "system_cpu_us": 112
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-3eb84713",
+      "user_cpu_us": 6148,
+      "system_cpu_us": 35
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-cf29ba36",
+      "user_cpu_us": 6929,
+      "system_cpu_us": 398
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-1526edae",
+      "user_cpu_us": 5658,
+      "system_cpu_us": 219
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-6ab12547",
+      "user_cpu_us": 5219,
+      "system_cpu_us": 215
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-ee6a63b9",
+      "user_cpu_us": 5193,
+      "system_cpu_us": 189
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-159e285e",
+      "user_cpu_us": 5581,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-admin-f40710ac",
+      "user_cpu_us": 2595,
+      "system_cpu_us": 178
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-warmup-5a3453b9",
+      "user_cpu_us": 3411,
+      "system_cpu_us": 176
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-6957fc5c",
+      "user_cpu_us": 3087,
+      "system_cpu_us": 219
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-985fd39f",
+      "user_cpu_us": 308,
+      "system_cpu_us": 3480
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-e3d7ef45",
+      "user_cpu_us": 3818,
+      "system_cpu_us": 112
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-f2dfc358",
+      "user_cpu_us": 3522,
+      "system_cpu_us": 139
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-ca29c6e7",
+      "user_cpu_us": 3274,
+      "system_cpu_us": 135
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-b6b846cd",
+      "user_cpu_us": 3664,
+      "system_cpu_us": 113
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-ed12cc44",
+      "user_cpu_us": 3674,
+      "system_cpu_us": 214
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-bf360fa1",
+      "user_cpu_us": 3448,
+      "system_cpu_us": 54
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-8d81c563",
+      "user_cpu_us": 3598,
+      "system_cpu_us": 97
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-504e7c1a",
+      "user_cpu_us": 3858,
+      "system_cpu_us": 56
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-warmup-f7fbc439",
+      "user_cpu_us": 9436,
+      "system_cpu_us": 2221
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-c4cb8ba6",
+      "user_cpu_us": 7517,
+      "system_cpu_us": 4187
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-f3096e0b",
+      "user_cpu_us": 9659,
+      "system_cpu_us": 358
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-c87517fa",
+      "user_cpu_us": 8496,
+      "system_cpu_us": 2100
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-653f5fb6",
+      "user_cpu_us": 5754,
+      "system_cpu_us": 5165
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-06d20b17",
+      "user_cpu_us": 11278,
+      "system_cpu_us": 2854
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-664694d4",
+      "user_cpu_us": 10884,
+      "system_cpu_us": 9287
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-96d39177",
+      "user_cpu_us": 17599,
+      "system_cpu_us": 136
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-911b1743",
+      "user_cpu_us": 15343,
+      "system_cpu_us": 962
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-8e25683e",
+      "user_cpu_us": 12303,
+      "system_cpu_us": 3273
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-c4ccc1b2",
+      "user_cpu_us": 10256,
+      "system_cpu_us": 4819
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-warmup-a5562fc5",
+      "user_cpu_us": 34112,
+      "system_cpu_us": 3431
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-747d0ba5",
+      "user_cpu_us": 45268,
+      "system_cpu_us": 4428
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-d8fef496",
+      "user_cpu_us": 38381,
+      "system_cpu_us": 14717
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-f37468fa",
+      "user_cpu_us": 25200,
+      "system_cpu_us": 5875
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-ecf6981b",
+      "user_cpu_us": 22108,
+      "system_cpu_us": 4284
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-caf27c11",
+      "user_cpu_us": 22603,
+      "system_cpu_us": 1523
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-faa8ede4",
+      "user_cpu_us": 21875,
+      "system_cpu_us": 1338
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-ea65c8d7",
+      "user_cpu_us": 22596,
+      "system_cpu_us": 675
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-adcd8e87",
+      "user_cpu_us": 24575,
+      "system_cpu_us": 3355
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-b1ce444d",
+      "user_cpu_us": 28541,
+      "system_cpu_us": 197
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-f8b4c8aa",
+      "user_cpu_us": 22265,
+      "system_cpu_us": 4733
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-build-8bd681c3",
+      "user_cpu_us": 27563,
+      "system_cpu_us": 301
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-warmup-c398b41e",
+      "user_cpu_us": 1446,
+      "system_cpu_us": 385
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-7e5b2b17",
+      "user_cpu_us": 1899,
+      "system_cpu_us": 76
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-367c0c54",
+      "user_cpu_us": 1286,
+      "system_cpu_us": 180
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-82d29f0d",
+      "user_cpu_us": 1257,
+      "system_cpu_us": 359
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-d6642071",
+      "user_cpu_us": 198,
+      "system_cpu_us": 1336
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-027066a1",
+      "user_cpu_us": 324,
+      "system_cpu_us": 1451
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-7d4df229",
+      "user_cpu_us": 880,
+      "system_cpu_us": 679
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-eea902a0",
+      "user_cpu_us": 293,
+      "system_cpu_us": 1314
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-aac885e1",
+      "user_cpu_us": 546,
+      "system_cpu_us": 1061
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-dba46e12",
+      "user_cpu_us": 1119,
+      "system_cpu_us": 557
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-a9fd0a07",
+      "user_cpu_us": 1154,
+      "system_cpu_us": 553
+    },
+    {
+      "query_id": "s13-20261114132435-ttl-create-8333335e",
+      "user_cpu_us": 1383,
+      "system_cpu_us": 461
+    },
+    {
+      "query_id": "s13-20261114132435-admin-494b3244",
+      "user_cpu_us": 0,
+      "system_cpu_us": 370
+    },
+    {
+      "query_id": "s13-20261114132435-admin-b4924c29",
+      "user_cpu_us": 0,
+      "system_cpu_us": 1481
+    },
+    {
+      "query_id": "s13-20261114132435-admin-f1806c72",
+      "user_cpu_us": 222,
+      "system_cpu_us": 1407
+    },
+    {
+      "query_id": "s13-20261114132435-admin-e7fde19c",
+      "user_cpu_us": 0,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-ttl-materialize-7ac05ecb",
+      "user_cpu_us": 985,
+      "system_cpu_us": 367
+    },
+    {
+      "query_id": "s13-20261114132435-admin-0d55d43f",
+      "user_cpu_us": 1969,
+      "system_cpu_us": 319
+    },
+    {
+      "query_id": "s13-20261114132435-admin-5dc70cc1",
+      "user_cpu_us": 731,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-admin-e635cbc6",
+      "user_cpu_us": 977,
+      "system_cpu_us": 225
+    },
+    {
+      "query_id": "s13-20261114132435-admin-01d8f033",
+      "user_cpu_us": 1984,
+      "system_cpu_us": 738
+    },
+    {
+      "query_id": "s13-20261114132435-admin-6c4932b0",
+      "user_cpu_us": 884,
+      "system_cpu_us": 410
+    },
+    {
+      "query_id": "s13-20261114132435-admin-31b2e000",
+      "user_cpu_us": 2548,
+      "system_cpu_us": 104
+    },
+    {
+      "query_id": "s13-20261114132435-admin-1bea364d",
+      "user_cpu_us": 283,
+      "system_cpu_us": 1296
+    },
+    {
+      "query_id": "s13-20261114132435-admin-22f30a84",
+      "user_cpu_us": 1324,
+      "system_cpu_us": 1566
+    },
+    {
+      "query_id": "s13-20261114132435-admin-7d0f8c62",
+      "user_cpu_us": 1043,
+      "system_cpu_us": 358
+    },
+    {
+      "query_id": "s13-20261114132435-admin-e77b932c",
+      "user_cpu_us": 69,
+      "system_cpu_us": 4520
+    },
+    {
+      "query_id": "s13-20261114132435-admin-82f0b529",
+      "user_cpu_us": 406,
+      "system_cpu_us": 949
+    },
+    {
+      "query_id": "s13-20261114132435-admin-aa4cef6a",
+      "user_cpu_us": 0,
+      "system_cpu_us": 3587
+    },
+    {
+      "query_id": "s13-20261114132435-admin-e99380d1",
+      "user_cpu_us": 228,
+      "system_cpu_us": 932
+    },
+    {
+      "query_id": "s13-20261114132435-admin-a3ef7d41",
+      "user_cpu_us": 135,
+      "system_cpu_us": 3037
+    },
+    {
+      "query_id": "s13-20261114132435-generate-c41063dd",
+      "user_cpu_us": 57041,
+      "system_cpu_us": 29850
+    },
+    {
+      "query_id": "s13-20261114132435-generate-4e2a5766",
+      "user_cpu_us": 36572,
+      "system_cpu_us": 20545
+    },
+    {
+      "query_id": "s13-20261114132435-generate-390fa28a",
+      "user_cpu_us": 44230,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-generate-6c9233c7",
+      "user_cpu_us": 38294,
+      "system_cpu_us": 9687
+    },
+    {
+      "query_id": "s13-20261114132435-generate-85181afa",
+      "user_cpu_us": 45731,
+      "system_cpu_us": 107
+    },
+    {
+      "query_id": "s13-20261114132435-generate-9ebb45e9",
+      "user_cpu_us": 45458,
+      "system_cpu_us": 4245
+    },
+    {
+      "query_id": "s13-20261114132435-replay-f0193aab",
+      "user_cpu_us": 65574,
+      "system_cpu_us": 2509
+    },
+    {
+      "query_id": "s13-20261114132435-conflicts-3d885e07",
+      "user_cpu_us": 51101,
+      "system_cpu_us": 3569
+    },
+    {
+      "query_id": "s13-20261114132435-admin-3a37182b",
+      "user_cpu_us": 219914,
+      "system_cpu_us": 24820
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-4d1c9bf8",
+      "user_cpu_us": 59715,
+      "system_cpu_us": 40779
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-047c93b4",
+      "user_cpu_us": 109362,
+      "system_cpu_us": 9265
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-a2124310",
+      "user_cpu_us": 104643,
+      "system_cpu_us": 9704
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-30249b4f",
+      "user_cpu_us": 94911,
+      "system_cpu_us": 8141
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-c85dd39a",
+      "user_cpu_us": 101745,
+      "system_cpu_us": 9547
+    },
+    {
+      "query_id": "s13-20261114132435-insert-service_first-9f2d147e",
+      "user_cpu_us": 115363,
+      "system_cpu_us": 3448
+    },
+    {
+      "query_id": "s13-20261114132435-admin-480d7110",
+      "user_cpu_us": 250863,
+      "system_cpu_us": 37227
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-bb1fb17c",
+      "user_cpu_us": 124016,
+      "system_cpu_us": 63626
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-33ca5ca2",
+      "user_cpu_us": 103888,
+      "system_cpu_us": 78880
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-e535a925",
+      "user_cpu_us": 102736,
+      "system_cpu_us": 42675
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-22dd7299",
+      "user_cpu_us": 99712,
+      "system_cpu_us": 7438
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-a4515838",
+      "user_cpu_us": 114183,
+      "system_cpu_us": 7929
+    },
+    {
+      "query_id": "s13-20261114132435-insert-codec-13403957",
+      "user_cpu_us": 98363,
+      "system_cpu_us": 3169
+    },
+    {
+      "query_id": "s13-20261114132435-admin-8212325a",
+      "user_cpu_us": 217234,
+      "system_cpu_us": 11449
+    },
+    {
+      "query_id": "s13-20261114132435-logs-generate-6e8a33fc",
+      "user_cpu_us": 243748,
+      "system_cpu_us": 237994
+    },
+    {
+      "query_id": "s13-20261114132435-insert-bloom-61ae7807",
+      "user_cpu_us": 193327,
+      "system_cpu_us": 196609
+    },
+    {
+      "query_id": "s13-20261114132435-metric-copy-dddfc449",
+      "user_cpu_us": 56928,
+      "system_cpu_us": 24705
+    },
+    {
+      "query_id": "s13-20261114132435-admin-c82a8acf",
+      "user_cpu_us": 2039,
+      "system_cpu_us": 423
+    },
+    {
+      "query_id": "s13-20261114132435-admin-b6a6d901",
+      "user_cpu_us": 2148,
+      "system_cpu_us": 403
+    },
+    {
+      "query_id": "s13-20261114132435-admin-b04dd6bf",
+      "user_cpu_us": 1258,
+      "system_cpu_us": 105
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-warmup-4533f2ef",
+      "user_cpu_us": 4716,
+      "system_cpu_us": 1316
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-c49e30c4",
+      "user_cpu_us": 4546,
+      "system_cpu_us": 171
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-2768a23b",
+      "user_cpu_us": 4448,
+      "system_cpu_us": 263
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-d5a72d3c",
+      "user_cpu_us": 4378,
+      "system_cpu_us": 245
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-006f1db8",
+      "user_cpu_us": 4938,
+      "system_cpu_us": 236
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-614f6fc8",
+      "user_cpu_us": 5043,
+      "system_cpu_us": 159
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-8c693ed6",
+      "user_cpu_us": 5201,
+      "system_cpu_us": 478
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-087fb216",
+      "user_cpu_us": 5459,
+      "system_cpu_us": 694
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-26913024",
+      "user_cpu_us": 5242,
+      "system_cpu_us": 211
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-2c193b81",
+      "user_cpu_us": 5699,
+      "system_cpu_us": 257
+    },
+    {
+      "query_id": "s13-20261114132435-trace-spans-1e9032c2",
+      "user_cpu_us": 7825,
+      "system_cpu_us": 114
+    },
+    {
+      "query_id": "s13-20261114132435-admin-790a5e3c",
+      "user_cpu_us": 1423,
+      "system_cpu_us": 2066
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-warmup-33058530",
+      "user_cpu_us": 10554,
+      "system_cpu_us": 6952
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-3e56f012",
+      "user_cpu_us": 7250,
+      "system_cpu_us": 223
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-b9a3e53d",
+      "user_cpu_us": 156,
+      "system_cpu_us": 6881
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-06a72c45",
+      "user_cpu_us": 6635,
+      "system_cpu_us": 382
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-4554f97e",
+      "user_cpu_us": 6936,
+      "system_cpu_us": 659
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-b98ed3a3",
+      "user_cpu_us": 6948,
+      "system_cpu_us": 373
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-7e29eb65",
+      "user_cpu_us": 6622,
+      "system_cpu_us": 337
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-edec8c73",
+      "user_cpu_us": 6750,
+      "system_cpu_us": 464
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-1eeae95f",
+      "user_cpu_us": 948,
+      "system_cpu_us": 6076
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-8050bedb",
+      "user_cpu_us": 3001,
+      "system_cpu_us": 4184
+    },
+    {
+      "query_id": "s13-20261114132435-trace-service_first-8758aa8d",
+      "user_cpu_us": 6623,
+      "system_cpu_us": 227
+    },
+    {
+      "query_id": "s13-20261114132435-admin-b18be905",
+      "user_cpu_us": 2444,
+      "system_cpu_us": 586
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-warmup-751cbb2e",
+      "user_cpu_us": 4871,
+      "system_cpu_us": 316
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-25c6b658",
+      "user_cpu_us": 3993,
+      "system_cpu_us": 260
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-ea9328bf",
+      "user_cpu_us": 4560,
+      "system_cpu_us": 292
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-c1222244",
+      "user_cpu_us": 4235,
+      "system_cpu_us": 231
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-e08326b2",
+      "user_cpu_us": 4831,
+      "system_cpu_us": 218
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-c421aa63",
+      "user_cpu_us": 5015,
+      "system_cpu_us": 270
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-9f030eed",
+      "user_cpu_us": 4136,
+      "system_cpu_us": 438
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-447e3475",
+      "user_cpu_us": 4640,
+      "system_cpu_us": 162
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-fb1c046a",
+      "user_cpu_us": 4779,
+      "system_cpu_us": 194
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-e5a71f54",
+      "user_cpu_us": 5207,
+      "system_cpu_us": 127
+    },
+    {
+      "query_id": "s13-20261114132435-trace-codec-f1998b1f",
+      "user_cpu_us": 4927,
+      "system_cpu_us": 325
+    },
+    {
+      "query_id": "s13-20261114132435-admin-ed7d0c29",
+      "user_cpu_us": 2460,
+      "system_cpu_us": 374
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-warmup-3da07e43",
+      "user_cpu_us": 6008,
+      "system_cpu_us": 11130
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-ab91b9a8",
+      "user_cpu_us": 16404,
+      "system_cpu_us": 1173
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-5a9f9385",
+      "user_cpu_us": 16094,
+      "system_cpu_us": 382
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-f47f76ce",
+      "user_cpu_us": 13247,
+      "system_cpu_us": 4372
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-c8c75802",
+      "user_cpu_us": 15642,
+      "system_cpu_us": 1833
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-66d50c27",
+      "user_cpu_us": 14619,
+      "system_cpu_us": 589
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-03d6fd44",
+      "user_cpu_us": 10024,
+      "system_cpu_us": 4342
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-5d715912",
+      "user_cpu_us": 7534,
+      "system_cpu_us": 7189
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-c33c2fd7",
+      "user_cpu_us": 12019,
+      "system_cpu_us": 2903
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-c556024c",
+      "user_cpu_us": 14978,
+      "system_cpu_us": 70
+    },
+    {
+      "query_id": "s13-20261114132435-search-spans-c36dbb24",
+      "user_cpu_us": 16306,
+      "system_cpu_us": 200
+    },
+    {
+      "query_id": "s13-20261114132435-admin-72667ac8",
+      "user_cpu_us": 3765,
+      "system_cpu_us": 381
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-warmup-5ee2c4a7",
+      "user_cpu_us": 6422,
+      "system_cpu_us": 1838
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-35cead0e",
+      "user_cpu_us": 1498,
+      "system_cpu_us": 5929
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-45fcb944",
+      "user_cpu_us": 6901,
+      "system_cpu_us": 515
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-4b931e7b",
+      "user_cpu_us": 5664,
+      "system_cpu_us": 1346
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-a453ad6e",
+      "user_cpu_us": 632,
+      "system_cpu_us": 6616
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-f8ac0876",
+      "user_cpu_us": 2701,
+      "system_cpu_us": 5977
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-b79a8259",
+      "user_cpu_us": 4329,
+      "system_cpu_us": 2299
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-bf2eb3d4",
+      "user_cpu_us": 4684,
+      "system_cpu_us": 1720
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-7d35db01",
+      "user_cpu_us": 4459,
+      "system_cpu_us": 2823
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-925145a7",
+      "user_cpu_us": 6354,
+      "system_cpu_us": 792
+    },
+    {
+      "query_id": "s13-20261114132435-search-service_first-06dd501a",
+      "user_cpu_us": 3969,
+      "system_cpu_us": 2627
+    },
+    {
+      "query_id": "s13-20261114132435-admin-21882fdd",
+      "user_cpu_us": 3052,
+      "system_cpu_us": 304
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-warmup-4a275a80",
+      "user_cpu_us": 10656,
+      "system_cpu_us": 4260
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-90cd7f80",
+      "user_cpu_us": 11052,
+      "system_cpu_us": 4494
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-98a6706d",
+      "user_cpu_us": 4025,
+      "system_cpu_us": 10681
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-e8f9ca9c",
+      "user_cpu_us": 9117,
+      "system_cpu_us": 6729
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-792a5d97",
+      "user_cpu_us": 11553,
+      "system_cpu_us": 4169
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-61e1825d",
+      "user_cpu_us": 11294,
+      "system_cpu_us": 2771
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-704d90f8",
+      "user_cpu_us": 18224,
+      "system_cpu_us": 410
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-8f832713",
+      "user_cpu_us": 14039,
+      "system_cpu_us": 8195
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-af91f8dc",
+      "user_cpu_us": 16332,
+      "system_cpu_us": 319
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-504c1c5b",
+      "user_cpu_us": 17187,
+      "system_cpu_us": 2820
+    },
+    {
+      "query_id": "s13-20261114132435-search-codec-ae983f58",
+      "user_cpu_us": 18585,
+      "system_cpu_us": 258
+    },
+    {
+      "query_id": "s13-20261114132435-admin-16dead3b",
+      "user_cpu_us": 3521,
+      "system_cpu_us": 185
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-warmup-441e8549",
+      "user_cpu_us": 3566,
+      "system_cpu_us": 113
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-10a71107",
+      "user_cpu_us": 4260,
+      "system_cpu_us": 236
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-68e850cd",
+      "user_cpu_us": 3354,
+      "system_cpu_us": 164
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-7e673710",
+      "user_cpu_us": 3459,
+      "system_cpu_us": 141
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-46dbfab1",
+      "user_cpu_us": 3450,
+      "system_cpu_us": 207
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-34ea10e1",
+      "user_cpu_us": 3085,
+      "system_cpu_us": 474
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-6c7dfa9a",
+      "user_cpu_us": 3371,
+      "system_cpu_us": 540
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-b242f522",
+      "user_cpu_us": 3218,
+      "system_cpu_us": 517
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-6febe43e",
+      "user_cpu_us": 1639,
+      "system_cpu_us": 2246
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-bc55dac0",
+      "user_cpu_us": 6195,
+      "system_cpu_us": 519
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-spans-5341d3ce",
+      "user_cpu_us": 3276,
+      "system_cpu_us": 476
+    },
+    {
+      "query_id": "s13-20261114132435-admin-03e94502",
+      "user_cpu_us": 2754,
+      "system_cpu_us": 824
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-warmup-5a09771c",
+      "user_cpu_us": 3248,
+      "system_cpu_us": 282
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-a876dc63",
+      "user_cpu_us": 3539,
+      "system_cpu_us": 521
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-429aa88f",
+      "user_cpu_us": 463,
+      "system_cpu_us": 3425
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-d7bb07c1",
+      "user_cpu_us": 2740,
+      "system_cpu_us": 1372
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-f74a3ae5",
+      "user_cpu_us": 3283,
+      "system_cpu_us": 229
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-abfe985a",
+      "user_cpu_us": 3765,
+      "system_cpu_us": 530
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-7935ab76",
+      "user_cpu_us": 3823,
+      "system_cpu_us": 437
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-96e52355",
+      "user_cpu_us": 3875,
+      "system_cpu_us": 571
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-75698e07",
+      "user_cpu_us": 4890,
+      "system_cpu_us": 231
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-1c4c890b",
+      "user_cpu_us": 4530,
+      "system_cpu_us": 536
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-service_first-d11f266d",
+      "user_cpu_us": 4665,
+      "system_cpu_us": 341
+    },
+    {
+      "query_id": "s13-20261114132435-admin-476edbbe",
+      "user_cpu_us": 2950,
+      "system_cpu_us": 679
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-warmup-ada2240e",
+      "user_cpu_us": 3588,
+      "system_cpu_us": 898
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-b7dfdb96",
+      "user_cpu_us": 3785,
+      "system_cpu_us": 867
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-795d5611",
+      "user_cpu_us": 3989,
+      "system_cpu_us": 846
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-14bdeea9",
+      "user_cpu_us": 3632,
+      "system_cpu_us": 770
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-fe514134",
+      "user_cpu_us": 3889,
+      "system_cpu_us": 849
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-8e2c6e39",
+      "user_cpu_us": 7002,
+      "system_cpu_us": 970
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-2572dc06",
+      "user_cpu_us": 9600,
+      "system_cpu_us": 1500
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-e7fd39ed",
+      "user_cpu_us": 2157,
+      "system_cpu_us": 3938
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-6336e4dd",
+      "user_cpu_us": 4680,
+      "system_cpu_us": 541
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-33ca78d6",
+      "user_cpu_us": 3687,
+      "system_cpu_us": 361
+    },
+    {
+      "query_id": "s13-20261114132435-red-discovery-codec-44fbbc73",
+      "user_cpu_us": 3819,
+      "system_cpu_us": 163
+    },
+    {
+      "query_id": "s13-20261114132435-admin-8e7049f7",
+      "user_cpu_us": 290,
+      "system_cpu_us": 2747
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-warmup-f73c1e60",
+      "user_cpu_us": 1207,
+      "system_cpu_us": 4692
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-da902ec5",
+      "user_cpu_us": 2533,
+      "system_cpu_us": 4051
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-6a9fe2bd",
+      "user_cpu_us": 5059,
+      "system_cpu_us": 279
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-5ed34ce5",
+      "user_cpu_us": 4200,
+      "system_cpu_us": 160
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-328b2b7a",
+      "user_cpu_us": 4302,
+      "system_cpu_us": 158
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-508f6265",
+      "user_cpu_us": 4312,
+      "system_cpu_us": 161
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-45638b43",
+      "user_cpu_us": 524,
+      "system_cpu_us": 4205
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-23823e01",
+      "user_cpu_us": 4555,
+      "system_cpu_us": 185
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-c4926859",
+      "user_cpu_us": 4084,
+      "system_cpu_us": 190
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-02f20a84",
+      "user_cpu_us": 1369,
+      "system_cpu_us": 3571
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-spans-fc33a080",
+      "user_cpu_us": 4135,
+      "system_cpu_us": 213
+    },
+    {
+      "query_id": "s13-20261114132435-admin-1f386583",
+      "user_cpu_us": 2894,
+      "system_cpu_us": 384
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-warmup-4297a9ff",
+      "user_cpu_us": 9078,
+      "system_cpu_us": 343
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-91c4fecd",
+      "user_cpu_us": 7960,
+      "system_cpu_us": 262
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-a47096c3",
+      "user_cpu_us": 8235,
+      "system_cpu_us": 201
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-2f1fbf5f",
+      "user_cpu_us": 6877,
+      "system_cpu_us": 152
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-4ca3cf38",
+      "user_cpu_us": 7091,
+      "system_cpu_us": 94
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-1839385e",
+      "user_cpu_us": 6929,
+      "system_cpu_us": 149
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-2971f9c4",
+      "user_cpu_us": 7294,
+      "system_cpu_us": 130
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-415e9084",
+      "user_cpu_us": 7336,
+      "system_cpu_us": 139
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-1bcc2434",
+      "user_cpu_us": 6631,
+      "system_cpu_us": 123
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-6aaf3e7a",
+      "user_cpu_us": 6635,
+      "system_cpu_us": 122
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-service_first-964fdc50",
+      "user_cpu_us": 4768,
+      "system_cpu_us": 2139
+    },
+    {
+      "query_id": "s13-20261114132435-admin-5dfc9e39",
+      "user_cpu_us": 2349,
+      "system_cpu_us": 150
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-warmup-89607a3f",
+      "user_cpu_us": 4550,
+      "system_cpu_us": 206
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-686f2baf",
+      "user_cpu_us": 4293,
+      "system_cpu_us": 83
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-09dd354c",
+      "user_cpu_us": 4382,
+      "system_cpu_us": 125
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-f249f802",
+      "user_cpu_us": 5717,
+      "system_cpu_us": 312
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-9aa8573c",
+      "user_cpu_us": 4526,
+      "system_cpu_us": 140
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-1a3908fe",
+      "user_cpu_us": 4590,
+      "system_cpu_us": 54
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-403b3934",
+      "user_cpu_us": 4939,
+      "system_cpu_us": 329
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-5ad130ec",
+      "user_cpu_us": 4833,
+      "system_cpu_us": 197
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-3fbc2117",
+      "user_cpu_us": 4328,
+      "system_cpu_us": 141
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-6326bd4d",
+      "user_cpu_us": 4207,
+      "system_cpu_us": 179
+    },
+    {
+      "query_id": "s13-20261114132435-dependency-hydration-codec-cc764c91",
+      "user_cpu_us": 4551,
+      "system_cpu_us": 84
+    },
+    {
+      "query_id": "s13-20261114132435-admin-bcd8afb0",
+      "user_cpu_us": 390,
+      "system_cpu_us": 2244
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-warmup-9fc0c186",
+      "user_cpu_us": 4179,
+      "system_cpu_us": 3979
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-b4ff2b84",
+      "user_cpu_us": 7145,
+      "system_cpu_us": 943
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-d7089420",
+      "user_cpu_us": 5023,
+      "system_cpu_us": 3270
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-18a90adc",
+      "user_cpu_us": 4492,
+      "system_cpu_us": 2972
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-93f41d43",
+      "user_cpu_us": 7159,
+      "system_cpu_us": 773
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-74aa579b",
+      "user_cpu_us": 6836,
+      "system_cpu_us": 770
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-5631183e",
+      "user_cpu_us": 8065,
+      "system_cpu_us": 626
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-3e3fe0ce",
+      "user_cpu_us": 6660,
+      "system_cpu_us": 978
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-48a8aabe",
+      "user_cpu_us": 4015,
+      "system_cpu_us": 3421
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-77d31c49",
+      "user_cpu_us": 3078,
+      "system_cpu_us": 4144
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-spans-5e0555b9",
+      "user_cpu_us": 3546,
+      "system_cpu_us": 3799
+    },
+    {
+      "query_id": "s13-20261114132435-admin-28a63130",
+      "user_cpu_us": 378,
+      "system_cpu_us": 2765
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-warmup-bb76f1aa",
+      "user_cpu_us": 1394,
+      "system_cpu_us": 3467
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-f2ae59fb",
+      "user_cpu_us": 1120,
+      "system_cpu_us": 3140
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-6f9ef19e",
+      "user_cpu_us": 2018,
+      "system_cpu_us": 2011
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-434f3231",
+      "user_cpu_us": 3445,
+      "system_cpu_us": 899
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-ca870e54",
+      "user_cpu_us": 3726,
+      "system_cpu_us": 428
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-30c6fc37",
+      "user_cpu_us": 4017,
+      "system_cpu_us": 274
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-56eb9aae",
+      "user_cpu_us": 3918,
+      "system_cpu_us": 850
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-3bbc7d4c",
+      "user_cpu_us": 798,
+      "system_cpu_us": 3185
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-1261cbf7",
+      "user_cpu_us": 3647,
+      "system_cpu_us": 773
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-ede2701a",
+      "user_cpu_us": 3299,
+      "system_cpu_us": 870
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-service_first-34d0ae31",
+      "user_cpu_us": 3881,
+      "system_cpu_us": 147
+    },
+    {
+      "query_id": "s13-20261114132435-admin-62923439",
+      "user_cpu_us": 2666,
+      "system_cpu_us": 287
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-warmup-bf2e8f94",
+      "user_cpu_us": 7794,
+      "system_cpu_us": 152
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-f93084d9",
+      "user_cpu_us": 5707,
+      "system_cpu_us": 2467
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-8af3e09a",
+      "user_cpu_us": 8613,
+      "system_cpu_us": 431
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-f716fef2",
+      "user_cpu_us": 9753,
+      "system_cpu_us": 615
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-4b1c0387",
+      "user_cpu_us": 7238,
+      "system_cpu_us": 3913
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-3502c0e1",
+      "user_cpu_us": 5504,
+      "system_cpu_us": 8746
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-e26da9cd",
+      "user_cpu_us": 15966,
+      "system_cpu_us": 923
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-3a31eef4",
+      "user_cpu_us": 6372,
+      "system_cpu_us": 1383
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-2cb2ca2f",
+      "user_cpu_us": 6043,
+      "system_cpu_us": 1866
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-2faa8a58",
+      "user_cpu_us": 5568,
+      "system_cpu_us": 2041
+    },
+    {
+      "query_id": "s13-20261114132435-service-filter-codec-0580d787",
+      "user_cpu_us": 7761,
+      "system_cpu_us": 1105
+    },
+    {
+      "query_id": "s13-20261114132435-admin-f2e2376b",
+      "user_cpu_us": 3168,
+      "system_cpu_us": 367
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-warmup-93b8947a",
+      "user_cpu_us": 6487,
+      "system_cpu_us": 7031
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-95e7d926",
+      "user_cpu_us": 5397,
+      "system_cpu_us": 535
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-a71f7ae3",
+      "user_cpu_us": 5253,
+      "system_cpu_us": 497
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-f2165414",
+      "user_cpu_us": 5046,
+      "system_cpu_us": 502
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-f45cbba8",
+      "user_cpu_us": 5714,
+      "system_cpu_us": 134
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-df3f0ecb",
+      "user_cpu_us": 4927,
+      "system_cpu_us": 306
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-e49d75d2",
+      "user_cpu_us": 6193,
+      "system_cpu_us": 1237
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-83940113",
+      "user_cpu_us": 6880,
+      "system_cpu_us": 275
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-acabbd90",
+      "user_cpu_us": 5071,
+      "system_cpu_us": 167
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-fbb03773",
+      "user_cpu_us": 4965,
+      "system_cpu_us": 198
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs-f968b88b",
+      "user_cpu_us": 5350,
+      "system_cpu_us": 173
+    },
+    {
+      "query_id": "s13-20261114132435-admin-5dad5738",
+      "user_cpu_us": 2798,
+      "system_cpu_us": 152
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-warmup-86135a5d",
+      "user_cpu_us": 2246,
+      "system_cpu_us": 4233
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-f1f39b28",
+      "user_cpu_us": 4901,
+      "system_cpu_us": 286
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-a05e2f7d",
+      "user_cpu_us": 5274,
+      "system_cpu_us": 263
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-9ded22e3",
+      "user_cpu_us": 2351,
+      "system_cpu_us": 3930
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-55799da2",
+      "user_cpu_us": 5908,
+      "system_cpu_us": 466
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-ce2c81da",
+      "user_cpu_us": 5186,
+      "system_cpu_us": 266
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-44f0e636",
+      "user_cpu_us": 5464,
+      "system_cpu_us": 207
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-bc74cd39",
+      "user_cpu_us": 4828,
+      "system_cpu_us": 331
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-3e2fc09c",
+      "user_cpu_us": 5204,
+      "system_cpu_us": 266
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-3d44fc46",
+      "user_cpu_us": 5266,
+      "system_cpu_us": 625
+    },
+    {
+      "query_id": "s13-20261114132435-correlated-logs-logs_bloom-65355b89",
+      "user_cpu_us": 2677,
+      "system_cpu_us": 3649
+    },
+    {
+      "query_id": "s13-20261114132435-admin-c78b75e4",
+      "user_cpu_us": 2366,
+      "system_cpu_us": 617
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-warmup-7ab09db1",
+      "user_cpu_us": 1052,
+      "system_cpu_us": 4458
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-f8b13958",
+      "user_cpu_us": 4692,
+      "system_cpu_us": 349
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-8a761506",
+      "user_cpu_us": 5106,
+      "system_cpu_us": 457
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-d7b9d014",
+      "user_cpu_us": 5136,
+      "system_cpu_us": 606
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-ee2a8f7f",
+      "user_cpu_us": 5096,
+      "system_cpu_us": 461
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-2badd848",
+      "user_cpu_us": 5777,
+      "system_cpu_us": 390
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-897d2b46",
+      "user_cpu_us": 2298,
+      "system_cpu_us": 2991
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-ac4fb412",
+      "user_cpu_us": 715,
+      "system_cpu_us": 4525
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-ce7c584a",
+      "user_cpu_us": 5535,
+      "system_cpu_us": 314
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-68315191",
+      "user_cpu_us": 6338,
+      "system_cpu_us": 372
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs-1b92a6f0",
+      "user_cpu_us": 4917,
+      "system_cpu_us": 360
+    },
+    {
+      "query_id": "s13-20261114132435-admin-78ac918b",
+      "user_cpu_us": 2574,
+      "system_cpu_us": 204
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-warmup-aad79534",
+      "user_cpu_us": 1684,
+      "system_cpu_us": 3690
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-afc4e6f4",
+      "user_cpu_us": 5127,
+      "system_cpu_us": 503
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-a9042186",
+      "user_cpu_us": 6110,
+      "system_cpu_us": 315
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-4f422301",
+      "user_cpu_us": 5398,
+      "system_cpu_us": 349
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-34fa8d45",
+      "user_cpu_us": 5527,
+      "system_cpu_us": 338
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-3ba7643f",
+      "user_cpu_us": 5252,
+      "system_cpu_us": 382
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-21cfbf66",
+      "user_cpu_us": 5380,
+      "system_cpu_us": 406
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-0bcd3a50",
+      "user_cpu_us": 5575,
+      "system_cpu_us": 402
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-fbd39319",
+      "user_cpu_us": 6416,
+      "system_cpu_us": 435
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-21d73c67",
+      "user_cpu_us": 5791,
+      "system_cpu_us": 318
+    },
+    {
+      "query_id": "s13-20261114132435-recent-logs-logs_bloom-3ff17402",
+      "user_cpu_us": 3909,
+      "system_cpu_us": 2283
+    },
+    {
+      "query_id": "s13-20261114132435-admin-5e73837d",
+      "user_cpu_us": 3469,
+      "system_cpu_us": 190
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-warmup-fceb49bc",
+      "user_cpu_us": 3876,
+      "system_cpu_us": 194
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-61578fea",
+      "user_cpu_us": 3827,
+      "system_cpu_us": 202
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-76c71bc5",
+      "user_cpu_us": 4153,
+      "system_cpu_us": 179
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-33500fdb",
+      "user_cpu_us": 4464,
+      "system_cpu_us": 228
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-4352fe89",
+      "user_cpu_us": 4175,
+      "system_cpu_us": 176
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-bf1172be",
+      "user_cpu_us": 3666,
+      "system_cpu_us": 196
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-e758566b",
+      "user_cpu_us": 3909,
+      "system_cpu_us": 275
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-5902df43",
+      "user_cpu_us": 3934,
+      "system_cpu_us": 199
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-2947b882",
+      "user_cpu_us": 4070,
+      "system_cpu_us": 278
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-25db8dac",
+      "user_cpu_us": 4217,
+      "system_cpu_us": 182
+    },
+    {
+      "query_id": "s13-20261114132435-metric-stream-37518002",
+      "user_cpu_us": 4093,
+      "system_cpu_us": 204
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-warmup-f478e7db",
+      "user_cpu_us": 13898,
+      "system_cpu_us": 3061
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-f0eeb902",
+      "user_cpu_us": 7416,
+      "system_cpu_us": 7003
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-9f473ce7",
+      "user_cpu_us": 12224,
+      "system_cpu_us": 4621
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-48ec7eb4",
+      "user_cpu_us": 11307,
+      "system_cpu_us": 4846
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-947a6deb",
+      "user_cpu_us": 13033,
+      "system_cpu_us": 356
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-ccc08a16",
+      "user_cpu_us": 13324,
+      "system_cpu_us": 102
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-568217ee",
+      "user_cpu_us": 6431,
+      "system_cpu_us": 4558
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-5f299bd7",
+      "user_cpu_us": 9622,
+      "system_cpu_us": 325
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-6711b60e",
+      "user_cpu_us": 5747,
+      "system_cpu_us": 5090
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-1334e4f2",
+      "user_cpu_us": 9671,
+      "system_cpu_us": 1897
+    },
+    {
+      "query_id": "s13-20261114132435-slo-points-55dacb01",
+      "user_cpu_us": 7453,
+      "system_cpu_us": 2645
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-warmup-e69e0e5f",
+      "user_cpu_us": 39944,
+      "system_cpu_us": 12298
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-481070aa",
+      "user_cpu_us": 39736,
+      "system_cpu_us": 5707
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-7877d45c",
+      "user_cpu_us": 41419,
+      "system_cpu_us": 4537
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-e367523f",
+      "user_cpu_us": 37065,
+      "system_cpu_us": 13080
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-e087a8b7",
+      "user_cpu_us": 33639,
+      "system_cpu_us": 11972
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-92bac460",
+      "user_cpu_us": 42748,
+      "system_cpu_us": 148
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-d21a6740",
+      "user_cpu_us": 41717,
+      "system_cpu_us": 2767
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-b9ef637c",
+      "user_cpu_us": 41288,
+      "system_cpu_us": 5674
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-5a813ec5",
+      "user_cpu_us": 36863,
+      "system_cpu_us": 8687
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-6308c3ff",
+      "user_cpu_us": 50408,
+      "system_cpu_us": 2014
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-reference-6b51d858",
+      "user_cpu_us": 43982,
+      "system_cpu_us": 11495
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-build-d46934a0",
+      "user_cpu_us": 45482,
+      "system_cpu_us": 384
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-warmup-f3584091",
+      "user_cpu_us": 1505,
+      "system_cpu_us": 252
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-6cd687d8",
+      "user_cpu_us": 316,
+      "system_cpu_us": 1120
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-0d2ee87e",
+      "user_cpu_us": 291,
+      "system_cpu_us": 1018
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-04494af0",
+      "user_cpu_us": 1676,
+      "system_cpu_us": 274
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-0688b862",
+      "user_cpu_us": 1295,
+      "system_cpu_us": 235
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-c208f0e1",
+      "user_cpu_us": 1282,
+      "system_cpu_us": 211
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-3a21a281",
+      "user_cpu_us": 1371,
+      "system_cpu_us": 42
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-ade7d9f1",
+      "user_cpu_us": 417,
+      "system_cpu_us": 1395
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-de4099cf",
+      "user_cpu_us": 339,
+      "system_cpu_us": 1158
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-46a00a4d",
+      "user_cpu_us": 1243,
+      "system_cpu_us": 258
+    },
+    {
+      "query_id": "s13-20261114132435-snapshot-read-6c5388a3",
+      "user_cpu_us": 1388,
+      "system_cpu_us": 303
+    },
+    {
+      "query_id": "s13-20261114132435-ttl-create-84b5357a",
+      "user_cpu_us": 1570,
+      "system_cpu_us": 299
+    },
+    {
+      "query_id": "s13-20261114132435-admin-a069ac33",
+      "user_cpu_us": 0,
+      "system_cpu_us": 345
+    },
+    {
+      "query_id": "s13-20261114132435-admin-7bc4519f",
+      "user_cpu_us": 0,
+      "system_cpu_us": 773
+    },
+    {
+      "query_id": "s13-20261114132435-admin-3e2eec33",
+      "user_cpu_us": 2200,
+      "system_cpu_us": 487
+    },
+    {
+      "query_id": "s13-20261114132435-admin-3ce1fb1d",
+      "user_cpu_us": 227,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-ttl-materialize-7a8be133",
+      "user_cpu_us": 1191,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-admin-8ab1ea4c",
+      "user_cpu_us": 1788,
+      "system_cpu_us": 104
+    },
+    {
+      "query_id": "s13-20261114132435-admin-77464d03",
+      "user_cpu_us": 700,
+      "system_cpu_us": 0
+    },
+    {
+      "query_id": "s13-20261114132435-admin-03493960",
+      "user_cpu_us": 11981,
+      "system_cpu_us": 7152
+    }
+  ]
+}

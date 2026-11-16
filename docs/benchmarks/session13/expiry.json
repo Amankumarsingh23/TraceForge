@@ -1,0 +1,90 @@
+{
+  "database": "tf_bench_expiry_20261114133715",
+  "old_trace": "0edc8d9ed8ed4d19e31d5d188a612d0d",
+  "recent_trace": "07ea0eb7c1ca429338dc34284e13dbcd",
+  "evaluation": {
+    "status": "MEASURED",
+    "id": "cb4b5f539c49c795439dfd06f1c07c37dcb72735ef7b7b7b8f12b9fb97317088",
+    "slo_key": "s13-ttl-20261114133715-v1",
+    "definition": {
+      "id": "s13-ttl-20261114133715",
+      "version": 1,
+      "description": "Isolated copied fixture evidence; raw TTL link experiment",
+      "kind": "provider_attempt",
+      "source_version": "agentops/v1",
+      "service": "support-agent",
+      "namespace": "",
+      "environment": "local",
+      "mode": "fixture",
+      "provider": "traceforge_fixture",
+      "route": "",
+      "expected_writers": [],
+      "target": "0.8",
+      "window_seconds": 30,
+      "min_count": 1,
+      "min_coverage": "1",
+      "rules": []
+    },
+    "cutoff": "2026-11-14T06:30:10Z",
+    "revision": 1,
+    "overall": {
+      "evidence": {
+        "status": "MEASURED",
+        "reason": "",
+        "from": "2026-11-14T06:29:40Z",
+        "to": "2026-11-14T06:30:10Z",
+        "total": "1",
+        "good": "0",
+        "bad": "1",
+        "coverage": 1,
+        "diagnostics": {
+          "completeness": "unknown; timeout does not prove provider never received request; operational success is not answer quality",
+          "conflicting_groups": 0,
+          "population": "observed canonical model/attempt starts; tools and parent summaries excluded",
+          "source": "agentops/v1",
+          "trace_gaps": 0
+        },
+        "trace_ids": [
+          "0edc8d9ed8ed4d19e31d5d188a612d0d"
+        ],
+        "details": {
+          "attempts": 1,
+          "successful_attempts": 0,
+          "logical_operations": 1,
+          "successful_logical_operations": 0,
+          "retry_recovered": 0,
+          "timeouts": 0,
+          "rate_limited": 0,
+          "provider_errors": 1,
+          "canceled_or_deadline": 0,
+          "unknown_outcomes": 0,
+          "usage_complete_attempts": 0,
+          "usage_coverage": "incomplete",
+          "attempt_mean_ms": 0.3873,
+          "attempt_p95_ms": 0.3873,
+          "logical_mean_ms": 0.6097,
+          "logical_p95_ms": 0.6097,
+          "mode": "fixture",
+          "provider": "traceforge_fixture"
+        }
+      },
+      "budget": {
+        "sli": "0",
+        "bad_fraction": "1",
+        "allowed_bad_fraction": "1/5",
+        "allowed_bad_events": "1/5",
+        "budget_consumed": "5",
+        "budget_remaining": "-4/5",
+        "burn_rate": "5",
+        "meets_target": false
+      }
+    },
+    "rules": [],
+    "created_at": "2026-11-14T13:37:15.9134206Z"
+  },
+  "before_status": 200,
+  "after_status": 404,
+  "recent_status": 200,
+  "retained_history_status": 200,
+  "backend": "http://127.0.0.1:8085"
+}

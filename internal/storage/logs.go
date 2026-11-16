@@ -14,7 +14,7 @@ func (s *Store) InsertLogs(ctx context.Context, rows []logs.Row) error {
 	if len(rows) == 0 {
 		return nil
 	}
-	batch, e := s.Conn.PrepareBatch(ctx, `INSERT INTO traceforge.logs (`+logColumns+`)`)
+	batch, e := s.prepareBatch(ctx, `INSERT INTO traceforge.logs (`+logColumns+`)`)
 	if e != nil {
 		return errors.New("prepare log batch failed")
 	}
@@ -51,7 +51,7 @@ func (s *Store) SearchLogs(ctx context.Context, q logs.Query) ([]logs.Row, error
 	}
 	sql += ` ORDER BY effective_time DESC, log_id DESC LIMIT ?`
 	args = append(args, q.Limit+1)
-	rows, e := s.Conn.Query(ctx, sql, args...)
+	rows, e := s.query(ctx, sql, args...)
 	if e != nil {
 		return nil, logQueryError(ctx, e)
 	}

@@ -41,7 +41,7 @@ func (s *Store) GetTraceSpans(ctx context.Context, traceID string, maxRows int) 
 	}
 	ctx, cancel := queryContext(ctx)
 	defer cancel()
-	rows, err := s.Conn.Query(ctx, `SELECT trace_id,span_id,parent_span_id,service_name,span_name,span_kind,start_time,end_time,duration_ns,status_code,status_message,
+	rows, err := s.query(ctx, `SELECT trace_id,span_id,parent_span_id,service_name,span_name,span_kind,start_time,end_time,duration_ns,status_code,status_message,
 resource_attributes_json,span_attributes_json,scope_name,scope_version,events_json,links_json,resource_json,scope_json,span_json,resource_schema_url,scope_schema_url,ingested_at
 FROM traceforge.spans WHERE trace_id = ? ORDER BY start_time,span_id,ingested_at LIMIT ?`, traceID, maxRows+1)
 	if err != nil {
@@ -113,7 +113,7 @@ HAVING countIf((service_name = ? OR ? = '') AND (status_code = 2 OR ? = '')) > 0
 	}
 	sql += ` ORDER BY latest_start DESC,trace_id ASC LIMIT ?`
 	args = append(args, q.Limit+1)
-	rows, err := s.Conn.Query(ctx, sql, args...)
+	rows, err := s.query(ctx, sql, args...)
 	if err != nil {
 		return nil, queryError(ctx, err)
 	}

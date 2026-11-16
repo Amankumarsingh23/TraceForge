@@ -1,0 +1,33 @@
+[
+  {
+    "query_id": "s13-20261114131216-snapshot-reference-warmup-282f5706",
+    "label": "snapshot-reference-warmup",
+    "sql": "SELECT service_name,count() requests FROM (SELECT trace_id,span_id,any(service_name) service_name FROM tf_bench_s13_20261114131216_100000.spans WHERE span_kind=2 GROUP BY trace_id,span_id HAVING uniqExact(tuple(service_name,status_code,duration_ns))=1) GROUP BY service_name ORDER BY service_name FORMAT JSONEachRow",
+    "error": "HTTP Error 500: Internal Server Error",
+    "wall_ms": 36.40399999858346
+  },
+  {
+    "query_id": "s13-20261114132032-admin-0e148a7c",
+    "label": "admin",
+    "sql": "CREATE TABLE tf_bench_s13_20261114131316_300000.write_bloom_1794662432626050000\n(\n    `log_id` FixedString(32),\n    `source_event_id` String,\n    `trace_id` String,\n    `span_id` String,\n    `trace_flags` UInt32,\n    `service_name` LowCardinality(String),\n    `severity_number` UInt8,\n    `severity_text` String,\n    `event_time` Nullable(DateTime64(9, 'UTC')),\n    `observed_time` Nullable(DateTime64(9, 'UTC')),\n    `effective_time` DateTime64(9, 'UTC'),\n    `time_source` LowCardinality(String),\n    `body_text` String,\n    `body_json` String,\n    `attributes_json` String,\n    `resource_attributes_json` String,\n    `scope_name` String,\n    `scope_version` String,\n    `event_name` String,\n    `resource_json` String,\n    `scope_json` String,\n    `record_json` String,\n    `resource_schema_url` String,\n    `scope_schema_url` String,\n    `ingested_at` DateTime64(9, 'UTC'),\n    INDEX s13_trace_bloom trace_id TYPE bloom_filter(0.01) GRANULARITY 1,\n INDEX s13_trace_bloom trace_id TYPE bloom_filter(0.01) GRANULARITY 1\n)\nENGINE = MergeTree\nPARTITION BY toYYYYMM(effective_time)\nORDER BY (effective_time, log_id)\nSETTINGS index_granularity = 8192",
+    "server_error": "Code: 127. DB::Exception: Duplicated index name s13_trace_bloom is not allowed. Please use a different index name. (ILLEGAL_INDEX) (version 26.8.36.3 (official build))\n",
+    "error": "HTTP Error 500: Internal Server Error",
+    "wall_ms": 5.081300001620548
+  },
+  {
+    "query_id": "s13-20261114132200-generate-72277c22",
+    "label": "generate",
+    "sql": "INSERT INTO tf_bench_s13_20261114132200_300000.spans SELECT\n lower(hex(MD5(concat('s13-seed42-',toString(intDiv(number,5)))))) trace_id,\n lower(hex(toFixedString(unhex(leftPad(hex(number%5+1),16,'0')),8))) span_id,\n if(number%5=0,'',leftPad(toString(number%5),16,'0')) parent_span_id,\n ['gateway','gateway','payment','payment','worker'][number%5+1] service_name,\n ['GET /checkout','HTTP GET','GET /charge','payment.process','work'][number%5+1] span_name,\n toUInt8([2,3,2,1,1][number%5+1]) span_kind,\n fromUnixTimestamp64Nano(toInt64(1790812799000000000+number*1000000),'UTC') start_time,\n start_time+toIntervalNanosecond(([10000000,8000000,6000000,4000000,1000000][number%5+1]+if(intDiv(number,5)%20=0,100000000,0))) end_time,\n toUInt64(([10000000,8000000,6000000,4000000,1000000][number%5+1]+if(intDiv(number,5)%20=0,100000000,0))) duration_ns,\n toUInt8(if(intDiv(number,5)%100=0,2,0)) status_code,'' status_message,\n concat('[{\"key\":\"service.name\",\"value\":{\"stringValue\":\"',service_name,'\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}]') resource_attributes_json,concat('[{\"key\":\"payload\",\"value\":{\"stringValue\":\"',repeat('a',128),'\"}}]') span_attributes_json,\n 'traceforge/s13' scope_name,'1' scope_version,'[]' events_json,'[]' links_json,\n '{}' resource_json,'{}' scope_json,'{}' span_json,'' resource_schema_url,'' scope_schema_url,\n toDateTime64('2026-11-01 00:00:00',3,'UTC') ingested_at FROM numbers(300000)",
+    "server_error": "Code: 241. DB::Exception: Query memory limit exceeded: would use 521.26 MiB (attempt to allocate chunk of 33.33 MiB), maximum: 512.00 MiB. (MEMORY_LIMIT_EXCEEDED) (version 26.8.36.3 (official build))\n",
+    "error": "HTTP Error 500: Internal Server Error",
+    "wall_ms": 2788.6249000002863
+  },
+  {
+    "query_id": "s13-20261114132312-insert-service_first-e213c5fd",
+    "label": "insert-service_first",
+    "sql": "INSERT INTO tf_bench_s13_20261114132312_300000.service_first SELECT * FROM tf_bench_s13_20261114132312_300000.spans",
+    "server_error": "Code: 241. DB::Exception: Query memory limit exceeded: would use 515.06 MiB (attempt to allocate chunk of 4.28 MiB), maximum: 512.00 MiB. (MEMORY_LIMIT_EXCEEDED) (version 26.8.36.3 (official build))\n",
+    "error": "HTTP Error 500: Internal Server Error",
+    "wall_ms": 2326.3490999997885
+  }
+]

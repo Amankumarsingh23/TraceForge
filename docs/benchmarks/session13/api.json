@@ -1,0 +1,2118 @@
+{
+  "database": "tf_bench_s13_20261114132435_300000",
+  "paired_inserts": {
+    "write_plain": {
+      "samples": 5,
+      "batch_rows": 10000,
+      "p50_ack_ms": 103.5321000017575,
+      "p95_ack_ms": 140.53339999736636,
+      "counts": [
+        {
+          "physical": 50000,
+          "checksum": 11570562987550184197
+        }
+      ]
+    },
+    "write_bloom": {
+      "samples": 5,
+      "batch_rows": 10000,
+      "p50_ack_ms": 104.79789999953937,
+      "p95_ack_ms": 153.82379999937257,
+      "counts": [
+        {
+          "physical": 50000,
+          "checksum": 11570562987550184197
+        }
+      ]
+    }
+  },
+  "api": {
+    "trace": {
+      "path": "/api/v1/traces/0000a431a66e742c244b828d9eeb124e",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 30.1902000028349,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 30.12210000088089,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 32.325299998774426,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 7.328299998334842,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 7.0564000016020145,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 31.257999999070307,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 30.508200001349906,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 30.209000000468222,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 32.81729999798699,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        },
+        {
+          "status": 200,
+          "ms": 29.649799998878734,
+          "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+        }
+      ]
+    },
+    "search": {
+      "path": "/api/v1/traces?from=2026-09-30T23%3A59%3A59Z&to=2026-09-30T23%3A59%3A59.1Z",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 7.577200001833262,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 5.728200001613004,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 59.06019999747514,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 6.133200000476791,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 19.814699997368734,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 6.114499999966938,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 25.68550000069081,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 31.49959999791463,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 31.948799998644972,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        },
+        {
+          "status": 200,
+          "ms": 29.13289999924018,
+          "checksum": "ca4eb1bd6e8d18a33a3b2881cbed781e0c43e23d5d3c0fffaeb367f410e3ea41"
+        }
+      ]
+    },
+    "correlated-logs": {
+      "path": "/api/v1/logs?from=2026-09-30T23:59:59Z&to=2026-10-01T00:05:01Z&trace_id=0000a431a66e742c244b828d9eeb124e",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 27.919199997995747,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 31.33209999941755,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 38.219000001845416,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 26.293200000509387,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 14.118499999312917,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 10.469300003023818,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.253200001694495,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 26.073100001667626,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 31.50199999799952,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 30.807700000877958,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        }
+      ]
+    },
+    "recent-logs": {
+      "path": "/api/v1/logs?from=2026-09-30T23%3A59%3A59Z&to=2026-09-30T23%3A59%3A59.1Z",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 19.966799998655915,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 31.834199999138946,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 31.14629999981844,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 30.39139999964391,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 30.753200000617653,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 32.439300000987714,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 31.396499998663785,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 6.912699998792959,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 7.718400000157999,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        },
+        {
+          "status": 200,
+          "ms": 30.41060000032303,
+          "checksum": "7fb77be6f9ba76e81669963e28599e396dab9ec6e4debb1f39ab8d069026fc05"
+        }
+      ]
+    },
+    "service-red": {
+      "path": "/api/v1/services?from=2026-09-30T23%3A59%3A59Z&to=2026-09-30T23%3A59%3A59.1Z&bucket_seconds=60",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 13.707400001294445,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 15.196499996818602,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 25.628599996707635,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 12.7119999997376,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 31.309300000430085,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 14.167799999995623,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 12.508000003435882,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 12.57890000124462,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 13.586799999757204,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 25.304599999799393,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        }
+      ]
+    },
+    "graph": {
+      "path": "/api/v1/service-graph?from=2026-09-30T23%3A59%3A59Z&to=2026-09-30T23%3A59%3A59.1Z&bucket_seconds=60",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 16.049600002588704,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 37.672200000088196,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 13.719099999434547,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 14.878699999826495,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 13.197899999795482,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 12.757399999827612,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 18.401699999230914,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 14.283399999840185,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 31.396400001540314,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        },
+        {
+          "status": 200,
+          "ms": 31.140299997787224,
+          "checksum": "cd7d4da54f10c746f6bd59b46da0c65f3344336e57f01b448687734acdb3d3ab"
+        }
+      ]
+    },
+    "metric": {
+      "path": "/api/v1/metrics/query?from=2026-11-14T06%3A28%3A19Z&to=2026-11-14T06%3A28%3A39Z&service=payment&namespace=session12-20261114062758",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 51.829100000759354,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 65.13149999955203,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 43.56349999943632,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 42.312800000217976,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 50.655700000788784,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 40.09969999970053,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 51.1716000000888,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 67.21540000216919,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 37.643700001353864,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        },
+        {
+          "status": 200,
+          "ms": 41.42599999977392,
+          "checksum": "ac88a51756f5b30bdbc9609ff1784122a0a17cd4aa105a9900c43266532a57ba"
+        }
+      ]
+    },
+    "correlated-logs-indexed": {
+      "path": "/api/v1/logs?from=2026-09-30T23:59:59Z&to=2026-10-01T00:05:01Z&trace_id=0000a431a66e742c244b828d9eeb124e",
+      "runs": [
+        {
+          "status": 200,
+          "ms": 12.080000000423752,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.499100000539329,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.279400001105387,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.33959999747458,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.073699999134988,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.413799998583272,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.189099997456651,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 9.273900002881419,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 10.08430000001681,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        },
+        {
+          "status": 200,
+          "ms": 31.28899999865098,
+          "checksum": "4b873ef2d0d50e24dc40680beafaa31c6714248b6669459ffe7075e1a7602d55"
+        }
+      ]
+    }
+  },
+  "write_storage": [
+    {
+      "table": "write_bloom_1794662748151919500",
+      "parts": 2,
+      "rows": 50000,
+      "disk_bytes": 1152052
+    },
+    {
+      "table": "write_bloom_1794663356197079600",
+      "parts": 6,
+      "rows": 50000,
+      "disk_bytes": 4414481
+    },
+    {
+      "table": "write_plain_1794662747759405500",
+      "parts": 2,
+      "rows": 50000,
+      "disk_bytes": 1139874
+    },
+    {
+      "table": "write_plain_1794663355553252100",
+      "parts": 2,
+      "rows": 50000,
+      "disk_bytes": 1139874
+    }
+  ],
+  "complete_metric_scope_rows": 2800,
+  "slo_reference": {
+    "ms": 166.379300000699,
+    "result": {
+      "status": "MEASURED",
+      "id": "0009b25a70586912b0b28fc1733fbd3af478e1de451664a8be0b8be741ee2152",
+      "slo_key": "s12-20261114062804-availability-v1",
+      "definition": {
+        "id": "s12-20261114062804-availability",
+        "version": 1,
+        "description": "Local synthetic completion availability, HTTP>=500 bad; declared payment writer",
+        "kind": "availability",
+        "source_version": "otlp-metrics/v1",
+        "service": "payment",
+        "namespace": "session12-20261114062758",
+        "environment": "local",
+        "mode": "synthetic",
+        "provider": "",
+        "route": "/charge",
+        "expected_writers": [
+          "574490dd-33dc-40b7-ad91-d39099ed87b0"
+        ],
+        "target": "0.9",
+        "window_seconds": 20,
+        "min_count": 3,
+        "min_coverage": "0.6",
+        "rules": [
+          {
+            "id": "fast-demo",
+            "version": 1,
+            "long_seconds": 20,
+            "short_seconds": 10,
+            "threshold": "2",
+            "severity": "critical",
+            "confirm": 1,
+            "recover": 1
+          }
+        ]
+      },
+      "cutoff": "2026-11-14T06:28:39Z",
+      "revision": 22,
+      "overall": {
+        "evidence": {
+          "status": "MEASURED",
+          "reason": "",
+          "from": "2026-11-14T06:28:19Z",
+          "to": "2026-11-14T06:28:39Z",
+          "total": "23",
+          "good": "4",
+          "bad": "19",
+          "coverage": 0.899988935,
+          "diagnostics": {
+            "expected_writers": [
+              "574490dd-33dc-40b7-ad91-d39099ed87b0"
+            ],
+            "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+            "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+            "source": "otlp-metrics/v1"
+          },
+          "trace_ids": [],
+          "details": {
+            "574490dd-33dc-40b7-ad91-d39099ed87b0": {
+              "bad": "19",
+              "counterpart": {
+                "physical_points": 36,
+                "canonical_points": 18,
+                "replays": 18,
+                "conflicts": 0,
+                "resets": 0,
+                "gaps": 1,
+                "overlaps": 0,
+                "baselines": 0,
+                "unknown_sequence_start_points": 0,
+                "invalid_decreases": 0,
+                "boundary_intervals": 1,
+                "no_recorded_values": 0,
+                "overflow": false,
+                "definition_conflict": false
+              },
+              "covered_nanoseconds": 17999778700,
+              "intervals": [
+                {
+                  "start_ns": "1794637699854960800",
+                  "end_ns": "1794637701854579500",
+                  "increment": "3",
+                  "rate_per_second": 1.5002860295315301,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637701854579500",
+                  "end_ns": "1794637703854962800",
+                  "increment": "2",
+                  "rate_per_second": 0.9998083867226845,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637703854962800",
+                  "end_ns": "1794637705854643200",
+                  "increment": "2",
+                  "rate_per_second": 1.0001598255401214,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637705854643200",
+                  "end_ns": "1794637707855013600",
+                  "increment": "3",
+                  "rate_per_second": 1.4997222514390336,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637707855013600",
+                  "end_ns": "1794637709854721800",
+                  "increment": "2",
+                  "rate_per_second": 1.0001459212899162,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637709854721800",
+                  "end_ns": "1794637711855042300",
+                  "increment": "3",
+                  "rate_per_second": 1.4997596635139219,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637711855042300",
+                  "end_ns": "1794637713854566100",
+                  "increment": "3",
+                  "rate_per_second": 1.5003572350576673,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637713854566100",
+                  "end_ns": "1794637715854684200",
+                  "increment": "2",
+                  "rate_per_second": 0.9999409534866966,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637715854684200",
+                  "end_ns": "1794637717854739500",
+                  "increment": "3",
+                  "rate_per_second": 1.499958526146752,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                }
+              ],
+              "request": {
+                "physical_points": 36,
+                "canonical_points": 18,
+                "replays": 18,
+                "conflicts": 0,
+                "resets": 0,
+                "gaps": 1,
+                "overlaps": 0,
+                "baselines": 0,
+                "unknown_sequence_start_points": 0,
+                "invalid_decreases": 0,
+                "boundary_intervals": 1,
+                "no_recorded_values": 0,
+                "overflow": false,
+                "definition_conflict": false
+              },
+              "total": "23"
+            }
+          }
+        },
+        "budget": {
+          "sli": "4/23",
+          "bad_fraction": "19/23",
+          "allowed_bad_fraction": "1/10",
+          "allowed_bad_events": "23/10",
+          "budget_consumed": "190/23",
+          "budget_remaining": "-167/10",
+          "burn_rate": "190/23",
+          "meets_target": false
+        }
+      },
+      "rules": [
+        {
+          "rule": {
+            "id": "fast-demo",
+            "version": 1,
+            "long_seconds": 20,
+            "short_seconds": 10,
+            "threshold": "2",
+            "severity": "critical",
+            "confirm": 1,
+            "recover": 1
+          },
+          "long": {
+            "evidence": {
+              "status": "MEASURED",
+              "reason": "",
+              "from": "2026-11-14T06:28:19Z",
+              "to": "2026-11-14T06:28:39Z",
+              "total": "23",
+              "good": "4",
+              "bad": "19",
+              "coverage": 0.899988935,
+              "diagnostics": {
+                "expected_writers": [
+                  "574490dd-33dc-40b7-ad91-d39099ed87b0"
+                ],
+                "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+                "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+                "source": "otlp-metrics/v1"
+              },
+              "trace_ids": [],
+              "details": {
+                "574490dd-33dc-40b7-ad91-d39099ed87b0": {
+                  "bad": "19",
+                  "counterpart": {
+                    "physical_points": 36,
+                    "canonical_points": 18,
+                    "replays": 18,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "covered_nanoseconds": 17999778700,
+                  "intervals": [
+                    {
+                      "start_ns": "1794637699854960800",
+                      "end_ns": "1794637701854579500",
+                      "increment": "3",
+                      "rate_per_second": 1.5002860295315301,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637701854579500",
+                      "end_ns": "1794637703854962800",
+                      "increment": "2",
+                      "rate_per_second": 0.9998083867226845,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637703854962800",
+                      "end_ns": "1794637705854643200",
+                      "increment": "2",
+                      "rate_per_second": 1.0001598255401214,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637705854643200",
+                      "end_ns": "1794637707855013600",
+                      "increment": "3",
+                      "rate_per_second": 1.4997222514390336,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637707855013600",
+                      "end_ns": "1794637709854721800",
+                      "increment": "2",
+                      "rate_per_second": 1.0001459212899162,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637709854721800",
+                      "end_ns": "1794637711855042300",
+                      "increment": "3",
+                      "rate_per_second": 1.4997596635139219,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637711855042300",
+                      "end_ns": "1794637713854566100",
+                      "increment": "3",
+                      "rate_per_second": 1.5003572350576673,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637713854566100",
+                      "end_ns": "1794637715854684200",
+                      "increment": "2",
+                      "rate_per_second": 0.9999409534866966,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637715854684200",
+                      "end_ns": "1794637717854739500",
+                      "increment": "3",
+                      "rate_per_second": 1.499958526146752,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    }
+                  ],
+                  "request": {
+                    "physical_points": 36,
+                    "canonical_points": 18,
+                    "replays": 18,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "total": "23"
+                }
+              }
+            },
+            "budget": {
+              "sli": "4/23",
+              "bad_fraction": "19/23",
+              "allowed_bad_fraction": "1/10",
+              "allowed_bad_events": "23/10",
+              "budget_consumed": "190/23",
+              "budget_remaining": "-167/10",
+              "burn_rate": "190/23",
+              "meets_target": false
+            }
+          },
+          "short": {
+            "evidence": {
+              "status": "MEASURED",
+              "reason": "",
+              "from": "2026-11-14T06:28:29Z",
+              "to": "2026-11-14T06:28:39Z",
+              "total": "11",
+              "good": "0",
+              "bad": "11",
+              "coverage": 0.80000177,
+              "diagnostics": {
+                "expected_writers": [
+                  "574490dd-33dc-40b7-ad91-d39099ed87b0"
+                ],
+                "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+                "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+                "source": "otlp-metrics/v1"
+              },
+              "trace_ids": [],
+              "details": {
+                "574490dd-33dc-40b7-ad91-d39099ed87b0": {
+                  "bad": "11",
+                  "counterpart": {
+                    "physical_points": 36,
+                    "canonical_points": 18,
+                    "replays": 18,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "covered_nanoseconds": 8000017700,
+                  "intervals": [
+                    {
+                      "start_ns": "1794637709854721800",
+                      "end_ns": "1794637711855042300",
+                      "increment": "3",
+                      "rate_per_second": 1.4997596635139219,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637711855042300",
+                      "end_ns": "1794637713854566100",
+                      "increment": "3",
+                      "rate_per_second": 1.5003572350576673,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637713854566100",
+                      "end_ns": "1794637715854684200",
+                      "increment": "2",
+                      "rate_per_second": 0.9999409534866966,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637715854684200",
+                      "end_ns": "1794637717854739500",
+                      "increment": "3",
+                      "rate_per_second": 1.499958526146752,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    }
+                  ],
+                  "request": {
+                    "physical_points": 36,
+                    "canonical_points": 18,
+                    "replays": 18,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "total": "11"
+                }
+              }
+            },
+            "budget": {
+              "sli": "0",
+              "bad_fraction": "1",
+              "allowed_bad_fraction": "1/10",
+              "allowed_bad_events": "11/10",
+              "budget_consumed": "10",
+              "budget_remaining": "-99/10",
+              "burn_rate": "10",
+              "meets_target": false
+            }
+          },
+          "decision": "BREACH"
+        }
+      ],
+      "created_at": "2026-11-14T13:35:59.6330315Z"
+    }
+  },
+  "slo_isolated": {
+    "ms": 149.84049999839044,
+    "result": {
+      "status": "MEASURED",
+      "id": "d34108305d76548241622c536d12538c30b23c5b21c032ff2b8468f062858743",
+      "slo_key": "s12-20261114062804-availability-v1",
+      "definition": {
+        "id": "s12-20261114062804-availability",
+        "version": 1,
+        "description": "Local synthetic completion availability, HTTP>=500 bad; declared payment writer",
+        "kind": "availability",
+        "source_version": "otlp-metrics/v1",
+        "service": "payment",
+        "namespace": "session12-20261114062758",
+        "environment": "local",
+        "mode": "synthetic",
+        "provider": "",
+        "route": "/charge",
+        "expected_writers": [
+          "574490dd-33dc-40b7-ad91-d39099ed87b0"
+        ],
+        "target": "0.9",
+        "window_seconds": 20,
+        "min_count": 3,
+        "min_coverage": "0.6",
+        "rules": [
+          {
+            "id": "fast-demo",
+            "version": 1,
+            "long_seconds": 20,
+            "short_seconds": 10,
+            "threshold": "2",
+            "severity": "critical",
+            "confirm": 1,
+            "recover": 1
+          }
+        ]
+      },
+      "cutoff": "2026-11-14T06:28:39Z",
+      "revision": 23,
+      "overall": {
+        "evidence": {
+          "status": "MEASURED",
+          "reason": "",
+          "from": "2026-11-14T06:28:19Z",
+          "to": "2026-11-14T06:28:39Z",
+          "total": "23",
+          "good": "4",
+          "bad": "19",
+          "coverage": 0.899988935,
+          "diagnostics": {
+            "expected_writers": [
+              "574490dd-33dc-40b7-ad91-d39099ed87b0"
+            ],
+            "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+            "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+            "source": "otlp-metrics/v1"
+          },
+          "trace_ids": [],
+          "details": {
+            "574490dd-33dc-40b7-ad91-d39099ed87b0": {
+              "bad": "19",
+              "counterpart": {
+                "physical_points": 108,
+                "canonical_points": 18,
+                "replays": 90,
+                "conflicts": 0,
+                "resets": 0,
+                "gaps": 1,
+                "overlaps": 0,
+                "baselines": 0,
+                "unknown_sequence_start_points": 0,
+                "invalid_decreases": 0,
+                "boundary_intervals": 1,
+                "no_recorded_values": 0,
+                "overflow": false,
+                "definition_conflict": false
+              },
+              "covered_nanoseconds": 17999778700,
+              "intervals": [
+                {
+                  "start_ns": "1794637699854960800",
+                  "end_ns": "1794637701854579500",
+                  "increment": "3",
+                  "rate_per_second": 1.5002860295315301,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637701854579500",
+                  "end_ns": "1794637703854962800",
+                  "increment": "2",
+                  "rate_per_second": 0.9998083867226845,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637703854962800",
+                  "end_ns": "1794637705854643200",
+                  "increment": "2",
+                  "rate_per_second": 1.0001598255401214,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637705854643200",
+                  "end_ns": "1794637707855013600",
+                  "increment": "3",
+                  "rate_per_second": 1.4997222514390336,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637707855013600",
+                  "end_ns": "1794637709854721800",
+                  "increment": "2",
+                  "rate_per_second": 1.0001459212899162,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637709854721800",
+                  "end_ns": "1794637711855042300",
+                  "increment": "3",
+                  "rate_per_second": 1.4997596635139219,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637711855042300",
+                  "end_ns": "1794637713854566100",
+                  "increment": "3",
+                  "rate_per_second": 1.5003572350576673,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637713854566100",
+                  "end_ns": "1794637715854684200",
+                  "increment": "2",
+                  "rate_per_second": 0.9999409534866966,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                },
+                {
+                  "start_ns": "1794637715854684200",
+                  "end_ns": "1794637717854739500",
+                  "increment": "3",
+                  "rate_per_second": 1.499958526146752,
+                  "count": "",
+                  "sum": null,
+                  "buckets": []
+                }
+              ],
+              "request": {
+                "physical_points": 108,
+                "canonical_points": 18,
+                "replays": 90,
+                "conflicts": 0,
+                "resets": 0,
+                "gaps": 1,
+                "overlaps": 0,
+                "baselines": 0,
+                "unknown_sequence_start_points": 0,
+                "invalid_decreases": 0,
+                "boundary_intervals": 1,
+                "no_recorded_values": 0,
+                "overflow": false,
+                "definition_conflict": false
+              },
+              "total": "23"
+            }
+          }
+        },
+        "budget": {
+          "sli": "4/23",
+          "bad_fraction": "19/23",
+          "allowed_bad_fraction": "1/10",
+          "allowed_bad_events": "23/10",
+          "budget_consumed": "190/23",
+          "budget_remaining": "-167/10",
+          "burn_rate": "190/23",
+          "meets_target": false
+        }
+      },
+      "rules": [
+        {
+          "rule": {
+            "id": "fast-demo",
+            "version": 1,
+            "long_seconds": 20,
+            "short_seconds": 10,
+            "threshold": "2",
+            "severity": "critical",
+            "confirm": 1,
+            "recover": 1
+          },
+          "long": {
+            "evidence": {
+              "status": "MEASURED",
+              "reason": "",
+              "from": "2026-11-14T06:28:19Z",
+              "to": "2026-11-14T06:28:39Z",
+              "total": "23",
+              "good": "4",
+              "bad": "19",
+              "coverage": 0.899988935,
+              "diagnostics": {
+                "expected_writers": [
+                  "574490dd-33dc-40b7-ad91-d39099ed87b0"
+                ],
+                "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+                "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+                "source": "otlp-metrics/v1"
+              },
+              "trace_ids": [],
+              "details": {
+                "574490dd-33dc-40b7-ad91-d39099ed87b0": {
+                  "bad": "19",
+                  "counterpart": {
+                    "physical_points": 108,
+                    "canonical_points": 18,
+                    "replays": 90,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "covered_nanoseconds": 17999778700,
+                  "intervals": [
+                    {
+                      "start_ns": "1794637699854960800",
+                      "end_ns": "1794637701854579500",
+                      "increment": "3",
+                      "rate_per_second": 1.5002860295315301,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637701854579500",
+                      "end_ns": "1794637703854962800",
+                      "increment": "2",
+                      "rate_per_second": 0.9998083867226845,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637703854962800",
+                      "end_ns": "1794637705854643200",
+                      "increment": "2",
+                      "rate_per_second": 1.0001598255401214,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637705854643200",
+                      "end_ns": "1794637707855013600",
+                      "increment": "3",
+                      "rate_per_second": 1.4997222514390336,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637707855013600",
+                      "end_ns": "1794637709854721800",
+                      "increment": "2",
+                      "rate_per_second": 1.0001459212899162,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637709854721800",
+                      "end_ns": "1794637711855042300",
+                      "increment": "3",
+                      "rate_per_second": 1.4997596635139219,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637711855042300",
+                      "end_ns": "1794637713854566100",
+                      "increment": "3",
+                      "rate_per_second": 1.5003572350576673,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637713854566100",
+                      "end_ns": "1794637715854684200",
+                      "increment": "2",
+                      "rate_per_second": 0.9999409534866966,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637715854684200",
+                      "end_ns": "1794637717854739500",
+                      "increment": "3",
+                      "rate_per_second": 1.499958526146752,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    }
+                  ],
+                  "request": {
+                    "physical_points": 108,
+                    "canonical_points": 18,
+                    "replays": 90,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "total": "23"
+                }
+              }
+            },
+            "budget": {
+              "sli": "4/23",
+              "bad_fraction": "19/23",
+              "allowed_bad_fraction": "1/10",
+              "allowed_bad_events": "23/10",
+              "budget_consumed": "190/23",
+              "budget_remaining": "-167/10",
+              "burn_rate": "190/23",
+              "meets_target": false
+            }
+          },
+          "short": {
+            "evidence": {
+              "status": "MEASURED",
+              "reason": "",
+              "from": "2026-11-14T06:28:29Z",
+              "to": "2026-11-14T06:28:39Z",
+              "total": "11",
+              "good": "0",
+              "bad": "11",
+              "coverage": 0.80000177,
+              "diagnostics": {
+                "expected_writers": [
+                  "574490dd-33dc-40b7-ad91-d39099ed87b0"
+                ],
+                "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+                "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+                "source": "otlp-metrics/v1"
+              },
+              "trace_ids": [],
+              "details": {
+                "574490dd-33dc-40b7-ad91-d39099ed87b0": {
+                  "bad": "11",
+                  "counterpart": {
+                    "physical_points": 108,
+                    "canonical_points": 18,
+                    "replays": 90,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "covered_nanoseconds": 8000017700,
+                  "intervals": [
+                    {
+                      "start_ns": "1794637709854721800",
+                      "end_ns": "1794637711855042300",
+                      "increment": "3",
+                      "rate_per_second": 1.4997596635139219,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637711855042300",
+                      "end_ns": "1794637713854566100",
+                      "increment": "3",
+                      "rate_per_second": 1.5003572350576673,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637713854566100",
+                      "end_ns": "1794637715854684200",
+                      "increment": "2",
+                      "rate_per_second": 0.9999409534866966,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    },
+                    {
+                      "start_ns": "1794637715854684200",
+                      "end_ns": "1794637717854739500",
+                      "increment": "3",
+                      "rate_per_second": 1.499958526146752,
+                      "count": "",
+                      "sum": null,
+                      "buckets": []
+                    }
+                  ],
+                  "request": {
+                    "physical_points": 108,
+                    "canonical_points": 18,
+                    "replays": 90,
+                    "conflicts": 0,
+                    "resets": 0,
+                    "gaps": 1,
+                    "overlaps": 0,
+                    "baselines": 0,
+                    "unknown_sequence_start_points": 0,
+                    "invalid_decreases": 0,
+                    "boundary_intervals": 1,
+                    "no_recorded_values": 0,
+                    "overflow": false,
+                    "definition_conflict": false
+                  },
+                  "total": "11"
+                }
+              }
+            },
+            "budget": {
+              "sli": "0",
+              "bad_fraction": "1",
+              "allowed_bad_fraction": "1/10",
+              "allowed_bad_events": "11/10",
+              "budget_consumed": "10",
+              "budget_remaining": "-99/10",
+              "burn_rate": "10",
+              "meets_target": false
+            }
+          },
+          "decision": "BREACH"
+        }
+      ],
+      "created_at": "2026-11-14T13:35:59.7571454Z"
+    }
+  },
+  "concurrent_api": [
+    {
+      "status": 200,
+      "ms": 32.10359999866341,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 7.610799999383744,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 9.20389999737381,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 7.661599996936275,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 19.402300000365358,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 31.9125999994867,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 29.593600000225706,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 35.81659999690601,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 7.4230999998690095,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 19.131299999571638,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 6.908100000146078,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 7.170900000346592,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 7.020899996859953,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 8.28209999963292,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 33.733400003256975,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 7.096000001183711,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 22.396299998945324,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 30.00389999942854,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 31.614500003342982,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 30.59209999992163,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 36.93280000152299,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 24.377699999604374,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 29.39229999901727,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 31.652699999540346,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 33.49809999781428,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 28.829399998357985,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 30.692600001202663,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 32.36200000173994,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 31.369399999675807,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    },
+    {
+      "status": 200,
+      "ms": 31.804599999304628,
+      "checksum": "73e5f980897c8e417d1cccdf48a230127788fe405c8c6b967d3fe37b24ee350b"
+    }
+  ],
+  "concurrent_parts": [
+    {
+      "table": "codec",
+      "parts": 2,
+      "rows": 300096,
+      "disk_bytes": 6557901
+    },
+    {
+      "table": "logs",
+      "parts": 2,
+      "rows": 300096,
+      "disk_bytes": 17628697
+    },
+    {
+      "table": "logs_bloom",
+      "parts": 2,
+      "rows": 300096,
+      "disk_bytes": 17628697
+    },
+    {
+      "table": "metric_points",
+      "parts": 3,
+      "rows": 22370,
+      "disk_bytes": 898332
+    },
+    {
+      "table": "request_snapshot",
+      "parts": 1,
+      "rows": 2,
+      "disk_bytes": 790
+    },
+    {
+      "table": "service_first",
+      "parts": 2,
+      "rows": 300096,
+      "disk_bytes": 10480182
+    },
+    {
+      "table": "spans",
+      "parts": 5,
+      "rows": 320132,
+      "disk_bytes": 7448270
+    },
+    {
+      "table": "ttl_probe",
+      "parts": 1,
+      "rows": 1,
+      "disk_bytes": 772
+    },
+    {
+      "table": "write_bloom_1794662748151919500",
+      "parts": 2,
+      "rows": 50000,
+      "disk_bytes": 1152052
+    },
+    {
+      "table": "write_bloom_1794663356197079600",
+      "parts": 2,
+      "rows": 50000,
+      "disk_bytes": 1152052
+    },
+    {
+      "table": "write_plain_1794662747759405500",
+      "parts": 2,
+      "rows": 50000,
+      "disk_bytes": 1139874
+    },
+    {
+      "table": "write_plain_1794663355553252100",
+      "parts": 2,
+      "rows": 50000,
+      "disk_bytes": 1139874
+    }
+  ],
+  "main_backfill": {
+    "before": [
+      {
+        "physical": 9416,
+        "checksum": 2603038023246780583
+      }
+    ],
+    "after": [
+      {
+        "physical": 9416,
+        "checksum": 2603038023246780583
+      }
+    ]
+  },
+  "query_log": [
+    {
+      "query_id": "s13-20261114131706-paired-write_plain-393fa844",
+      "query_duration_ms": 67,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 22876732
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_plain-9e8106a8",
+      "query_duration_ms": 61,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 22875788
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_plain-6bfe0db7",
+      "query_duration_ms": 50,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 22875788
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_plain-924f5f76",
+      "query_duration_ms": 80,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23182603
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_plain-a2ed5ea9",
+      "query_duration_ms": 55,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23182603
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_bloom-58f73abb",
+      "query_duration_ms": 58,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29043690
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_bloom-1be6fe6d",
+      "query_duration_ms": 67,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29039698
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_bloom-c7ccad7c",
+      "query_duration_ms": 75,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29039698
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_bloom-90de5d56",
+      "query_duration_ms": 57,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 28097269
+    },
+    {
+      "query_id": "s13-20261114131706-paired-write_bloom-c3e9a537",
+      "query_duration_ms": 61,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29039346
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_plain-42a88f6e",
+      "query_duration_ms": 52,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23185795
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_plain-470d7ee5",
+      "query_duration_ms": 52,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_plain-da8aa189",
+      "query_duration_ms": 49,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_plain-c315bcd7",
+      "query_duration_ms": 45,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_plain-4312686d",
+      "query_duration_ms": 44,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_bloom-a71e2dcf",
+      "query_duration_ms": 60,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29048138
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_bloom-7d956e8f",
+      "query_duration_ms": 49,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040562
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_bloom-087aa7e4",
+      "query_duration_ms": 55,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040562
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_bloom-ad4eb229",
+      "query_duration_ms": 65,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040562
+    },
+    {
+      "query_id": "s13-20261114131726-paired-write_bloom-507ef5d3",
+      "query_duration_ms": 62,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114131726-backfill-fd008634",
+      "query_duration_ms": 14,
+      "read_rows": 0,
+      "read_bytes": 0,
+      "memory_usage": 1065303
+    },
+    {
+      "query_id": "s13-20261114132032-paired-write_plain-e4d9d537",
+      "query_duration_ms": 56,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29044570
+    },
+    {
+      "query_id": "s13-20261114132032-paired-write_plain-cd883d90",
+      "query_duration_ms": 51,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132032-paired-write_plain-6a3d11e2",
+      "query_duration_ms": 53,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132032-paired-write_plain-ed266835",
+      "query_duration_ms": 75,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132032-paired-write_plain-29c22826",
+      "query_duration_ms": 59,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040594
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_plain-8c47133f",
+      "query_duration_ms": 412,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183227
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_plain-b930f428",
+      "query_duration_ms": 271,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183211
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_plain-3a8dc513",
+      "query_duration_ms": 390,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183083
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_plain-f0965d7c",
+      "query_duration_ms": 234,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_plain-322d1a2f",
+      "query_duration_ms": 192,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183579
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_bloom-b10c810c",
+      "query_duration_ms": 241,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29044202
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_bloom-e2d42727",
+      "query_duration_ms": 139,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_bloom-0afba5e8",
+      "query_duration_ms": 124,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_bloom-dcb37bbd",
+      "query_duration_ms": 91,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29041122
+    },
+    {
+      "query_id": "s13-20261114132057-paired-write_bloom-7ca99df9",
+      "query_duration_ms": 172,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040594
+    },
+    {
+      "query_id": "s13-20261114132057-api-index-backfill-a9c98256",
+      "query_duration_ms": 25,
+      "read_rows": 0,
+      "read_bytes": 0,
+      "memory_usage": 1059711
+    },
+    {
+      "query_id": "s13-20261114132057-backfill-009dde13",
+      "query_duration_ms": 11,
+      "read_rows": 0,
+      "read_bytes": 0,
+      "memory_usage": 1065303
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_plain-a3ac0e07",
+      "query_duration_ms": 54,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183467
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_plain-0d6a3ec8",
+      "query_duration_ms": 61,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_plain-4cea3a11",
+      "query_duration_ms": 57,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183579
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_plain-e6ad8daf",
+      "query_duration_ms": 51,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_plain-7b26bed4",
+      "query_duration_ms": 53,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23183451
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_bloom-62d31905",
+      "query_duration_ms": 62,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29044570
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_bloom-7a0885c1",
+      "query_duration_ms": 51,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_bloom-24735d4b",
+      "query_duration_ms": 49,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_bloom-be0b8eec",
+      "query_duration_ms": 50,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114132547-paired-write_bloom-39e8fcbb",
+      "query_duration_ms": 47,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040594
+    },
+    {
+      "query_id": "s13-20261114132547-api-index-backfill-02b699a8",
+      "query_duration_ms": 15,
+      "read_rows": 0,
+      "read_bytes": 0,
+      "memory_usage": 1060159
+    },
+    {
+      "query_id": "s13-20261114132547-backfill-9a5b8102",
+      "query_duration_ms": 11,
+      "read_rows": 0,
+      "read_bytes": 0,
+      "memory_usage": 1065303
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_plain-3deb47ee",
+      "query_duration_ms": 138,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 22566812
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_plain-fd5f2441",
+      "query_duration_ms": 71,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23184075
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_plain-10eb67a5",
+      "query_duration_ms": 79,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23184075
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_plain-4a2ef776",
+      "query_duration_ms": 99,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23184075
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_plain-29d1b8a3",
+      "query_duration_ms": 99,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 23184075
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_bloom-97e67e71",
+      "query_duration_ms": 150,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29044202
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_bloom-92f7b5d5",
+      "query_duration_ms": 92,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_bloom-72ee0049",
+      "query_duration_ms": 90,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_bloom-a4bdc375",
+      "query_duration_ms": 71,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040578
+    },
+    {
+      "query_id": "s13-20261114133555-paired-write_bloom-3f99633f",
+      "query_duration_ms": 62,
+      "read_rows": 600192,
+      "read_bytes": 61481617,
+      "memory_usage": 29040594
+    },
+    {
+      "query_id": "s13-20261114133555-api-index-backfill-d5e31dd0",
+      "query_duration_ms": 9,
+      "read_rows": 0,
+      "read_bytes": 0,
+      "memory_usage": 1059711
+    },
+    {
+      "query_id": "s13-20261114133555-backfill-f718c06b",
+      "query_duration_ms": 14,
+      "read_rows": 0,
+      "read_bytes": 0,
+      "memory_usage": 1065303
+    }
+  ]
+}

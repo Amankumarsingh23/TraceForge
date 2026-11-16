@@ -1,0 +1,24 @@
+{
+  "host-cpu": {
+    "Name": "12th Gen Intel(R) Core(TM) i5-12500H",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 16
+  },
+  "host-memory": {
+    "TotalPhysicalMemory": 16781885440
+  },
+  "docker-environment": {
+    "ServerVersion": "29.9.2",
+    "NCPU": 16,
+    "MemTotal": 8130514944,
+    "OSType": "linux",
+    "Architecture": "x86_64",
+    "KernelVersion": "6.18.58.1-microsoft-standard-WSL2"
+  },
+  "clickhouse-limits": {
+    "Memory": 0,
+    "NanoCpus": 0,
+    "CpuQuota": 0,
+    "CpuPeriod": 0
+  }
+}

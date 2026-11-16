@@ -1,0 +1,2145 @@
+{
+  "workload": {
+    "profile": "mixed",
+    "namespace": "session13-mixed-01baec3fff90",
+    "ratio": "all SDK roots",
+    "offered": [
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "aad42b43de3e48b52b5d6798b078ef42"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e08d975309205ccdd70319c2b1c58470"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "601fc8c2f06536a339485a808fdc3bc5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2e43b5e29bcac239ea402817e3b5a6b8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9c430ea2d78c0871199b30a23bfd4d21"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c23ad6ebcdb8b01e4504af7a287f5d9d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d4f624696e99193f99d46177a3ee9157"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "680e1af34a59ce25c2ac874e85c0c50e"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5dddb566649f089b06f751a04f032b74"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ae3b69076bc6334688b94b5ec5dc9719"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "acc4cda646d7d7348adbbbb54d2ee069"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ca1d682bc3d159b3d717a6f30cdc7fbf"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8dac6b80df3a7edcbe9e770f490e09be"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "095b4682977a523553f8065d68279378"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "12a1ac031ea36a325a78af9d9d8ac8e4"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e03bbc47d31814586153e6c60433afbc"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "33c8cb853873d916a17f0ace9768b479"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a32cdd0b9dd8538cdd23c83107a22d63"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6aaa1c70b36537de51b3bb96d2482b09"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "fbc3cd129571250f92c4325b6eec41bf"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c88ca99e32bbaf250fe7b9cc9ee809da"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "1af209a0bc4fa3f1f7c540887b191884"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e2f3af172ead7363badbac8b28ca20f4"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "46bac38e0ef0baaf22036217f9b0a067"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8ae04c95649d4a71edd6d48e2aba1375"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "418174b76e427c9c3ab239bc85731a88"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "fb553a6cd922b7489a0edb9d4fd14a77"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c739763b3f436622505a4007347d624d"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "3052f7805c194f063b97c29777277780"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "7a0233e4813d2ad565a0ee862671d30b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d4e7687ba86d18b5c3f007f4b9e82fdd"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "68fc47625887377de7acaf67ca9917e8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a7650a02d4714891108537ef4237f4f7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "ff6a86f380f8eb4616ae461a0128fd51"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "60b39f3bbcec619399c0852ae5bce247"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c70338a66df40348e43d3b41c43634b3"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "73a7a15fe2b7865653b30e7b467928c0"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a80bb43175e34022a0cfd0763edcf13f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "74ceea809b1173d041414ce741175469"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "bc1354c8a2d58dab35b9c433dabb5f9c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "21ea2f0c6df62bcfc8aab6cbb092dde0"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "6af42a07ea172e4e05817ec8eb45a6e9"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2cff8d0e24b332c8bbe96b16638a788c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "54aa397335372d8a349f11a527ddca0f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "18ff34486d596bc6f770ffdad5cdaab8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "a78069e99c537f652b7cbf12f5e64f84"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "18e889e8b9c2967ba00d441c50d54b13"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "73bfa9a642825ecc0f731d6e40afe9f5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "b7782a90aad2342999b0ccf607c34496"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c3997edb4372051e7463572ff1353b18"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "77974c0e360aae95c694764406b12f18"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "cb8ec06a248a4e4c668164ee29fcbe83"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "56fdfdceb7ed9fc9a333ab82ed93f3fa"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e1c2e291d36e9d2c36e64fdad0547152"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c8d48180c0c7e18fc2b04eee0eb232e2"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e0c74666c78e379f1502e886403eead8"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "32e6f963d14541adb88e6b620829b1f5"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "88e4405989454e8589cdbf0c422f426c"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d8e10d392de819b0325f736104ed8a08"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "eb9740772aafd21169684174ad132ed7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "e09a9a313a644a4477f2450dd1c23ce1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d632b4a79ef0df6b3ec33568562852e1"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "2107901012a5b1ecb9cdf7b82c3632fc"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "18e406062560ff65725605e42fcb3445"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "41c384f54f217a7f559b4d0261714c0f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "5c67a159d9a0cf506fa35b2bcb5e985b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "863eb4ea6e4abf819a9cf61f834f591f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "39ae06a676d6eb0c341265f97af32c9f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "0dadfca3fb3b06272d60e28fd513ded7"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d914dda6a59cd341bd0c40c70d84051f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8302dffda95dbfb86802e9276df77616"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "d54132d0755846e852d805b82f24fd4f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "fa9cb3f146392701ee522b355d004a33"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "9d036ba4814945639a06a5da19f8510a"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "12af7d9af0b3ee7ebb9e41fe1fc954ad"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "8b1ca47878e3288fcb1d81dd86873975"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "16b184f6c2d6ec3125a88e96ecc5777f"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "735fb08cfaa6bcde1e108286ae8d1c39"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "c7dfce46d4c21889ac0087317022a29b"
+      },
+      {
+        "kind": "normal",
+        "status": 200,
+        "trace_id": "badc52898270eaff06bde249b30cb352"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "2cedc4de2e76bed9100c42efa702cb59"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "7189dd3a8e0f7e2d051d1184a4d9bcb1"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "9ace29295f0e31780b78bd08dd384e2a"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "a37b135291166ebbdbdf86f4efdb8f7b"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "c558b03ed7f4e0885377fe7c1be609cb"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "b84fa6ec7a88158b8bd4c9281de86cbe"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "a495a47ecff5165526ee9b32f3e11858"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "18fdc6f90627a6a4be86f35c5e0b8d5c"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "3cc22bfb1dc1b97b76e9fdb91ddc6366"
+      },
+      {
+        "kind": "delayed",
+        "status": 200,
+        "trace_id": "c76e89ca2f95688e13a8430be306133f"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "f32565b15e1fc83c4e46bf69413822ba"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "2c16fac1dfa8208e466c29cb1ff68a38"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "252eee1fcdf8b4984a6a855b06c4be23"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "5b1db6a9479e7ecf4cd7938409cbdf51"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "8cc1d4d0384cd22de48a7b7d75214b71"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "cd55929a9e07b8fbae32c8acf58bb81c"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "ca05a3b849b1f8d0eb79a077c2d6ceee"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "8ad0572260583b928e543faa157df3b8"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "9603bf3a05610dda6b11ef04e199142d"
+      },
+      {
+        "kind": "failed",
+        "status": 502,
+        "trace_id": "a2cda38253e57b6c3f2a9c0e2976e91d"
+      }
+    ],
+    "stored": [
+      {
+        "trace_id": "095b4682977a523553f8065d68279378",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "0dadfca3fb3b06272d60e28fd513ded7",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "12a1ac031ea36a325a78af9d9d8ac8e4",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "12af7d9af0b3ee7ebb9e41fe1fc954ad",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "16b184f6c2d6ec3125a88e96ecc5777f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "18e406062560ff65725605e42fcb3445",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "18e889e8b9c2967ba00d441c50d54b13",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "18fdc6f90627a6a4be86f35c5e0b8d5c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "18ff34486d596bc6f770ffdad5cdaab8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "1af209a0bc4fa3f1f7c540887b191884",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2107901012a5b1ecb9cdf7b82c3632fc",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "21ea2f0c6df62bcfc8aab6cbb092dde0",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "252eee1fcdf8b4984a6a855b06c4be23",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "2c16fac1dfa8208e466c29cb1ff68a38",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "2cedc4de2e76bed9100c42efa702cb59",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2cff8d0e24b332c8bbe96b16638a788c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "2e43b5e29bcac239ea402817e3b5a6b8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "3052f7805c194f063b97c29777277780",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "32e6f963d14541adb88e6b620829b1f5",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "33c8cb853873d916a17f0ace9768b479",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "39ae06a676d6eb0c341265f97af32c9f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "3cc22bfb1dc1b97b76e9fdb91ddc6366",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "418174b76e427c9c3ab239bc85731a88",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "41c384f54f217a7f559b4d0261714c0f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "46bac38e0ef0baaf22036217f9b0a067",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "54aa397335372d8a349f11a527ddca0f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "56fdfdceb7ed9fc9a333ab82ed93f3fa",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "5b1db6a9479e7ecf4cd7938409cbdf51",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "5c67a159d9a0cf506fa35b2bcb5e985b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "5dddb566649f089b06f751a04f032b74",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "601fc8c2f06536a339485a808fdc3bc5",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "60b39f3bbcec619399c0852ae5bce247",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "680e1af34a59ce25c2ac874e85c0c50e",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "68fc47625887377de7acaf67ca9917e8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "6aaa1c70b36537de51b3bb96d2482b09",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "6af42a07ea172e4e05817ec8eb45a6e9",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "7189dd3a8e0f7e2d051d1184a4d9bcb1",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "735fb08cfaa6bcde1e108286ae8d1c39",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "73a7a15fe2b7865653b30e7b467928c0",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "73bfa9a642825ecc0f731d6e40afe9f5",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "74ceea809b1173d041414ce741175469",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "77974c0e360aae95c694764406b12f18",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "7a0233e4813d2ad565a0ee862671d30b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8302dffda95dbfb86802e9276df77616",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "863eb4ea6e4abf819a9cf61f834f591f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "88e4405989454e8589cdbf0c422f426c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8ad0572260583b928e543faa157df3b8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "8ae04c95649d4a71edd6d48e2aba1375",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8b1ca47878e3288fcb1d81dd86873975",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "8cc1d4d0384cd22de48a7b7d75214b71",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "8dac6b80df3a7edcbe9e770f490e09be",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9603bf3a05610dda6b11ef04e199142d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "9ace29295f0e31780b78bd08dd384e2a",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9c430ea2d78c0871199b30a23bfd4d21",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "9d036ba4814945639a06a5da19f8510a",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a2cda38253e57b6c3f2a9c0e2976e91d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "a32cdd0b9dd8538cdd23c83107a22d63",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a37b135291166ebbdbdf86f4efdb8f7b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a495a47ecff5165526ee9b32f3e11858",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a7650a02d4714891108537ef4237f4f7",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a78069e99c537f652b7cbf12f5e64f84",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "a80bb43175e34022a0cfd0763edcf13f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "aad42b43de3e48b52b5d6798b078ef42",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "acc4cda646d7d7348adbbbb54d2ee069",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ae3b69076bc6334688b94b5ec5dc9719",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "b7782a90aad2342999b0ccf607c34496",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "b84fa6ec7a88158b8bd4c9281de86cbe",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "badc52898270eaff06bde249b30cb352",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "bc1354c8a2d58dab35b9c433dabb5f9c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c23ad6ebcdb8b01e4504af7a287f5d9d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c3997edb4372051e7463572ff1353b18",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c558b03ed7f4e0885377fe7c1be609cb",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c70338a66df40348e43d3b41c43634b3",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c739763b3f436622505a4007347d624d",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c76e89ca2f95688e13a8430be306133f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c7dfce46d4c21889ac0087317022a29b",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c88ca99e32bbaf250fe7b9cc9ee809da",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "c8d48180c0c7e18fc2b04eee0eb232e2",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ca05a3b849b1f8d0eb79a077c2d6ceee",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "ca1d682bc3d159b3d717a6f30cdc7fbf",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "cb8ec06a248a4e4c668164ee29fcbe83",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "cd55929a9e07b8fbae32c8acf58bb81c",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "d4e7687ba86d18b5c3f007f4b9e82fdd",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d4f624696e99193f99d46177a3ee9157",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d54132d0755846e852d805b82f24fd4f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d632b4a79ef0df6b3ec33568562852e1",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d8e10d392de819b0325f736104ed8a08",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "d914dda6a59cd341bd0c40c70d84051f",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e03bbc47d31814586153e6c60433afbc",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e08d975309205ccdd70319c2b1c58470",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e09a9a313a644a4477f2450dd1c23ce1",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e0c74666c78e379f1502e886403eead8",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e1c2e291d36e9d2c36e64fdad0547152",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "e2f3af172ead7363badbac8b28ca20f4",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "eb9740772aafd21169684174ad132ed7",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "f32565b15e1fc83c4e46bf69413822ba",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 4
+      },
+      {
+        "trace_id": "fa9cb3f146392701ee522b355d004a33",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "fb553a6cd922b7489a0edb9d4fd14a77",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "fbc3cd129571250f92c4325b6eec41bf",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      },
+      {
+        "trace_id": "ff6a86f380f8eb4616ae461a0128fd51",
+        "spans": 5,
+        "services": [
+          "payment",
+          "gateway"
+        ],
+        "error_spans": 0
+      }
+    ],
+    "direct_metrics": [
+      {
+        "stream_id": "cd636af2b21ce2aa2405baa880b8b467f793be019a605c3b90a312dadeb1e39a",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"b2a1776f-bd68-4d78-a602-044cb2053161\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-mixed-01baec3fff90\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "fae046a8610e72a60380ce2325af205bd0bd87777e5b5b60e680eff4c841e308",
+        "service": "payment",
+        "namespace": "session13-mixed-01baec3fff90",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "b2a1776f-bd68-4d78-a602-044cb2053161",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "b2a1776f-bd68-4d78-a602-044cb2053161"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-mixed-01baec3fff90"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662847168902400",
+        "end_ns": "1794662859969107500",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "11e36eff5d0f5725e5f82352541b2dfb01c444ff4ff2b9eba5bd2269d20b7dc6",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"b2a1776f-bd68-4d78-a602-044cb2053161\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-mixed-01baec3fff90\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "e23ae1138bbd6d3b6c24488caca9f8207499a29e6f6d3157eff90e020718c070",
+        "service": "payment",
+        "namespace": "session13-mixed-01baec3fff90",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "b2a1776f-bd68-4d78-a602-044cb2053161",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "b2a1776f-bd68-4d78-a602-044cb2053161"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-mixed-01baec3fff90"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662847168902400",
+        "end_ns": "1794662859969107500",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "a1eb36de31247b17110854dcfd5670b3a37563606d77990380b239e171612683",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"f9b7f66d-ccd8-40a1-9627-298d2acfbfb3\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-mixed-01baec3fff90\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "13824c78a999ccbb119c866f964c808c8c70e8434b70df60b4e191d5bf7dc90f",
+        "service": "gateway",
+        "namespace": "session13-mixed-01baec3fff90",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "f9b7f66d-ccd8-40a1-9627-298d2acfbfb3",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "f9b7f66d-ccd8-40a1-9627-298d2acfbfb3"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-mixed-01baec3fff90"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662847171140500",
+        "end_ns": "1794662859971229000",
+        "int_value": "10",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      },
+      {
+        "stream_id": "bed2081d218a606b0b575eb172e5e13feb8854ea583e07622085e411e7d4757b",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"f9b7f66d-ccd8-40a1-9627-298d2acfbfb3\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session13-mixed-01baec3fff90\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "a92c8146faef1c3299f119b5b56544d32d5765579ab1dffe03a4aa3f5c025b44",
+        "service": "gateway",
+        "namespace": "session13-mixed-01baec3fff90",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "f9b7f66d-ccd8-40a1-9627-298d2acfbfb3",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "f9b7f66d-ccd8-40a1-9627-298d2acfbfb3"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session13-mixed-01baec3fff90"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1794662847171140500",
+        "end_ns": "1794662859971229000",
+        "int_value": "100",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "0001-01-01T00:00:00Z"
+      }
+    ],
+    "elapsed_seconds": 12.477940320968628,
+    "retained_by_kind": {
+      "normal": 80,
+      "delayed": 10,
+      "failed": 10
+    }
+  },
+  "reads": [
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 41.015900002093986
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 138,
+      "ms": 25.27399999962654
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 20966,
+      "ms": 28.573200001119403
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 32.02700000110781
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 138,
+      "ms": 25.14359999986482
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 48248,
+      "ms": 16.588499998761108
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 31.28160000051139
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 138,
+      "ms": 23.0797000003804
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 71207,
+      "ms": 56.74550000185263
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 18.991199998708908
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 99819,
+      "ms": 27.56310000040685
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 118440,
+      "ms": 222.78490000098827
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 9.120700000494253
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 99819,
+      "ms": 34.58950000276673
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 141382,
+      "ms": 229.50870000204304
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 20.112399997742614
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 99813,
+      "ms": 14.244699999835575
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 175747,
+      "ms": 202.55120000001625
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 24.876300001778873
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100155,
+      "ms": 26.69909999895026
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 210266,
+      "ms": 227.8686000026937
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 7.693200001085643
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100155,
+      "ms": 38.13129999980447
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 252225,
+      "ms": 198.09579999855487
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 10.141700000531273
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 36.95239999797195
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 286498,
+      "ms": 233.25149999800487
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 12.89099999848986
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 26.959200000419514
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 320879,
+      "ms": 238.39029999726336
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 185,
+      "ms": 33.38120000262279
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 34.553500001493376
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 354806,
+      "ms": 197.64070000019274
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 24.83070000016596
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 17.196400000102585
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 389085,
+      "ms": 236.2887999988743
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 23.581600002216874
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 25.607200001104502
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 423367,
+      "ms": 204.324500002258
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 26.070899999467656
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 33.126299997093156
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 457712,
+      "ms": 245.7795000009355
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 25.282800001150463
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 31.311799997638445
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 503078,
+      "ms": 221.6673000002629
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 21.822899998369394
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 31.115399997361237
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 537353,
+      "ms": 225.17850000076578
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 36.81019999930868
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 15.314100000978215
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 571702,
+      "ms": 211.11949999976787
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 27.944299999944633
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 26.60160000232281
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 616992,
+      "ms": 210.14479999939795
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 10.194099999353057
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 40.47310000169091
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 639867,
+      "ms": 224.01039999749628
+    },
+    {
+      "path": "/api/v1/traces?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 6366,
+      "ms": 24.936199999501696
+    },
+    {
+      "path": "/api/v1/logs?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=gateway",
+      "status": 200,
+      "bytes": 100208,
+      "ms": 29.986400000780122
+    },
+    {
+      "path": "/api/v1/metrics/query?from=2026-11-14T13%3A27%3A27.132215Z&to=2026-11-14T13%3A28%3A27.132215Z&service=payment",
+      "status": 200,
+      "bytes": 674153,
+      "ms": 235.0984000004246
+    }
+  ]
+}

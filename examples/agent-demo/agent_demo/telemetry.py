@@ -10,6 +10,7 @@ from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.sdk.trace.sampling import ALWAYS_ON
 from opentelemetry.trace import Status, StatusCode
 
 CONVENTION = "genai@e6658f14c9d9ea0760825f029cb82e7673f48fab"
@@ -36,7 +37,9 @@ class Telemetry:
                 "deployment.environment.name": "local",
             }
         )
-        self.provider = provider or TracerProvider(resource=resource)
+        # AgentOps/evaluation runs are protected from ambient SDK head sampling.
+        # The local default Collector must also remain unsampled for these runs.
+        self.provider = provider or TracerProvider(resource=resource, sampler=ALWAYS_ON)
         if provider is None:
             self.provider.add_span_processor(
                 BatchSpanProcessor(
