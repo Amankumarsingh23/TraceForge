@@ -1,0 +1,2 @@
+29.9.2
+Docker Compose version v5.6.1

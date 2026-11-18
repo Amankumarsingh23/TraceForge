@@ -1,0 +1,3 @@
+=== RUN   TestMetricDatabaseUnavailable
+--- PASS: TestMetricDatabaseUnavailable (1.03s)
+PASS

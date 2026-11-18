@@ -1,0 +1,61 @@
+npm notice run traceforge-web@0.5.0 build
+npm notice run next build
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.ts took 283ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.1s
+  Running TypeScript ...
+  Finished TypeScript in 13.8s ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/19) ...
+  Generating static pages using 15 workers (4/19)
+  Generating static pages using 15 workers (9/19)
+  Generating static pages using 15 workers (14/19)
+✓ Generating static pages using 15 workers (19/19) in 2.7s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /alerts
+├ ƒ /alerts/[id]
+├ ƒ /api/comparisons/[[...path]]
+├ ƒ /api/evaluations/[[...path]]
+├ ƒ /api/experiments
+├ ƒ /api/gates/[id]
+├ ƒ /api/logs
+├ ƒ /api/metrics/[[...parts]]
+├ ƒ /api/reliability/[...parts]
+├ ƒ /api/security/[...parts]
+├ ƒ /api/service-graph
+├ ƒ /api/services
+├ ƒ /api/services/[...parts]
+├ ƒ /api/session
+├ ƒ /api/traces
+├ ƒ /api/traces/[traceId]
+├ ƒ /api/traces/[traceId]/agent-summary
+├ ƒ /api/traces/[traceId]/logs
+├ ○ /comparisons
+├ ƒ /comparisons/[id]
+├ ○ /evaluations
+├ ƒ /evaluations/[runId]
+├ ƒ /evaluations/[runId]/cases/[caseId]
+├ ○ /login
+├ ƒ /logs
+├ ƒ /metrics
+├ ○ /provider-reliability
+├ ○ /security
+├ ƒ /service-graph
+├ ƒ /services
+├ ƒ /services/[id]
+├ ○ /slos
+├ ƒ /slos/[key]
+├ ƒ /traces
+└ ƒ /traces/[traceId]
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

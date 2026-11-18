@@ -1,0 +1,22 @@
+Local gateway/payment demo processes restarted with OTLP logging enabled.
+time="2026-11-18T16:48:12+05:30" level=warning msg="Found orphan containers (traceforge-secure-gateway-1, traceforge-tenant-beta-1, traceforge-tenant-alpha-1, traceforge-collector-beta-1, traceforge-collector-alpha-1, traceforge-sampling-collector-1, traceforge-traceforge-benchmark-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container traceforge-traceforge-server-1 Recreate
+ Container traceforge-traceforge-server-1 Recreated
+ Container traceforge-traceforge-server-1 Starting
+ Container traceforge-traceforge-server-1 Started
+ Container traceforge-traceforge-server-1 Waiting
+ Container traceforge-traceforge-server-1 Healthy
+ Container traceforge-traceforge-server-1 Restarting
+ Container traceforge-traceforge-server-1 Started
+ Container traceforge-clickhouse-1 Stopping
+ Container traceforge-clickhouse-1 Stopped
+ Container traceforge-clickhouse-1 Starting
+ Container traceforge-clickhouse-1 Started
+time="2026-11-18T16:49:06+05:30" level=warning msg="Found orphan containers (traceforge-secure-gateway-1, traceforge-tenant-beta-1, traceforge-tenant-alpha-1, traceforge-collector-beta-1, traceforge-collector-alpha-1, traceforge-sampling-collector-1, traceforge-traceforge-benchmark-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container traceforge-traceforge-server-1 Recreate
+ Container traceforge-traceforge-server-1 Recreated
+ Container traceforge-traceforge-server-1 Starting
+ Container traceforge-traceforge-server-1 Started
+ Container traceforge-traceforge-server-1 Waiting
+ Container traceforge-traceforge-server-1 Healthy
+PASS: actual healthy/failing/recovery, scheduler dedup/restart/outage, metric replay, delayed histogram and canonical fixture provider/live-unknown evidence persisted.

@@ -1,0 +1,2 @@
+Local gateway/payment demo processes restarted with OTLP logging enabled.
+PASS: actual 80/15/5 workload; each service direct100 requests/5 errors/histogram100, trace SERVER100/5, paired100; replay stable; payment restart new writer5 and no negative monotonic rate.

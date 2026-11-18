@@ -1,0 +1,82 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 749B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/golang:1.27.4-bookworm
+#2 DONE 1.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 79B 0.0s done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [build 1/8] FROM docker.io/library/golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea
+#5 resolve docker.io/library/golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea 0.1s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 83.78kB 0.1s done
+#4 DONE 0.1s
+
+#6 [build 2/8] WORKDIR /src
+#6 CACHED
+
+#7 [build 4/8] RUN go mod download
+#7 CACHED
+
+#8 [build 7/8] RUN CGO_ENABLED=0 go build -trimpath -o /traceforge-server ./cmd/traceforge-server
+#8 CACHED
+
+#9 [build 3/8] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [build 5/8] COPY cmd ./cmd
+#10 CACHED
+
+#11 [build 6/8] COPY internal ./internal
+#11 CACHED
+
+#12 [build 8/8] RUN CGO_ENABLED=0 go build -trimpath -o /traceforge-secure ./cmd/traceforge-secure
+#12 CACHED
+
+#13 [verify 1/2] COPY tests ./tests
+#13 DONE 0.4s
+
+#14 [verify 2/2] RUN go vet ./... && go test -race ./...
+#14 152.3 ?   	traceforge/cmd/otel-loadgen	[no test files]
+#14 152.3 ?   	traceforge/cmd/shop-demo	[no test files]
+#14 152.4 ?   	traceforge/cmd/slo-evaluate	[no test files]
+#14 152.6 ?   	traceforge/cmd/traceforge-secure	[no test files]
+#14 152.7 ?   	traceforge/cmd/traceforge-server	[no test files]
+#14 154.4 ok  	traceforge/internal/analytics	1.707s
+#14 154.4 ok  	traceforge/internal/demo	1.341s
+#14 154.4 ok  	traceforge/internal/evaluations	1.101s
+#14 155.1 ok  	traceforge/internal/ingest	2.360s
+#14 155.1 ok  	traceforge/internal/loadgen	1.147s
+#14 155.1 ok  	traceforge/internal/logs	1.456s
+#14 155.1 ok  	traceforge/internal/metricdata	1.334s
+#14 155.1 ok  	traceforge/internal/queryapi	1.243s
+#14 155.1 ok  	traceforge/internal/reliability	2.294s
+#14 155.1 ok  	traceforge/internal/security	1.209s
+#14 155.7 ok  	traceforge/internal/storage	1.038s
+#14 155.8 ok  	traceforge/internal/telemetry	1.063s
+#14 155.8 ?   	traceforge/internal/tenant	[no test files]
+#14 156.7 ok  	traceforge/internal/traces	1.979s
+#14 DONE 157.1s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 174.1s done
+#15 exporting manifest sha256:e86e9acc6fcc617275b6f743119c022bcbe3af2abe11a2f8d5f251b2903d507e 0.0s done
+#15 exporting config sha256:7b381c439a386813e36ce1d001ecd7760dabd85ecbfb1bff4994911826dfcb6c 0.0s done
+#15 exporting attestation manifest sha256:d3073385e66589c0c100157884f0fed1121619d3c578ffafdba223f8a9fcf37b 0.0s done
+#15 exporting manifest list sha256:e3108613ca06efbff5f90852a53850db1e5e09932787cb09673230fcc7f61805 0.0s done
+#15 naming to docker.io/library/traceforge-verify:s15
+#15 naming to docker.io/library/traceforge-verify:s15 done
+#15 unpacking to docker.io/library/traceforge-verify:s15
+#15 unpacking to docker.io/library/traceforge-verify:s15 9.0s done
+#15 DONE 183.3s

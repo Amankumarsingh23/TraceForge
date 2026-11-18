@@ -1,0 +1,92 @@
+ Image traceforge-traceforge-server Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 571B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 749B 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/golang:1.27.4-bookworm
+#3 ...
+
+#4 [auth] library/golang:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.27.4-bookworm
+#3 DONE 2.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 79B 0.0s done
+#5 DONE 0.1s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [build 1/8] FROM docker.io/library/golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea
+#7 resolve docker.io/library/golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea 0.0s done
+#7 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 515.46kB 1.0s done
+#6 DONE 1.1s
+
+#8 [build 3/8] COPY go.mod go.sum ./
+#8 CACHED
+
+#9 [build 4/8] RUN go mod download
+#9 CACHED
+
+#10 [build 2/8] WORKDIR /src
+#10 CACHED
+
+#11 [build 5/8] COPY cmd ./cmd
+#11 CACHED
+
+#12 [build 6/8] COPY internal ./internal
+#12 DONE 0.1s
+
+#13 [build 7/8] RUN CGO_ENABLED=0 go build -trimpath -o /traceforge-server ./cmd/traceforge-server
+#13 DONE 35.8s
+
+#14 [build 8/8] RUN CGO_ENABLED=0 go build -trimpath -o /traceforge-secure ./cmd/traceforge-secure
+#14 DONE 4.0s
+
+#15 [server 1/1] COPY --from=build /traceforge-server /traceforge-server
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers done
+#16 exporting manifest sha256:a29159665d48e140a465d32baeadd9bf52ae9947060e2b3ae50a790e5c56512f done
+#16 exporting config sha256:4112cf88b716f8c1d062dec7b801b1512d07fc752c7d4d617fe62d5fa2bb81df done
+#16 exporting attestation manifest sha256:87b66f39b5641368421d2c2ca82eb0c18c9f4d7d9e361d8db97587aad1df508b 0.0s done
+#16 exporting manifest list sha256:17cf887838f0406d7886e6f9f82fc47a988f8c420b0f5db5ba6b35594e80e252 0.0s done
+#16 naming to docker.io/library/traceforge-traceforge-server:latest
+#16 naming to docker.io/library/traceforge-traceforge-server:latest done
+#16 unpacking to docker.io/library/traceforge-traceforge-server:latest 0.0s done
+#16 DONE 0.2s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.1s
+ Image traceforge-traceforge-server Built
+time="2026-11-18T16:35:00+05:30" level=warning msg="Found orphan containers (traceforge-secure-gateway-1, traceforge-tenant-beta-1, traceforge-tenant-alpha-1, traceforge-collector-beta-1, traceforge-collector-alpha-1, traceforge-sampling-collector-1, traceforge-traceforge-benchmark-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container traceforge-postgres-1 Starting
+ Container traceforge-clickhouse-1 Starting
+ Container traceforge-postgres-1 Started
+ Container traceforge-clickhouse-1 Started
+ Container traceforge-clickhouse-1 Waiting
+ Container traceforge-clickhouse-1 Healthy
+ Container traceforge-traceforge-server-1 Starting
+ Container traceforge-traceforge-server-1 Started
+ Container traceforge-traceforge-server-1 Waiting
+ Container traceforge-traceforge-server-1 Healthy
+ Container traceforge-otel-collector-1 Starting
+ Container traceforge-otel-collector-1 Started
+ Container traceforge-clickhouse-1 Waiting
+ Container traceforge-postgres-1 Waiting
+ Container traceforge-traceforge-server-1 Waiting
+ Container traceforge-otel-collector-1 Waiting
+ Container traceforge-otel-collector-1 Healthy
+ Container traceforge-traceforge-server-1 Healthy
+ Container traceforge-postgres-1 Healthy
+ Container traceforge-clickhouse-1 Healthy

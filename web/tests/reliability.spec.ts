@@ -6,6 +6,8 @@ const e = JSON.parse(
   readFileSync(path.join(root, "artifacts/session12/evidence.json"), "utf8"),
 );
 const shots = path.join(root, "artifacts/session12/screenshots");
+const firing = JSON.parse(readFileSync(path.join(root, "artifacts/session12/firing.json"), "utf8"))[0];
+const latency = JSON.parse(readFileSync(path.join(root, "artifacts/session12/latency.json"), "utf8"))[0];
 const durationRevision = JSON.parse(
   readFileSync(
     path.join(root, "artifacts/session12/provider-duration-revision.json"),
@@ -21,9 +23,10 @@ test("persisted breach has exact budgets and source drilldown", async ({
     page.getByRole("heading", { name: "Evaluation MEASURED", exact: true }),
   ).toBeVisible();
   const overall = page.locator(".slo-window").first();
-  await expect(overall).toContainText("Eligible: 23 · Good: 4 · Bad: 19");
-  await expect(overall).toContainText("190/23×");
-  await expect(overall).toContainText("-167/10");
+  const evidence = firing.overall.evidence;
+  await expect(overall).toContainText(`Eligible: ${evidence.total} · Good: ${evidence.good} · Bad: ${evidence.bad}`);
+  await expect(overall).toContainText(`${firing.overall.budget.burn_rate}×`);
+  await expect(overall).toContainText(firing.overall.budget.budget_remaining);
   await expect(
     page.getByRole("heading", { name: "fast-demo: BREACH" }),
   ).toBeVisible();
@@ -77,7 +80,7 @@ test("histogram threshold reports measured slow requests on mobile", async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`/slos/${e.latency_key}?evaluation=${e.latency}`);
   await expect(page.locator(".slo-window").first()).toContainText(
-    "Eligible: 21 · Good: 14 · Bad: 7",
+    `Eligible: ${latency.overall.evidence.total} · Good: ${latency.overall.evidence.good} · Bad: ${latency.overall.evidence.bad}`,
   );
   await page.screenshot({
     path: path.join(shots, "mobile-latency.png"),

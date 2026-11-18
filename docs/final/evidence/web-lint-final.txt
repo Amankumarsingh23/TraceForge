@@ -1,0 +1,2 @@
+npm notice run traceforge-web@0.5.0 lint
+npm notice run eslint .

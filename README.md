@@ -1,4 +1,31 @@
-# TraceForge — Session 11
+# TraceForge — final local engineering portfolio
+
+TraceForge combines Go/OpenTelemetry ingestion, ClickHouse traces/logs/metrics, PostgreSQL evaluation and incident metadata, a Python fixture RAG agent/evaluator, and a Next.js investigation interface. It demonstrates replay-safe analytics, bounded backpressure, metric temporality, versioned release evidence and persistent SLO incidents on a restricted local system.
+
+**Start here:** [reproducible setup/two demos](docs/final/reproducible-demos.md), [architecture walkthrough](docs/final/architecture-walkthrough.md), [verification matrix](docs/final/verification-matrix.md), [final session report](docs/engineering-journal/session-15.md).
+
+```powershell
+# Install Go1.27.4, Node24/npm12, Python3.13 and start Docker Desktop.
+# Create .env from .env.example with private distinct passwords if absent.
+./scripts/session15-setup.ps1 -InstallDependencies
+npm --prefix web run build
+npm --prefix web run start
+# In a separate root terminal, run sequentially:
+./scripts/session15-demo-a.ps1
+./scripts/session15-demo-b.ps1
+```
+
+Open http://127.0.0.1:3000. The primary demo is **Legacy, loopback-only and unauthenticated**. Secure Compose is a separate optional owner-bound profile; its authenticated browser path remains blocked by environment policy. No approval mechanism is bypassed and no production-ready security claim is made. See [security/limitations](docs/final/security-and-limitations.md) and the [exact dependency inventory](docs/final/dependency-review.md). The current audit reports17 dev-package findings (8moderate/9high), with zero in the production-only audit; omitted dev risks remain open.
+
+Demo A records actual gateway/payment checkouts, direct SDK measurements, canonical graph/counts, replay and measured incident lifecycle. Demo B records five35-case offline evaluations and immutable PASS/FAIL/INCONCLUSIVE gates with real trace links. Fixture usage/cost is hypothetical, and no paid/live-model or production deployment evidence is claimed. The controlled [benchmark](docs/final/benchmark-evidence.md) reduced scan rows300096→8192 with approximately0.43% additional storage; this is not36× product speedup.
+
+For interviews: [30-second/two-minute/five-minute/ten-minute walkthrough](docs/final/architecture-walkthrough.md), [twenty reference questions](docs/final/interview-questions.md), [defensible resume claims](docs/final/resume-evidence.md). Learning notes remain ignored local teaching material. Stop after Session15; no remote push.
+
+## Historical session setup and design record
+
+The sections below preserve prior checkpoint instructions and measurements. Their old roadmap/security statements are historical; the final setup, verification matrix and limitations linked above are authoritative for the completed local portfolio.
+
+# Historical Session 11
 
 ## Session 11: direct OTLP metrics
 

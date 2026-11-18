@@ -1,0 +1,11 @@
+npm notice run traceforge-web@0.5.0 test:browser
+npm notice run playwright test --grep final demo A|histogram threshold
+
+Running 2 tests using 1 worker
+
+(node:7200) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\final-demo.spec.ts:9:1 › final demo A opens actual service graph, failed trace, logs and incident (2.3s)
+  ok 2 tests\reliability.spec.ts:77:1 › histogram threshold reports measured slow requests on mobile (666ms)
+
+  2 passed (4.2s)

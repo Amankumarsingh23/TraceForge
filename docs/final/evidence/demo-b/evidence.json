@@ -1,0 +1,417 @@
+{
+  "identical": {
+    "comparison_id": "461bb1f39cddd38d373253783f4fab09",
+    "decision_id": "fa34cf95fdae4c0397320bb08ac7f2ea",
+    "outcome": "PASS"
+  },
+  "context_regression": {
+    "comparison_id": "18eea4b7e3d1803cb13daea4fdf4b4eb",
+    "decision_id": "12a7da8631894e4fb857da246729c3db",
+    "outcome": "FAIL"
+  },
+  "retrieval_change": {
+    "comparison_id": "ed1c6366d68fa2c1cfe87d9cd8ada4e6",
+    "decision_id": "7dd973ee3f104cdd84efc7a7cc912a03",
+    "outcome": "FAIL"
+  },
+  "policy_v2": {
+    "comparison_id": "461bb1f39cddd38d373253783f4fab09",
+    "decision_id": "998e34ff4b0d4857a9862034ca351c5c",
+    "outcome": "FAIL"
+  },
+  "production_profile": {
+    "comparison_id": "461bb1f39cddd38d373253783f4fab09",
+    "decision_id": "ee65e4432c094211b06d17d766c1f8f3",
+    "outcome": "INCONCLUSIVE"
+  },
+  "missing_cost": {
+    "comparison_id": "5242b0bfcca4ba16a37fa4c44fcfdd56",
+    "decision_id": "1e125ec55b6847a2813deef2cf2fa205",
+    "outcome": "INCONCLUSIVE"
+  },
+  "run_ids": {
+    "baseline": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+    "repeat": "81323c1b68c14ac59e2937da84b7d7d0",
+    "context1": "03005ccce4c74038862d033c8fff996d",
+    "k1": "8f9b3967d4fb4f87b1e77211a4a23a3b",
+    "missing_usage": "c9c5a35852b4484db0a6977da1d29412"
+  },
+  "baseline_failures": [
+    {
+      "case_id": "support-025",
+      "expected_facts": [
+        "refund_window",
+        "damage_report_window"
+      ],
+      "relevant_ids": [
+        "D01",
+        "D02"
+      ],
+      "retrieved_ids": [
+        "D07",
+        "D02",
+        "D11"
+      ],
+      "supplied_ids": [
+        "D07",
+        "D02"
+      ],
+      "output": {
+        "contract": "CONSTRAINED_SUPPORT_V1",
+        "claims": [
+          {
+            "key": "damage_report_window",
+            "value": "7 days",
+            "citations": [
+              "D02"
+            ]
+          },
+          {
+            "key": "refund_processing",
+            "value": "five synthetic business days",
+            "citations": [
+              "D07"
+            ]
+          }
+        ],
+        "abstained": false,
+        "answer": "damage_report_window: 7 days. [D02] refund_processing: five synthetic business days. [D07]"
+      },
+      "metrics": {
+        "recall": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "precision": {
+          "value": 0.3333333333333333,
+          "numerator": 1,
+          "denominator": 3,
+          "status": "scored"
+        },
+        "hit": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "rr": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "context_coverage": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "context_retention": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "groundedness": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "required_fact_coverage": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "correctness": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "citation_validity": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "citation_availability": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "citation_correctness": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "citation_coverage": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "abstention": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "case_id": "support-029",
+      "expected_facts": [
+        "cancellation",
+        "address_review"
+      ],
+      "relevant_ids": [
+        "D08",
+        "D09"
+      ],
+      "retrieved_ids": [
+        "D09",
+        "D02",
+        "D08"
+      ],
+      "supplied_ids": [
+        "D09",
+        "D02"
+      ],
+      "output": {
+        "contract": "CONSTRAINED_SUPPORT_V1",
+        "claims": [
+          {
+            "key": "address_review",
+            "value": "address changes require a review before shipment",
+            "citations": [
+              "D09"
+            ]
+          }
+        ],
+        "abstained": false,
+        "answer": "address_review: address changes require a review before shipment. [D09]"
+      },
+      "metrics": {
+        "recall": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "precision": {
+          "value": 0.6666666666666666,
+          "numerator": 2,
+          "denominator": 3,
+          "status": "scored"
+        },
+        "hit": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "rr": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "context_coverage": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "context_retention": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "groundedness": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "required_fact_coverage": {
+          "value": 0.5,
+          "numerator": 1,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "correctness": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "citation_validity": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "citation_availability": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "citation_correctness": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "citation_coverage": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "abstention": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "case_id": "support-030",
+      "expected_facts": [
+        "refund_window",
+        "damage_report_window",
+        "packaging"
+      ],
+      "relevant_ids": [
+        "D01",
+        "D02",
+        "D06"
+      ],
+      "retrieved_ids": [
+        "D06",
+        "D02",
+        "D01"
+      ],
+      "supplied_ids": [
+        "D06",
+        "D02"
+      ],
+      "output": {
+        "contract": "CONSTRAINED_SUPPORT_V1",
+        "claims": [
+          {
+            "key": "damage_report_window",
+            "value": "7 days",
+            "citations": [
+              "D02"
+            ]
+          },
+          {
+            "key": "packaging",
+            "value": "Keep original packaging",
+            "citations": [
+              "D06"
+            ]
+          }
+        ],
+        "abstained": false,
+        "answer": "damage_report_window: 7 days. [D02] packaging: Keep original packaging. [D06]"
+      },
+      "metrics": {
+        "recall": {
+          "value": 1.0,
+          "numerator": 3,
+          "denominator": 3,
+          "status": "scored"
+        },
+        "precision": {
+          "value": 1.0,
+          "numerator": 3,
+          "denominator": 3,
+          "status": "scored"
+        },
+        "hit": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "rr": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "context_coverage": {
+          "value": 0.6666666666666666,
+          "numerator": 2,
+          "denominator": 3,
+          "status": "scored"
+        },
+        "context_retention": {
+          "value": 0.6666666666666666,
+          "numerator": 2,
+          "denominator": 3,
+          "status": "scored"
+        },
+        "groundedness": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "required_fact_coverage": {
+          "value": 0.6666666666666666,
+          "numerator": 2,
+          "denominator": 3,
+          "status": "scored"
+        },
+        "correctness": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 1,
+          "status": "scored"
+        },
+        "citation_validity": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "citation_availability": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "citation_correctness": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "citation_coverage": {
+          "value": 1.0,
+          "numerator": 2,
+          "denominator": 2,
+          "status": "scored"
+        },
+        "abstention": {
+          "value": 1.0,
+          "numerator": 1,
+          "denominator": 1,
+          "status": "scored"
+        }
+      }
+    }
+  ]
+}

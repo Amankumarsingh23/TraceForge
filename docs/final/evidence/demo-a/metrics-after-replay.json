@@ -1,0 +1,3454 @@
+{
+  "version": "otlp-metrics/v1",
+  "query": {
+    "from": "2026-11-18T11:07:34.0020752Z",
+    "to": "2026-11-18T11:07:45.5037726Z",
+    "name": "",
+    "service": "",
+    "namespace": "session11-20261118110733",
+    "stream_id": ""
+  },
+  "series": [
+    {
+      "metadata": {
+        "stream_id": "1685a9af35dba266f723d14b3c476473dd30e971e23c9801a8c1a98d5555554d",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.request.duration\",\"[\\\"histogram\\\",\\\"s\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"histogram\",\"s\",2,false]",
+        "base_id": "eb6a6e98ce157ea65d746cd9bed64a749b96cc93c88968ae999d6f6c5afa99d6",
+        "service": "gateway",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+        "name": "traceforge.request.duration",
+        "unit": "s",
+        "description": "",
+        "type": "histogram",
+        "temporality": 2,
+        "monotonic": false,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060404461400",
+        "end_ns": "1795000062403828000",
+        "int_value": null,
+        "double_value": null,
+        "count": "83",
+        "sum": 0.40937309999999993,
+        "bounds": [
+          0.001,
+          0.005,
+          0.01,
+          0.025,
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1,
+          2,
+          5
+        ],
+        "buckets": [
+          "33",
+          "46",
+          "0",
+          "1",
+          "0",
+          "0",
+          "3",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "min": 0,
+        "max": 0.1018829,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.430463114Z"
+      },
+      "points": [
+        {
+          "stream_id": "1685a9af35dba266f723d14b3c476473dd30e971e23c9801a8c1a98d5555554d",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.request.duration\",\"[\\\"histogram\\\",\\\"s\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"histogram\",\"s\",2,false]",
+          "base_id": "eb6a6e98ce157ea65d746cd9bed64a749b96cc93c88968ae999d6f6c5afa99d6",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.request.duration",
+          "unit": "s",
+          "description": "",
+          "type": "histogram",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "int_value": null,
+          "double_value": null,
+          "count": "83",
+          "sum": 0.40937309999999993,
+          "bounds": [
+            0.001,
+            0.005,
+            0.01,
+            0.025,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1,
+            2,
+            5
+          ],
+          "buckets": [
+            "33",
+            "46",
+            "0",
+            "1",
+            "0",
+            "0",
+            "3",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "min": 0,
+          "max": 0.1018829,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.430463114Z"
+        },
+        {
+          "stream_id": "1685a9af35dba266f723d14b3c476473dd30e971e23c9801a8c1a98d5555554d",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.request.duration\",\"[\\\"histogram\\\",\\\"s\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"histogram\",\"s\",2,false]",
+          "base_id": "eb6a6e98ce157ea65d746cd9bed64a749b96cc93c88968ae999d6f6c5afa99d6",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.request.duration",
+          "unit": "s",
+          "description": "",
+          "type": "histogram",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000064406974100",
+          "int_value": null,
+          "double_value": null,
+          "count": "100",
+          "sum": 1.7399248999999999,
+          "bounds": [
+            0.001,
+            0.005,
+            0.01,
+            0.025,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1,
+            2,
+            5
+          ],
+          "buckets": [
+            "33",
+            "46",
+            "4",
+            "2",
+            "0",
+            "0",
+            "15",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "min": 0,
+          "max": 0.1196612,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.432452488Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "increment": "",
+          "rate_per_second": null,
+          "count": "83",
+          "sum": 0.40937309999999993,
+          "buckets": [
+            "33",
+            "46",
+            "0",
+            "1",
+            "0",
+            "0",
+            "3",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "start_ns": "1795000062403828000",
+          "end_ns": "1795000064406974100",
+          "increment": "",
+          "rate_per_second": null,
+          "count": "17",
+          "sum": 1.3305517999999998,
+          "buckets": [
+            "0",
+            "0",
+            "4",
+            "1",
+            "0",
+            "0",
+            "12",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": null,
+      "observed_seconds": 4.0025127000000005,
+      "observed_rate_per_second": null,
+      "coverage_fraction": 0.34799321880959944,
+      "complete": false,
+      "latest": null,
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": "100",
+      "histogram_sum": 1.7399248999999997,
+      "histogram_mean": 0.017399248999999995,
+      "histogram_buckets": [
+        "33",
+        "46",
+        "4",
+        "2",
+        "0",
+        "0",
+        "15",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "p50_bucket": {
+        "lower": 0.001,
+        "upper": 0.005,
+        "meaning": "nearest-rank bucket range, not an exact percentile; null endpoint is unbounded"
+      },
+      "p95_bucket": {
+        "lower": 0.1,
+        "upper": 0.25,
+        "meaning": "nearest-rank bucket range, not an exact percentile; null endpoint is unbounded"
+      },
+      "p99_bucket": {
+        "lower": 0.1,
+        "upper": 0.25,
+        "meaning": "nearest-rank bucket range, not an exact percentile; null endpoint is unbounded"
+      },
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "29c6ee46c01807e52b4145689ad48a9cf40cbbc1abd9acc7ad12e86aa5fcae0c",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.active\",\"[\\\"sum\\\",\\\"{request}\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,false]",
+        "base_id": "b138e040966cd4889873b91a3e198f80a6a31793df12e5294e729b6020df9b2c",
+        "service": "gateway",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+        "name": "traceforge.requests.active",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": false,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060404461400",
+        "end_ns": "1795000062403828000",
+        "int_value": "1",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.430463114Z"
+      },
+      "points": [
+        {
+          "stream_id": "29c6ee46c01807e52b4145689ad48a9cf40cbbc1abd9acc7ad12e86aa5fcae0c",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.active\",\"[\\\"sum\\\",\\\"{request}\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,false]",
+          "base_id": "b138e040966cd4889873b91a3e198f80a6a31793df12e5294e729b6020df9b2c",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.requests.active",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "int_value": "1",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.430463114Z"
+        },
+        {
+          "stream_id": "29c6ee46c01807e52b4145689ad48a9cf40cbbc1abd9acc7ad12e86aa5fcae0c",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.active\",\"[\\\"sum\\\",\\\"{request}\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,false]",
+          "base_id": "b138e040966cd4889873b91a3e198f80a6a31793df12e5294e729b6020df9b2c",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.requests.active",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000064406974100",
+          "int_value": "0",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.432452488Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "increment": "1",
+          "rate_per_second": 0.5001584001653323,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        },
+        {
+          "start_ns": "1795000062403828000",
+          "end_ns": "1795000064406974100",
+          "increment": "-1",
+          "rate_per_second": -0.49921471029996267,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": "0",
+      "observed_seconds": 4.0025127000000005,
+      "observed_rate_per_second": 0,
+      "coverage_fraction": 0.34799321880959944,
+      "complete": false,
+      "latest": "0",
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "380564beeb955f373b1276df80794a53695de47f119658b0a2b549fd4726b224",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "6994397a076a9a74d02731c31280fd331ad66c196487070ba5f1f58971037b38",
+        "service": "gateway",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060404461400",
+        "end_ns": "1795000062403828000",
+        "int_value": "0",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.430463114Z"
+      },
+      "points": [
+        {
+          "stream_id": "380564beeb955f373b1276df80794a53695de47f119658b0a2b549fd4726b224",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "6994397a076a9a74d02731c31280fd331ad66c196487070ba5f1f58971037b38",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.requests.errors",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "int_value": "0",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.430463114Z"
+        },
+        {
+          "stream_id": "380564beeb955f373b1276df80794a53695de47f119658b0a2b549fd4726b224",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "6994397a076a9a74d02731c31280fd331ad66c196487070ba5f1f58971037b38",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.requests.errors",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000064406974100",
+          "int_value": "5",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.432452488Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "increment": "0",
+          "rate_per_second": 0,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        },
+        {
+          "start_ns": "1795000062403828000",
+          "end_ns": "1795000064406974100",
+          "increment": "5",
+          "rate_per_second": 2.4960735514998134,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": "5",
+      "observed_seconds": 4.0025127000000005,
+      "observed_rate_per_second": 1.2492152741951323,
+      "coverage_fraction": 0.34799321880959944,
+      "complete": false,
+      "latest": null,
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "3aff8d908fb21647ab9cdaad2b6757ab314954af3d12b8a87de9f4bdc507e3e7",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "a009766f02c01ca7366f9e9ba28a41c4188040a5b57e1dd1734484273a197600",
+        "service": "gateway",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/checkout"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060404461400",
+        "end_ns": "1795000062403828000",
+        "int_value": "83",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.430463114Z"
+      },
+      "points": [
+        {
+          "stream_id": "3aff8d908fb21647ab9cdaad2b6757ab314954af3d12b8a87de9f4bdc507e3e7",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "a009766f02c01ca7366f9e9ba28a41c4188040a5b57e1dd1734484273a197600",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.requests.completed",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "int_value": "83",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.430463114Z"
+        },
+        {
+          "stream_id": "3aff8d908fb21647ab9cdaad2b6757ab314954af3d12b8a87de9f4bdc507e3e7",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/checkout\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "a009766f02c01ca7366f9e9ba28a41c4188040a5b57e1dd1734484273a197600",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.requests.completed",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/checkout"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000064406974100",
+          "int_value": "100",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.432452488Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "increment": "83",
+          "rate_per_second": 41.51314721372258,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        },
+        {
+          "start_ns": "1795000062403828000",
+          "end_ns": "1795000064406974100",
+          "increment": "17",
+          "rate_per_second": 8.486650075099366,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": "100",
+      "observed_seconds": 4.0025127000000005,
+      "observed_rate_per_second": 24.984305483902645,
+      "coverage_fraction": 0.34799321880959944,
+      "complete": false,
+      "latest": null,
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "4852e2283e4cc21f2c846310dcf79ef12961d8b7385dd00d5d6ac7c46566bc3c",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "097384e317587d6f46bea04c9d3817396024c9f09747427a8b460a4703b80038",
+        "service": "payment",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+        "name": "traceforge.requests.completed",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060366617500",
+        "end_ns": "1795000062366401800",
+        "int_value": "83",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.396804337Z"
+      },
+      "points": [
+        {
+          "stream_id": "4852e2283e4cc21f2c846310dcf79ef12961d8b7385dd00d5d6ac7c46566bc3c",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "097384e317587d6f46bea04c9d3817396024c9f09747427a8b460a4703b80038",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.requests.completed",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060366617500",
+          "end_ns": "1795000062366401800",
+          "int_value": "83",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.396804337Z"
+        },
+        {
+          "stream_id": "4852e2283e4cc21f2c846310dcf79ef12961d8b7385dd00d5d6ac7c46566bc3c",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.completed\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "097384e317587d6f46bea04c9d3817396024c9f09747427a8b460a4703b80038",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.requests.completed",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060366617500",
+          "end_ns": "1795000064368697600",
+          "int_value": "100",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.395440972Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060366617500",
+          "end_ns": "1795000062366401800",
+          "increment": "83",
+          "rate_per_second": 41.5044762577644,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        },
+        {
+          "start_ns": "1795000062366401800",
+          "end_ns": "1795000064368697600",
+          "increment": "17",
+          "rate_per_second": 8.490254037390478,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": "100",
+      "observed_seconds": 4.002080100000001,
+      "observed_rate_per_second": 24.98700613213613,
+      "coverage_fraction": 0.34795560696980266,
+      "complete": false,
+      "latest": null,
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "6205157887ae181f92010063d298810a901a1c509aa29871b4025e30d9136f21",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.active\",\"[\\\"sum\\\",\\\"{request}\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,false]",
+        "base_id": "23115b7961b9dd6b6a62229f16b2eb813ec3b30e9221039de9f06ca5aa2cdcf9",
+        "service": "payment",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+        "name": "traceforge.requests.active",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": false,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060367144600",
+        "end_ns": "1795000062366401800",
+        "int_value": "1",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.396804337Z"
+      },
+      "points": [
+        {
+          "stream_id": "6205157887ae181f92010063d298810a901a1c509aa29871b4025e30d9136f21",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.active\",\"[\\\"sum\\\",\\\"{request}\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,false]",
+          "base_id": "23115b7961b9dd6b6a62229f16b2eb813ec3b30e9221039de9f06ca5aa2cdcf9",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.requests.active",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000062366401800",
+          "int_value": "1",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.396804337Z"
+        },
+        {
+          "stream_id": "6205157887ae181f92010063d298810a901a1c509aa29871b4025e30d9136f21",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.active\",\"[\\\"sum\\\",\\\"{request}\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,false]",
+          "base_id": "23115b7961b9dd6b6a62229f16b2eb813ec3b30e9221039de9f06ca5aa2cdcf9",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.requests.active",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000064368697600",
+          "int_value": "0",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.395440972Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000062366401800",
+          "increment": "1",
+          "rate_per_second": 0.5001857689946047,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        },
+        {
+          "start_ns": "1795000062366401800",
+          "end_ns": "1795000064368697600",
+          "increment": "-1",
+          "rate_per_second": -0.49942670808179285,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": "0",
+      "observed_seconds": 4.001553,
+      "observed_rate_per_second": 0,
+      "coverage_fraction": 0.34790977895140945,
+      "complete": false,
+      "latest": "0",
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "67a01c4e3ee6fda7467e4ce825763f08047bd64ea769acfb49bb337698b08d9c",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.process.goroutines\",\"[\\\"gauge\\\",\\\"{goroutine}\\\",0,false]\",[]]",
+        "definition_key": "[\"gauge\",\"{goroutine}\",0,false]",
+        "base_id": "d55292203d066085d33f27c7f1fccc9d013a37a56dc818708a44a084bf530beb",
+        "service": "gateway",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+        "name": "traceforge.process.goroutines",
+        "unit": "{goroutine}",
+        "description": "",
+        "type": "gauge",
+        "temporality": 0,
+        "monotonic": false,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "gateway"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060404461400",
+        "end_ns": "1795000062403828000",
+        "int_value": "25",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.430463114Z"
+      },
+      "points": [
+        {
+          "stream_id": "67a01c4e3ee6fda7467e4ce825763f08047bd64ea769acfb49bb337698b08d9c",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.process.goroutines\",\"[\\\"gauge\\\",\\\"{goroutine}\\\",0,false]\",[]]",
+          "definition_key": "[\"gauge\",\"{goroutine}\",0,false]",
+          "base_id": "d55292203d066085d33f27c7f1fccc9d013a37a56dc818708a44a084bf530beb",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.process.goroutines",
+          "unit": "{goroutine}",
+          "description": "",
+          "type": "gauge",
+          "temporality": 0,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000062403828000",
+          "int_value": "25",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.430463114Z"
+        },
+        {
+          "stream_id": "67a01c4e3ee6fda7467e4ce825763f08047bd64ea769acfb49bb337698b08d9c",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"556399f3-0651-4c9a-b568-5be5e5e8744a\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"gateway\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.process.goroutines\",\"[\\\"gauge\\\",\\\"{goroutine}\\\",0,false]\",[]]",
+          "definition_key": "[\"gauge\",\"{goroutine}\",0,false]",
+          "base_id": "d55292203d066085d33f27c7f1fccc9d013a37a56dc818708a44a084bf530beb",
+          "service": "gateway",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "556399f3-0651-4c9a-b568-5be5e5e8744a",
+          "name": "traceforge.process.goroutines",
+          "unit": "{goroutine}",
+          "description": "",
+          "type": "gauge",
+          "temporality": 0,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "556399f3-0651-4c9a-b568-5be5e5e8744a"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "gateway"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060404461400",
+          "end_ns": "1795000064406974100",
+          "int_value": "24",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.432452488Z"
+        }
+      ],
+      "intervals": [],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 0,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": null,
+      "observed_seconds": 0,
+      "observed_rate_per_second": null,
+      "coverage_fraction": 0,
+      "complete": false,
+      "latest": "24",
+      "minimum_observation": 24,
+      "maximum_observation": 25,
+      "mean_observation": 24.5,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "9061c2ed37c325df7ab20d2b6b739000e643acca270919eafdb733f0b9f36480",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.process.goroutines\",\"[\\\"gauge\\\",\\\"{goroutine}\\\",0,false]\",[]]",
+        "definition_key": "[\"gauge\",\"{goroutine}\",0,false]",
+        "base_id": "e372fe1c1ffc175e7d4668b9c421e32afe15331613fd02302a26215ad1534012",
+        "service": "payment",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+        "name": "traceforge.process.goroutines",
+        "unit": "{goroutine}",
+        "description": "",
+        "type": "gauge",
+        "temporality": 0,
+        "monotonic": false,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060367144600",
+        "end_ns": "1795000062366401800",
+        "int_value": "21",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.396804337Z"
+      },
+      "points": [
+        {
+          "stream_id": "9061c2ed37c325df7ab20d2b6b739000e643acca270919eafdb733f0b9f36480",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.process.goroutines\",\"[\\\"gauge\\\",\\\"{goroutine}\\\",0,false]\",[]]",
+          "definition_key": "[\"gauge\",\"{goroutine}\",0,false]",
+          "base_id": "e372fe1c1ffc175e7d4668b9c421e32afe15331613fd02302a26215ad1534012",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.process.goroutines",
+          "unit": "{goroutine}",
+          "description": "",
+          "type": "gauge",
+          "temporality": 0,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000062366401800",
+          "int_value": "21",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.396804337Z"
+        },
+        {
+          "stream_id": "9061c2ed37c325df7ab20d2b6b739000e643acca270919eafdb733f0b9f36480",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.process.goroutines\",\"[\\\"gauge\\\",\\\"{goroutine}\\\",0,false]\",[]]",
+          "definition_key": "[\"gauge\",\"{goroutine}\",0,false]",
+          "base_id": "e372fe1c1ffc175e7d4668b9c421e32afe15331613fd02302a26215ad1534012",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.process.goroutines",
+          "unit": "{goroutine}",
+          "description": "",
+          "type": "gauge",
+          "temporality": 0,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000064368697600",
+          "int_value": "23",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.395440972Z"
+        }
+      ],
+      "intervals": [],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 0,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": null,
+      "observed_seconds": 0,
+      "observed_rate_per_second": null,
+      "coverage_fraction": 0,
+      "complete": false,
+      "latest": "23",
+      "minimum_observation": 21,
+      "maximum_observation": 23,
+      "mean_observation": 22,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "c4d12b49cf0946715083a32b8e5f48be496b32c6348601a2af010911455b6d3b",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"sum\",\"{request}\",2,true]",
+        "base_id": "8187123fd9766c2d8d3f0393a52be8103b62b9e30fc80ef65d9ccfd711e8c7bb",
+        "service": "payment",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+        "name": "traceforge.requests.errors",
+        "unit": "{request}",
+        "description": "",
+        "type": "sum",
+        "temporality": 2,
+        "monotonic": true,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060366617500",
+        "end_ns": "1795000062366401800",
+        "int_value": "0",
+        "double_value": null,
+        "count": "",
+        "sum": null,
+        "bounds": [],
+        "buckets": [],
+        "min": null,
+        "max": null,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.396804337Z"
+      },
+      "points": [
+        {
+          "stream_id": "c4d12b49cf0946715083a32b8e5f48be496b32c6348601a2af010911455b6d3b",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "8187123fd9766c2d8d3f0393a52be8103b62b9e30fc80ef65d9ccfd711e8c7bb",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.requests.errors",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060366617500",
+          "end_ns": "1795000062366401800",
+          "int_value": "0",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.396804337Z"
+        },
+        {
+          "stream_id": "c4d12b49cf0946715083a32b8e5f48be496b32c6348601a2af010911455b6d3b",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.requests.errors\",\"[\\\"sum\\\",\\\"{request}\\\",2,true]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"sum\",\"{request}\",2,true]",
+          "base_id": "8187123fd9766c2d8d3f0393a52be8103b62b9e30fc80ef65d9ccfd711e8c7bb",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.requests.errors",
+          "unit": "{request}",
+          "description": "",
+          "type": "sum",
+          "temporality": 2,
+          "monotonic": true,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060366617500",
+          "end_ns": "1795000064368697600",
+          "int_value": "5",
+          "double_value": null,
+          "count": "",
+          "sum": null,
+          "bounds": [],
+          "buckets": [],
+          "min": null,
+          "max": null,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.395440972Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060366617500",
+          "end_ns": "1795000062366401800",
+          "increment": "0",
+          "rate_per_second": 0,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        },
+        {
+          "start_ns": "1795000062366401800",
+          "end_ns": "1795000064368697600",
+          "increment": "5",
+          "rate_per_second": 2.4971335404089645,
+          "count": "",
+          "sum": null,
+          "buckets": []
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": "5",
+      "observed_seconds": 4.002080100000001,
+      "observed_rate_per_second": 1.2493503066068066,
+      "coverage_fraction": 0.34795560696980266,
+      "complete": false,
+      "latest": null,
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": null,
+      "histogram_sum": null,
+      "histogram_mean": null,
+      "histogram_buckets": [],
+      "p50_bucket": null,
+      "p95_bucket": null,
+      "p99_bucket": null,
+      "status": "observed"
+    },
+    {
+      "metadata": {
+        "stream_id": "cf7d39812cff6b6856959066a707ebaaa6431d8c8be9a65a9fe9a177483bcdeb",
+        "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.request.duration\",\"[\\\"histogram\\\",\\\"s\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+        "definition_key": "[\"histogram\",\"s\",2,false]",
+        "base_id": "6395e32fbf22359f34ca5d32edf892907d124d8331498e9bd94206ba4016c9cb",
+        "service": "payment",
+        "namespace": "session11-20261118110733",
+        "environment": "local",
+        "workload": "synthetic",
+        "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+        "name": "traceforge.request.duration",
+        "unit": "s",
+        "description": "",
+        "type": "histogram",
+        "temporality": 2,
+        "monotonic": false,
+        "resource": [
+          {
+            "key": "deployment.environment.name",
+            "value": {
+              "stringValue": "local"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "payment"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "session11-20261118110733"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "0.1.0"
+            }
+          },
+          {
+            "key": "traceforge.workload.kind",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          }
+        ],
+        "scope": [
+          {
+            "name": "traceforge.demo",
+            "version": "0.1.0"
+          },
+          []
+        ],
+        "attributes": [
+          {
+            "key": "http.request.method",
+            "value": {
+              "stringValue": "GET"
+            }
+          },
+          {
+            "key": "http.route",
+            "value": {
+              "stringValue": "/charge"
+            }
+          }
+        ],
+        "resource_schema": "",
+        "scope_schema": "",
+        "start_ns": "1795000060367144600",
+        "end_ns": "1795000062366401800",
+        "int_value": null,
+        "double_value": null,
+        "count": "83",
+        "sum": 0.3226065,
+        "bounds": [
+          0.001,
+          0.005,
+          0.01,
+          0.025,
+          0.05,
+          0.1,
+          0.25,
+          0.5,
+          1,
+          2,
+          5
+        ],
+        "buckets": [
+          "79",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "3",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "min": 0,
+        "max": 0.1008007,
+        "flags": 0,
+        "overflow": false,
+        "ingested_at": "2026-11-18T11:07:42.396804337Z"
+      },
+      "points": [
+        {
+          "stream_id": "cf7d39812cff6b6856959066a707ebaaa6431d8c8be9a65a9fe9a177483bcdeb",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.request.duration\",\"[\\\"histogram\\\",\\\"s\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"histogram\",\"s\",2,false]",
+          "base_id": "6395e32fbf22359f34ca5d32edf892907d124d8331498e9bd94206ba4016c9cb",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.request.duration",
+          "unit": "s",
+          "description": "",
+          "type": "histogram",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000062366401800",
+          "int_value": null,
+          "double_value": null,
+          "count": "83",
+          "sum": 0.3226065,
+          "bounds": [
+            0.001,
+            0.005,
+            0.01,
+            0.025,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1,
+            2,
+            5
+          ],
+          "buckets": [
+            "79",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "3",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "min": 0,
+          "max": 0.1008007,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:42.396804337Z"
+        },
+        {
+          "stream_id": "cf7d39812cff6b6856959066a707ebaaa6431d8c8be9a65a9fe9a177483bcdeb",
+          "stream_key": "[[{\"key\":\"deployment.environment.name\",\"value\":{\"stringValue\":\"local\"}},{\"key\":\"service.instance.id\",\"value\":{\"stringValue\":\"86c5736a-46fe-4d58-9eb1-a40431fb1901\"}},{\"key\":\"service.name\",\"value\":{\"stringValue\":\"payment\"}},{\"key\":\"service.namespace\",\"value\":{\"stringValue\":\"session11-20261118110733\"}},{\"key\":\"service.version\",\"value\":{\"stringValue\":\"0.1.0\"}},{\"key\":\"traceforge.workload.kind\",\"value\":{\"stringValue\":\"synthetic\"}}],[{\"name\":\"traceforge.demo\",\"version\":\"0.1.0\"},[]],\"\",\"\",\"traceforge.request.duration\",\"[\\\"histogram\\\",\\\"s\\\",2,false]\",[{\"key\":\"http.request.method\",\"value\":{\"stringValue\":\"GET\"}},{\"key\":\"http.route\",\"value\":{\"stringValue\":\"/charge\"}}]]",
+          "definition_key": "[\"histogram\",\"s\",2,false]",
+          "base_id": "6395e32fbf22359f34ca5d32edf892907d124d8331498e9bd94206ba4016c9cb",
+          "service": "payment",
+          "namespace": "session11-20261118110733",
+          "environment": "local",
+          "workload": "synthetic",
+          "instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+          "name": "traceforge.request.duration",
+          "unit": "s",
+          "description": "",
+          "type": "histogram",
+          "temporality": 2,
+          "monotonic": false,
+          "resource": [
+            {
+              "key": "deployment.environment.name",
+              "value": {
+                "stringValue": "local"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "86c5736a-46fe-4d58-9eb1-a40431fb1901"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "payment"
+              }
+            },
+            {
+              "key": "service.namespace",
+              "value": {
+                "stringValue": "session11-20261118110733"
+              }
+            },
+            {
+              "key": "service.version",
+              "value": {
+                "stringValue": "0.1.0"
+              }
+            },
+            {
+              "key": "traceforge.workload.kind",
+              "value": {
+                "stringValue": "synthetic"
+              }
+            }
+          ],
+          "scope": [
+            {
+              "name": "traceforge.demo",
+              "version": "0.1.0"
+            },
+            []
+          ],
+          "attributes": [
+            {
+              "key": "http.request.method",
+              "value": {
+                "stringValue": "GET"
+              }
+            },
+            {
+              "key": "http.route",
+              "value": {
+                "stringValue": "/charge"
+              }
+            }
+          ],
+          "resource_schema": "",
+          "scope_schema": "",
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000064368697600",
+          "int_value": null,
+          "double_value": null,
+          "count": "100",
+          "sum": 1.5481221,
+          "bounds": [
+            0.001,
+            0.005,
+            0.01,
+            0.025,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1,
+            2,
+            5
+          ],
+          "buckets": [
+            "84",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "15",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "min": 0,
+          "max": 0.105612,
+          "flags": 0,
+          "overflow": false,
+          "ingested_at": "2026-11-18T11:07:44.395440972Z"
+        }
+      ],
+      "intervals": [
+        {
+          "start_ns": "1795000060367144600",
+          "end_ns": "1795000062366401800",
+          "increment": "",
+          "rate_per_second": null,
+          "count": "83",
+          "sum": 0.3226065,
+          "buckets": [
+            "79",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "3",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "start_ns": "1795000062366401800",
+          "end_ns": "1795000064368697600",
+          "increment": "",
+          "rate_per_second": null,
+          "count": "17",
+          "sum": 1.2255156,
+          "buckets": [
+            "5",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "12",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "diagnostics": {
+        "physical_points": 4,
+        "canonical_points": 2,
+        "replays": 2,
+        "conflicts": 0,
+        "resets": 0,
+        "gaps": 1,
+        "overlaps": 0,
+        "baselines": 0,
+        "unknown_sequence_start_points": 0,
+        "invalid_decreases": 0,
+        "boundary_intervals": 0,
+        "no_recorded_values": 0,
+        "overflow": false,
+        "definition_conflict": false
+      },
+      "increment": null,
+      "observed_seconds": 4.001553,
+      "observed_rate_per_second": null,
+      "coverage_fraction": 0.34790977895140945,
+      "complete": false,
+      "latest": null,
+      "minimum_observation": null,
+      "maximum_observation": null,
+      "mean_observation": null,
+      "histogram_count": "100",
+      "histogram_sum": 1.5481221,
+      "histogram_mean": 0.015481221,
+      "histogram_buckets": [
+        "84",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "15",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "p50_bucket": {
+        "lower": null,
+        "upper": 0.001,
+        "meaning": "nearest-rank bucket range, not an exact percentile; null endpoint is unbounded"
+      },
+      "p95_bucket": {
+        "lower": 0.1,
+        "upper": 0.25,
+        "meaning": "nearest-rank bucket range, not an exact percentile; null endpoint is unbounded"
+      },
+      "p99_bucket": {
+        "lower": 0.1,
+        "upper": 0.25,
+        "meaning": "nearest-rank bucket range, not an exact percentile; null endpoint is unbounded"
+      },
+      "status": "observed"
+    }
+  ],
+  "merged_histogram": null,
+  "merge_status": "incompatible histogram identities, dimensions, units or boundaries; query one compatible population",
+  "caveat": "Observed OTLP points; no complete-traffic guarantee. Points use (from,to]; increments use fully covered intervals [start,end]. Predecessors are bounded to one hour before from. Rates divide by observed covered seconds, not an assumed full window. Two reads are not a snapshot; gauge latest is only latest within the selected window.",
+  "combined_sum": null,
+  "sum_merge_status": "incompatible, missing, overflow or unreliable Sum populations; combine withheld"
+}

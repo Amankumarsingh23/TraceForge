@@ -1,0 +1,519 @@
+{
+  "query": "from=2026-11-18T11%3A07%3A34.0020752Z&to=2026-11-18T11%3A07%3A45.5037726Z&namespace=session11-20261118110733",
+  "requests": [
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "d1ddf8716b07d840f9120cba39f837e6"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "2ccfca08b6eb2dc9b5e710620930d2df"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "7359732e44f3020c3a8676f2723b6da8"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "4eddefe0e921b5c1a9102ef75c3543cd"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "685708025cc38725443df289b67678fe"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "365972101552987b8c8ba27128757cfa"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "a3b08815b2f2355bd3845372663cc6de"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "978e359b95834bf14a24160532331ac3"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "66df37af2850f843f37c1490df5c1e57"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "a70eb48b5e6043487e55b5c6f807786b"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e974e4e2677fdf353bd3f084574bee92"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e5e4bacaa78674a4f031e433a836864c"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "5e14c342561bca0270a95a3898fc1551"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "8e2021c2b765b2ec89a4fdaca723ca18"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "996c3c9ce1f5f34d7953c37f9771d76a"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "de450cc05277e37fc1f5bd482054a155"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "65dd2696e5be8d1c3afc30565a069816"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "44cfc6896d7d000ca54a1c66db2cc772"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "c77d7e72b7aa6c1c4d299fb0b8e714ee"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "939d634042b4722fdb00a16273131f5d"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "adb488a531732638b9989ce241e7e9de"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "943afdb38276bfb62c8f166bf35bb0eb"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "cbfa2ebd1a0c23840194a96e16702adb"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "9a14f7cf32fe0271d051354b1d4a7ca7"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "3c936b73037c1f7859735d43b27f1144"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "7d55b37eae74777bca701ed225369821"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "973c2b24e4eb6a90e1ed8efc41196700"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "197dc2c4c0c32e4e676a93c0f292e267"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e1010a8aff29590e77b82e1c37336bf7"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "f03c0ca2b3bc7225871c42769fc92f21"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "f4796f3f210a6747fe6ddb22cee92be0"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "4f61c51046c8bdbb32cf633fb042c8bf"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e9ce3a36c0620ffa8e1f58b669c66df2"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "a3c36485d32a3a477e009371a6da4def"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "fc3ef057119c10403d75cabb0fd9d461"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "87b28b651cfb37476ba7c76f71823355"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "89f5789562358a6dbb18a9482ef551c1"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "3f35a6392225d5417f39a1ea5514bd6b"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "252c1f84c2e60880cb5e0d148dc60d0c"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "65396e1a9f5f862fd1d174346a5c67a6"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "fdc123326ddff77f2d64f6b78a9113e8"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "db5697ce04d913ed5f1c761b0cf258c5"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "c134d2c7c695e37dd7e0c72343154687"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "5f79c18e0b05885f85abb3966c47ab96"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "79617a990b76c59ad9ecea8560b40163"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "3842f5d6a52b3d72270c57d4679d0887"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "69af5c4fe1b735416ec388c474787c32"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e012d337459f5c3948db0d0f89145678"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "bbb598bf86704d6ae8c7c68c57300482"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "26b6cfa3d0e9afb9dc3b5daaa19e8aa5"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "2baa427d649c4fd8d7d041c5219ed59c"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "0c542f4be66d56f2a8291ac2f19f08fd"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "b08998cd3aba6bf8d5e1a6eb68218413"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "32bd804dc8a38163d63e65e9b1c5d33e"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "595af0cc2e43a903a49c25e3910db3bf"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "a88a71d0c7c7d2034b3a431de007ab85"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "63cbc3a6d2eee8f7abb0765934207ebf"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "8ac41c48502ff0c8e4560c750cf01d47"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "6054fd6d368e6e76be66c59088ef444a"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "2dc1732702dd61df5f1f68aa3e2ac567"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "eb294836f2aa6f18cfa991d96097024f"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "44dd907bd230c456bde4e108efea723d"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "d0e32c0fe8a9ee295e8b493421429ca5"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "f68c86845af2fd1d3e2c45fa021e40b6"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "b48dacf1bfcc79625da160ff21a65ed6"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "352d603c0db656cfdcac96415826d932"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "04a1bb366a9fa6ec00e97900c6640abd"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e927e60265a687c420bff3527aa76f93"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e7ec6208f9ce64b8b1a69f3b258dad7e"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "9ed53a1ae2de7136a8a53fdd26c5e365"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "ccea84878621b1dee4a1de5a53edb6e3"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "e1d6b635c65d9e7e2916df34898c52cb"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "3189f1679e3152eff439f8b76c60a3a2"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "79b5a5520879208995e8b044ddea7d0a"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "41eb8a24a33162c2e3efd84509d8c266"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "9b5a361606bfa0ced279837f49efa973"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "5a96394410df1b813fc11576d0005036"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "18b9fe5158ab7fe0f789471e1fa18f17"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "436395baa475d51822ba0e8a3d92b107"
+    },
+    {
+      "kind": "normal",
+      "status": 200,
+      "trace_id": "aec039611347af9a4ded4af7057ee8cf"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "f4100aa854ff0a1191a0bae64744d35d"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "7bffd4d29b50db56fd77829dcf1589c5"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "79110647c231563f209bbd39b58ac89e"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "750c0799081515122812f2160f7f936e"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "be779fd9abac9c8263092c0410605b14"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "e3612ea9881b14d00e303b657fc0f7c8"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "d7f46cdee80581a6445231138b036686"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "32750699b85cfd5cdcbbc1753a18d5a7"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "bdad4fefe974d190f4ddc029674c6648"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "dd9396b3584c14d33f13e6c59ea8f3f7"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "28aba88936d3ae57ecc855f471e4345d"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "43a8de1abf3891189c0e0fdd23d78ce9"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "d4f5e92e8fe59892932df2b0892ff69a"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "96d7b9b41da4affb25cfca6a22cf1b1a"
+    },
+    {
+      "kind": "delayed",
+      "status": 200,
+      "trace_id": "3887690c62018c89ed9e5ea2db160a57"
+    },
+    {
+      "kind": "failed",
+      "status": 502,
+      "trace_id": "f1ec57dc1cf0e80342f365f53f10b0ee"
+    },
+    {
+      "kind": "failed",
+      "status": 502,
+      "trace_id": "3a5788ca28f35766ee560860fba945b3"
+    },
+    {
+      "kind": "failed",
+      "status": 502,
+      "trace_id": "02341b6739d59b694cf11d7592a14cb4"
+    },
+    {
+      "kind": "failed",
+      "status": 502,
+      "trace_id": "34a9048230d6c9adb8a443ff90845e44"
+    },
+    {
+      "kind": "failed",
+      "status": 502,
+      "trace_id": "ecb42357863ce67f0c0ee9e2bf1e2c19"
+    }
+  ],
+  "new_instance": "2b62f9a2-d9c0-484a-8590-2f9257d44263",
+  "restart_requests": [
+    "38d31b0a427b09be52e885a89938408c",
+    "b4a48e7a30380be314fb1d2a4ccf6508",
+    "847e0ed6c3aeddf8d3f743fa48145ac4",
+    "fa82d58337ec78b2478f851a41785f78",
+    "5867a2e1b452115e1291b2c41ce33596"
+  ],
+  "trace_query": "from=2026-11-18T11%3A07%3A34.0020752Z&to=2026-11-18T11%3A07%3A45.5037726Z&namespace=session11-20261118110733&workload=synthetic&bucket_seconds=60",
+  "to": "2026-11-18T11:07:45.5037726Z",
+  "namespace": "session11-20261118110733",
+  "restart_query": "from=2026-11-18T11%3A07%3A34.0020752Z&to=2026-11-18T11%3A07%3A55.2738265Z&namespace=session11-20261118110733&name=traceforge.requests.completed&service=payment",
+  "old_instance": "86c5736a-46fe-4d58-9eb1-a40431fb1901",
+  "from": "2026-11-18T11:07:34.0020752Z"
+}

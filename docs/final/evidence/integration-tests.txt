@@ -1,0 +1,146 @@
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/policy
+    agent_test.go:182: policy trace=2178dd5f9051d0e7240216df304d427d spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/tool
+    agent_test.go:182: tool trace=df5933976628c1d34b7f5e447f997b27 spans=9 logs=3 calls=2 attempts=2 cost=2300000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/retry
+    agent_test.go:182: retry trace=ad3dac8a0da9a98f32c4f81e93eecbd1 spans=7 logs=4 calls=1 attempts=2 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/missing_usage
+    agent_test.go:182: missing_usage trace=0a79ed4ef0f792b3018dea2c4150a400 spans=6 logs=2 calls=1 attempts=1 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/no_results
+    agent_test.go:182: no_results trace=adf6e10a3a256434cb7596ebeb733ddb spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/timeout
+    agent_test.go:182: timeout trace=3809d4c5003e8523f2f3f43c83de7d41 spans=6 logs=5 calls=1 attempts=2 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/permanent
+    agent_test.go:182: permanent trace=fb74d02de5a564adb705247f1b37a79f spans=5 logs=3 calls=1 attempts=1 cost=
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/bad_arguments
+    agent_test.go:182: bad_arguments trace=15388c3773d61472de6c19cc659260de spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/unknown_tool
+    agent_test.go:182: unknown_tool trace=53248666c27abdd9a4300e77403c6b42 spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/tool_timeout
+    agent_test.go:182: tool_timeout trace=4c27fed5dc4df5bd95e21d60eaccda8b spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/unknown_order
+    agent_test.go:182: unknown_order trace=a0bb96200aa6bfba27a609ed463af762 spans=6 logs=2 calls=1 attempts=1 cost=800000
+=== RUN   TestAgentExecutionStoragePrivacyAndReplay/max_steps
+    agent_test.go:182: max_steps trace=aac98193ea64970049fd2852932971f0 spans=5 logs=2 calls=1 attempts=1 cost=800000
+--- PASS: TestAgentExecutionStoragePrivacyAndReplay (11.94s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/policy (0.74s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/tool (1.24s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/retry (0.74s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/missing_usage (1.36s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/no_results (0.68s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/timeout (1.15s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/permanent (0.88s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/bad_arguments (1.09s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/unknown_tool (1.08s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/tool_timeout (0.98s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/unknown_order (0.87s)
+    --- PASS: TestAgentExecutionStoragePrivacyAndReplay/max_steps (1.09s)
+=== RUN   TestAnalyticsCrossWindowBulkAndBudget
+    analytics_test.go:79: bulk cross-window hydration and 129-candidate rejection verified; trace=2b23b9a7cac413f2bff2b97e8902160f
+--- PASS: TestAnalyticsCrossWindowBulkAndBudget (0.28s)
+=== RUN   TestLiveGracefulBatchDrain
+    batching_test.go:22: dedicated benchmark receiver required
+--- SKIP: TestLiveGracefulBatchDrain (0.00s)
+=== RUN   TestLiveForcedKillPendingBatch
+    batching_test.go:103: isolated benchmark receiver required
+--- SKIP: TestLiveForcedKillPendingBatch (0.00s)
+=== RUN   TestLogStorageQueryPrivacyAndReplay
+    logs_test.go:208: service=s06-a81ad8ec694de805 trace=4d8370794b48f6016a5b194185b11ce7 span=b6e16a4864c622d8 rows=14 unique_log_ids=14 trace_logs=10 span_logs=8 standalone=4 fallback=2 pages=7; replay retained, secrets absent, exact ns=1795000677123456789
+--- PASS: TestLogStorageQueryPrivacyAndReplay (0.55s)
+=== RUN   TestRealDemoLogCorrelation
+=== RUN   TestRealDemoLogCorrelation/normal
+    logs_test.go:295: normal trace=39c0a3cc2ed900ff72f0f4a855deb17f payment.process=5cdfdfbc12f420e2 trace_logs=5 payment_logs=2 HTTP=200
+=== RUN   TestRealDemoLogCorrelation/delayed
+    logs_test.go:295: delayed trace=b19959445108e475201d05ca1d3e8f22 payment.process=2febbfa25d63dbfd trace_logs=6 payment_logs=3 HTTP=200
+=== RUN   TestRealDemoLogCorrelation/failed
+    logs_test.go:295: failed trace=75e58412f3e1db135977a4c63b8c08cb payment.process=cfd6435c69627f71 trace_logs=5 payment_logs=2 HTTP=502
+--- PASS: TestRealDemoLogCorrelation (12.46s)
+    --- PASS: TestRealDemoLogCorrelation/normal (2.39s)
+    --- PASS: TestRealDemoLogCorrelation/delayed (4.91s)
+    --- PASS: TestRealDemoLogCorrelation/failed (5.12s)
+=== RUN   TestMixedSignalLogAndTraceBudgets
+    logs_test.go:348: 8 concurrent log + 8 trace requests confirmed; both independent queues and payload reservations settled to zero
+--- PASS: TestMixedSignalLogAndTraceBudgets (0.12s)
+=== RUN   TestLogDatabaseUnavailable
+    logs_test.go:352: controlled outage only
+--- SKIP: TestLogDatabaseUnavailable (0.00s)
+=== RUN   TestMetricStorageTemporalReplayAndCardinality
+    metrics_test.go:150: actual stored: two writers counter290; histogram100 p95(.1,.5]s; replay stable; unsupported2; cardinality256 accepted/44 rejected; service=s11-metrics-08a614aa3fe0
+--- PASS: TestMetricStorageTemporalReplayAndCardinality (0.11s)
+=== RUN   TestSDKMetricOverflowPreservesObservedTotal
+    metrics_test.go:209: real SDK cardinality limit4 exported4 streams including overflow; summed observed increments64, dimension coverage explicitly unreliable
+--- PASS: TestSDKMetricOverflowPreservesObservedTotal (0.16s)
+=== RUN   TestMetricDatabaseUnavailable
+    metrics_test.go:213: explicit controlled local ClickHouse outage
+--- SKIP: TestMetricDatabaseUnavailable (0.00s)
+=== RUN   TestKnownSession2TraceAPI
+    query_test.go:114: Session 2 trace=656f80607b005aa65927df202991a837 physical=5 unique=5 roots=1 gateway=3 payment=2 completeness=unknown
+--- PASS: TestKnownSession2TraceAPI (0.05s)
+=== RUN   TestTraceQueryReplay
+    query_test.go:133: Get "http://localhost:8082/api/v1/traces/e4d5f7d84b79add855ceca6c296db8e0": EOF
+--- FAIL: TestTraceQueryReplay (2.07s)
+=== RUN   TestSyntheticGraphAPI
+    query_test.go:214: rpc error: code = Unavailable desc = connection error: desc = "error reading server preface: EOF"
+--- FAIL: TestSyntheticGraphAPI (0.01s)
+=== RUN   TestTraceSearchPaging
+    query_test.go:273: rpc error: code = Unavailable desc = connection error: desc = "error reading server preface: EOF"
+--- FAIL: TestTraceSearchPaging (0.00s)
+=== RUN   TestQueryDatabaseUnavailable
+    query_test.go:328: controlled outage only
+--- SKIP: TestQueryDatabaseUnavailable (0.00s)
+=== RUN   TestTraceDetailLimitAPI
+    query_test.go:355: rpc error: code = Unavailable desc = connection error: desc = "error reading server preface: EOF"
+--- FAIL: TestTraceDetailLimitAPI (0.00s)
+=== RUN   TestSession13CrossPartitionHydrationAndPredecessor
+    session13_test.go:30: explicit isolated experiment
+--- SKIP: TestSession13CrossPartitionHydrationAndPredecessor (0.00s)
+=== RUN   TestSession13LayoutsCanonicalMetricsSLOAndProvider
+    session13_test.go:103: explicit isolated Session13 benchmark database required
+--- SKIP: TestSession13LayoutsCanonicalMetricsSLOAndProvider (0.00s)
+=== RUN   TestOTLPStorageContract
+=== RUN   TestOTLPStorageContract/empty
+    storage_test.go:96: empty response rpc error: code = Unavailable desc = connection error: desc = "error reading server preface: EOF"
+=== RUN   TestOTLPStorageContract/multiple_groups_and_scopes
+    storage_test.go:116: full response rpc error: code = Unavailable desc = connection error: desc = "error reading server preface: EOF"
+=== RUN   TestOTLPStorageContract/partial_and_retry_duplicates
+    storage_test.go:145: partial response rpc error: code = Unavailable desc = connection error: desc = "error reading server preface: EOF"
+--- FAIL: TestOTLPStorageContract (0.11s)
+    --- FAIL: TestOTLPStorageContract/empty (0.00s)
+    --- FAIL: TestOTLPStorageContract/multiple_groups_and_scopes (0.00s)
+    --- FAIL: TestOTLPStorageContract/partial_and_retry_duplicates (0.00s)
+=== RUN   TestDemoTraceStorage
+=== RUN   TestDemoTraceStorage/normal
+    storage_test.go:298: trace=e8a2a14727a749f3b2c723cc4dbfeaaa rows=5 distinct_spans=5 duplicates=0
+    storage_test.go:300: span=197c42398c8b8690 parent= service=gateway name="GET /checkout" duration_ns=535300 status=0
+    storage_test.go:300: span=79a07c40b62f835e parent=ae568431ec091262 service=payment name="GET /charge" duration_ns=0 status=0
+    storage_test.go:300: span=a244adbc8f3948cf parent=197c42398c8b8690 service=gateway name="checkout.validate" duration_ns=0 status=0
+    storage_test.go:300: span=adf09294e96b109c parent=79a07c40b62f835e service=payment name="payment.process" duration_ns=0 status=0
+    storage_test.go:300: span=ae568431ec091262 parent=197c42398c8b8690 service=gateway name="HTTP GET" duration_ns=0 status=0
+=== RUN   TestDemoTraceStorage/delayed
+    storage_test.go:298: trace=4c0ff314ccedecad03a070735da07365 rows=5 distinct_spans=5 duplicates=0
+    storage_test.go:300: span=1bc17ba8cd997252 parent=90b4159606e2351b service=gateway name="HTTP GET" duration_ns=500704800 status=0
+    storage_test.go:300: span=44cda16ec126d48e parent=1bc17ba8cd997252 service=payment name="GET /charge" duration_ns=500171900 status=0
+    storage_test.go:300: span=653c512faefd58b8 parent=44cda16ec126d48e service=payment name="payment.process" duration_ns=500171900 status=0
+    storage_test.go:300: span=667a228606e9775e parent=90b4159606e2351b service=gateway name="checkout.validate" duration_ns=0 status=0
+    storage_test.go:300: span=90b4159606e2351b parent= service=gateway name="GET /checkout" duration_ns=500704800 status=0
+=== RUN   TestDemoTraceStorage/failed
+    storage_test.go:298: trace=33645a94c12b34871167b117739e9700 rows=5 distinct_spans=5 duplicates=0
+    storage_test.go:300: span=4cc61e42a535956f parent=c4077435a5c867e7 service=payment name="GET /charge" duration_ns=541000 status=2
+    storage_test.go:300: span=6666d41c81b3f108 parent= service=gateway name="GET /checkout" duration_ns=541000 status=2
+    storage_test.go:300: span=8239d12039fe694c parent=6666d41c81b3f108 service=gateway name="checkout.validate" duration_ns=0 status=0
+    storage_test.go:300: span=c4077435a5c867e7 parent=6666d41c81b3f108 service=gateway name="HTTP GET" duration_ns=541000 status=2
+    storage_test.go:300: span=d18446b88e12eb0a parent=4cc61e42a535956f service=payment name="payment.process" duration_ns=541000 status=2
+--- PASS: TestDemoTraceStorage (13.62s)
+    --- PASS: TestDemoTraceStorage/normal (2.63s)
+    --- PASS: TestDemoTraceStorage/delayed (4.91s)
+    --- PASS: TestDemoTraceStorage/failed (6.07s)
+=== RUN   TestDatabaseUnavailable
+    storage_test.go:308: controlled outage requires TRACEFORGE_EXPECT_DB_DOWN=1
+--- SKIP: TestDatabaseUnavailable (0.00s)
+=== RUN   TestFreshExportAfterRecovery
+    storage_test.go:348: fresh recovery trace=3b510e7cd74b75aa6effe0bb6366fda1 rows=1
+--- PASS: TestFreshExportAfterRecovery (0.14s)
+FAIL
+FAIL	traceforge/tests/integration	42.220s
+FAIL

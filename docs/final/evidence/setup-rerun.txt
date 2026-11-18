@@ -1,0 +1,117 @@
+ Image traceforge-traceforge-server Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 571B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 749B 0.0s done
+#2 DONE 0.0s
+
+#3 [auth] library/golang:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.27.4-bookworm
+#4 DONE 1.6s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 198B 0.0s done
+#5 DONE 0.0s
+
+#6 [build 1/8] FROM docker.io/library/golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea
+#6 resolve docker.io/library/golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 5.68kB 0.0s done
+#7 DONE 0.0s
+
+#8 [build 2/8] WORKDIR /src
+#8 CACHED
+
+#9 [build 5/8] COPY cmd ./cmd
+#9 CACHED
+
+#10 [build 6/8] COPY internal ./internal
+#10 CACHED
+
+#11 [build 8/8] RUN CGO_ENABLED=0 go build -trimpath -o /traceforge-secure ./cmd/traceforge-secure
+#11 CACHED
+
+#12 [build 3/8] COPY go.mod go.sum ./
+#12 CACHED
+
+#13 [build 7/8] RUN CGO_ENABLED=0 go build -trimpath -o /traceforge-server ./cmd/traceforge-server
+#13 CACHED
+
+#14 [build 4/8] RUN go mod download
+#14 CACHED
+
+#15 [server 1/1] COPY --from=build /traceforge-server /traceforge-server
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers done
+#16 exporting manifest sha256:a29159665d48e140a465d32baeadd9bf52ae9947060e2b3ae50a790e5c56512f done
+#16 exporting config sha256:4112cf88b716f8c1d062dec7b801b1512d07fc752c7d4d617fe62d5fa2bb81df done
+#16 exporting attestation manifest sha256:3f83944f67537d3d30a89e84e9afe808bb667291dfa170604084b1a6c5a99e48 0.0s done
+#16 exporting manifest list sha256:85776197d5634dc361889650441fa41cd322402c8ffb189c708d41f4556cac90 0.0s done
+#16 naming to docker.io/library/traceforge-traceforge-server:latest done
+#16 unpacking to docker.io/library/traceforge-traceforge-server:latest done
+#16 DONE 0.1s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.0s
+ Image traceforge-traceforge-server Built
+time="2026-11-18T16:50:11+05:30" level=warning msg="Found orphan containers (traceforge-secure-gateway-1, traceforge-tenant-beta-1, traceforge-tenant-alpha-1, traceforge-collector-beta-1, traceforge-collector-alpha-1, traceforge-sampling-collector-1, traceforge-traceforge-benchmark-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container traceforge-postgres-1 Running
+ Container traceforge-traceforge-server-1 Running
+ Container traceforge-otel-collector-1 Running
+ Container traceforge-clickhouse-1 Running
+ Container traceforge-clickhouse-1 Waiting
+ Container traceforge-clickhouse-1 Healthy
+ Container traceforge-traceforge-server-1 Waiting
+ Container traceforge-traceforge-server-1 Healthy
+ Container traceforge-postgres-1 Waiting
+ Container traceforge-traceforge-server-1 Waiting
+ Container traceforge-otel-collector-1 Waiting
+ Container traceforge-clickhouse-1 Waiting
+ Container traceforge-postgres-1 Healthy
+ Container traceforge-traceforge-server-1 Healthy
+ Container traceforge-clickhouse-1 Healthy
+ Container traceforge-otel-collector-1 Healthy
+NOTICE:  relation "eval_schema_versions" already exists, skipping
+CREATE TABLE
+CREATE TABLE
+NOTICE:  relation "eval_datasets" already exists, skipping
+CREATE TABLE
+NOTICE:  relation "eval_cases" already exists, skipping
+NOTICE:  relation "eval_runs" already exists, skipping
+CREATE TABLE
+CREATE TABLE
+NOTICE:  relation "eval_case_results" already exists, skipping
+CREATE INDEX
+NOTICE:  relation "eval_run_order" already exists, skipping
+INSERT 0 0
+CREATE TABLE
+NOTICE:  relation "experiment_configs" already exists, skipping
+NOTICE:  column "manifest_checksum" of relation "eval_runs" already exists, skipping
+ALTER TABLE
+NOTICE:  relation "eval_comparisons" already exists, skipping
+CREATE TABLE
+NOTICE:  relation "gate_policies" already exists, skipping
+CREATE TABLE
+CREATE TABLE
+NOTICE:  relation "gate_decisions" already exists, skipping
+NOTICE:  relation "comparisons_order" already exists, skipping
+CREATE INDEX
+INSERT 0 0
+CREATE FUNCTION
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TRIGGER
+CREATE TABLE
+NOTICE:  relation "security_evaluations" already exists, skipping
+CREATE TRIGGER
+Local gateway/payment demo processes restarted with OTLP logging enabled.
+Legacy loopback demo ready: API8082, gateway8080, payment8081, fixture agent8084. Start the production Next server separately on3000. No data volumes were removed.

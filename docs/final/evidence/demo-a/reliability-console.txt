@@ -1,0 +1,1 @@
+Local gateway/payment demo processes restarted with OTLP logging enabled.

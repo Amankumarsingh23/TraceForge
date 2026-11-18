@@ -37,6 +37,9 @@ try{
  $live=($provider|ConvertTo-Json -Depth 10|ConvertFrom-Json -AsHashtable);$live.id=$id+'-live';$live.mode='live';$live.provider='openai';$live.description='No paid/live calls authorized: missing live evidence must remain UNKNOWN'
  @($availability,$latency,$provider,$logical,$live)|ConvertTo-Json -Depth 12|Set-Content $definitionPath
  $key=$availability.id+'-v1'
+ # Let independently created streams establish shared periodic boundaries before
+ # the first20-second SLO window. A first partial interval is not equal coverage.
+ Start-Sleep -Seconds 6
  Traffic 'healthy' 25
  $healthy=Evaluate 'healthy' $key
  if($healthy.overall.evidence.status -ne 'MEASURED' -or $healthy.overall.evidence.bad -ne '0' -or -not $healthy.overall.budget.meets_target){throw 'Healthy real workload did not satisfy declared objective'}

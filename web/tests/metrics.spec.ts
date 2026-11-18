@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { readFileSync, mkdirSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 const root = path.resolve(import.meta.dirname, "../..");
@@ -116,10 +116,19 @@ test("real metric backend outage rejects export and recovers", async ({
     "Explicit local ClickHouse outage",
   );
   test.setTimeout(120000);
+  // Compile while dependencies are healthy. The outage tests execution, not
+  // package downloads, compiler startup or a cold build cache.
+  const binary = path.join(root, "bin", process.platform === "win32" ? "metric-outage-test.exe" : "metric-outage-test");
+  const logDir = path.join(root, "artifacts/session15");
+  mkdirSync(path.dirname(binary), { recursive: true });
+  mkdirSync(logDir, { recursive: true });
+  execFileSync("go", ["test", "-c", "-tags", "integration", "-o", binary, "./tests/integration"],
+    { cwd: root, stdio: "pipe", timeout: 90000 });
   try {
     execFileSync("docker", ["compose", "stop", "clickhouse"], {
       cwd: root,
       stdio: "pipe",
+      timeout: 20000,
     });
     await page.goto(
       `/metrics?${evidence.query}&name=traceforge.requests.completed&service=payment`,
@@ -127,31 +136,28 @@ test("real metric backend outage rejects export and recovers", async ({
     await expect(page.locator(".metrics-page [role=alert]")).toContainText(
       "503",
     );
-    const output = execFileSync(
-      "go",
-      [
-        "test",
-        "-tags",
-        "integration",
-        "-count=1",
-        "./tests/integration",
-        "-run",
-        "^TestMetricDatabaseUnavailable$",
-        "-v",
-      ],
-      {
+    let output: string;
+    try {
+      output = execFileSync(binary, ["-test.run=^TestMetricDatabaseUnavailable$", "-test.v", "-test.timeout=20s"], {
         cwd: root,
         env: { ...process.env, TRACEFORGE_EXPECT_DB_DOWN: "1" },
         stdio: "pipe",
-        timeout: 45000,
-      },
-    ).toString();
+        timeout: 25000,
+      }).toString();
+      writeFileSync(path.join(logDir, "metric-outage-child.txt"), output);
+    } catch (error) {
+      const failure = error as Error & { stdout?: Buffer; stderr?: Buffer; status?: number; signal?: string };
+      writeFileSync(path.join(logDir, "metric-outage-child.txt"),
+        `${failure.message}\nstatus=${failure.status} signal=${failure.signal}\n${failure.stdout ?? ""}\n${failure.stderr ?? ""}`);
+      throw error;
+    }
     expect(output).toContain("PASS");
     console.log(output.trim());
   } finally {
     execFileSync("docker", ["compose", "start", "clickhouse"], {
       cwd: root,
       stdio: "pipe",
+      timeout: 20000,
     });
     await expect
       .poll(

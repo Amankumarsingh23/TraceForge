@@ -1,0 +1,778 @@
+{
+  "firing": "e240a482299adaade7ea0b25531cc5d1dbc0af51c67fc8246619c74763d61bcb",
+  "live": "bd245ac793d33bf511d025a44c56b2b1439e5465712646b47358de3ce6d402be",
+  "recovery": "3558179c8b7a20e9dd955b869f5233cb36e513545bdd2648f9cc0c7b53535fda",
+  "logical": "992c96d7a914f27bedcc7b1de9e8bbbf8a03d1c3f753da9c8912fe7e7f0ddb25",
+  "provider_requests": [
+    {
+      "run_id": "05eba11b4b7b4986b0e3fec8a5f2b1c7",
+      "status": 200,
+      "scenario": "normal",
+      "trace_id": "d08808795f3fc42067adec0320c5e4d1"
+    },
+    {
+      "run_id": "46c693e3a3b84aedb080b4ee14c16e9a",
+      "status": 200,
+      "scenario": "retry",
+      "trace_id": "d3f8fb6d781a5fb36cc72eeee34040b7"
+    },
+    {
+      "run_id": "cb9f91c4b1bf468e99f3482d1cb53014",
+      "status": 502,
+      "scenario": "permanent_error",
+      "trace_id": "9132feeda8094656e8efa4db4d0640a4"
+    }
+  ],
+  "slo_key": "s12-20261118111727-availability-v1",
+  "latency": "0bdb30434b02f9dd50e736d8c657ecf3cc7d5456b6fbe1062c71c0e89823d456",
+  "provider_key": "s12-20261118111727-provider-v1",
+  "incident_id": "c2de76f42a296f92d459434b172875348378926fc7c88c82d319335cd43f6706",
+  "latency_key": "s12-20261118111727-latency-v1",
+  "healthy": "a7566eb10bc5cc9f8d0f303c00eedaabfe1088c518ea419818ebc6b32483e61b",
+  "unknown": "946ef13ca8bf5d7556a0a59a13cabe0fd5e335a5c38d48d7fbfbeb295c07febc",
+  "namespace": "session12-20261118111723",
+  "live_key": "s12-20261118111727-live-v1",
+  "provider": "6ea55ec8451ad71504951f8259c6ed1b1d650749ce17e6b87b1164c28fc37b7d",
+  "requests": [
+    {
+      "phase": "warmup",
+      "status": 200,
+      "completed": "2026-11-18T11:17:25.3934785Z",
+      "trace_id": "982be4495b9d5898ebf7b0a1454bc8db"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:33.4387991Z",
+      "trace_id": "7f3b76fc0dc31535de8a7c106c84bf4e"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:34.1982535Z",
+      "trace_id": "49864afa1955e08b96f13868104dc6e8"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:34.9619078Z",
+      "trace_id": "f233a42152fbaf940cede89c2b586aed"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:35.7198029Z",
+      "trace_id": "82970c8c95fe6d7f00ef5786e593ba83"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:36.4778820Z",
+      "trace_id": "a1ab336850c523f4ad5eaa5af948d3f5"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:37.2470855Z",
+      "trace_id": "21bb632831354b661fed2ff9d3998c5f"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:38.0117652Z",
+      "trace_id": "7066517e30ab67a9908835223d9a903b"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:38.7693131Z",
+      "trace_id": "befb77b303dfb7efe9e0312b2c1c0e35"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:39.5383252Z",
+      "trace_id": "e203d35e3da1cf5ffee6144dad2bdc7f"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:40.2955820Z",
+      "trace_id": "b86ec9c6b310d6c6aa77dffc8db44dd3"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:41.0498247Z",
+      "trace_id": "424753e89ec888eb4cf4f320d9cfce97"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:41.8143553Z",
+      "trace_id": "71c5a183ec34c5be5e2469fb73eedd85"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:42.5743864Z",
+      "trace_id": "6c1fd63515f1145d24d42ce7762045fa"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:43.3415488Z",
+      "trace_id": "be6096bcdad6af3eb7d9db67f6501901"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:44.0966027Z",
+      "trace_id": "27ff2b9441284cfb8a2e917034ff2f2f"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:44.8604519Z",
+      "trace_id": "d3a3d192f979052541f84fbbe1b5b6d6"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:45.6270373Z",
+      "trace_id": "1d97197602abd24185e7071078ff6d42"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:46.3908940Z",
+      "trace_id": "29318a833e4fc3ad9896b9553fd99f5a"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:47.1575739Z",
+      "trace_id": "7280763a042d0696295d212427835aff"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:47.9167037Z",
+      "trace_id": "6170535a2e1fbcd9b817d3a3df8fddbb"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:48.6719562Z",
+      "trace_id": "3f8a961ac16785ebf9276d56915dd54a"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:49.4350506Z",
+      "trace_id": "de4e636d33f3c3ec6359d299e5a9ec47"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:50.1914200Z",
+      "trace_id": "30ff6d71924de3041cd81568d024280c"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:50.9530087Z",
+      "trace_id": "0d642fa26421abed656fd14b917c071b"
+    },
+    {
+      "phase": "healthy",
+      "status": 200,
+      "completed": "2026-11-18T11:17:51.7087382Z",
+      "trace_id": "3fdcd173be618a69a615a54ed4ea4600"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:52.8496508Z",
+      "trace_id": "fff1e3aae06511f4212ff4701ab16ded"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:53.6106509Z",
+      "trace_id": "226f810fdeb44f784b910ca439cd4140"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:54.3781360Z",
+      "trace_id": "3e87c59f36476395a68ffe38e450d52a"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:55.1382045Z",
+      "trace_id": "d7fddd87248a980a638f1f5a51bd2060"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:55.9024322Z",
+      "trace_id": "1d578ed1c44ccba61bd7ebf44fe683f9"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:56.6651032Z",
+      "trace_id": "37970fa21e5dcb22629672d50c3e7d62"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:57.4285763Z",
+      "trace_id": "8f41e3ce047784299561650b190a47ab"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:58.1849311Z",
+      "trace_id": "d3a126997149020114c74f3d3bab998f"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:58.9471214Z",
+      "trace_id": "8c716e2e32d887925cda42c45a603df7"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:17:59.7121427Z",
+      "trace_id": "748addc7877574d6697821d71b1a046d"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:00.4792791Z",
+      "trace_id": "09f7475a5168664e026e91060354c5de"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:01.2443386Z",
+      "trace_id": "ec27c965ba1e6e477e4f40bdbbcd424e"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:02.0108455Z",
+      "trace_id": "e84ffa5bdd738c5fde5beb9a7d878a29"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:02.7700534Z",
+      "trace_id": "cdb84aeac3e7cce31f7e1b0228d74b44"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:03.5332031Z",
+      "trace_id": "586fdf30f1fb873db2c30391bac07d46"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:04.2940906Z",
+      "trace_id": "0340f3e4eadf810185e4a24926470cd0"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:05.0522749Z",
+      "trace_id": "2de7d0ab9cf2e611cef06f77b1b868fd"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:05.8191015Z",
+      "trace_id": "87004642f9da03d11f6fdc1c2be00402"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:06.5816698Z",
+      "trace_id": "12efa58d6d9dbf439ef4c016bb0fd921"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:07.3446891Z",
+      "trace_id": "f15b72691d979038af8c0a9761d8d8c7"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:08.1063782Z",
+      "trace_id": "e57c82f066712d4998ca5a711b065f49"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:08.8607014Z",
+      "trace_id": "266638923fb71470e84e6690f7be64c4"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:09.6256041Z",
+      "trace_id": "4c92b8508a746d0be70d71f9497e9027"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:10.3789644Z",
+      "trace_id": "94c70536467a254666e8b1489cc953ed"
+    },
+    {
+      "phase": "failing",
+      "status": 502,
+      "completed": "2026-11-18T11:18:11.1385660Z",
+      "trace_id": "31611646d61235dd2c0d6609646eac40"
+    },
+    {
+      "phase": "repeated-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:19.5031622Z",
+      "trace_id": "49b9a4529ef1af2ef1fc578723286339"
+    },
+    {
+      "phase": "repeated-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:20.2705287Z",
+      "trace_id": "6a373cbce970becdfc73204f39b1459a"
+    },
+    {
+      "phase": "repeated-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:21.0300603Z",
+      "trace_id": "71dd80ca31883bfe26f4cea49b58ffb3"
+    },
+    {
+      "phase": "repeated-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:21.7948437Z",
+      "trace_id": "11fd450ead4f448c5523fdef3d777994"
+    },
+    {
+      "phase": "repeated-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:22.5591022Z",
+      "trace_id": "b2744ecf66a586cc455f3c3ec8a2c84e"
+    },
+    {
+      "phase": "repeated-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:23.3207230Z",
+      "trace_id": "162643fcc114c3b09b444136ff85fb40"
+    },
+    {
+      "phase": "after-restart-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:25.3694565Z",
+      "trace_id": "26b73e3af95a65860b3fcbd9e6da5bde"
+    },
+    {
+      "phase": "after-restart-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:26.1291943Z",
+      "trace_id": "2d4d9540644c2bf7337670b9a878e17c"
+    },
+    {
+      "phase": "after-restart-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:26.8892720Z",
+      "trace_id": "ceefdb08b8edb70b62dbb8922cd1ec3e"
+    },
+    {
+      "phase": "after-restart-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:27.6521934Z",
+      "trace_id": "a150f3a4f76d2aaf6a5f7cf6f2f55ea9"
+    },
+    {
+      "phase": "after-restart-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:28.4099668Z",
+      "trace_id": "41026324d0667a3504097e16365e23fc"
+    },
+    {
+      "phase": "after-restart-failure",
+      "status": 502,
+      "completed": "2026-11-18T11:18:29.1748028Z",
+      "trace_id": "23dd023bc0f9183366ede25bad945888"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:39.8525397Z",
+      "trace_id": "d389baa07b84f851d77fadd15abd8dfb"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:40.6127145Z",
+      "trace_id": "6574c94fec05b944f9cc1332b2be5c07"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:41.3762082Z",
+      "trace_id": "f6ec097f53d2900dfd388a4f2545d7a1"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:42.1391779Z",
+      "trace_id": "7e52b6df35c4e6164009f158bee66f2a"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:42.9061748Z",
+      "trace_id": "54c5e4f2106d7779f48d0f1cff3392dd"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:43.6702908Z",
+      "trace_id": "c0b67ab23d147f2f11138a318318133f"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:44.4426532Z",
+      "trace_id": "411d80679939c763066aed02058962fc"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:45.2018745Z",
+      "trace_id": "7cc3057645d0d4e8e264cb34aa8bacb9"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:45.9640869Z",
+      "trace_id": "d07d07e45fd45b90465dd4654b0386c3"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:46.7312521Z",
+      "trace_id": "39f96159229d4907add7df12cbf661fe"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:47.4922173Z",
+      "trace_id": "5902f1b911121917c3320d2b221be6c9"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:48.2515931Z",
+      "trace_id": "bc4dee039a7c7a1a43a7ad8b66d1305b"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:49.0126963Z",
+      "trace_id": "e25876a87277798f73d7f365fefce0cc"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:49.7760625Z",
+      "trace_id": "ee9cfe8e75f34fa211d46b2962c4569e"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:50.5418044Z",
+      "trace_id": "70fb2318f2e2763889a3965e32b6cf23"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:51.3063804Z",
+      "trace_id": "3122fa4b5c361f03833aa9ead60848a2"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:52.0681788Z",
+      "trace_id": "ea8ed470c423f2123c53a36a45625c4c"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:52.8315376Z",
+      "trace_id": "1e4047249e8a93aed3de5d630bd6f4f3"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:53.5964030Z",
+      "trace_id": "e04a37a607432ec5de7f0f32ce590dc2"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:54.3503537Z",
+      "trace_id": "2e78709c3f99a1882ce243c120039e3d"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:55.1129625Z",
+      "trace_id": "5d29304ebd13c5907002d3cee8506f4a"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:55.8767574Z",
+      "trace_id": "9296cc7b277bfb33645e013985249418"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:56.6427659Z",
+      "trace_id": "d153f5d41aa2990a6777a3f98af7386c"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:57.4045575Z",
+      "trace_id": "58490e42aeeb84d027556acce0001042"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:58.1660881Z",
+      "trace_id": "172bdd03dea5952ee03ee57d724fe041"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:58.9306476Z",
+      "trace_id": "ca61e90aafcf880b1a46b12caa9e8fec"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:18:59.6972539Z",
+      "trace_id": "4c3deeddd4c36718885c50d230d47e67"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:19:00.4529841Z",
+      "trace_id": "60d86a41dd6bce829d3251f233d399f7"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:19:01.2173692Z",
+      "trace_id": "3c9aa1878bc143b0a17589474516da18"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:19:01.9835664Z",
+      "trace_id": "b8eaa83f7d26046bf569389c6a0bf87e"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:19:02.7475820Z",
+      "trace_id": "75d0c376a618df2c43c945b1a774113e"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:19:03.5130532Z",
+      "trace_id": "86d3562745dee9576911eda1a4ad7fa6"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:19:04.2749210Z",
+      "trace_id": "a56e77e91fbb62a711c50188be2d36c9"
+    },
+    {
+      "phase": "recovery",
+      "status": 200,
+      "completed": "2026-11-18T11:19:05.0375370Z",
+      "trace_id": "bb7f3b3ddeb915eca72b887a1a085598"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:12.8218149Z",
+      "trace_id": "ed8f23fbc89f4ad1dec4266dfaea7d3a"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:13.8829534Z",
+      "trace_id": "290558fcff3df6a2f3c58bccfe341ea7"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:14.9463916Z",
+      "trace_id": "2dff4772fe65c3b8fb39245f73512f2b"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:16.0092981Z",
+      "trace_id": "65a1dc431a64a125bd7d9c594a7eb9b4"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:17.0677000Z",
+      "trace_id": "3228c1f82b7d073ba43387b4df7a7cb7"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:18.1283972Z",
+      "trace_id": "1fa44478f6e0eb8913ec6958eb541f3b"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:19.1865463Z",
+      "trace_id": "0d9b6ca8dd8a6690066df4879b8e26fb"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:20.2546997Z",
+      "trace_id": "f4ad2a3a2b7fecd773385837a368722d"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:21.0203614Z",
+      "trace_id": "a7deb57a1ecb2ba8574ece921318e5a3"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:21.7857684Z",
+      "trace_id": "5eae795675bfc82f11515d28581c5e5f"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:22.5519852Z",
+      "trace_id": "a952a70bfac78de60bd7d04e9835da4b"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:23.3134441Z",
+      "trace_id": "98e6b3b63d85d854397166dcab65c2d1"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:24.0771568Z",
+      "trace_id": "cf475e976cd863af53df3610eedf5a9d"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:24.8404626Z",
+      "trace_id": "d7a007dd7ee1f13faec7fd113b50f18f"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:25.6032718Z",
+      "trace_id": "fd0471c0957fdc6e567f5bc3855047c8"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:26.3642985Z",
+      "trace_id": "2287a85fd08cdf9940dd8cd54558128b"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:27.1277062Z",
+      "trace_id": "c387b95b611b7ee7cd175a2d52ce5093"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:27.8815600Z",
+      "trace_id": "3ad831f4f54deaf94d61adefbd2e8649"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:28.6368832Z",
+      "trace_id": "f6a226b3d69236b6ef255b612eee3e03"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:29.4045274Z",
+      "trace_id": "7943daf86a328a6e391e37ac6bcb659f"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:30.1714367Z",
+      "trace_id": "db4dfeb3fa361c01c7700addbed32e92"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:30.9378917Z",
+      "trace_id": "39247bb19f50cd01838ad377021d29d1"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:31.7039303Z",
+      "trace_id": "7cf2776db456825d41d0126ce179cedb"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:32.4662129Z",
+      "trace_id": "b4636de77029222f7b055cac5c2a3d1f"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:33.2335480Z",
+      "trace_id": "5e8e8f9f1b0f37f490df5910c3302872"
+    },
+    {
+      "phase": "latency",
+      "status": 200,
+      "completed": "2026-11-18T11:19:33.9950134Z",
+      "trace_id": "36ad6b3f5a84efaa07fa8f933171ec32"
+    }
+  ],
+  "logical_key": "s12-20261118111727-logical-v1",
+  "writer": "2e2d0b48-6096-4b09-9a32-5c073ee18cf7"
+}

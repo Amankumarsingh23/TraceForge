@@ -1,0 +1,1 @@
+PASS: 80 normal, 15 delayed, 5 failed actual requests; gateway/payment each 100 SERVER, 5 ERROR; 100 confirmed pairs. Replay stable. Window 2026-11-18T11:21:10.2477737Z to 2026-11-18T11:21:12.0825282Z.

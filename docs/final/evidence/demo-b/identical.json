@@ -1,0 +1,2301 @@
+{
+  "comparison_id": "461bb1f39cddd38d373253783f4fab09",
+  "decision_id": "fa34cf95fdae4c0397320bb08ac7f2ea",
+  "comparison": {
+    "engine_version": "paired-comparison-v1",
+    "manifest_provenance": {
+      "baseline": "hashed_manifest",
+      "candidate": "hashed_manifest"
+    },
+    "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+    "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+    "baseline_configuration": {
+      "k": 3,
+      "mode": "fixture",
+      "judge": "not_configured",
+      "runtime": {
+        "python": "3.13.15",
+        "warmup": "none",
+        "platform": "Windows",
+        "latency_scope": "HTTP request only; scoring/export lookup excluded",
+        "http_timeout_seconds": 25,
+        "agent_deadline_seconds": 20
+      },
+      "case_ids": [
+        "support-001",
+        "support-002",
+        "support-003",
+        "support-004",
+        "support-005",
+        "support-006",
+        "support-007",
+        "support-008",
+        "support-009",
+        "support-010",
+        "support-011",
+        "support-012",
+        "support-013",
+        "support-014",
+        "support-015",
+        "support-016",
+        "support-017",
+        "support-018",
+        "support-019",
+        "support-020",
+        "support-021",
+        "support-022",
+        "support-023",
+        "support-024",
+        "support-025",
+        "support-026",
+        "support-027",
+        "support-028",
+        "support-029",
+        "support-030",
+        "support-031",
+        "support-032",
+        "support-033",
+        "support-034",
+        "support-035"
+      ],
+      "currency": "USD",
+      "manifest": {
+        "content": {
+          "k": 3,
+          "mode": "fixture",
+          "judge": "not_configured",
+          "runtime": {
+            "python": "3.13.15",
+            "warmup": "none",
+            "platform": "Windows",
+            "latency_scope": "HTTP request only; scoring/export lookup excluded",
+            "http_timeout_seconds": 25,
+            "agent_deadline_seconds": 20
+          },
+          "case_ids": [
+            "support-001",
+            "support-002",
+            "support-003",
+            "support-004",
+            "support-005",
+            "support-006",
+            "support-007",
+            "support-008",
+            "support-009",
+            "support-010",
+            "support-011",
+            "support-012",
+            "support-013",
+            "support-014",
+            "support-015",
+            "support-016",
+            "support-017",
+            "support-018",
+            "support-019",
+            "support-020",
+            "support-021",
+            "support-022",
+            "support-023",
+            "support-024",
+            "support-025",
+            "support-026",
+            "support-027",
+            "support-028",
+            "support-029",
+            "support-030",
+            "support-031",
+            "support-032",
+            "support-033",
+            "support-034",
+            "support-035"
+          ],
+          "currency": "USD",
+          "metric_k": 3,
+          "provider": "traceforge_fixture",
+          "git_dirty": true,
+          "generation": {
+            "tools": "read_only_allowlist; disabled in eval",
+            "sampling": "provider_default",
+            "max_completion_tokens": 256
+          },
+          "git_commit": "b70052bd1e6d1036cb833d9070121633417dcf1c",
+          "concurrency": 1,
+          "random_seed": null,
+          "human_review": "independent_review_pending",
+          "max_attempts": 1,
+          "context_limit": 2,
+          "output_format": "structured",
+          "corpus_version": "support-kb-v1",
+          "evaluator_type": "constrained_exact_evidence",
+          "max_tool_calls": 0,
+          "prompt_version": "support-v2-security",
+          "corpus_checksum": "7bdc152649f9067a2020e0dd9eb9e7e2c5d3cfabff6edbca43d71245286d876d",
+          "dataset_version": "support-eval-v1",
+          "max_model_calls": 1,
+          "pricing_version": "hypothetical-2026-11-13",
+          "prompt_checksum": "0e7ad218905d9ace2ef417de5377d36fdb1ac2b8ee3e5eea046a825aeeb1c8e1",
+          "requested_model": "fixture-support-v1",
+          "source_checksum": "dd7d444b8ab8b91b0d9d8d96d8de13229c3eac066d05be1890fd4707a54cf945",
+          "dataset_checksum": "0b9833ad8b4f27c341554e6b30c519b9cb4afe20d7ea114056a3d4358cab4bd6",
+          "output_transform": null,
+          "pricing_checksum": "2a39b72a339dcda0bd18a79a793efe270470b85465088bcd4b8a4731f2095e1b",
+          "evaluator_version": "constrained-evidence-v1",
+          "execution_failure": null,
+          "retriever_version": "bm25-v1",
+          "trace_lookup_mode": "normal",
+          "scoring_definition": "constrained-evidence-v1:macro-v1:precision-denominator-K",
+          "tool_data_checksum": "7e9f3d58e2a3a01bc67c219f76832aed74c3344ce61cdd352b22f21a0bf3695c",
+          "measurement_version": "http-wall-ms-v1"
+        },
+        "version": "774741d90c26e124",
+        "checksum": "774741d90c26e124d5b613409949bbf76e4ba33dd5f8868a04beac107d1ab535",
+        "config_id": "support-k3-c2"
+      },
+      "metric_k": 3,
+      "provider": "traceforge_fixture",
+      "git_dirty": true,
+      "generation": {
+        "tools": "read_only_allowlist; disabled in eval",
+        "sampling": "provider_default",
+        "max_completion_tokens": 256
+      },
+      "git_commit": "b70052bd1e6d1036cb833d9070121633417dcf1c",
+      "concurrency": 1,
+      "random_seed": null,
+      "human_review": "independent_review_pending",
+      "max_attempts": 1,
+      "context_limit": 2,
+      "output_format": "structured",
+      "corpus_version": "support-kb-v1",
+      "evaluator_type": "constrained_exact_evidence",
+      "max_tool_calls": 0,
+      "prompt_version": "support-v2-security",
+      "corpus_checksum": "7bdc152649f9067a2020e0dd9eb9e7e2c5d3cfabff6edbca43d71245286d876d",
+      "dataset_version": "support-eval-v1",
+      "max_model_calls": 1,
+      "pricing_version": "hypothetical-2026-11-13",
+      "prompt_checksum": "0e7ad218905d9ace2ef417de5377d36fdb1ac2b8ee3e5eea046a825aeeb1c8e1",
+      "requested_model": "fixture-support-v1",
+      "source_checksum": "dd7d444b8ab8b91b0d9d8d96d8de13229c3eac066d05be1890fd4707a54cf945",
+      "dataset_checksum": "0b9833ad8b4f27c341554e6b30c519b9cb4afe20d7ea114056a3d4358cab4bd6",
+      "output_transform": null,
+      "pricing_checksum": "2a39b72a339dcda0bd18a79a793efe270470b85465088bcd4b8a4731f2095e1b",
+      "evaluator_version": "constrained-evidence-v1",
+      "execution_failure": null,
+      "retriever_version": "bm25-v1",
+      "trace_lookup_mode": "normal",
+      "scoring_definition": "constrained-evidence-v1:macro-v1:precision-denominator-K",
+      "tool_data_checksum": "7e9f3d58e2a3a01bc67c219f76832aed74c3344ce61cdd352b22f21a0bf3695c",
+      "measurement_version": "http-wall-ms-v1",
+      "configuration_checksum": "774741d90c26e124d5b613409949bbf76e4ba33dd5f8868a04beac107d1ab535"
+    },
+    "candidate_configuration": {
+      "k": 3,
+      "mode": "fixture",
+      "judge": "not_configured",
+      "runtime": {
+        "python": "3.13.15",
+        "warmup": "none",
+        "platform": "Windows",
+        "latency_scope": "HTTP request only; scoring/export lookup excluded",
+        "http_timeout_seconds": 25,
+        "agent_deadline_seconds": 20
+      },
+      "case_ids": [
+        "support-001",
+        "support-002",
+        "support-003",
+        "support-004",
+        "support-005",
+        "support-006",
+        "support-007",
+        "support-008",
+        "support-009",
+        "support-010",
+        "support-011",
+        "support-012",
+        "support-013",
+        "support-014",
+        "support-015",
+        "support-016",
+        "support-017",
+        "support-018",
+        "support-019",
+        "support-020",
+        "support-021",
+        "support-022",
+        "support-023",
+        "support-024",
+        "support-025",
+        "support-026",
+        "support-027",
+        "support-028",
+        "support-029",
+        "support-030",
+        "support-031",
+        "support-032",
+        "support-033",
+        "support-034",
+        "support-035"
+      ],
+      "currency": "USD",
+      "manifest": {
+        "content": {
+          "k": 3,
+          "mode": "fixture",
+          "judge": "not_configured",
+          "runtime": {
+            "python": "3.13.15",
+            "warmup": "none",
+            "platform": "Windows",
+            "latency_scope": "HTTP request only; scoring/export lookup excluded",
+            "http_timeout_seconds": 25,
+            "agent_deadline_seconds": 20
+          },
+          "case_ids": [
+            "support-001",
+            "support-002",
+            "support-003",
+            "support-004",
+            "support-005",
+            "support-006",
+            "support-007",
+            "support-008",
+            "support-009",
+            "support-010",
+            "support-011",
+            "support-012",
+            "support-013",
+            "support-014",
+            "support-015",
+            "support-016",
+            "support-017",
+            "support-018",
+            "support-019",
+            "support-020",
+            "support-021",
+            "support-022",
+            "support-023",
+            "support-024",
+            "support-025",
+            "support-026",
+            "support-027",
+            "support-028",
+            "support-029",
+            "support-030",
+            "support-031",
+            "support-032",
+            "support-033",
+            "support-034",
+            "support-035"
+          ],
+          "currency": "USD",
+          "metric_k": 3,
+          "provider": "traceforge_fixture",
+          "git_dirty": true,
+          "generation": {
+            "tools": "read_only_allowlist; disabled in eval",
+            "sampling": "provider_default",
+            "max_completion_tokens": 256
+          },
+          "git_commit": "b70052bd1e6d1036cb833d9070121633417dcf1c",
+          "concurrency": 1,
+          "random_seed": null,
+          "human_review": "independent_review_pending",
+          "max_attempts": 1,
+          "context_limit": 2,
+          "output_format": "structured",
+          "corpus_version": "support-kb-v1",
+          "evaluator_type": "constrained_exact_evidence",
+          "max_tool_calls": 0,
+          "prompt_version": "support-v2-security",
+          "corpus_checksum": "7bdc152649f9067a2020e0dd9eb9e7e2c5d3cfabff6edbca43d71245286d876d",
+          "dataset_version": "support-eval-v1",
+          "max_model_calls": 1,
+          "pricing_version": "hypothetical-2026-11-13",
+          "prompt_checksum": "0e7ad218905d9ace2ef417de5377d36fdb1ac2b8ee3e5eea046a825aeeb1c8e1",
+          "requested_model": "fixture-support-v1",
+          "source_checksum": "dd7d444b8ab8b91b0d9d8d96d8de13229c3eac066d05be1890fd4707a54cf945",
+          "dataset_checksum": "0b9833ad8b4f27c341554e6b30c519b9cb4afe20d7ea114056a3d4358cab4bd6",
+          "output_transform": null,
+          "pricing_checksum": "2a39b72a339dcda0bd18a79a793efe270470b85465088bcd4b8a4731f2095e1b",
+          "evaluator_version": "constrained-evidence-v1",
+          "execution_failure": null,
+          "retriever_version": "bm25-v1",
+          "trace_lookup_mode": "normal",
+          "scoring_definition": "constrained-evidence-v1:macro-v1:precision-denominator-K",
+          "tool_data_checksum": "7e9f3d58e2a3a01bc67c219f76832aed74c3344ce61cdd352b22f21a0bf3695c",
+          "measurement_version": "http-wall-ms-v1"
+        },
+        "version": "774741d90c26e124",
+        "checksum": "774741d90c26e124d5b613409949bbf76e4ba33dd5f8868a04beac107d1ab535",
+        "config_id": "support-k3-c2"
+      },
+      "metric_k": 3,
+      "provider": "traceforge_fixture",
+      "git_dirty": true,
+      "generation": {
+        "tools": "read_only_allowlist; disabled in eval",
+        "sampling": "provider_default",
+        "max_completion_tokens": 256
+      },
+      "git_commit": "b70052bd1e6d1036cb833d9070121633417dcf1c",
+      "concurrency": 1,
+      "random_seed": null,
+      "human_review": "independent_review_pending",
+      "max_attempts": 1,
+      "context_limit": 2,
+      "output_format": "structured",
+      "corpus_version": "support-kb-v1",
+      "evaluator_type": "constrained_exact_evidence",
+      "max_tool_calls": 0,
+      "prompt_version": "support-v2-security",
+      "corpus_checksum": "7bdc152649f9067a2020e0dd9eb9e7e2c5d3cfabff6edbca43d71245286d876d",
+      "dataset_version": "support-eval-v1",
+      "max_model_calls": 1,
+      "pricing_version": "hypothetical-2026-11-13",
+      "prompt_checksum": "0e7ad218905d9ace2ef417de5377d36fdb1ac2b8ee3e5eea046a825aeeb1c8e1",
+      "requested_model": "fixture-support-v1",
+      "source_checksum": "dd7d444b8ab8b91b0d9d8d96d8de13229c3eac066d05be1890fd4707a54cf945",
+      "dataset_checksum": "0b9833ad8b4f27c341554e6b30c519b9cb4afe20d7ea114056a3d4358cab4bd6",
+      "output_transform": null,
+      "pricing_checksum": "2a39b72a339dcda0bd18a79a793efe270470b85465088bcd4b8a4731f2095e1b",
+      "evaluator_version": "constrained-evidence-v1",
+      "execution_failure": null,
+      "retriever_version": "bm25-v1",
+      "trace_lookup_mode": "normal",
+      "scoring_definition": "constrained-evidence-v1:macro-v1:precision-denominator-K",
+      "tool_data_checksum": "7e9f3d58e2a3a01bc67c219f76832aed74c3344ce61cdd352b22f21a0bf3695c",
+      "measurement_version": "http-wall-ms-v1",
+      "configuration_checksum": "774741d90c26e124d5b613409949bbf76e4ba33dd5f8868a04beac107d1ab535"
+    },
+    "mode": "fixture",
+    "human_review": "independent_review_pending",
+    "compatible": true,
+    "compatibility_errors": [],
+    "configuration_diff": {},
+    "metric_cutoff": {
+      "baseline": 3,
+      "candidate": 3
+    },
+    "metrics": {
+      "recall": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 0.9833333333333333,
+        "candidate": 0.9833333333333333,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 0.9833333333333333,
+        "candidate_full_mean": 0.9833333333333333,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "rr": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 0.9666666666666667,
+        "candidate": 0.9666666666666667,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 0.9666666666666667,
+        "candidate_full_mean": 0.9666666666666667,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "context_coverage": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 0.9555555555555556,
+        "candidate": 0.9555555555555556,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 0.9555555555555556,
+        "candidate_full_mean": 0.9555555555555556,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "context_retention": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 0.9722222222222222,
+        "candidate": 0.9722222222222222,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 0.9722222222222222,
+        "candidate_full_mean": 0.9722222222222222,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "correctness": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 0.9142857142857143,
+        "candidate": 0.9142857142857143,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 35,
+        "baseline_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 0.9142857142857143,
+        "candidate_full_mean": 0.9142857142857143,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 35,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "groundedness": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 1.0,
+        "candidate_full_mean": 1.0,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "citation_correctness": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 1.0,
+        "candidate_full_mean": 1.0,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "citation_coverage": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 1.0,
+        "candidate_full_mean": 1.0,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "required_fact_coverage": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 0.9555555555555556,
+        "candidate": 0.9555555555555556,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 30,
+        "baseline_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 30,
+          "scored": 30,
+          "not_applicable": 5,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 0.9555555555555556,
+        "candidate_full_mean": 0.9555555555555556,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 30,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "abstention": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 35,
+        "baseline_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 1.0,
+        "candidate_full_mean": 1.0,
+        "bootstrap": {
+          "status": "degenerate",
+          "n": 35,
+          "seed": 9,
+          "resamples": 1000,
+          "method": "paired percentile 95%; linear R7",
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "warning": "synthetic correlated cases; no production significance claim"
+        }
+      },
+      "execution_success": {
+        "unit": "fraction",
+        "direction": "higher",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 1.0,
+        "candidate": 1.0,
+        "absolute_delta": 0.0,
+        "relative_delta": 0.0,
+        "percentage_point_delta": 0.0,
+        "matched": 35,
+        "baseline_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 1.0,
+        "candidate_full_mean": 1.0,
+        "bootstrap": null
+      },
+      "latency_ms": {
+        "unit": "ms",
+        "direction": "lower",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 23.040222858045517,
+        "candidate": 18.949542858172208,
+        "absolute_delta": -4.090679999873309,
+        "relative_delta": -0.17754515766087162,
+        "percentage_point_delta": null,
+        "matched": 35,
+        "baseline_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 23.040222858045517,
+        "candidate_full_mean": 18.949542858172208,
+        "bootstrap": null
+      },
+      "latency_p95_ms": {
+        "unit": "ms",
+        "direction": "lower",
+        "status": "scored",
+        "reasons": [],
+        "baseline": 40.81923998601268,
+        "candidate": 28.71196000196504,
+        "absolute_delta": -12.107279984047643,
+        "relative_delta": -0.2966071878897398,
+        "percentage_point_delta": null,
+        "matched": 35,
+        "baseline_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": 23.040222858045517,
+        "candidate_full_mean": 18.949542858172208,
+        "bootstrap": null
+      },
+      "cost_nano_usd": {
+        "unit": "nano-USD",
+        "direction": "lower",
+        "status": "scored",
+        "reasons": [],
+        "baseline": "800000",
+        "candidate": "800000",
+        "absolute_delta": "0",
+        "relative_delta": "0",
+        "percentage_point_delta": null,
+        "matched": 35,
+        "baseline_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "candidate_counts": {
+          "eligible": 35,
+          "scored": 35,
+          "not_applicable": 0,
+          "missing": 0,
+          "errors": 0,
+          "coverage": 1.0
+        },
+        "baseline_full_mean": "800000",
+        "candidate_full_mean": "800000",
+        "bootstrap": null,
+        "baseline_known_total_nano_usd": "28000000",
+        "candidate_known_total_nano_usd": "28000000",
+        "baseline_usage_complete_cases": 35,
+        "candidate_usage_complete_cases": 35,
+        "baseline_total_nano_usd": "28000000",
+        "candidate_total_nano_usd": "28000000",
+        "pricing_version": "hypothetical-2026-11-13",
+        "currency": "USD",
+        "provenance": "synthetic_fixture",
+        "baseline_input_known": "42000",
+        "candidate_input_known": "42000",
+        "baseline_output_known": "3500",
+        "candidate_output_known": "3500"
+      }
+    },
+    "transitions": {
+      "both_correct": 32,
+      "both_incorrect": 3,
+      "improved": 0,
+      "regressed": 0,
+      "missing_ineligible": 0
+    },
+    "cases": [
+      {
+        "case_id": "support-001",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "866f87c409d8deb1e58088953d1f6c9d",
+        "candidate_trace_id": "ee7dbf27893c4a58ca45b29a0602cdc5",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D01",
+          "D07",
+          "D11"
+        ],
+        "candidate_retrieved": [
+          "D01",
+          "D07",
+          "D11"
+        ],
+        "baseline_supplied": [
+          "D01",
+          "D07"
+        ],
+        "candidate_supplied": [
+          "D01",
+          "D07"
+        ]
+      },
+      {
+        "case_id": "support-002",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "a4fe69bf5974d7a36413c99c06f5497b",
+        "candidate_trace_id": "013779657fd7f4f2ad6dbc2753baf955",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D01",
+          "D03",
+          "D07"
+        ],
+        "candidate_retrieved": [
+          "D01",
+          "D03",
+          "D07"
+        ],
+        "baseline_supplied": [
+          "D01",
+          "D03"
+        ],
+        "candidate_supplied": [
+          "D01",
+          "D03"
+        ]
+      },
+      {
+        "case_id": "support-003",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "691047a7ccf81869869628b1a9a9398c",
+        "candidate_trace_id": "3e1bbaeca38e8ed6ad92e5af101353ea",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D02",
+          "D01",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D02",
+          "D01",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D02",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D02",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-004",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "322a8ed414af4b8948815771a5051dde",
+        "candidate_trace_id": "540c17a1585aa15eb21441853adf4f93",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D11",
+          "D02",
+          "D06"
+        ],
+        "candidate_retrieved": [
+          "D11",
+          "D02",
+          "D06"
+        ],
+        "baseline_supplied": [
+          "D11",
+          "D02"
+        ],
+        "candidate_supplied": [
+          "D11",
+          "D02"
+        ]
+      },
+      {
+        "case_id": "support-005",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "630fcab0219136ea4361d4001499519f",
+        "candidate_trace_id": "f29a9c6a6539df17459618f2a125d6ee",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D07",
+          "D01",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D07",
+          "D01",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D07",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D07",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-006",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "2e81becbc7d7bc38f1d6179feb95fcaf",
+        "candidate_trace_id": "a8cd88f198790792c53c0f990f4c8e0f",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D07",
+          "D01",
+          "D02"
+        ],
+        "candidate_retrieved": [
+          "D07",
+          "D01",
+          "D02"
+        ],
+        "baseline_supplied": [
+          "D07",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D07",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-007",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "411f5ea04827713ada2c42eb1c63e333",
+        "candidate_trace_id": "905faa14b9acf6be614f60c6c056bc31",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D06",
+          "D02",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D06",
+          "D02",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D06",
+          "D02"
+        ],
+        "candidate_supplied": [
+          "D06",
+          "D02"
+        ]
+      },
+      {
+        "case_id": "support-008",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "8b80e7eaa5d5eba13926b89fd65b4515",
+        "candidate_trace_id": "69c034d1e2aa58e4af037fd58637ad9f",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D06",
+          "D02"
+        ],
+        "candidate_retrieved": [
+          "D06",
+          "D02"
+        ],
+        "baseline_supplied": [
+          "D06",
+          "D02"
+        ],
+        "candidate_supplied": [
+          "D06",
+          "D02"
+        ]
+      },
+      {
+        "case_id": "support-009",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "e6f76580ed4a239ec3d64e9da85ddb8e",
+        "candidate_trace_id": "8bcf4e6d1ef6453571975da0ac1c88eb",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D05",
+          "D12",
+          "D10"
+        ],
+        "candidate_retrieved": [
+          "D05",
+          "D12",
+          "D10"
+        ],
+        "baseline_supplied": [
+          "D05",
+          "D12"
+        ],
+        "candidate_supplied": [
+          "D05",
+          "D12"
+        ]
+      },
+      {
+        "case_id": "support-010",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "bc49c71ed675a4aac8f86ffad37fd765",
+        "candidate_trace_id": "296293fd3b575690b8d49726b1dd8210",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D05",
+          "D01",
+          "D12"
+        ],
+        "candidate_retrieved": [
+          "D05",
+          "D01",
+          "D12"
+        ],
+        "baseline_supplied": [
+          "D05",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D05",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-011",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "39a6df4301e37d0220e018308a6486b1",
+        "candidate_trace_id": "34289a98dadf88a5f0872fc5117c8c8b",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D08",
+          "D04",
+          "D02"
+        ],
+        "candidate_retrieved": [
+          "D08",
+          "D04",
+          "D02"
+        ],
+        "baseline_supplied": [
+          "D08",
+          "D04"
+        ],
+        "candidate_supplied": [
+          "D08",
+          "D04"
+        ]
+      },
+      {
+        "case_id": "support-012",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "84be26e4c8ec19942188aac823ebc2dc",
+        "candidate_trace_id": "caae29011fad4c11664a09a0c7848489",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D08",
+          "D04",
+          "D11"
+        ],
+        "candidate_retrieved": [
+          "D08",
+          "D04",
+          "D11"
+        ],
+        "baseline_supplied": [
+          "D08",
+          "D04"
+        ],
+        "candidate_supplied": [
+          "D08",
+          "D04"
+        ]
+      },
+      {
+        "case_id": "support-013",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "4e00e6db1aa3ce34a05b4dbe0795f629",
+        "candidate_trace_id": "509f56fe2eb9e1d85df7fed708656f4f",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D09",
+          "D04",
+          "D05"
+        ],
+        "candidate_retrieved": [
+          "D09",
+          "D04",
+          "D05"
+        ],
+        "baseline_supplied": [
+          "D09",
+          "D04"
+        ],
+        "candidate_supplied": [
+          "D09",
+          "D04"
+        ]
+      },
+      {
+        "case_id": "support-014",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "359216a6c6d8e1ca67a87361357e0a95",
+        "candidate_trace_id": "0089e0a97f74763dae8347425055b4e9",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D09",
+          "D01",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D09",
+          "D01",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D09",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D09",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-015",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "033ca55ef794c9afbd1f9df5152eb192",
+        "candidate_trace_id": "75ab45fc17f239aa67cbf88f392668c2",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D10",
+          "D01",
+          "D02"
+        ],
+        "candidate_retrieved": [
+          "D10",
+          "D01",
+          "D02"
+        ],
+        "baseline_supplied": [
+          "D10",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D10",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-016",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "aa7460f1b2bae5621a52ec7a6e950106",
+        "candidate_trace_id": "309abeaa7c2b5d881b609f5abf4d2a3a",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D10",
+          "D01",
+          "D04"
+        ],
+        "candidate_retrieved": [
+          "D10",
+          "D01",
+          "D04"
+        ],
+        "baseline_supplied": [
+          "D10",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D10",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-017",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "8e8eccc4ab5c39fdcc50f0332e3f288f",
+        "candidate_trace_id": "1b6a37a2f05daf34047f49c6126268e9",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D11",
+          "D03",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D11",
+          "D03",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D11",
+          "D03"
+        ],
+        "candidate_supplied": [
+          "D11",
+          "D03"
+        ]
+      },
+      {
+        "case_id": "support-018",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "afe122fe1cef630b4a007ff228324e3e",
+        "candidate_trace_id": "7cc031aedfbe2e7f0cd805e10799ac1e",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D11",
+          "D04",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D11",
+          "D04",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D11",
+          "D04"
+        ],
+        "candidate_supplied": [
+          "D11",
+          "D04"
+        ]
+      },
+      {
+        "case_id": "support-019",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "effbda3aed234a235ba33aa497cf5ce3",
+        "candidate_trace_id": "9c6951c81304b4bf8b54c47f9da4be15",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D03",
+          "D11",
+          "D04"
+        ],
+        "candidate_retrieved": [
+          "D03",
+          "D11",
+          "D04"
+        ],
+        "baseline_supplied": [
+          "D03",
+          "D11"
+        ],
+        "candidate_supplied": [
+          "D03",
+          "D11"
+        ]
+      },
+      {
+        "case_id": "support-020",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "d334fc38b0d1e061229fe05d4b551148",
+        "candidate_trace_id": "8be438341982caa1993afec0292de000",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D03",
+          "D11",
+          "D04"
+        ],
+        "candidate_retrieved": [
+          "D03",
+          "D11",
+          "D04"
+        ],
+        "baseline_supplied": [
+          "D03",
+          "D11"
+        ],
+        "candidate_supplied": [
+          "D03",
+          "D11"
+        ]
+      },
+      {
+        "case_id": "support-021",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "7940fd0859bb3550a0ec41ddd5829920",
+        "candidate_trace_id": "0e2c3dfddc58fd47737ef56b6fef218f",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D04",
+          "D06",
+          "D02"
+        ],
+        "candidate_retrieved": [
+          "D04",
+          "D06",
+          "D02"
+        ],
+        "baseline_supplied": [
+          "D04",
+          "D06"
+        ],
+        "candidate_supplied": [
+          "D04",
+          "D06"
+        ]
+      },
+      {
+        "case_id": "support-022",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "d5bc50be68bb2efe8828178dbbdd9165",
+        "candidate_trace_id": "dd192f1e99314583f9b1da5ef3b18201",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D04",
+          "D10",
+          "D06"
+        ],
+        "candidate_retrieved": [
+          "D04",
+          "D10",
+          "D06"
+        ],
+        "baseline_supplied": [
+          "D04",
+          "D10"
+        ],
+        "candidate_supplied": [
+          "D04",
+          "D10"
+        ]
+      },
+      {
+        "case_id": "support-023",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "911c28481997a51aef025626c64e1e32",
+        "candidate_trace_id": "a284485b1acbebcb5ebe1fae9729764e",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D12",
+          "D05",
+          "D02"
+        ],
+        "candidate_retrieved": [
+          "D12",
+          "D05",
+          "D02"
+        ],
+        "baseline_supplied": [
+          "D12",
+          "D05"
+        ],
+        "candidate_supplied": [
+          "D12",
+          "D05"
+        ]
+      },
+      {
+        "case_id": "support-024",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "17b7ccdd391a0dcb7e6ba779aac04b4f",
+        "candidate_trace_id": "3dd10210215de527f9a1c2738b452b0d",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D12",
+          "D05",
+          "D03"
+        ],
+        "candidate_retrieved": [
+          "D12",
+          "D05",
+          "D03"
+        ],
+        "baseline_supplied": [
+          "D12",
+          "D05"
+        ],
+        "candidate_supplied": [
+          "D12",
+          "D05"
+        ]
+      },
+      {
+        "case_id": "support-025",
+        "transition": "both_incorrect",
+        "execution_transition": "both_success",
+        "baseline_correctness": 0.0,
+        "candidate_correctness": 0.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "7cee8465ba091b21e9eb38d359e32a8f",
+        "candidate_trace_id": "c2657f974cff9876e6d09d82e4d07107",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D07",
+          "D02",
+          "D11"
+        ],
+        "candidate_retrieved": [
+          "D07",
+          "D02",
+          "D11"
+        ],
+        "baseline_supplied": [
+          "D07",
+          "D02"
+        ],
+        "candidate_supplied": [
+          "D07",
+          "D02"
+        ]
+      },
+      {
+        "case_id": "support-026",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "dda191764ebf5528a02166d8e9955859",
+        "candidate_trace_id": "fa7faf112f31539521cf6d59bb493ba4",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D07",
+          "D01",
+          "D02"
+        ],
+        "candidate_retrieved": [
+          "D07",
+          "D01",
+          "D02"
+        ],
+        "baseline_supplied": [
+          "D07",
+          "D01"
+        ],
+        "candidate_supplied": [
+          "D07",
+          "D01"
+        ]
+      },
+      {
+        "case_id": "support-027",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "40dd768fac9938cae6f893a087cda829",
+        "candidate_trace_id": "42b666ec4d88969e91cf80e4f6e11395",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D06",
+          "D02",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D06",
+          "D02",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D06",
+          "D02"
+        ],
+        "candidate_supplied": [
+          "D06",
+          "D02"
+        ]
+      },
+      {
+        "case_id": "support-028",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "782a80f84b2a8d8e5996603aae7b4404",
+        "candidate_trace_id": "396defc3c20a24c7696114eba89e81ed",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D04",
+          "D11",
+          "D01"
+        ],
+        "candidate_retrieved": [
+          "D04",
+          "D11",
+          "D01"
+        ],
+        "baseline_supplied": [
+          "D04",
+          "D11"
+        ],
+        "candidate_supplied": [
+          "D04",
+          "D11"
+        ]
+      },
+      {
+        "case_id": "support-029",
+        "transition": "both_incorrect",
+        "execution_transition": "both_success",
+        "baseline_correctness": 0.0,
+        "candidate_correctness": 0.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "8bc85617d364c72c80a533588f434179",
+        "candidate_trace_id": "e56938f2dcac25e736d43117180ac9a7",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D09",
+          "D02",
+          "D08"
+        ],
+        "candidate_retrieved": [
+          "D09",
+          "D02",
+          "D08"
+        ],
+        "baseline_supplied": [
+          "D09",
+          "D02"
+        ],
+        "candidate_supplied": [
+          "D09",
+          "D02"
+        ]
+      },
+      {
+        "case_id": "support-030",
+        "transition": "both_incorrect",
+        "execution_transition": "both_success",
+        "baseline_correctness": 0.0,
+        "candidate_correctness": 0.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "8dd2e2a343baa010d3b8e0de67a8cd8f",
+        "candidate_trace_id": "284a98e8e5fb74a5e82e92042e229f82",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D06",
+          "D02",
+          "D01"
+        ],
+        "candidate_retrieved": [
+          "D06",
+          "D02",
+          "D01"
+        ],
+        "baseline_supplied": [
+          "D06",
+          "D02"
+        ],
+        "candidate_supplied": [
+          "D06",
+          "D02"
+        ]
+      },
+      {
+        "case_id": "support-031",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "cbce8e19e03a7e01d9176f095bd3f5ab",
+        "candidate_trace_id": "3ddd3da494f5037233a06876bf46dc2c",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D11",
+          "D04",
+          "D07"
+        ],
+        "candidate_retrieved": [
+          "D11",
+          "D04",
+          "D07"
+        ],
+        "baseline_supplied": [
+          "D11",
+          "D04"
+        ],
+        "candidate_supplied": [
+          "D11",
+          "D04"
+        ]
+      },
+      {
+        "case_id": "support-032",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "5fe06a39c219e45212695f3cb0942490",
+        "candidate_trace_id": "eb6d273287dec647495739bf0a5efaf9",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D11",
+          "D04",
+          "D07"
+        ],
+        "candidate_retrieved": [
+          "D11",
+          "D04",
+          "D07"
+        ],
+        "baseline_supplied": [
+          "D11",
+          "D04"
+        ],
+        "candidate_supplied": [
+          "D11",
+          "D04"
+        ]
+      },
+      {
+        "case_id": "support-033",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "376269e6781562bf122e609177bd39f8",
+        "candidate_trace_id": "0d024347ebb401257300441d8c731f6e",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D01",
+          "D06",
+          "D11"
+        ],
+        "candidate_retrieved": [
+          "D01",
+          "D06",
+          "D11"
+        ],
+        "baseline_supplied": [
+          "D01",
+          "D06"
+        ],
+        "candidate_supplied": [
+          "D01",
+          "D06"
+        ]
+      },
+      {
+        "case_id": "support-034",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "b2d57af88110dd85e570a4570848de6d",
+        "candidate_trace_id": "e53173aafeb297956703c9c17192072c",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [],
+        "candidate_retrieved": [],
+        "baseline_supplied": [],
+        "candidate_supplied": []
+      },
+      {
+        "case_id": "support-035",
+        "transition": "both_correct",
+        "execution_transition": "both_success",
+        "baseline_correctness": 1.0,
+        "candidate_correctness": 1.0,
+        "new_unsupported": false,
+        "new_contradictions": false,
+        "baseline_trace_id": "cdd67bf3776cfbfb6a80a05826c21c11",
+        "candidate_trace_id": "7fe7fd76c0cb603a6bab9bd3c1f82634",
+        "baseline_trace_visibility": "visible",
+        "candidate_trace_visibility": "visible",
+        "baseline_run_id": "3e5a15798c4b4ec8b7c8f9a5f673fd8e",
+        "candidate_run_id": "81323c1b68c14ac59e2937da84b7d7d0",
+        "baseline_retrieved": [
+          "D02",
+          "D06",
+          "D04"
+        ],
+        "candidate_retrieved": [
+          "D02",
+          "D06",
+          "D04"
+        ],
+        "baseline_supplied": [
+          "D02",
+          "D06"
+        ],
+        "candidate_supplied": [
+          "D02",
+          "D06"
+        ]
+      }
+    ],
+    "latency": {
+      "baseline": {
+        "all_attempts": {
+          "n": 35,
+          "mean": 23.040222858045517,
+          "p50": 19.32150000357069,
+          "p95": 40.81923998601268,
+          "p99": 61.25524400384156,
+          "quantile_method": "linear R7: (n-1)*p",
+          "warning": "small sample; local offline workload, not production tail latency"
+        },
+        "successful": {
+          "n": 35,
+          "mean": 23.040222858045517,
+          "p50": 19.32150000357069,
+          "p95": 40.81923998601268,
+          "p99": 61.25524400384156,
+          "quantile_method": "linear R7: (n-1)*p",
+          "warning": "small sample; local offline workload, not production tail latency"
+        },
+        "failed": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "quantile_method": "linear R7: (n-1)*p",
+          "warning": "small sample; local offline workload, not production tail latency"
+        }
+      },
+      "candidate": {
+        "all_attempts": {
+          "n": 35,
+          "mean": 18.949542858172208,
+          "p50": 15.827700000954792,
+          "p95": 28.71196000196504,
+          "p99": 63.61680401314499,
+          "quantile_method": "linear R7: (n-1)*p",
+          "warning": "small sample; local offline workload, not production tail latency"
+        },
+        "successful": {
+          "n": 35,
+          "mean": 18.949542858172208,
+          "p50": 15.827700000954792,
+          "p95": 28.71196000196504,
+          "p99": 63.61680401314499,
+          "quantile_method": "linear R7: (n-1)*p",
+          "warning": "small sample; local offline workload, not production tail latency"
+        },
+        "failed": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "quantile_method": "linear R7: (n-1)*p",
+          "warning": "small sample; local offline workload, not production tail latency"
+        }
+      }
+    },
+    "release_scope": "offline fixture evidence only; no deployment"
+  },
+  "decision": {
+    "gate_engine_version": "gate-v1",
+    "outcome": "PASS",
+    "policy_id": "support-offline",
+    "policy_version": "v1",
+    "policy_checksum": "44f77e856291340024c0d6316ded0c174f6fb9fb37e41acf48f417cf650e131a",
+    "policy": {
+      "policy_id": "support-offline",
+      "version": "v1",
+      "scope": "offline fixture engineering; not production approval",
+      "critical_cases": [
+        "support-025",
+        "support-026",
+        "support-027",
+        "support-028",
+        "support-029",
+        "support-030"
+      ],
+      "critical_rationale": "All pre-existing multi-document/truncation cases designated before Session 9 candidate execution",
+      "rules": [
+        {
+          "id": "fixture-scope",
+          "op": "require_mode",
+          "threshold": "fixture",
+          "mandatory": true
+        },
+        {
+          "id": "quality-floor",
+          "op": "min",
+          "metric": "correctness",
+          "unit": "fraction",
+          "threshold": "0.9",
+          "mandatory": true
+        },
+        {
+          "id": "quality-delta",
+          "op": "max_degradation",
+          "metric": "correctness",
+          "unit": "fraction",
+          "threshold": "0.01",
+          "mandatory": true
+        },
+        {
+          "id": "coverage",
+          "op": "min_coverage",
+          "metric": "correctness",
+          "unit": "fraction",
+          "threshold": "1",
+          "mandatory": true
+        },
+        {
+          "id": "paired-cases",
+          "op": "min_matched",
+          "metric": "correctness",
+          "unit": "count",
+          "threshold": "35",
+          "mandatory": true
+        },
+        {
+          "id": "execution",
+          "op": "max_failure_rate",
+          "metric": "execution_success",
+          "unit": "fraction",
+          "threshold": "0",
+          "mandatory": true
+        },
+        {
+          "id": "critical",
+          "op": "no_critical_regression",
+          "mandatory": true
+        }
+      ]
+    },
+    "rules": [
+      {
+        "id": "fixture-scope",
+        "op": "require_mode",
+        "threshold": "fixture",
+        "mandatory": true,
+        "outcome": "PASS",
+        "observed": "fixture",
+        "reason": "evidence mode scope"
+      },
+      {
+        "id": "quality-floor",
+        "op": "min",
+        "metric": "correctness",
+        "unit": "fraction",
+        "threshold": "0.9",
+        "mandatory": true,
+        "outcome": "PASS",
+        "observed": 0.9142857142857143,
+        "reason": "min: 0.9142857142857143 vs 0.9 fraction"
+      },
+      {
+        "id": "quality-delta",
+        "op": "max_degradation",
+        "metric": "correctness",
+        "unit": "fraction",
+        "threshold": "0.01",
+        "mandatory": true,
+        "outcome": "PASS",
+        "observed": "0.0",
+        "reason": "max_degradation: 0.0 vs 0.01 fraction"
+      },
+      {
+        "id": "coverage",
+        "op": "min_coverage",
+        "metric": "correctness",
+        "unit": "fraction",
+        "threshold": "1",
+        "mandatory": true,
+        "outcome": "PASS",
+        "observed": 1.0,
+        "reason": "min_coverage: 1.0 vs 1 fraction"
+      },
+      {
+        "id": "paired-cases",
+        "op": "min_matched",
+        "metric": "correctness",
+        "unit": "count",
+        "threshold": "35",
+        "mandatory": true,
+        "outcome": "PASS",
+        "observed": 35,
+        "reason": "min_matched: 35 vs 35 count"
+      },
+      {
+        "id": "execution",
+        "op": "max_failure_rate",
+        "metric": "execution_success",
+        "unit": "fraction",
+        "threshold": "0",
+        "mandatory": true,
+        "outcome": "PASS",
+        "observed": 0.0,
+        "reason": "max_failure_rate: 0.0 vs 0 fraction"
+      },
+      {
+        "id": "critical",
+        "op": "no_critical_regression",
+        "mandatory": true,
+        "outcome": "PASS",
+        "observed": [],
+        "reason": "protected cases: {'regressions': [], 'missing': []}"
+      }
+    ],
+    "release_allowed": true,
+    "scope": "offline fixture engineering; not production approval",
+    "reason": "all individual mandatory rule outcomes retained; only PASS satisfies this policy; no deployment"
+  }
+}

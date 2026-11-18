@@ -1,0 +1,412 @@
+npm notice run traceforge-web@0.5.0 test:browser
+npm notice run playwright test
+
+Running 50 tests using 1 worker
+
+(node:22612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\agent.spec.ts:10:1 › real stored agent execution links retrieval, attempts and tool to the waterfall (2.5s)
+  ok  2 tests\agent.spec.ts:37:1 › retry and missing usage retain unknown cost and failed attempts (1.3s)
+  ok  3 tests\agent.spec.ts:50:1 › mobile agent panel remains bounded and selectable (876ms)
+  ok  4 tests\analytics.spec.ts:11:1 › actual service metrics, bucket charts and failed trace/log links (2.2s)
+  ok  5 tests\analytics.spec.ts:77:1 › directed graph nodes and actual paired-call evidence are navigable (983ms)
+  ok  6 tests\analytics.spec.ts:106:1 › honest empty and invalid-window states use real same-origin API (520ms)
+  ok  7 tests\analytics.spec.ts:123:1 › small screen analytics preserves evidence and bounded-query errors (1.3s)
+  ok  8 tests\analytics.spec.ts:142:1 › real analytics storage outage returns an honest error and recovers (8.5s)
+  ok  9 tests\comparisons.spec.ts:16:1 › real comparison shows regressions and both actual execution traces (1.5s)
+  ok 10 tests\comparisons.spec.ts:57:1 › persisted PASS and live-profile INCONCLUSIVE keep their policy scope (946ms)
+  ok 11 tests\comparisons.spec.ts:71:1 › comparison list and mobile gate remain usable (1.0s)
+  ok 12 tests\evaluations.spec.ts:29:1 › persisted evaluation run exposes denominators, paginates and opens actual case trace (1.3s)
+  ok 13 tests\evaluations.spec.ts:65:1 › wrong citation is distinct from groundedness and pending trace is honest (912ms)
+  ok 14 tests\evaluations.spec.ts:79:1 › execution failures stay visible and mobile layout does not overflow (1.0s)
+  ok 15 tests\evaluations.spec.ts:101:1 › PostgreSQL outage leaves trace queries available and evaluations recover (4.7s)
+  x  16 tests\final-demo.spec.ts:9:1 › final demo A opens actual service graph, failed trace, logs and incident (12.0s)
+(node:7404) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 17 tests\final-demo.spec.ts:29:1 › final demo B opens persisted fixture gate regression and both real traces (3.0s)
+  ok 18 tests\live.spec.ts:30:1 › real payment search opens a full gateway/payment trace and actual inspector (1.9s)
+Observed payment.process normal=4263000ns delayed=500617500ns
+  ok 19 tests\live.spec.ts:72:1 › normal versus delayed payment reflects the actual recorded delay (996ms)
+  ok 20 tests\live.spec.ts:98:1 › failed payment exposes actual error status and exception event (920ms)
+  ok 21 tests\live.spec.ts:117:1 › historical and replay traces retain five bars while reporting physical duplicates (850ms)
+  ok 22 tests\live.spec.ts:134:1 › anomaly graph exposes all canonical spans, missing parent, cycle and conflict (890ms)
+  ok 23 tests\live.spec.ts:157:1 › 1000-span supported trace stays selectable, collapsible and scrollable (3.7s)
+  ok 24 tests\live.spec.ts:175:1 › actual invalid, missing and oversized traces show explicit errors (1.5s)
+  ok 25 tests\live.spec.ts:192:1 › empty search and invalid window are distinguished (992ms)
+  ok 26 tests\live.spec.ts:207:1 › cursor pagination changes pages and changing filters resets it (1.3s)
+  ok 27 tests\live.spec.ts:224:1 › mobile layout preserves the investigation controls (685ms)
+  ok 28 tests\live.spec.ts:237:1 › keyboard can select and clear a span (850ms)
+  ok 29 tests\live.spec.ts:250:1 › real ClickHouse outage shows an honest error and recovers (10.7s)
+  ok 30 tests\logs.spec.ts:18:1 › failed payment span exposes its exact logs and links back to the real trace (1.9s)
+  ok 31 tests\logs.spec.ts:41:1 › switching all trace versus selected span retains the correct row counts (1.3s)
+  ok 32 tests\logs.spec.ts:57:1 › real logs search supports severity, standalone records and structured details (1.6s)
+  ok 33 tests\logs.spec.ts:82:1 › repeated/replayed physical log rows paginate without merging events (1.1s)
+  ok 34 tests\logs.spec.ts:110:1 › trace-only logs are visible and a missing associated trace remains honest (1.4s)
+  ok 35 tests\logs.spec.ts:136:1 › mobile log records remain expandable and readable (875ms)
+  ok 36 tests\logs.spec.ts:154:1 › log search and correlation report real outage and recover (8.9s)
+  ok 37 tests\metrics.spec.ts:20:1 › real request counter values, rates and replay diagnostics (862ms)
+  ok 38 tests\metrics.spec.ts:44:1 › histogram range, real gauge and signed Sum keep their semantics (1.2s)
+  ok 39 tests\metrics.spec.ts:76:1 › restart keeps independent writer identities and combined observed increments (579ms)
+  ok 40 tests\metrics.spec.ts:91:1 › SDK overflow, budget and empty scopes remain honest on mobile (997ms)
+=== RUN   TestMetricDatabaseUnavailable
+--- PASS: TestMetricDatabaseUnavailable (1.03s)
+PASS
+  ok 41 tests\metrics.spec.ts:111:1 › real metric backend outage rejects export and recovers (14.9s)
+  ok 42 tests\reliability.spec.ts:17:1 › persisted breach has exact budgets and source drilldown (1.0s)
+  ok 43 tests\reliability.spec.ts:43:1 › one resolved incident retains exactly two contributing events (781ms)
+  ok 44 tests\reliability.spec.ts:64:1 › backend outage remains unknown with no budget (563ms)
+  x  45 tests\reliability.spec.ts:76:1 › histogram threshold reports measured slow requests on mobile (10.5s)
+(node:28864) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 46 tests\reliability.spec.ts:89:1 › fixture attempts differ from logical operations and link actual traces (1.2s)
+  ok 47 tests\reliability.spec.ts:119:1 › absent live data stays unknown and invalid proxy filters are rejected (854ms)
+  ok 48 tests\sampling.spec.ts:8:1 › an actually sampled-out root remains a missing trace with no success inference (742ms)
+  ok 49 tests\sampling.spec.ts:36:1 › retained tail error opens the actual full gateway/payment trace (819ms)
+  ok 50 tests\sampling.spec.ts:51:1 › retained evaluation links honestly to actually expired isolated raw evidence (924ms)
+
+
+  1) tests\final-demo.spec.ts:9:1 › final demo A opens actual service graph, failed trace, logs and incident
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('RESOLVED', { exact: true }).first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('RESOLVED', { exact: true }).first() with timeout 10000ms
+      - waiting for getByText('RESOLVED', { exact: true }).first()
+
+
+      23 |   await page.screenshot({ path: path.join(shots, "a-failed-trace.png"), fullPage: true });
+      24 |   await page.goto(`/alerts/${reliability.incident_id}`);
+    > 25 |   await expect(page.getByText("RESOLVED", { exact: true }).first()).toBeVisible();
+         |                                                                     ^
+      26 |   await page.screenshot({ path: path.join(shots, "a-incident.png"), fullPage: true });
+      27 | });
+      28 |
+        at C:\placement projects\TraceForge\web\tests\final-demo.spec.ts:25:69
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\final-demo-final-demo-A-op-35d3a-led-trace-logs-and-incident\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\final-demo-final-demo-A-op-35d3a-led-trace-logs-and-incident\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\final-demo-final-demo-A-op-35d3a-led-trace-logs-and-incident\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\final-demo-final-demo-A-op-35d3a-led-trace-logs-and-incident\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests\reliability.spec.ts:76:1 › histogram threshold reports measured slow requests on mobile ─
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.slo-window').first()
+    Timeout: 10000ms
+    - Expected substring  -   1
+    + Received string     + 132
+
+    - Eligible: 21 · Good: 14 · Bad: 7
+    + Rolling objective: MEASURED2026-11-18T11:19:11Z → 2026-11-18T11:19:31ZEligible: 19 · Good: 11 · Bad: 8 · supported coverage 89.999% (not traffic capture)Measured SLI57.894737% (11/19) · Target violated in observed scopeAllowed bad events (fractional)19/10Consumed budget421.052632% (80/19)Remaining bad-event budget-61/10Burn rate80/19×Measurement diagnostics and source intervals{
+    +   "diagnostics": {
+    +     "expected_writers": [
+    +       "2e2d0b48-6096-4b09-9a32-5c073ee18cf7"
+    +     ],
+    +     "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+    +     "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+    +     "source": "otlp-metrics/v1"
+    +   },
+    +   "details": {
+    +     "2e2d0b48-6096-4b09-9a32-5c073ee18cf7": {
+    +       "bad": "8",
+    +       "counterpart": {
+    +         "baselines": 0,
+    +         "boundary_intervals": 1,
+    +         "canonical_points": 62,
+    +         "conflicts": 0,
+    +         "definition_conflict": false,
+    +         "gaps": 1,
+    +         "invalid_decreases": 0,
+    +         "no_recorded_values": 0,
+    +         "overflow": false,
+    +         "overlaps": 0,
+    +         "physical_points": 83,
+    +         "replays": 21,
+    +         "resets": 0,
+    +         "unknown_sequence_start_points": 0
+    +       },
+    +       "covered_nanoseconds": 17999877900,
+    +       "intervals": [
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000753299542800",
+    +           "increment": "1",
+    +           "rate_per_second": 0.5001242808837996,
+    +           "start_ns": "1795000751300039800",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000755299838900",
+    +           "increment": "2",
+    +           "rate_per_second": 0.999851971915558,
+    +           "start_ns": "1795000753299542800",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000757299808900",
+    +           "increment": "2",
+    +           "rate_per_second": 1.0000150002250034,
+    +           "start_ns": "1795000755299838900",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000759299701700",
+    +           "increment": "2",
+    +           "rate_per_second": 1.000053602873114,
+    +           "start_ns": "1795000757299808900",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000761299906700",
+    +           "increment": "2",
+    +           "rate_per_second": 0.9998975105051733,
+    +           "start_ns": "1795000759299701700",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000763299636600",
+    +           "increment": "2",
+    +           "rate_per_second": 1.000135068240966,
+    +           "start_ns": "1795000761299906700",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000765299811400",
+    +           "increment": "3",
+    +           "rate_per_second": 1.4998689114571386,
+    +           "start_ns": "1795000763299636600",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000767299409800",
+    +           "increment": "3",
+    +           "rate_per_second": 1.500301260493107,
+    +           "start_ns": "1795000765299811400",
+    +           "sum": null
+    +         },
+    +         {
+    +           "buckets": [],
+    +           "count": "",
+    +           "end_ns": "1795000769299917700",
+    +           "increment": "2",
+    +           "rate_per_second": 0.9997461144742292,
+    +           "start_ns": "1795000767299409800",
+    +           "sum": null
+    +         }
+    +       ],
+    +       "request": {
+    +         "baselines": 0,
+    +         "boundary_intervals": 1,
+    +         "canonical_points": 62,
+    +         "conflicts": 0,
+    +         "definition_conflict": false,
+    +         "gaps": 1,
+    +         "invalid_decreases": 0,
+    +         "no_recorded_values": 0,
+    +         "overflow": false,
+    +         "overlaps": 0,
+    +         "physical_points": 83,
+    +         "replays": 21,
+    +         "resets": 0,
+    +         "unknown_sequence_start_points": 0
+    +       },
+    +       "total": "19"
+    +     }
+    +   }
+    + }
+
+    Call log:
+      - Expect "toContainText" locator('.slo-window').first() with timeout 10000ms
+      - waiting for locator('.slo-window').first()
+        22 × locator resolved to <section class="slo-window">…</section>
+           - unexpected value "Rolling objective: MEASURED2026-11-18T11:19:11Z → 2026-11-18T11:19:31ZEligible: 19 · Good: 11 · Bad: 8 · supported coverage 89.999% (not traffic capture)Measured SLI57.894737% (11/19) · Target violated in observed scopeAllowed bad events (fractional)19/10Consumed budget421.052632% (80/19)Remaining bad-event budget-61/10Burn rate80/19×Measurement diagnostics and source intervals{
+      "diagnostics": {
+        "expected_writers": [
+          "2e2d0b48-6096-4b09-9a32-5c073ee18cf7"
+        ],
+        "population": "declared writers; completed GET on fixed route; observed exported eligible intervals only",
+        "quota_rejection_attribution": "no durable per-scope ingestion ledger; expected stream and overflow checks do not prove complete traffic",
+        "source": "otlp-metrics/v1"
+      },
+      "details": {
+        "2e2d0b48-6096-4b09-9a32-5c073ee18cf7": {
+          "bad": "8",
+          "counterpart": {
+            "baselines": 0,
+            "boundary_intervals": 1,
+            "canonical_points": 62,
+            "conflicts": 0,
+            "definition_conflict": false,
+            "gaps": 1,
+            "invalid_decreases": 0,
+            "no_recorded_values": 0,
+            "overflow": false,
+            "overlaps": 0,
+            "physical_points": 83,
+            "replays": 21,
+            "resets": 0,
+            "unknown_sequence_start_points": 0
+          },
+          "covered_nanoseconds": 17999877900,
+          "intervals": [
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000753299542800",
+              "increment": "1",
+              "rate_per_second": 0.5001242808837996,
+              "start_ns": "1795000751300039800",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000755299838900",
+              "increment": "2",
+              "rate_per_second": 0.999851971915558,
+              "start_ns": "1795000753299542800",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000757299808900",
+              "increment": "2",
+              "rate_per_second": 1.0000150002250034,
+              "start_ns": "1795000755299838900",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000759299701700",
+              "increment": "2",
+              "rate_per_second": 1.000053602873114,
+              "start_ns": "1795000757299808900",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000761299906700",
+              "increment": "2",
+              "rate_per_second": 0.9998975105051733,
+              "start_ns": "1795000759299701700",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000763299636600",
+              "increment": "2",
+              "rate_per_second": 1.000135068240966,
+              "start_ns": "1795000761299906700",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000765299811400",
+              "increment": "3",
+              "rate_per_second": 1.4998689114571386,
+              "start_ns": "1795000763299636600",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000767299409800",
+              "increment": "3",
+              "rate_per_second": 1.500301260493107,
+              "start_ns": "1795000765299811400",
+              "sum": null
+            },
+            {
+              "buckets": [],
+              "count": "",
+              "end_ns": "1795000769299917700",
+              "increment": "2",
+              "rate_per_second": 0.9997461144742292,
+              "start_ns": "1795000767299409800",
+              "sum": null
+            }
+          ],
+          "request": {
+            "baselines": 0,
+            "boundary_intervals": 1,
+            "canonical_points": 62,
+            "conflicts": 0,
+            "definition_conflict": false,
+            "gaps": 1,
+            "invalid_decreases": 0,
+            "no_recorded_values": 0,
+            "overflow": false,
+            "overlaps": 0,
+            "physical_points": 83,
+            "replays": 21,
+            "resets": 0,
+            "unknown_sequence_start_points": 0
+          },
+          "total": "19"
+        }
+      }
+    }"
+
+
+      79 |   await page.setViewportSize({ width: 390, height: 844 });
+      80 |   await page.goto(`/slos/${e.latency_key}?evaluation=${e.latency}`);
+    > 81 |   await expect(page.locator(".slo-window").first()).toContainText(
+         |                                                     ^
+      82 |     "Eligible: 21 · Good: 14 · Bad: 7",
+      83 |   );
+      84 |   await page.screenshot({
+        at C:\placement projects\TraceForge\web\tests\reliability.spec.ts:81:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\reliability-histogram-thre-0c176-red-slow-requests-on-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\reliability-histogram-thre-0c176-red-slow-requests-on-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\reliability-histogram-thre-0c176-red-slow-requests-on-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\reliability-histogram-thre-0c176-red-slow-requests-on-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests\final-demo.spec.ts:9:1 › final demo A opens actual service graph, failed trace, logs and incident
+    tests\reliability.spec.ts:76:1 › histogram threshold reports measured slow requests on mobile ──
+  48 passed (2.1m)
